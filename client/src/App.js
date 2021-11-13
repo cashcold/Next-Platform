@@ -1,0 +1,51 @@
+import React, { Component } from 'react';
+import './App.css'
+import 'animate.css'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
+import Navbar from './Components/Navbar/navbar';
+import Selected from './Components/Selected/Selected';
+import ContactMain from './Components/Contact-us/Contact-us';
+import BecomeAgent from './Components/Agent/Agent';
+import Footer from './Components/Footer/Footer';
+import Poster from './Components/Poster/poster';
+import Call_Api from './Components/Call_Api/call_api';
+import ReceivedApi from './Components/Received_Api/received_api';
+class MainApp extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { 
+           
+         }
+    }
+    componentDidMount(){
+      
+
+    }
+    render() { 
+      
+        return ( 
+            // animate__animated animate__zoomIn 
+            <Router>
+                <div className=' mainApp animate__animated animate__fadeIn animate__slower '>
+                <div  className='google__id' id="google_translate_element"></div>
+                        <div className='wrapper'>
+                            <Navbar/>
+                            <div className='switch'> 
+                             <Switch> 
+                                <Route path='/' exact component={Selected}/> 
+                                <Route path='/contact-us' exact component={ContactMain}/>
+                                <Route path='/agent-form' exact component={BecomeAgent}/>
+                                <Route path='/poster' exact component={Poster}/>
+                                <Route path='/call_api' exact component={Call_Api}/>
+                                <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
+                            </Switch>
+                            </div>
+                            <Footer/>
+                        </div>
+                </div>
+            </Router>
+         );
+    }
+}
+ 
+export default MainApp;

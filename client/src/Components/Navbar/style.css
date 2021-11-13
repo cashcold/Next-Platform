@@ -1,0 +1,213 @@
+.top_form img{
+    filter: brightness(0.5);
+}
+.other__navbar h1,h1,h3,h4:hover{
+    cursor: pointer;
+}
+
+
+.other__navbar{
+    background-color:black;
+    min-height: 10vh;
+    padding: 1.4em 0em;
+    border-bottom: 2px solid red;
+}
+
+
+
+
+
+
+
+
+.navMain{
+    width: 100%;
+    /* background-image: url('../../images/5039684.jpg');
+    background-position: center;
+    background-size: cover; */
+    
+    background-attachment: fixed;
+}
+.navMain nav{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    padding-right: 10em;
+    padding-top: 2em;
+    min-height: 15vh;
+    background-color:black;
+    opacity: 0.9;
+    position: relative;
+    grid-gap: 2em;
+}
+.links{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 1.5em;
+    grid-gap: 10px;
+}
+.links  a:hover{
+    color: red;
+    cursor: pointer;
+}
+.links  a{
+    color: white;
+}
+.btn-join-us:hover{
+    color:white;
+    cursor: pointer;
+    background-color: yellow;
+}
+.other__navbar:hover{
+    cursor: pointer;
+}
+
+.logoImg h1{
+    color: white;
+    background-color: blue;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #F43055 52%, white 30%);;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+.btn-join-us{
+    background-color: #F42F54; 
+    border-radius: 30%;
+    padding: 0.8em 2.2em;
+    color: white;
+}
+.btn-login-in{
+  
+    border: 2px solid #F42F54;
+    border-radius: 30%;
+    padding: 0.8em 2.2em;
+    color: white;
+    margin: 0 1em;
+}
+.toggle__bar{
+    display: none;
+    margin-top: -1em;
+}
+.logoImg:hover{
+    cursor: pointer;
+}
+.toggle__bar .toggle_1,.toggle_3{
+    background-color: white;
+    width: 30px;
+    height: 5px;
+    margin: 4px 0;
+}
+.toggle__bar .toggle_2{
+    background-color: red;
+    width: 30px;
+    height: 5px;
+    margin: 4px 0;
+}
+/* .toggle__bar div{
+    background-color: white;
+    width: 30px;
+    height: 5px;
+    margin: 4px 0;
+} */
+
+.togglo__dash{
+    display: none;
+}
+.dash__both{
+    display: flex;
+}
+.other_h1_nav{
+    color: white;
+}
+.navMain.sticky{
+    box-shadow: 0 5px  20px rgba(0,0,0,0.5);
+    
+ }
+ .navMain.sticky li a{
+    color:  #f7931a;
+     box-shadow: 0 5px  20px rgba(0,0,0,0.5);
+    
+ }
+ .navMain.sticky.navMain nav{
+    background-color:#0C0F3D;
+     box-shadow: 0 0px  50px rgba(0,0,0,0.5);
+    
+ }
+
+
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 1.5rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    .other_bar_flow{
+        padding-right: 1em;
+    }
+    .other_bar_flow{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-left: -4em;
+        
+    }
+    .other__nav_chat__3{
+        margin-left: 4em;
+    }
+   
+    /* end other__navbar */
+    .links{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 10px;
+        margin-top: 3em;
+        margin-left: -2em;
+    }
+    .logoImg h1{
+        font-size: 1.5rem;
+        margin-left: 1em;
+        display: flex;
+        width: 100%;
+        margin-top: -0.9em;
+    }
+   
+  
+    .toggle__bar{
+        display: block;
+        position: absolute;
+        top: 2em;
+        right: 4em;
+    color: white;
+    background-color: blue;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to bottom, #d4e20a 0%, #ff1010 100%);;
+    }
+    .nav__links{
+        display: none;
+    }
+    .navMain nav{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        padding-right: 10em;
+        padding-top: 2em;
+        min-height: 8vh;
+        /* background-color:#2B0945; */
+        position: relative;
+    }
+    .dash__both{
+    display: flex;
+    flex-direction: column;
+    }
+    .btn-login-in_account{
+        margin-bottom: 1em;
+    }
+  
+}

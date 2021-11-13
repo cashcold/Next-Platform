@@ -1,0 +1,482 @@
+.game__img_main img{
+    width: 100%;
+}
+.game__A{
+    margin: 60px 0;
+    min-height: 70vh;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 1rem 3rem;
+}
+.game__text{
+    width: 80%;
+    margin: 0 auto;
+}
+.game__ads_start img{
+    width: 100%;
+}
+.game__ads{
+    margin-bottom: 50px;
+}
+.famil__family__text{
+    width: 40%;
+    margin: 0 auto;
+}
+.about_game_text{
+    width: 40%;
+    margin: 0 auto;
+    padding: 3rem 0;
+}
+
+.famil__family__text i{
+    padding: 0 1rem;
+}
+.family_info_img_other{
+    margin: 30px 0;
+    width: 100%;
+    min-height: 80vh;
+    background-color: rgb(88, 88, 202);
+    color: white;
+    padding: 3rem 0;
+}
+.other__img__text h2{
+    padding: 4rem 0;
+}
+.controller__img img{
+    width: 300px;
+}
+.controller__1{
+    margin: 60px 0;
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
+    grid-gap: 20px;
+}
+.controller__img p{
+    margin: 0;
+}
+
+.controller__img .icon{
+    margin-bottom: 10px;
+}
+.controller__img .icon i{
+    color: #E0A800;
+}
+.other__brand{
+    margin: 80px 0;
+    width: 100%;
+    min-height: 80vh;
+    padding: 1rem 0rem;
+    font-weight: bolder;
+    padding-bottom: 80px;
+}
+.brand__info{
+    padding: 0 3rem;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 20px;
+}
+.both__adv_tag{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    
+}
+
+.brand_info_img img{
+    filter: brightness(0.5);
+}
+.other__brand h1{
+    padding: 3rem 0rem;
+}
+
+
+.img__adv__me h1{
+    width: 50%;
+    margin: 0 auto;
+    padding: 4rem 3rem;
+}
+.img__adv__me{
+    width: 100%;
+    min-height: 80vh;
+    background-color: black;
+    color: white;
+    padding-bottom: 120px;
+}
+.chanceMain{
+    margin: 60px 0;
+}
+.subHead h1{
+    padding: 2rem 0;
+}
+.subHead h1{
+    width: 50%;
+    margin: 0 auto;
+}
+.free__shippment{
+    margin: 70px 0;
+}
+.freeShippment h1{
+    padding: 2rem 0rem;
+}
+
+.freeShippment img{
+    padding: 1rem 2rem;
+}
+.free__shippment{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    grid-gap: 10px;
+}
+.freeShippment h3{
+    margin: 0;
+}
+.loady__img img{
+    width: 100%;
+    margin-bottom: 40px;
+    filter: brightness(0.7);
+}
+.bitcoin__main{
+    
+    margin: 50px 0;
+    width: 100%;
+    height: 70vh;
+}
+.bitImg img{
+    width: 20%;
+}
+.bitcoinTrade h1{
+    font-size: 5em;
+}
+.bitcoinTrade{
+    padding-top: 50px;
+}
+.exchangeRate{
+    width: 100%;
+    height: 90vh;
+    color: white;
+    background-color: #0B1425;
+}
+.exchangeNow{
+    display: grid;
+    grid-template-columns: repeat(2,1fr)
+}
+.excahnge__text{
+    margin-top: 90px;
+}
+.excahnge__text h1{
+    padding: 1em 0;
+    font-size: 4em;
+    font-weight: bolder;
+}
+.excahnge__text h2{
+    width: 80%;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    line-height: 1.5em;
+}
+.exchangeRate_info{
+    margin: 70px 0;
+    width: 100%;
+    min-height: 90vh;
+    color: black;
+    background-color: #FAFAFA;
+}
+
+.bitCard{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.card__bit__text{
+    margin-top: 90px;
+    padding-top: 60px;
+}
+.Earn__main{
+    margin: 80px 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 100%;
+    min-height: 70vh;
+    background-color: #011E3F;
+    color: white;
+}
+.earn__now__img img{
+    width: 50%;
+    padding: 5em 0;
+}
+.earn__now__text{
+    margin-top: 90px;
+}
+.section__section{
+    min-height: 400px;
+    background-color: #011E3F;
+}
+.pepsi__main{
+    height: 70vh;
+    background-color: #0065C3;
+    color: white;
+}
+.section__section__pepsi{
+    min-height: 100vh;
+    background-color: #0065C3;
+    color: white;
+}
+.pepsiMain{
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.pepsi__text p{
+    width: 70%;
+    margin: 0 auto;
+}
+.pepsi__tex h1{
+    font-weight: bolder;
+}
+.pepsi_img img{
+        padding: 0 2em;
+}
+.pesSoccer{
+    display: none;
+}
+.container p span.typed-text {
+    font-weight: normal;
+    color: #dd7732;
+  }
+  .subHead h1 span.cursor {
+    display: inline-block;
+    background-color: #ccc;
+    margin-left: 0.1rem;
+    width: 3px;
+    animation: blink 1s infinite;
+  }
+  .subHead h1 span.cursor.typing {
+    animation: none;
+  }
+  @keyframes blink {
+    0%  { background-color: #ccc; }
+    49% { background-color: #ccc; }
+    50% { background-color: transparent; }
+    99% { background-color: transparent; }
+    100%  { background-color: #ccc; }
+  }
+ 
+
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+    /* h1{
+        font-size: 1.5rem;
+    }
+     h2{
+        font-size: 1.8rem;
+    }
+    p{
+        font-size: 1.8rem;
+    } */
+    .game__A{
+        margin: 60px 0;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        /* grid-template-areas:
+         'game__img_main'
+         'game__text'; */
+        padding: 0.8rem 1.5rem;
+    }
+    .game__text{
+        width: 100%;
+        /* grid-area: game__text; */
+    }
+    .game__img_main{
+        margin-top: 50px;
+    }
+    .game__ads_start img{
+        width: 100%;
+    }
+    .famil__family__text{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .family_info_img_other{
+        margin: 30px 0;
+        width: 100%;
+        min-height: 50vh;
+        background-color: rgb(88, 88, 202);
+        color: white;
+        padding: 3rem 0;
+    }
+    .about_game_text{
+        width: 80%;
+        margin: 0 auto;
+        padding-bottom: 2rem;
+    }
+    .controller__1{
+        margin: 30px 0;
+        padding: 1rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+        grid-gap: 80px;
+    }
+    .other__brand{
+        margin: 30px 0;
+        width: 100%;
+        min-height: 50vh;
+        padding: 1rem 0rem;
+        font-weight: bolder;
+        padding-bottom: 50px;
+    }
+    .img__adv__me h1{
+        width: 80%;
+        margin: 0 auto;
+        padding: 3rem 1.5rem;
+    }
+    .both__adv_tag{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+       
+        
+    }
+    .img__me__tag_img img{
+        padding: 0 0rem;
+    }
+    .brand__info{
+        padding: 0 1rem;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 5px;
+    }
+    .subHead h1{
+        width: 80%;
+        margin: 0 auto;
+    }
+    .freeShippment img{
+        padding: 0.1rem 0.2rem;
+    }
+    .free__shippment{
+        margin: 40px 0;
+    }
+    .freeShippment h1{
+        padding: 1rem 0rem;
+    }
+    .freeShippment h1{
+        font-size: 1rem;
+    }
+    .bitcoin__main{
+        margin: 50px 0;
+        width: 100%;
+        height: 70vh;
+    }
+    .bitImg img{
+        width: 50%;
+    }
+    .bitcoinTrade h1{
+        font-size: 1.8em;
+    }
+    .exchangeNow{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 
+        'excahnge__text__mobile';
+    }
+    .excahnge__text{
+    margin-top: 20px;
+    }
+    .excahnge__text__mobile{
+        grid-area: excahnge__text__mobile;
+    }
+    .bitcoin__main{
+        margin: 50px 0;
+        width: 100%;
+        height: 40vh;
+    }
+    .excahnge__img{
+        margin: 20px 0;
+    }
+    .excahnge__text h2{
+        width: 90%;
+        margin: 0 auto;
+        padding-bottom: 20px;
+        line-height: 1.5em;
+    }
+    .exchangeRate_info{
+        margin: 70px 0;
+        width: 100%;
+        height: 50vh;
+        color: black;
+        background-color: #FAFAFA;
+    }
+    .excahnge__text__mobile{
+        margin-top: -80px;
+    }
+    .excahnge__text__mobile h1{
+        padding-bottom: 20px;
+    }
+    .game__ads_start img{
+        margin-top: -25px;
+        margin-bottom: 25px;
+    }
+    .bitCard{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .card__bit__text{
+        margin-top: 20px;
+        padding-top: 20px;
+    }
+    .Earn__main{
+        margin: 30px 0;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 
+        'earn__now__text';
+        width: 100%;
+        min-height: 80vh;
+        background-color: #011E3F;
+        color: white;
+    }
+    .earn__now__text{
+        grid-area: earn__now__text;
+    }
+    .earn__now__img img{
+        width: 50%;
+        padding: 2em 0;
+    }
+    .earn__now__text{
+        margin-top: 10px;
+    }
+    .pepsiMain{
+    padding-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+    .pepsi__text p{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .pepsi_img img{
+        margin-top: 40px;
+        padding: 0 2em;
+    }
+    .cocoa__main{
+        margin-top: 0px;
+    }
+    .section__section img{
+        width: 50%;
+    }
+    .typed-text{
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 560px){
+    .controller__1{
+        margin: 30px 0;
+        padding: 1rem 2rem;
+        display: grid;
+        grid-template-columns: repeat(1,auto);
+        grid-gap: 80px;
+    }
+}

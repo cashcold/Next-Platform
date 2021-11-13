@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+.mainApp{
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    /* background-color: black;
+    color: white; */
+}
+ul li{
+    list-style: none;
+    
+}
+img{
+    width: 100%;
+}
+
+h1{
+    font-family: 'Noto Sans TC', sans-serif;
+}
+h2,h3,h4,h5,p,a{
+    font-family: 'Aleo', serif;
+}
+.btn{
+    padding: 1rem 2rem;
+    color: white;
+    font-weight: bolder;
+    border-radius: 50px;
+}
+
+a:hover{
+    text-decoration: none;
+    color: white;
+}
+.google__id{
+    widows: 30%;
+    text-align: left
+}
+
+
+/* @media screen and (max-width: 768px){
+
+    h1{
+        font-size: 1rem;
+    }
+     h2{
+        font-size: 1.8rem;
+    }
+    p{
+        font-size: 1.8rem;
+    }
+} */
+
+
+
