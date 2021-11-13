@@ -126,6 +126,14 @@ class Navbar extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Augustine_Boakye.jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>AUGUSTINE BOAKYE</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Timaya-1-1.jpg')}
                                     alt="First slide"
                                 />
