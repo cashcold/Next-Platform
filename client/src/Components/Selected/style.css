@@ -264,7 +264,9 @@
 
 
 
-
+.welcome_trans_h4 h1{
+    font-size: 1em;
+}
 
 
 @media screen and (max-width: 768px){

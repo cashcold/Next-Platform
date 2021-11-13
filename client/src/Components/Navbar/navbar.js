@@ -76,29 +76,27 @@ class Navbar extends Component {
         return ( 
             <div className=' navbarMain'>
                <section className='navMain '>
-                   <nav>
-                       <div className='logoImg animate__animated animate__slower animate__flash'>
-                         <h1>NEXT-PLATFORM</h1>
-                       </div>
-                       <div className='nav__links animate__animated animate__slower animate__bounceInDown'>
-                           <ul className='links'>
-                               <li><a href='/' style={{color: "red"}}>HOME </a></li>
-                               <li><a href='/about-us'>ABOUT US</a></li>
-                               <li><a href='/faqs'>FAQS</a></li>
-                               <li><a href='/faqs'>FAQS</a></li>
-                               <li><a href='/agent-form'>SUPPORT</a></li>
-                               {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
-                           </ul>
-                       </div>
-                       <div className='aboyt__toggle '>
-                            <div className='toggle__bar animate__animated animate__slower animate__zoomInDown'>
-                                <div className='toggle toggle_1'></div>
-                                <div className='toggle toggle_2'></div>
-                                <div className='toggle toggle_3'></div>
-                            </div>
-                     </div>
+                    <nav>
+                        <div className='logoImg animate__animated animate__slower animate__flash'>
+                            <h1>NEXT-PLATFORM</h1>
+                        </div>
+                        <div className='nav__links animate__animated animate__slower animate__bounceInDown'>
+                            <ul className='links'>
+                                <li><a href='/' style={{color: "red"}}>HOME </a></li>
+                                <li><a href='/about-us'>ABOUT US</a></li>
+                                <li><a href='/faqs'>FAQS</a></li>
+                                <li><a href='/agent-form'>SUPPORT</a></li>
+                                {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
+                            </ul>
+                        </div>
+                        <div className='aboyt__toggle '>
+                                <div className='toggle__bar animate__animated animate__slower animate__zoomInDown'>
+                                    <div className='toggle toggle_1'></div>
+                                    <div className='toggle toggle_2'></div>
+                                    <div className='toggle toggle_3'></div>
+                                </div>
+                        </div>
                      </nav>
-                     
                </section>
                 <section className='top_form'>
                  <div className="top_form_go">
@@ -120,11 +118,35 @@ class Navbar extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/big_shaq.jpeg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>BIG SHAQ</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Timaya-1-1.jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>Timaya</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/fresh_on/maxresdefault-1.jpg')}
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
                                     <h3 className='top_form_capt_h3'>JOIN IPHONE PROMO!!!</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Stonebwoy-prime-News-Ghana.jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>STONE BWOY</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
@@ -149,6 +171,14 @@ class Navbar extends Component {
                                 />
                                 <Carousel.Caption>
                                     <h3>FREE VISACARD WITH $5</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/JOE-PRAIZE-JOY-OVERFLOW-LYRICS-MP3-DOWNLOAD.png')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>JOE-PRAIZE</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                              <Carousel.Item>
@@ -232,6 +262,14 @@ class Navbar extends Component {
                                 <Carousel.Caption>
                                     <h3>CHECK NEW RELEASE, AVALIABLE FOR SALES</h3>
                             </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/daddy_opanka.jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3>DADDY OPANKA</h3>
+                                </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Reekado-banks-lucipost.jpg')}

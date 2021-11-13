@@ -27,7 +27,7 @@ class MainApp extends Component {
             // animate__animated animate__zoomIn 
             <Router>
                 <div className=' mainApp animate__animated animate__fadeIn animate__slower '>
-                <div  className='google__id' id="google_translate_element"></div>
+                {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
                             <Navbar/>
                             <div className='switch'> 

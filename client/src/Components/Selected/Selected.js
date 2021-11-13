@@ -22,7 +22,10 @@ class Selected extends Component {
         })
       
        setTimeout(()=>{
-        toast.dark(`Wlecome To Next-Platform!`, {
+        toast.dark(
+            <div className='logoImg animate__animated animate__slower animate__flash welcome_trans_h4'>
+                <h1>NEXT-PLATFORM</h1>
+            </div>, {
             position: "top-center",
             autoClose: false,
             hideProgressBar: false,
