@@ -3,6 +3,7 @@ import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
+import {Card,Button} from 'react-bootstrap'
 import './style.css'
 class Selected extends Component {
     constructor(props) {
@@ -24,7 +25,44 @@ class Selected extends Component {
        setTimeout(()=>{
         toast.dark(
             <div className='logoImg animate__animated animate__slower animate__flash welcome_trans_h4'>
-                <h1>NEXT-PLATFORM</h1>
+                <h1> <h4>HARMONIZE FT DIAMOND</h4></h1>
+                <Card>
+                    <Card.Header as="h5">Featured</Card.Header>
+                    <Card.Body>
+                        <Card.Title>Special title treatment</Card.Title>
+                        <Card.Text>
+                        <img src={require('../../AllInOne/next_platform_img/ab67616d0000b2736a1f5bea27488489a5c6d604.jpg')} alt='pic'/>
+                        With supporting text below as a natural lead-in to additional content.
+                        </Card.Text>
+                        <Button variant="primary">Find More</Button>
+                    </Card.Body>
+                    </Card>
+            </div>, {
+            position: "top-center",
+            autoClose: 15000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+            // 40000
+       },40000)
+       setTimeout(()=>{
+        toast.dark(
+            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
+                <h1> <h4>BASE ON THE MOMENT PLATFORM FOCUSE ON POINT AFRICA TALENT</h4></h1>
+                <Card>
+                    <Card.Header as="h5">ABOUT NEXT-PLATFORM</Card.Header>
+                    <Card.Body>
+                        <Card.Title>FOCUSE</Card.Title>
+                        <Card.Text>
+                        <img src={require('../../AllInOne/next_platform_img/images.jpg')} alt='pic'/>
+                        With supporting text below as a natural lead-in to additional content.
+                        </Card.Text>
+                        <Button variant="primary">Find More</Button>
+                    </Card.Body>
+                    </Card>
             </div>, {
             position: "top-center",
             autoClose: false,
@@ -34,7 +72,7 @@ class Selected extends Component {
             draggable: true,
             progress: undefined,
             });
-       },90000)
+       },20000)
    
     //    setTimeout(()=>{
     //        toast.success("PROMOTE YOUR BUSINESS")
@@ -138,6 +176,7 @@ Typing()
                 <section className='pes__soccer__main'>
                     <div className='pesSoccer boxCard'>
                         <img src={require('../../VR__Pic/wp6963865.jpg')} alt='pic'/>
+                        
                     </div>
                     <div className='pesSoccer boxCard'>
                         <img src={require('../../VR__Pic/331212e60a5a281b46d47e7d05d15f8f.jpg')} alt='pic'/>
