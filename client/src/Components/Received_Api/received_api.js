@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
-import moment from 'moment'
+import { Helmet } from 'react-helmet';
 class ReceivedApi extends Component {
     constructor(props) {
         super(props);
@@ -40,6 +40,12 @@ class ReceivedApi extends Component {
     render() { 
         return ( 
             <div className='recceived_api'>
+                <Helmet>
+                    <base />
+                    <title>{this.state.sport_api_head_Text}</title>
+                    <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
+                    <link rel="canonical" href="somelink" />
+                </Helmet>
                 <section className='received_api_section_box_1'>
                     <img src={`${this.state.home_url}/${this.state.sport_api_img}`} alt='pic'/>
                     <h1>{this.state.sport_api_id}</h1>

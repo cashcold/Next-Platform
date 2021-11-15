@@ -3,6 +3,7 @@ import './style.css'
 import {sport_api} from '../Api/sport_api'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
+import { Helmet } from 'react-helmet';
 
 
 class Call_Api extends Component {
@@ -125,6 +126,12 @@ class Call_Api extends Component {
        
         return ( 
             <div className='call_api_main'>
+                 <Helmet>
+                    <base />
+                    <title>Top Trending</title>
+                    <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
+                    <link rel="canonical" href="somelink" />
+                </Helmet>
                 {this.state.postData}
                 <section className='check_pagination'>
                 <ReactPaginate
