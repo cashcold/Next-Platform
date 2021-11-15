@@ -166,6 +166,14 @@ class Navbar extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/7988ab7e47764d3e861de705f1bd4605.640x640x1.jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'> P-SQUARE FT AWILO LONGOMBA</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../VR__Pic/22160504-7785859-Two_to_taste_It_will_come_in_both_Original_and_Vanilla_varieties-a-4_1576171477322.jpg')}
                                     alt="First slide"
                                 />

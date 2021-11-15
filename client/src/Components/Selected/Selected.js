@@ -161,6 +161,23 @@ Typing()
                 draggable
                 pauseOnHover/>
                 <div className='cerrency__now'></div>
+                <section className='feature_videos'>
+                    <h3 className='feature_h3'>FEATURED VIDEOS</h3>
+                    <div className="feature_videos_list">
+                        <div className="feature_vides_row iframe-container">
+                             <iframe src="https://www.youtube.com/embed/M6PJp1p6BLg?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        </div>
+                        <div className="feature_vides_row iframe-container">
+                             <iframe src="https://www.youtube.com/embed/3M_5oYU-IsU?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        </div>
+                        <div className="feature_vides_row iframe-container">
+                            <iframe src="https://www.youtube.com/embed/YRnEY4znKp0?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        </div>
+                        <div className="feature_vides_row iframe-container">
+                            <iframe src="https://www.youtube.com/embed/RJrPdBgirMY?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        </div>
+                    </div>
+                </section>
                 <section className='chanceMain'>
                         <div className='subHead'>
                             <h1> <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
