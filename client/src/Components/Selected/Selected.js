@@ -5,6 +5,10 @@ import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import {Card,Button} from 'react-bootstrap'
 import './style.css'
+import {TimelineLite, TimelineMax} from 'gsap'
+import {gsap} from 'gsap'
+import{ScrollTrigger} from 'gsap/ScrollTrigger'
+
 class Selected extends Component {
     constructor(props) {
         super(props);
@@ -78,25 +82,25 @@ class Selected extends Component {
     //        toast.success("PROMOTE YOUR BUSINESS")
     //    },20000)
    
-    let SlideIndex = 0;
-    const SlideDiv = ()=>{
-        var i ;
-        var slideDiv = document.querySelectorAll('.boxCard')
-        var dot = document.querySelectorAll('.dot')
-        for(i = 0; i < slideDiv.length; i++){
-            slideDiv[i].style.display='none'
-        }
-        SlideIndex++;
-        if(SlideIndex > slideDiv.length){SlideIndex = 1}
-        for(i = 0; i < dot.length; i++){
+    // let SlideIndex = 0;
+    // const SlideDiv = ()=>{
+    //     var i ;
+    //     var slideDiv = document.querySelectorAll('.boxCard')
+    //     var dot = document.querySelectorAll('.dot')
+    //     for(i = 0; i < slideDiv.length; i++){
+    //         slideDiv[i].style.display='none'
+    //     }
+    //     SlideIndex++;
+    //     if(SlideIndex > slideDiv.length){SlideIndex = 1}
+    //     for(i = 0; i < dot.length; i++){
            
-        }
-        slideDiv[SlideIndex-1].style.display= "block";
+    //     }
+    //     slideDiv[SlideIndex-1].style.display= "block";
 
-        setTimeout(SlideDiv,4000)
+    //     setTimeout(SlideDiv,4000)
 
-    }
-    SlideDiv()
+    // }
+    // SlideDiv()
      
     const Typing = ()=>{
         const typedTextSpan = document.querySelector(".typed-text");
@@ -141,7 +145,36 @@ class Selected extends Component {
         if(textArray.length) setTimeout(type, newTextDelay + 250);
         });
     }
-Typing()
+        Typing()
+        // gsap.registerPlugin(ScrollTrigger)
+        // const RegisterparallaxTrigger = () =>{
+        //     const check_parallax_main = document.querySelector('.check_parallax_main')
+        //     const para_box_1 = document.querySelector('.para_box_1')
+        //     const para_box_2 = document.querySelector('.para_box_2')
+        //     const para_box_3 = document.querySelector('.para_box_3')
+        //     const para_box_4 = document.querySelector('.para_box_4')
+        //     const para_box_5 = document.querySelector('.para_box_5')
+
+        //     const check_parallax_bar_ATl  =  new TimelineLite({
+        //         ScrollTrigger: {
+        //             trigger:  check_parallax_main,
+        //             start: "50% 100%",
+        //             scrub: 1,
+        //             toggleActions: "restart none none none",
+        //             pin: para_box_1, para_box_2, para_box_3, para_box_4, para_box_5,
+                    
+                    
+        //         }
+        //     }) 
+        //     check_parallax_bar_ATl.from(para_box_1,{opacity: 0, duration: 1.8, ease: "none", x:'-2000', }) 
+        //     check_parallax_bar_ATl.from(para_box_2,{opacity: 0, duration: 1.8, ease: "none", y:'2000', }) 
+        //     check_parallax_bar_ATl.from(para_box_3,{opacity: 0, duration: 1.8, ease: "none", x:'-2000', }) 
+        //     check_parallax_bar_ATl.from(para_box_4,{opacity: 0, duration: 1.8, ease: "none", y:'-2000', }) 
+        //     check_parallax_bar_ATl.from(para_box_5,{opacity: 0, duration: 1.8, ease: "none", x:'2000', }) 
+        // }
+
+        // RegisterparallaxTrigger()
+
      
    }
    
@@ -190,7 +223,49 @@ Typing()
                         
                     </div>
                 </section>
-                <section className='pes__soccer__main'>
+                <section className='check_para'>
+                    <section className='div-container '  id="section-beaches"> 
+                        <div className="parallax parallax1">
+                            <div id="div-span-beaches" className="text">
+                            Amazing Beaches
+                            </div>
+                        </div>
+                    </section>
+                    <section className='div-container '  id="section-civilization">
+                        <div className="parallax parallax2">
+                            <div id="div-span-beaches" className="text">
+                            Rich Ancient Civilization
+                            </div>
+                        </div>
+                    </section>
+                    <section className='div-container '  id="section-places">
+                        <div className="parallax parallax3">
+                            <div id="div-span-beaches" className="text">
+                            Wonderful Places to GO
+                            </div>
+                        </div>
+                    </section>
+                </section>
+                {/* <section className='check_parallax_main'>
+                    <div className="parallax_box_main">
+                        <div className="div-container">
+                             <div className="parallax para_box_1">1</div>
+                        </div>
+                        <div className="div-container">
+                             <div className="parallax para_box_2">2</div>
+                        </div>
+                        <div className="div-container">
+                             <div className="parallax para_box_3">3</div>
+                        </div>
+                        <div className="div-container">
+                             <div className="parallax para_box_4">4</div>
+                        </div>
+                        <div className="div-container">
+                             <div className="parallax para_box_5">5</div>
+                        </div>
+                    </div>
+                </section> */}
+                {/* <section className='pes__soccer__main'>
                     <div className='pesSoccer boxCard'>
                         <img src={require('../../VR__Pic/wp6963865.jpg')} alt='pic'/>
                         
@@ -213,7 +288,7 @@ Typing()
                     <div className='pesSoccer boxCard'>
                         <img src={require('../../VR__Pic/thumb-1920-516677.jpg')} alt='pic'/>
                     </div>
-                </section>
+                </section> */}
                 <section className='game__ads'>
                      <div className='game__A'>
                         <div className='game__text'>
@@ -254,7 +329,7 @@ Typing()
                         <img src={require('../../VR__Pic/psvr-overview-experiences-image-block-01-ps4-en-20oct20.png')} alt='pic'/>
                    </div>
                 </section>
-                <section className='game__controller'>
+                {/* <section className='game__controller'>
                     <div className='controller__1'>
                         <div className='controller__img'>
                             <img src={require('../../VR__Pic/81JIRkv7mxL._SL1500_.jpg')} alt='pic'/>
@@ -353,7 +428,7 @@ Typing()
                             <a href='' className='btn btn-warning'> free trial</a>
                         </div>
                     </div>
-                </section>
+                </section> */}
                 <section className='other__brand'>
                     <h1>ACTION</h1>
                     <div className='brand__info'>

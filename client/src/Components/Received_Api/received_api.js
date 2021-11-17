@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet'; 
 class ReceivedApi extends Component {
     constructor(props) {
         super(props);

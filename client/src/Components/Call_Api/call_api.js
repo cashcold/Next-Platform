@@ -152,6 +152,10 @@ class Call_Api extends Component {
                     <p><h1>NEWS<span class="typed-text"></span><span class="cursor">&nbsp;</span></h1></p>
                     </div>
                 </section>
+                <section className='parallax_me'>
+                    
+                </section>
+                
             </div>
          );
     }

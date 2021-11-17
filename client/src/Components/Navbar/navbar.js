@@ -40,6 +40,7 @@ class Navbar extends Component {
         LogoRedirect()
 
         const RegisterHomeTrigger = () =>{
+           
             const navMain = document.querySelector('.navMain')
             const logoImg = document.querySelector('.logoImg')
             const toggle_1 = document.querySelectorAll('.toggle_1')

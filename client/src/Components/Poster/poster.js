@@ -23,11 +23,27 @@ class Poster extends Component {
         
         return ( 
             <div className='poster'>
-                <section className='poster__box__1'>
-                    <div className="postBox1">
-                      
-                    </div>
-                </section>
+               <section className='div-container '  id="section-beaches"> 
+                   <div className="parallax parallax1">
+                       <div id="div-span-beaches" className="text">
+                       Amazing Beaches
+                       </div>
+                   </div>
+               </section>
+               <section className='div-container '  id="section-civilization">
+                   <div className="parallax parallax2">
+                       <div id="div-span-beaches" className="text">
+                       Rich Ancient Civilization
+                       </div>
+                   </div>
+               </section>
+               <section className='div-container '  id="section-places">
+                   <div className="parallax parallax3">
+                       <div id="div-span-beaches" className="text">
+                       Wonderful Places to GO
+                       </div>
+                   </div>
+               </section>
             </div>
          );
     }

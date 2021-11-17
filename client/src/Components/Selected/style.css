@@ -292,6 +292,82 @@
     width: 100%;
     height: 100%;
   }
+
+.check_parallax_main{
+    /* position: relative; */
+    padding: 2em 0em;
+    width: 100%;
+    min-height: 100vh;
+}
+.para_box_1{
+    width: 100%;
+    height: 100vh;
+    background-color: blue;
+}
+.para_box_2{
+    width: 100%;
+    height: 100vh;
+    background-color: chocolate;
+}
+.para_box_3{
+    width: 100%;
+    height: 100vh;
+    background-color: gold;
+}
+.para_box_4{
+    width: 100%;
+    height: 100vh;
+    background-color: pink;
+}
+.para_box_5{
+    width: 100%;
+    height: 100vh;
+    background-color: orange;
+}
+.div-container {
+  position: relative;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  z-index: 1;
+  text-align: center;
+}
+
+.parallax {
+  position: relative;
+  
+  height: 100%;
+  margin: 0;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  max-height: 100%;
+  width: 100%;
+}
+.parallax1 {
+    background-image: url("https://cdn.turkishairlines.com/m/134a825baa0080c9/original/Travel-Guide-of-Sharm-El-Sheikh-via-Turkish-Airlines.jpg");
+    max-height: 100%;
+    width: 100%;
+  }
+  
+  .parallax2 {
+    background-image: url("http://kjncairosummer.files.wordpress.com/2011/08/middlecoffinleftviewwallpaper1.jpg");
+    max-height: 100%;
+    width: 100%;
+  }
+  
+  .parallax3 {
+    background-image: url("https://live.staticflickr.com/4140/4794905061_c61e2f66ec_b.jpg");
+    max-height: 100%;
+    width: 100%;
+  }
+
+
+
+
 @media screen and (max-width: 768px){
     /* h1{
         font-size: 1.5rem;s
