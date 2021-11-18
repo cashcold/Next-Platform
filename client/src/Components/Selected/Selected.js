@@ -146,34 +146,30 @@ class Selected extends Component {
         });
     }
         Typing()
-        // gsap.registerPlugin(ScrollTrigger)
-        // const RegisterparallaxTrigger = () =>{
-        //     const check_parallax_main = document.querySelector('.check_parallax_main')
-        //     const para_box_1 = document.querySelector('.para_box_1')
-        //     const para_box_2 = document.querySelector('.para_box_2')
-        //     const para_box_3 = document.querySelector('.para_box_3')
-        //     const para_box_4 = document.querySelector('.para_box_4')
-        //     const para_box_5 = document.querySelector('.para_box_5')
+        gsap.registerPlugin(ScrollTrigger)
+        const RegisterparallaxTrigger = () =>{
+            const check_para = document.querySelector('.check_para')
+            const parallax1 = document.querySelector('.parallax1')
+            const parallax2 = document.querySelector('.parallax2')
+            const parallax3 = document.querySelector('.parallax3')
 
-        //     const check_parallax_bar_ATl  =  new TimelineLite({
-        //         ScrollTrigger: {
-        //             trigger:  check_parallax_main,
-        //             start: "50% 100%",
-        //             scrub: 1,
-        //             toggleActions: "restart none none none",
-        //             pin: para_box_1, para_box_2, para_box_3, para_box_4, para_box_5,
+            const check_parallax_bar_ATl  =  new TimelineLite({
+                ScrollTrigger: {
+                    trigger:  check_para,
+                    start: "20% 100%",
+                    scrub: 1,
+                    toggleActions: "restart none none none",
+                    pin: true,
                     
                     
-        //         }
-        //     }) 
-        //     check_parallax_bar_ATl.from(para_box_1,{opacity: 0, duration: 1.8, ease: "none", x:'-2000', }) 
-        //     check_parallax_bar_ATl.from(para_box_2,{opacity: 0, duration: 1.8, ease: "none", y:'2000', }) 
-        //     check_parallax_bar_ATl.from(para_box_3,{opacity: 0, duration: 1.8, ease: "none", x:'-2000', }) 
-        //     check_parallax_bar_ATl.from(para_box_4,{opacity: 0, duration: 1.8, ease: "none", y:'-2000', }) 
-        //     check_parallax_bar_ATl.from(para_box_5,{opacity: 0, duration: 1.8, ease: "none", x:'2000', }) 
-        // }
+                }
+            }) 
+            check_parallax_bar_ATl.from(parallax1,{opacity: 0, ease: "none", x:'-2000', }) 
+            check_parallax_bar_ATl.from(parallax2,{opacity: 0, ease: "none", y:'2000', }) 
+            check_parallax_bar_ATl.from(parallax3,{opacity: 0, ease: "none", x:'-2000', }) 
+        }
 
-        // RegisterparallaxTrigger()
+        RegisterparallaxTrigger()
 
      
    }
@@ -223,25 +219,37 @@ class Selected extends Component {
                         
                     </div>
                 </section>
+               
                 <section className='check_para'>
                     <section className='div-container '  id="section-beaches"> 
                         <div className="parallax parallax1">
                             <div id="div-span-beaches" className="text">
-                            Amazing Beaches
+                                <div className="update_news_iframe">
+                                    <h4>LISTEN NOW</h4>
+                                <iframe src="https://open.spotify.com/embed/track/1QsIiYa5GeTg9x30Pbs82N?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                </div>
+                               
                             </div>
                         </div>
                     </section>
                     <section className='div-container '  id="section-civilization">
                         <div className="parallax parallax2">
                             <div id="div-span-beaches" className="text">
-                            Rich Ancient Civilization
+                                 <div className="update_news_iframe">
+                                    <h4>LISTEN NOW</h4>
+                                    <iframe src="https://open.spotify.com/embed/track/1aNryETX3dSY4A0M8BIqPE?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                </div>
+                                
                             </div>
                         </div>
                     </section>
                     <section className='div-container '  id="section-places">
                         <div className="parallax parallax3">
                             <div id="div-span-beaches" className="text">
-                            Wonderful Places to GO
+                            <div className="update_news_iframe">
+                                    <h4>LISTEN NOW</h4>
+                                    <iframe src="https://open.spotify.com/embed/track/0H1Jd2NNq80u7xF7FzyJtn?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                </div>
                             </div>
                         </div>
                     </section>
@@ -290,17 +298,6 @@ class Selected extends Component {
                     </div>
                 </section> */}
                 <section className='game__ads'>
-                     <div className='game__A'>
-                        <div className='game__text'>
-                            <h1>PlayStation.VR</h1>
-                            <h2>Immerse yourself in incredible virtual reality games and experiences</h2>
-                            <p>Slip on your VR headset. Grab your PlayStation controller. And immerse yourself in the thrill of live sporting action as you’ve never experienced it before. Sport comes alive with silk-smooth visuals, social connectivity and sports data insight. It’s like being right there at the match, only more so.</p>
-                            <a href='' className='btn btn-warning'>FREE TRAILS</a>
-                        </div>
-                        <div className='game__img_main'>
-                            <img src={require('../../VR__Pic/Playstation-VR-Desktop.jpg')} alt='pic'/>
-                        </div>
-                    </div>
                     <section className='about__game'>
                         <div className='about_game_text'>
                             <h1>All In One Boost</h1>
@@ -456,34 +453,6 @@ class Selected extends Component {
                             <img src={require('../../VR__Pic/Playstation-VR-4K (1).jpg')} alt='pic'/>
                         </div>
                    </div>
-                </section>
-                 <section className='free__shippment'>
-                    <div className='freeShippment'>
-                        <h1>FREE SHIPPMENT </h1>
-                        <img src={require('../../VR__Pic/denise-jans-HoqYAnwR-1g-unsplash.jpg')} alt='pic'/>
-                        <h2>$80.00</h2>
-                        <a href='' className='btn btn-success'>BUY NOW</a>
-                    </div>
-                    <div className='freeShippment'>
-                        <h1>FREE SHIPPMENT </h1>
-                        <img src={require('../../VR__Pic/Playstation-VR-Computer-Wallpaper.jpg')} alt='pic'/>
-                        <h2>$280.00</h2>
-                        <a href='' className='btn btn-success'>BUY NOW</a>
-                    </div>
-                </section>
-                <section className='free__shippment'>
-                    <div className='freeShippment'>
-                        <h1>FREE SHIPPMENT </h1>
-                        <img src={require('../../VR__Pic/norbert-levajsics-dUx0gwLbhzs-unsplash.jpg')} alt='pic'/>
-                        <h2>$100.00</h2>
-                        <a href='' className='btn btn-success'>BUY NOW</a>
-                    </div>
-                    <div className='freeShippment'>
-                        <h1>FREE SHIPPMENT </h1>
-                        <img src={require('../../VR__Pic/Playstation-VR-Pictures.jpg')} alt='pic'/>
-                        <h2>$300.00</h2>
-                        <a href='' className='btn btn-success'>BUY NOW</a>
-                    </div>
                 </section>
                 <section className='bitcoin__main'>
                     <div className='bitcoinTrade'>

@@ -348,19 +348,29 @@
   width: 100%;
 }
 .parallax1 {
-    background-image: url("https://cdn.turkishairlines.com/m/134a825baa0080c9/original/Travel-Guide-of-Sharm-El-Sheikh-via-Turkish-Airlines.jpg");
+    /* background-image: url("https://cdn.turkishairlines.com/m/134a825baa0080c9/original/Travel-Guide-of-Sharm-El-Sheikh-via-Turkish-Airlines.jpg"); */
+    background-color: black;
+    background-image: url('../../AllInOne/next_platform_img/E-L.jpg');
+
+    /* background-image: url('../../AllInOne/next_platform_img/E-L.jpg'); */
     max-height: 100%;
     width: 100%;
   }
   
   .parallax2 {
-    background-image: url("http://kjncairosummer.files.wordpress.com/2011/08/middlecoffinleftviewwallpaper1.jpg");
+    /* background-image: url("http://kjncairosummer.files.wordpress.com/2011/08/middlecoffinleftviewwallpaper1.jpg"); */
+    
+    background-image: url('../../AllInOne/next_platform_img/d6900db9766fbea444d9709c16e664c99843e236c4989a62440786cf51f0851b.jpeg');
+    background-color: brown;
     max-height: 100%;
     width: 100%;
   }
   
   .parallax3 {
-    background-image: url("https://live.staticflickr.com/4140/4794905061_c61e2f66ec_b.jpg");
+    background-color: chartreuse;
+    /* background-image: url("https://live.staticflickr.com/4140/4794905061_c61e2f66ec_b.jpg"); */
+    background-image: url('../../AllInOne/next_platform_img/koda-hosanna-live.png');
+    /* background-image: url('../../AllInOne/next_platform_img/E-L.jpg'); */
     max-height: 100%;
     width: 100%;
   }

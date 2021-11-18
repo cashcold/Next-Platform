@@ -10,6 +10,7 @@ import Footer from './Components/Footer/Footer';
 import Poster from './Components/Poster/poster';
 import Call_Api from './Components/Call_Api/call_api';
 import ReceivedApi from './Components/Received_Api/received_api';
+import { Helmet } from 'react-helmet';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -26,6 +27,12 @@ class MainApp extends Component {
         return ( 
             // animate__animated animate__zoomIn 
             <Router>
+               <Helmet>
+                    <base />
+                    <title>NEXT-PLATFORM HOME</title>
+                    <meta name="description" content="NEXT-PLATFORM-HOME" />
+                    <link rel="canonical" href="next-platform.com" />
+                </Helmet>
                 <div className=' mainApp animate__animated animate__fadeIn animate__slower '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>

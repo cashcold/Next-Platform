@@ -135,6 +135,14 @@ class Navbar extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/d6900db9766fbea444d9709c16e664c99843e236c4989a62440786cf51f0851b.jpeg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>CONGRATULATIONS BY ADA EHI FT BUCH</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Timaya-1-1.jpg')}
                                     alt="First slide"
                                 />
