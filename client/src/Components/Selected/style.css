@@ -374,6 +374,17 @@
     max-height: 100%;
     width: 100%;
   }
+.update_news_iframe h4{
+    padding: 2em 4em;
+    background-color: coral;
+    color: pink;
+}
+.check_box_parallax_main{
+    position: relative;
+}
+/* .check_box_parallax{
+    position: absolute;
+} */
 
 
 

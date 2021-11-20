@@ -148,15 +148,15 @@ class Selected extends Component {
         Typing()
         gsap.registerPlugin(ScrollTrigger)
         const RegisterparallaxTrigger = () =>{
-            const check_para = document.querySelector('.check_para')
+            const parallax1_box_1 = document.querySelector('.parallax1_box_1')
             const parallax1 = document.querySelector('.parallax1')
             const parallax2 = document.querySelector('.parallax2')
             const parallax3 = document.querySelector('.parallax3')
 
             const check_parallax_bar_ATl  =  new TimelineLite({
                 ScrollTrigger: {
-                    trigger:  check_para,
-                    start: "20% 100%",
+                    trigger:  parallax1_box_1,
+                    start: "top top",
                     scrub: 1,
                     toggleActions: "restart none none none",
                     pin: true,
@@ -221,82 +221,39 @@ class Selected extends Component {
                 </section>
                
                 <section className='check_para'>
-                    <section className='div-container '  id="section-beaches"> 
+                    <section className='div-container parallax1_box_1 '  id="section-beaches"> 
                         <div className="parallax parallax1">
                             <div id="div-span-beaches" className="text">
                                 <div className="update_news_iframe">
                                     <h4>LISTEN NOW</h4>
-                                <iframe src="https://open.spotify.com/embed/track/1QsIiYa5GeTg9x30Pbs82N?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                <iframe src="https://open.spotify.com/embed/track/1QsIiYa5GeTg9x30Pbs82N?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                                 </div>
                                
                             </div>
                         </div>
                     </section>
-                    <section className='div-container '  id="section-civilization">
+                    <section className='div-container parallax1_box_2 '  id="section-civilization">
                         <div className="parallax parallax2">
                             <div id="div-span-beaches" className="text">
                                  <div className="update_news_iframe">
                                     <h4>LISTEN NOW</h4>
-                                    <iframe src="https://open.spotify.com/embed/track/1aNryETX3dSY4A0M8BIqPE?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                    <iframe src="https://open.spotify.com/embed/track/1aNryETX3dSY4A0M8BIqPE?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                                 </div>
                                 
                             </div>
                         </div>
                     </section>
-                    <section className='div-container '  id="section-places">
+                    <section className='div-containerparallax1_box_3 '  id="section-places">
                         <div className="parallax parallax3">
                             <div id="div-span-beaches" className="text">
                             <div className="update_news_iframe">
                                     <h4>LISTEN NOW</h4>
-                                    <iframe src="https://open.spotify.com/embed/track/0H1Jd2NNq80u7xF7FzyJtn?utm_source=generator" width="100%" height="800" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                                    <iframe src="https://open.spotify.com/embed/track/0H1Jd2NNq80u7xF7FzyJtn?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                                 </div>
                             </div>
                         </div>
                     </section>
                 </section>
-                {/* <section className='check_parallax_main'>
-                    <div className="parallax_box_main">
-                        <div className="div-container">
-                             <div className="parallax para_box_1">1</div>
-                        </div>
-                        <div className="div-container">
-                             <div className="parallax para_box_2">2</div>
-                        </div>
-                        <div className="div-container">
-                             <div className="parallax para_box_3">3</div>
-                        </div>
-                        <div className="div-container">
-                             <div className="parallax para_box_4">4</div>
-                        </div>
-                        <div className="div-container">
-                             <div className="parallax para_box_5">5</div>
-                        </div>
-                    </div>
-                </section> */}
-                {/* <section className='pes__soccer__main'>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/wp6963865.jpg')} alt='pic'/>
-                        
-                    </div>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/331212e60a5a281b46d47e7d05d15f8f.jpg')} alt='pic'/>
-                    </div>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/wp3144431.jpg')} alt='pic'/>
-                    </div>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/wp8181191.jpg')} alt='pic'/>
-                    </div>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/2cf5c6a8332a22bf6f06c32f32b5b6f0.jpg')} alt='pic'/>
-                    </div>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/Free-Fire-feature-3-1024x576.jpg')} alt='pic'/>
-                    </div>
-                    <div className='pesSoccer boxCard'>
-                        <img src={require('../../VR__Pic/thumb-1920-516677.jpg')} alt='pic'/>
-                    </div>
-                </section> */}
                 <section className='game__ads'>
                     <section className='about__game'>
                         <div className='about_game_text'>

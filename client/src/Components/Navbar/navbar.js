@@ -81,12 +81,18 @@ class Navbar extends Component {
                         <div className='logoImg animate__animated animate__slower animate__flash'>
                             <h1>NEXT-PLATFORM</h1>
                         </div>
-                        <div className='nav__links animate__animated animate__slower animate__bounceInDown'>
+                        <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
                             <ul className='links'>
                                 <li><a href='/' style={{color: "red"}}>HOME </a></li>
+                                <li><a href='/music'>MUSIC</a></li>
+                                <li><a href='/artites'>ARTITES</a></li>
+                                <li><a href='/product'>PRODUCTS</a></li>
+                                <li><a href='/tranding'>TRANDING</a></li>
+                                <li><a href='/sport'>SPORT</a></li>
+                                <li><a href='/business'>BUSINESS</a></li>
+                                <li><a href='/offer'>OFFER</a></li>
+                                <li><a href='/next'>NEXT</a></li>
                                 <li><a href='/about-us'>ABOUT US</a></li>
-                                <li><a href='/faqs'>FAQS</a></li>
-                                <li><a href='/agent-form'>SUPPORT</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>
                         </div>
