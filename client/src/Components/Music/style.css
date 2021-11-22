@@ -1,0 +1,31 @@
+.music_para  {
+    background-color: black;
+    width: 100;
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+.music_para section {
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+}
+
+.music_prara_box_1{
+    background-color: green;
+}
+.music_prara_box_2{
+    background-color: yellow;
+}
+.music_prara_box_3{
+    background-color: lightseagreen;
+}
+.music_prara_box_4{
+    background-color:chocolate;
+}
+.music_para{
+    padding: 5em 0em;
+}
