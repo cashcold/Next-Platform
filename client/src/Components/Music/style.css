@@ -15,17 +15,24 @@
 }
 
 .music_prara_box_1{
-    background-color: green;
+    /* background-color: green; */
+    padding-top: 16em;
 }
 .music_prara_box_2{
-    background-color: yellow;
+    /* background-color: yellow; */
+    padding-top: 16em;
 }
 .music_prara_box_3{
-    background-color: lightseagreen;
+    /* background-color: lightseagreen; */
+    padding-top: 16em;
 }
 .music_prara_box_4{
-    background-color:chocolate;
+    /* background-color:chocolate; */
+    padding-top: 16em;
 }
 .music_para{
     padding: 5em 0em;
+}
+.music_para img{
+    object-fit: cover;
 }
