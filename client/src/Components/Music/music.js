@@ -60,7 +60,7 @@ class MusicMain extends Component {
             .from('.music_prara_box_1',{xPercent: -100})
             .from('.music_prara_box_2',{xPercent: 100})
             .from('.music_prara_box_3',{xPercent: -100})
-            .from('.music_prara_box_4',{xPercent: -100})
+            .from('.music_prara_box_4',{yPercent: -100})
 
             ScrollTrigger.create({ 
                 animation: T_L,
@@ -69,7 +69,8 @@ class MusicMain extends Component {
                 end: '+=1000',
                 scrub: true,
                 pin: true,
-                anticipatePin: 1
+                anticipatePin: 1,
+                pinSpacing: false
             })
         }
           
