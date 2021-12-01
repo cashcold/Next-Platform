@@ -75,7 +75,7 @@ class Navbar extends Component {
     }
     render() { 
         return ( 
-            <div className=' navbarMain'>
+            <div className='navbarMain'>
                <section className='navMain '>
                     <nav>
                         <div className='logoImg animate__animated animate__slower animate__flash'>
@@ -85,7 +85,7 @@ class Navbar extends Component {
                             <ul className='links'>
                                 <li><a href='/' style={{color: "red"}}>HOME </a></li>
                                 <li><a href='/music'>MUSIC</a></li>
-                                <li><a href='/artites'>ARTITES</a></li>
+                                <li><a href='/artites'>ARTISTE</a></li>
                                 <li><a href='/product'>PRODUCTS</a></li>
                                 <li><a href='/tranding'>TRANDING</a></li>
                                 <li><a href='/sport'>SPORT</a></li>
@@ -146,14 +146,6 @@ class Navbar extends Component {
                                 />
                                 <Carousel.Caption>
                                     <h3 className='top_form_capt_h3'>CONGRATULATIONS BY ADA EHI FT BUCH</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Timaya-1-1.jpg')}
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>Timaya</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>

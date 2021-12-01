@@ -1,6 +1,7 @@
 const fs = require('fs')
 const SpotifyWebApi = require('spotify-web-api-node');
-const token = "BQAkBL4V5YwzNegmUONWjKUuY_gdN-9zPhsk3B62v1y1friJbs6OovwxV9w_jzSN0R7Dfq8Yd4or3phRY3EiNEaCTl2hSCnQlhN5vcRGkC2TrllHB4lOTHdaEb42xwpylTJ0v67sKcWaSmdskqVGd14QhK9Yl5FcIMS9oPU4_vBhQes9Sbqu5q1GHTMX2bxhC94MwbvAPpTkV3ZvIaSvF6TzKI6wtNtfkTWqGSYBmnBCzVGoFt1peHzOIfhZl9OOgJLVLa8koxnMM1_rOObzsESuBHiHvz8lgS_i2jwFLPxh6apT69sC";
+let token_main = localStorage.getItem('spotify_access_token')
+const token = token_main;
 
 const spotifyApi = new SpotifyWebApi();
 spotifyApi.setAccessToken(token);
@@ -27,13 +28,13 @@ async function getUserPlaylists(userName) {
   for (let playlist of data.body.items) {
     console.log(playlist.name + " " + playlist.id)
     
-    let tracks = await getPlaylistTracks(playlist.id, playlist.name);
+    let tracks = await getPlaylistTracks(playlist.id, playlist.name,);
     // console.log(tracks);
 
-    const tracksJSON = { tracks }
+    const tracksJSON = { tracks }   
     let data = JSON.stringify(tracksJSON);
     // fs.writeFileSync(playlist.name+'.json', data);
-    localStorage.setItem('dataFromSpotify', data)
+    // localStorage.setItem('Spotify_CoolForNow', data)
   }
 }
 
@@ -54,7 +55,7 @@ async function getPlaylistTracks(playlistId, playlistName) {
   for (let track_obj of data.body.items) {
     const track = track_obj.track
     tracks.push(track);
-    console.log(track.name + " : " + track.artists[0].name)
+    console.log("Tracsk name and artists name "+ track.name + " : " + track.artists[0].name )
   }
   
   console.log("---------------+++++++++++++++++++++++++")

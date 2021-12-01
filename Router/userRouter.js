@@ -7,6 +7,7 @@ const jwt = require('jsonwebtoken')
 const async = require('async')
 const crypto = require('crypto')
 const UserDeposit = require('../UserModel/depositModel')
+var SpotifyWebApi = require('spotify-web-api-node');
 
 dotEnv.config()
 
@@ -95,34 +96,64 @@ Router.post('/register', async(req,res)=>{
 })
 
 
-Router.post('/login', async(req,res)=>{
-    const user = await User.findOne({email: req.body.email})
-    if(!user) {
-        return res.status(400).send('Email Do Not Exist')
-    }
+// Router.post('/login', async(req,res)=>{
+//     const user = await User.findOne({email: req.body.email})
+//     if(!user) {
+//         return res.status(400).send('Email Do Not Exist')
+//     }
 
-    await bcrypt.compare(req.body.password, user.password,(err,isMatch)=>{
-        if(!isMatch) return res.status(400).send('Invalid Password ')
-        else{
-            const payload = {
+//     await bcrypt.compare(req.body.password, user.password,(err,isMatch)=>{
+//         if(!isMatch) return res.status(400).send('Invalid Password ')
+//         else{
+//             const payload = {
                 
-                 full_Name: user.full_Name,
-                 user_Name: user.user_Name,
-                 email: user.email,
-                 password: user.password,
-                 bitcoin: user.bitcoin,
-                 bitcoinCash: user.bitcoinCash,
-                 ethereum: user.ethereum,
-                 ip_address: user.ip_address,           
-                 date: user.Date,
-                 accountBalance: user.accountBalance
-            }
-            const token = jwt.sign(payload, process.env.TokenSecret)
-            res.header('x-access-token', token)
-            return res.status(200).send(token)
-        }
+//                  full_Name: user.full_Name,
+//                  user_Name: user.user_Name,
+//                  email: user.email,
+//                  password: user.password,
+//                  bitcoin: user.bitcoin,
+//                  bitcoinCash: user.bitcoinCash,
+//                  ethereum: user.ethereum,
+//                  ip_address: user.ip_address,           
+//                  date: user.Date,
+//                  accountBalance: user.accountBalance
+//             }
+//             const token = jwt.sign(payload, process.env.TokenSecret)
+//             res.header('x-access-token', token)
+//             return res.status(200).send(token)
+//         }
+//     })
+// })
+
+
+Router.post('/spotify_login', (req,res) => {
+    const credentials = {
+        clientId: '7274681e5f564e29b6246893ed62f20a',
+        clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
+        redirectUri: "http://localhost:3000/music",
+      };
+    
+    //  setup 
+        let spotifyApi = new SpotifyWebApi(credentials)
+    
+    //  Get the "code" value posted from the client-side and get the user's accessToken from the spotify api     
+        const code = req.body.code
+        console.log(`Frank get Code ${code}`)
+    
+        // Retrieve an access token
+        spotifyApi.authorizationCodeGrant(code).then((data) => {
+    
+            // Returning the User's AccessToken in the json formate  
+            res.json({
+                accessToken : data.body.access_token,
+            }) 
+        })
+        .catch((err) => {
+            console.log(err);
+            res.sendStatus(400)
+        })
+    
     })
-})
 
 Router.post('/forgotpassword', async (req,res,next)=>{
     async.waterfall([

@@ -385,6 +385,10 @@
 /* .check_box_parallax{
     position: absolute;
 } */
+.img__adv__me{
+    width: 100%;
+    min-height: 100vh;
+}
 
 
 

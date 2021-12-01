@@ -19,6 +19,30 @@ class Selected extends Component {
     }
 
    componentDidMount(){
+    gsap.registerPlugin(ScrollTrigger)
+
+    const RegisterSelectedMainTrigger = ()=>{
+        const img__adv__me_TL =  gsap.timeline()
+        img__adv__me_TL
+            .from('.img__adv__me h1',{xPercent: -800})
+            .from('.img__me__tag_img_1',{xPercent: 800})
+            .from('.img__me__tag_img_2',{xPercent: -800})
+
+
+        ScrollTrigger.create({ 
+            animation: img__adv__me_TL,
+            trigger: '.img__adv__me',
+            toggleActions: "restart none none none",
+            start: '5px 0%',
+            end: '+=1000',
+            // scrub: true,
+            // pin: true,
+            // anticipatePin: 1,
+            // pinSpacing: false
+        })
+    }
+    RegisterSelectedMainTrigger()
+
        const home_url =  window.location.origin
         localStorage.setItem('home_url',home_url)
         
@@ -309,78 +333,6 @@ class Selected extends Component {
                             </div>
                             <a href='' className='btn btn-warning'> free trial</a>
                         </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/61yV1psEMRL._SL1001_.jpg')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/71r3bTcTzJL._AC_SL1500_.jpg')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/norbert-levajsics-dUx0gwLbhzs-unsplash.jpg')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/psvr-accessories-move-controllers-two-column-02-ps4-en-01jul19.png')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/61BufB-e62L._AC_SL1000_.jpg')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/playstation-5-with-dualsense-front-product-shot-01-ps5-en-30jul20.png')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
                     </div>
                 </section> */}
                 <section className='other__brand'>
@@ -400,13 +352,13 @@ class Selected extends Component {
                         </div>
                     </div>
                 </section>
-                <section className='img__adv__me'>
+                <section className='img__adv__me'> 
                     <h1>Immerse yourself in incredible virtual reality games and experiences</h1>
                    <div className='both__adv_tag'>
-                        <div className='img__me__tag_img img__me__tag_img__height'>
+                        <div className='img__me__tag_img img__me__tag_img_1 img__me__tag_img__height'>
                             <img src={require('../../VR__Pic/wp7938849.jpg')} alt='pic'/>
                         </div>
-                        <div className='img__me__tag_img img__me__tag_img '>
+                        <div className='img__me__tag_img img__me__tag_img_2 img__me__tag_img '>
                             <img src={require('../../VR__Pic/Playstation-VR-4K (1).jpg')} alt='pic'/>
                         </div>
                    </div>

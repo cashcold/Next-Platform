@@ -14,10 +14,16 @@ class MusicMain extends Component {
         this.state = {
              music_data: [] ,
              music_login:  [],
+             authEndpoint: 'https://accounts.spotify.com/authorize',
              clientId: '7274681e5f564e29b6246893ed62f20a',
              redirectUri: 'http://localhost:3000/music',
              code: '',
-            //  access_token: 'BQDx64wp42MwJiS_7ymfcfDrNc9dpCMOfGSI_AieSyCdXby-S9eZ7UbIHZ4ozcsdu4W4mHJCwagnTAmcZ6KU3txer2reoiWz2Ch4PCvW99qRSA3K8ZmxTvWtXOJ2nz_GJFGRZ2MeXxEYaYOPD9Z_arQZ2xWR4nF3rmXBo46NUvCvLz8XGf_brljksX8GIJO2gIus7i9fn4rsxmNImXY1Ab7l_iLD2OdWH01rpz5_3y_qpZwxPDSEENnq7OD6sWGD5arD3CNy8zmDyDNdaABO0zisi_mwI7YRqkV5Iugh5p5vv07Nn6B9'
+             Spotify_CoolForNow: [],
+             spotify_access_token: [],
+             setAccessToken: []
+             
+
+
              
 
             }
@@ -30,25 +36,69 @@ class MusicMain extends Component {
     }
 
     componentDidMount(){
+        const scopes = [
+            'ugc-image-upload',
+            'user-read-playback-state',
+            'user-modify-playback-state',
+            'user-read-currently-playing',
+            'streaming',
+            'app-remote-control',
+            'user-read-email',
+            'user-read-private',
+            'playlist-read-collaborative',
+            'playlist-modify-public',
+            'playlist-read-private',
+            'playlist-modify-private',
+            'user-library-modify',
+            'user-library-read',
+            'user-top-read',
+            'user-read-playback-position',
+            'user-read-recently-played',
+            'user-follow-read',
+            'user-follow-modify'
+          ];
+          
+          
+          
         const code = new URLSearchParams(window.location.search).get('code')
          this.setState({
              code
          })
-        //  alert(code)
+         
+         
 
 
         
-        // axios.post(`http://localhost:8000/login_spotify` )
-        axios.post(`http://localhost:8000/music`,{code}).then(data => this.setState({
-            music_data: data
-           
-         }))
-         .then(data => console.log(data))
+        
+        // axios.post(`http://localhost:8000/login_spotify` ).then(window.location = "/music")
+        
+        if(code){
+            axios.post(`http://localhost:8000/users/spotify_login`,{code}).then((response) => {
+
+                // If success then cut the code string from the URL and execute the other thing
+                window.history.pushState({}, null, "/music");
+        
+                console.log(response.data);
+                this.setState({
+                    setAccessToken: response.data.accessToken
+                })
+                localStorage.setItem('spotify_access_token',this.state.setAccessToken)
+                
+        
+              })
+        
+            // .catch(err => console.log(error.err))
+    
+              axios.get('http://localhost:8000/music',{code}).then(data => this.setState({
+                spotify_access_token: data.body
+             })) 
+        }
+        
 
 
          
         
-         console.log(this.state.music_data)
+        
         gsap.registerPlugin(ScrollTrigger)
        
 
@@ -70,7 +120,7 @@ class MusicMain extends Component {
                 scrub: true,
                 pin: true,
                 anticipatePin: 1,
-                pinSpacing: false
+                // pinSpacing: false
             })
         }
           
@@ -79,31 +129,15 @@ class MusicMain extends Component {
        
     }
     render() { 
-        console.log(this.state.music_data)
+    
+console.log(`This is spotfiy Code ${this.state.code}`)
+console.log(`This is setAccessTokene ${this.state.setAccessToken}`)
+    
+        // console.log('this state spotifyCool '+ this.state.Spotify_CoolForNow)
 
-    const scopes = [
-    'ugc-image-upload',
-    'user-read-playback-state',
-    'user-modify-playback-state',
-    'user-read-currently-playing',
-    'streaming',
-    'app-remote-control',
-    'user-read-email',
-    'user-read-private',
-    'playlist-read-collaborative',
-    'playlist-modify-public',
-    'playlist-read-private',
-    'playlist-modify-private',
-    'user-library-modify',
-    'user-library-read',
-    'user-top-read',
-    'user-read-playback-position',
-    'user-read-recently-played',
-    'user-follow-read',
-    'user-follow-modify'
-  ];
+   
 
-       const Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=http://localhost:3000/music&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
+       const Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
         return ( 
             <div className='music_main'>
                  <Helmet>

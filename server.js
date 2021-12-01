@@ -67,8 +67,9 @@ var spotifyApi = new SpotifyWebApi({
   
   JungleServer.get('/music', (req, res) => {
     const error = req.query.error;
-    const code = req.query.code;
-    console.log(code)
+    const code = req.body.code;
+    // const code = req.query.code;
+    console.log("this is code jest recieved "+code)
     const state = req.query.state;
   
     if (error) {
@@ -93,7 +94,8 @@ var spotifyApi = new SpotifyWebApi({
         console.log(
           `Sucessfully retreived access token. Expires in ${expires_in} s.`
         );
-        res.send('Success! You can now close the window.');
+        // res.header('spotfiy_x-access-token', token)
+        res.json(access_token);
   
         setInterval(async () => {
           const data = await spotifyApi.refreshAccessToken();
@@ -113,6 +115,3 @@ var spotifyApi = new SpotifyWebApi({
 JungleServer.listen(PORT,()=>{
     console.log(`server is runing on local Port Number ${PORT}`)
 })
-// JungleServer.listen(PORT,()=>{
-//     console.log(`server is runing on local Port WEb ${PORT_web}`)
-// })
