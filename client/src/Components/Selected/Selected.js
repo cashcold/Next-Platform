@@ -14,8 +14,15 @@ class Selected extends Component {
         super(props);
         this.state = { 
         currency: '',
-        home_url: ''
+        home_url: '',
+        // Spotify_CoolForNow_name: [ ]
+        
         }
+        this.handleChange = this.handleChange.bind(this)
+    }
+
+    handleChange = input => (event)=>{
+        this.setState({[input]: event.target.value})
     }
 
    componentDidMount(){
@@ -242,6 +249,11 @@ class Selected extends Component {
                         <img src={require('../../VR__Pic/Playstation-VR-Wallpapers.jpg')} alt='pic'/>
                         
                     </div>
+                </section>
+                <section className="check_music_name">
+                    <ul>
+                        {/* <li>{this.state.Spotify_CoolForNow_name.map(data => data.name)}</li> */}
+                    </ul>
                 </section>
                
                 <section className='check_para'>

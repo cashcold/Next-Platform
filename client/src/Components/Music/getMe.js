@@ -3,7 +3,17 @@ const SpotifyWebApi = require('spotify-web-api-node');
 let token_main = localStorage.getItem('spotify_access_token')
 const token = token_main;
 
-const spotifyApi = new SpotifyWebApi();
+var credentials = {
+  clientId: '7274681e5f564e29b6246893ed62f20a',
+  clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
+  redirectUri: 'http://localhost:3000/music',
+  accessToken: token,
+};
+
+
+
+const spotifyApi = new SpotifyWebApi(credentials);
+
 spotifyApi.setAccessToken(token);
 
 
@@ -22,14 +32,15 @@ function getMyData() {
 async function getUserPlaylists(userName) {
   const data = await spotifyApi.getUserPlaylists(userName)
 
-  console.log("---------------+++++++++++++++++++++++++")
+  console.log("---------------+++++++++++++++++++++++++Inside PlayList")
   let playlists = []
 
   for (let playlist of data.body.items) {
     console.log(playlist.name + " " + playlist.id)
+   
     
     let tracks = await getPlaylistTracks(playlist.id, playlist.name,);
-    // console.log(tracks);
+    console.log(tracks);
 
     const tracksJSON = { tracks }   
     let data = JSON.stringify(tracksJSON);

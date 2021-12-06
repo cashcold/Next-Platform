@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import './style.css'
-import './getMe.js'
+// import './getMe.js'
+// import './script_function.js'
 import axios from 'axios'
 import { Helmet } from 'react-helmet';
 import {TimelineLite, TimelineMax} from 'gsap'
 import {gsap} from 'gsap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger'
+const SpotifyWebApi = require('spotify-web-api-node');
+let token_main = localStorage.getItem('spotify_access_token')
+const token = token_main;
 
 
 class MusicMain extends Component {
@@ -19,8 +23,12 @@ class MusicMain extends Component {
              redirectUri: 'http://localhost:3000/music',
              code: '',
              Spotify_CoolForNow: [],
-             spotify_access_token: [],
-             setAccessToken: []
+             Spotify_CoolForNow_PlayList_title: [],
+             searchResult: []
+            //  Spotify_CoolForNow_PlayList_uri: '',
+            //  Spotify_CoolForNow_PlayList_albumurl: '',
+            //  spotify_access_token: [],
+            //  setAccessToken: []
              
 
 
@@ -28,6 +36,7 @@ class MusicMain extends Component {
 
             }
             this.handleChange = this.handleChange.bind(this)
+            // this.Spotify_CoolForNow_PlayList = this.Spotify_CoolForNow_PlayList.bind(this)
            
     }
 
@@ -35,29 +44,9 @@ class MusicMain extends Component {
         this.setState({[input]: event.target.value})
     }
 
+   
+
     componentDidMount(){
-        const scopes = [
-            'ugc-image-upload',
-            'user-read-playback-state',
-            'user-modify-playback-state',
-            'user-read-currently-playing',
-            'streaming',
-            'app-remote-control',
-            'user-read-email',
-            'user-read-private',
-            'playlist-read-collaborative',
-            'playlist-modify-public',
-            'playlist-read-private',
-            'playlist-modify-private',
-            'user-library-modify',
-            'user-library-read',
-            'user-top-read',
-            'user-read-playback-position',
-            'user-read-recently-played',
-            'user-follow-read',
-            'user-follow-modify'
-          ];
-          
           
           
         const code = new URLSearchParams(window.location.search).get('code')
@@ -65,11 +54,6 @@ class MusicMain extends Component {
              code
          })
          
-         
-
-
-        
-        
         // axios.post(`http://localhost:8000/login_spotify` ).then(window.location = "/music")
         
         if(code){
@@ -87,23 +71,29 @@ class MusicMain extends Component {
         
               })
         
-            // .catch(err => console.log(error.err))
-    
-              axios.get('http://localhost:8000/music',{code}).then(data => this.setState({
-                spotify_access_token: data.body
-             })) 
         }
-        
+        var credentials = {
+            clientId: '7274681e5f564e29b6246893ed62f20a',
+            clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
+            redirectUri: 'http://localhost:3000/music',
+            accessToken: token,
+          };
+        const spotifyApi = new SpotifyWebApi(credentials);
+          spotifyApi.setAccessToken(token);
 
+          spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
+          .then((data)=>{
+             console.log('Artist albums from music data', data.body.items.map(data => data));
 
-         
-        
-        
-        gsap.registerPlugin(ScrollTrigger)
-       
-
-          
-        const RegisterMusicMainTrigger = ()=>{
+              this.setState({Spotify_CoolForNow: data.body.items.map(data => data) })
+             
+          })
+            // axios.get(`https://api.spotify.com/v1/me/playlists`,{
+            //     headers: {Authorization: `Bearer ${token}`}
+            // }).then(data => console.log(data))
+            
+            gsap.registerPlugin(ScrollTrigger)
+             const RegisterMusicMainTrigger = ()=>{
             const T_L = gsap.timeline()
             
             T_L
@@ -129,11 +119,9 @@ class MusicMain extends Component {
        
     }
     render() { 
-    
-console.log(`This is spotfiy Code ${this.state.code}`)
-console.log(`This is setAccessTokene ${this.state.setAccessToken}`)
-    
-        // console.log('this state spotifyCool '+ this.state.Spotify_CoolForNow)
+      
+        console.log('this state Spotify_CoolForNow data ', this.state.Spotify_CoolForNow)
+        // console.log('this state searchResult '+ this.state.searchResult)
 
    
 
@@ -147,6 +135,18 @@ console.log(`This is setAccessTokene ${this.state.setAccessToken}`)
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <h1>MUSIC</h1>
+                {this.state.Spotify_CoolForNow.map(data => {
+                    return(
+                        <div className='coolForNow'>
+                            {data.name}
+                            <img src={data.images}/>
+                            {data.artists[0].name}
+                            {data.uri}
+                            
+                        </div> 
+                    )
+                })}
+                <input className='LoginInput' type='search' name='searchResult'  onChange={this.handleChange('searchResult')}/>
                 <a href={`${Auth_url}`}><h3>Check Spotify Login</h3></a>
                 <div className="music_para">
                     <section className="music_prara_box_1">

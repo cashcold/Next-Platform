@@ -23,7 +23,7 @@ class Call_Api extends Component {
         }
         receivedData() {
            const data = this.state.data
-           const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+           const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)  
            const postData = slice.map(pd => <React.Fragment>
                <div className='drop_data' onClick={()=>{
                     localStorage.setItem('sport_api_id',pd.id)
