@@ -25,6 +25,7 @@ class Poster extends Component {
             <div className='poster'>
                <section className='div-container '  id="section-beaches"> 
                    <div className="parallax parallax1">
+                       
                        <div id="div-span-beaches" className="text">
                        Amazing Beaches
                        </div>

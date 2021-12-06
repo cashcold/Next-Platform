@@ -54,7 +54,7 @@ class MusicMain extends Component {
              code
          })
          
-        // axios.post(`http://localhost:8000/login_spotify` ).then(window.location = "/music")
+        axios.post(`https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state` )
         
         if(code){
             axios.post(`http://localhost:8000/users/spotify_login`,{code}).then((response) => {
@@ -83,8 +83,6 @@ class MusicMain extends Component {
 
           spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
           .then((data)=>{
-             console.log('Artist albums from music data', data.body.items.map(data => data));
-
               this.setState({Spotify_CoolForNow: data.body.items.map(data => data) })
              
           })
@@ -135,19 +133,20 @@ class MusicMain extends Component {
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <h1>MUSIC</h1>
+                <a href={`${Auth_url}`}><h3>Check Spotify Login</h3></a>
                 {this.state.Spotify_CoolForNow.map(data => {
+                    // const check_img_size = 
                     return(
                         <div className='coolForNow'>
                             {data.name}
-                            <img src={data.images}/>
+                            <img src={data.images[1].url}/>
                             {data.artists[0].name}
-                            {data.uri}
                             
                         </div> 
                     )
                 })}
                 <input className='LoginInput' type='search' name='searchResult'  onChange={this.handleChange('searchResult')}/>
-                <a href={`${Auth_url}`}><h3>Check Spotify Login</h3></a>
+                
                 <div className="music_para">
                     <section className="music_prara_box_1">
                     <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/ab67616d0000b2736a1f5bea27488489a5c6d604.jpg')}
