@@ -54,10 +54,10 @@ class MusicMain extends Component {
              code
          })
          
-        axios.post(`https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state` )
-        
+        axios.get(`https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state` )
+
         if(code){
-            axios.post(`http://localhost:8000/users/spotify_login`,{code}).then((response) => {
+            axios.post(`/users/spotify_login`,{code}).then((response) => {
 
                 // If success then cut the code string from the URL and execute the other thing
                 window.history.pushState({}, null, "/music");
@@ -134,17 +134,26 @@ class MusicMain extends Component {
                 </Helmet>
                 <h1>MUSIC</h1>
                 <a href={`${Auth_url}`}><h3>Check Spotify Login</h3></a>
-                {this.state.Spotify_CoolForNow.map(data => {
-                    // const check_img_size = 
-                    return(
-                        <div className='coolForNow'>
-                            {data.name}
-                            <img src={data.images[1].url}/>
-                            {data.artists[0].name}
-                            
-                        </div> 
-                    )
-                })}
+                <section className="spotify_CoolForNow_section_1">
+                    <div className="Spotify_PlayList_CoolForNow">
+                        {this.state.Spotify_CoolForNow.map(data => {
+                            // const check_img_size = data.images.reduce((smallest, image)=>{
+                            //     if(image.height < smallest.height) return image
+                            //     return smallest
+                            // }, data.images[0])
+                            return(
+                                <div className='coolForNow'>
+                                <div className="coolForNowBox">
+                                    <h2>{data.name}</h2>
+                                    <img src={data.images[0].url}/>
+                                    <h3>{data.artists[0].name}</h3>
+                                </div>
+                                    
+                                </div> 
+                            )
+                        })}
+                    </div>
+                </section>
                 <input className='LoginInput' type='search' name='searchResult'  onChange={this.handleChange('searchResult')}/>
                 
                 <div className="music_para">

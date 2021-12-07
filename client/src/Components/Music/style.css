@@ -40,8 +40,58 @@
     object-fit: cover;
 }
 .coolForNow{
-    padding: 2em 0em;
+    padding: 1em 0em;
 }
-/* .coolForNow img{
-    width: 50%;
-} */
+.Spotify_PlayList_CoolForNow{
+    padding: 0em 1em;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 7px;
+   
+}
+.coolForNowBox img{
+    /* padding: 1em; */
+    width: 300px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+.spotify_CoolForNow_section_1{
+    padding: 2em 0em;
+    background-color: black;
+    color: white;
+}
+
+@media screen and (max-width: 768px){
+    .coolForNow{
+        padding: 0.4em 0em;
+    }
+    .coolForNowBox img{
+        /* padding: 1em; */
+        width: 150px;
+        margin: 0 auto;
+    }
+    .Spotify_PlayList_CoolForNow{
+        padding: 0em 0.2em;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 1px;
+    }
+}
+
+@media screen and (max-width: 320px){
+    .Spotify_PlayList_CoolForNow{
+        padding: 0em 0.4em;
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        /* grid-gap: 2px; */
+        grid-column-gap: 5px;
+    }
+    .coolForNow{
+        padding: 0.2em 0em;
+    }
+    .coolForNowBox img{
+        /* padding: 1em; */
+        width: 120px;
+        margin: 0 auto;
+    }
+}
