@@ -8,7 +8,10 @@ import{ScrollTrigger} from 'gsap/ScrollTrigger'
 class Navbar extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = { 
+            clientId: '7274681e5f564e29b6246893ed62f20a',
+            redirectUri: 'http://localhost:3000/music',
+         }
     }
     componentDidMount(){
          window.addEventListener('scroll',()=>{
@@ -74,6 +77,7 @@ class Navbar extends Component {
         
     }
     render() { 
+        const Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
         return ( 
             <div className='navbarMain'>
                <section className='navMain '>
@@ -84,7 +88,7 @@ class Navbar extends Component {
                         <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
                             <ul className='links'>
                                 <li><a href='/' style={{color: "red"}}>HOME </a></li>
-                                <li><a href='/music'>MUSIC</a></li>
+                                <li><a href={Auth_url}>MUSIC</a></li>
                                 <li><a href='/artites'>ARTISTE</a></li>
                                 <li><a href='/product'>PRODUCTS</a></li>
                                 <li><a href='/tranding'>TRANDING</a></li>
