@@ -34,7 +34,7 @@ class MainApp extends Component {
                     <meta name="description" content="NEXT-PLATFORM-HOME" />
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
-                <div className=' mainApp animate__animated animate__fadeIn animate__slower '>
+                <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
                             <Navbar/>

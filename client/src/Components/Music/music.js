@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Helmet } from 'react-helmet';
 import {TimelineLite, TimelineMax} from 'gsap'
 import {gsap} from 'gsap'
+import {Button,Card} from 'react-bootstrap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger'
 const SpotifyWebApi = require('spotify-web-api-node');
 let token_main = localStorage.getItem('spotify_access_token')
@@ -143,20 +144,21 @@ class MusicMain extends Component {
                             // }, data.images[0])
                             return(
                                 <div className='coolForNow'>
-                                <div className="coolForNowBox">
-                                    <h2>{data.name}</h2>
-                                    <img src={data.images[0].url}/>
-                                    <h3>{data.artists[0].name}</h3>
-                                </div>
-                                    
+                                    <Card  style={{backgroundColor: 'black', color: "white", padding: "0.1em" }}>
+                                        <Card.Img src={data.images[0].url} />
+                                        <Card.Body>
+                                            <Card.Title style={{ color: 'red' }}><h1>{data.name}</h1></Card.Title>
+                                            <Card.Title style={{ color: 'white' }}><h1>{data.artists[0].name}</h1></Card.Title>
+                                        </Card.Body>
+                                        </Card>
                                 </div> 
                             )
                         })}
                     </div>
                 </section>
-                <input className='LoginInput' type='search' name='searchResult'  onChange={this.handleChange('searchResult')}/>
+                {/* <input className='LoginInput' type='search' name='searchResult'  onChange={this.handleChange('searchResult')}/> */}
                 
-                <div className="music_para">
+                {/* <div className="music_para">
                     <section className="music_prara_box_1">
                     <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/ab67616d0000b2736a1f5bea27488489a5c6d604.jpg')}
                                     alt="First slide"
@@ -177,7 +179,7 @@ class MusicMain extends Component {
                                     alt="First slide"
                                 />
                     </section>
-                </div>
+                </div> */}
             </div>
          );
     }

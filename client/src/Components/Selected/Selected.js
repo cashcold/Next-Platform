@@ -29,24 +29,10 @@ class Selected extends Component {
     gsap.registerPlugin(ScrollTrigger)
 
     const RegisterSelectedMainTrigger = ()=>{
-        const img__adv__me_TL =  gsap.timeline()
-        img__adv__me_TL
-            .from('.img__adv__me h1',{xPercent: -800})
-            .from('.img__me__tag_img_1',{xPercent: 800})
-            .from('.img__me__tag_img_2',{xPercent: -800})
+       
 
 
-        ScrollTrigger.create({ 
-            animation: img__adv__me_TL,
-            trigger: '.img__adv__me',
-            toggleActions: "restart none none none",
-            start: '5px 0%',
-            end: '+=1000',
-            // scrub: true,
-            // pin: true,
-            // anticipatePin: 1,
-            // pinSpacing: false
-        })
+       
     }
     RegisterSelectedMainTrigger()
 

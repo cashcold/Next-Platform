@@ -61,6 +61,7 @@
     color: white;
 }
 
+
 @media screen and (max-width: 768px){
     .coolForNow{
         padding: 0.4em 0em;
