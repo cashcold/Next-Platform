@@ -147,7 +147,7 @@ class MusicMain extends Component {
                                     <Card  style={{backgroundColor: 'black', color: "white", padding: "0.1em" }}>
                                         <Card.Img src={data.images[0].url} />
                                         <Card.Body>
-                                            <Card.Title style={{ color: 'red' }}><h1>{data.name}</h1></Card.Title>
+                                            <Card.Title style={{ color: 'rgb(236, 78, 78)' }}><h1>{data.name}</h1></Card.Title>
                                             <Card.Title style={{ color: 'white' }}><h1>{data.artists[0].name}</h1></Card.Title>
                                         </Card.Body>
                                         </Card>

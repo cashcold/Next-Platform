@@ -106,7 +106,7 @@ class Footer extends React.Component{
                 </section> 
                 <section className='lastFooter'>
                     <div className='footerMsg'>
-                    <p>&copy; COPYRIGHT  || DEVELOP BY FRANK JUNGLE CASHCOLD || PRIVACY POLICY || TERMS OF USE || AD CHOICES || COOKIE POLICY || COOKIE SETTINGS</p>
+                    <p>&copy; COPYRIGHT  || DEVELOP BY NEXT-PLATFORM TEAM || PRIVACY POLICY || TERMS OF USE || AD CHOICES || COOKIE POLICY || COOKIE SETTINGS</p>
                     </div>
                 </section>
             </div>

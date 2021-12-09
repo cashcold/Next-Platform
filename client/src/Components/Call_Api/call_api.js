@@ -128,7 +128,7 @@ class Call_Api extends Component {
             <div className='call_api_main'>
                  <Helmet>
                     <base />
-                    <title>Top Trending</title>
+                    <title>WATCH NEXT</title>
                     <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
                     <link rel="canonical" href="somelink" />
                 </Helmet>

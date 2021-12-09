@@ -95,7 +95,7 @@ class Navbar extends Component {
                                 <li><a href='/sport'>SPORT</a></li>
                                 <li><a href='/business'>BUSINESS</a></li>
                                 <li><a href='/offer'>OFFER</a></li>
-                                <li><a href='/next'>NEXT</a></li>
+                                <li><a href='/watch_next'>WATCH NEXT</a></li>
                                 <li><a href='/about-us'>ABOUT US</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>

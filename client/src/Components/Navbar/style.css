@@ -243,9 +243,12 @@
         grid-template-columns: repeat(2,1fr);
         padding-right: 10em;
         padding-top: 2em;
-        min-height: 10vh;
+        min-height: 20vh;
         /* background-color:#2B0945; */
         position: relative;
     }
+    /* .top_form_go{
+        padding-top: 8em;
+    } */
 
 }

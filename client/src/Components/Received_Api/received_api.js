@@ -42,7 +42,7 @@ class ReceivedApi extends Component {
             <div className='recceived_api'>
                 <Helmet>
                     <base />
-                    <title>{this.state.sport_api_head_Text}</title>
+                    <title> {this.state.sport_api_head_Text}</title>
                     <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
                     <link rel="canonical" href="somelink" />
                 </Helmet>
