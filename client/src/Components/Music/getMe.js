@@ -1,7 +1,6 @@
-const fs = require('fs')
 const SpotifyWebApi = require('spotify-web-api-node');
-let token_main = localStorage.getItem('spotify_access_token')
-const token = token_main;
+let token = localStorage.getItem('spotify_access_token')
+import SpotifyPlayer from 'react-spotify-web-playback';
 
 var credentials = {
   clientId: '7274681e5f564e29b6246893ed62f20a',
@@ -44,8 +43,6 @@ async function getUserPlaylists(userName) {
 
     const tracksJSON = { tracks }   
     let data = JSON.stringify(tracksJSON);
-    // fs.writeFileSync(playlist.name+'.json', data);
-    // localStorage.setItem('Spotify_CoolForNow', data)
   }
 }
 

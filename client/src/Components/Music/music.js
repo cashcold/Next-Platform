@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
+import SpotifyPlayer from 'react-spotify-web-playback';
 // import './getMe.js'
 // import './script_function.js'
 import axios from 'axios'
@@ -24,7 +25,7 @@ class MusicMain extends Component {
              redirectUri: 'http://localhost:3000/music',
              code: '',
              Spotify_CoolForNow: [],
-             Spotify_CoolForNow_PlayList_title: [],
+             Spotify_PlayList_1: [],
              searchResult: []
             //  Spotify_CoolForNow_PlayList_uri: '',
             //  Spotify_CoolForNow_PlayList_albumurl: '',
@@ -82,14 +83,26 @@ class MusicMain extends Component {
         const spotifyApi = new SpotifyWebApi(credentials);
           spotifyApi.setAccessToken(token);
 
-          spotifyApi.getArtistAlbums('43ZHCT0cAZBISjO8DG9PnE')
-          .then((data)=>{
-              this.setState({Spotify_CoolForNow: data.body.items.map(data => data) })
-             
+        
+
+
+            
+          spotifyApi.getPlaylist('1Co5NMbuO8JqM3GtB67cmU').then((data)=>{
+            const CoolForNow = data.body.tracks.items
+            this.setState({
+                Spotify_CoolForNow: CoolForNow
+            })
+            const Spotify_CoolForNow_JSON = data.body.tracks.items
+         let Spotify_data = JSON.stringify(Spotify_CoolForNow_JSON);
+
+            localStorage.setItem("Spotify_CoolForNow", Spotify_data )
           })
-            // axios.get(`https://api.spotify.com/v1/me/playlists`,{
-            //     headers: {Authorization: `Bearer ${token}`}
-            // }).then(data => console.log(data))
+          
+        //   spotifyApi.getUserPlaylists().then((data)=>{
+        //     console.log('This is PlayList main', data.body)
+        //   })
+
+         
             
             gsap.registerPlugin(ScrollTrigger)
              const RegisterMusicMainTrigger = ()=>{
@@ -120,11 +133,11 @@ class MusicMain extends Component {
     render() { 
       
         console.log('this state Spotify_CoolForNow data ', this.state.Spotify_CoolForNow)
+
         // console.log('this state searchResult '+ this.state.searchResult)
 
    
 
-       const Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
         return ( 
             <div className='music_main'>
                  <Helmet>
@@ -134,21 +147,17 @@ class MusicMain extends Component {
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <h1>MUSIC</h1>
-                <a href={`${Auth_url}`}><h3>Check Spotify Login</h3></a>
                 <section className="spotify_CoolForNow_section_1">
                     <div className="Spotify_PlayList_CoolForNow">
                         {this.state.Spotify_CoolForNow.map(data => {
-                            // const check_img_size = data.images.reduce((smallest, image)=>{
-                            //     if(image.height < smallest.height) return image
-                            //     return smallest
-                            // }, data.images[0])
                             return(
                                 <div className='coolForNow'>
-                                    <Card  style={{backgroundColor: 'black', color: "white", padding: "0.1em" }}>
-                                        <Card.Img src={data.images[0].url} />
+                                    <Card  style={{backgroundColor: 'black', color: "white", padding: "0.5em" }}>
+                                       {/* <Card.Img src={data.images[0].url} /> */}
+                                       <Card.Img src={data.track.album.images[0].url} />
                                         <Card.Body>
-                                            <Card.Title style={{ color: 'rgb(236, 78, 78)' }}><h1>{data.name}</h1></Card.Title>
-                                            <Card.Title style={{ color: 'white' }}><h1>{data.artists[0].name}</h1></Card.Title>
+                                            <Card.Title style={{ color: 'rgb(236, 78, 78)' }}><h1>{data.track.name}</h1></Card.Title>
+                                            <Card.Title style={{ color: 'white' }}><h1>{data.track.artists[0].name}</h1></Card.Title>
                                         </Card.Body>
                                         </Card>
                                 </div> 
