@@ -12,6 +12,7 @@ import Call_Api from './Components/Call_Api/call_api';
 import ReceivedApi from './Components/Received_Api/received_api';
 import { Helmet } from 'react-helmet';
 import MusicMain from './Components/Music/music';
+import FoodMain from './Components/Food/food';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -45,6 +46,7 @@ class MainApp extends Component {
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
+                                <Route path='/food_home' exact component={FoodMain}/>
                                 <Route path='/watch_next' exact component={Call_Api}/>
                                 {/* <Route path='/call_api' exact component={Call_Api}/> */}
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>

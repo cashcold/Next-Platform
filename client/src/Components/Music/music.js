@@ -87,7 +87,7 @@ class MusicMain extends Component {
 
 
             
-          spotifyApi.getPlaylist('1Co5NMbuO8JqM3GtB67cmU').then((data)=>{
+          spotifyApi.getPlaylist('3M75W37HkFPdnkkaaOhvPo').then((data)=>{
             const CoolForNow = data.body.tracks.items
             this.setState({
                 Spotify_CoolForNow: CoolForNow

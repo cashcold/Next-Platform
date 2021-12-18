@@ -1,0 +1,21 @@
+.data_TheMeal img{
+    width: 80%;
+    margin: 0 auto;
+}
+.dsiplay_the_meal_api{
+    padding: 0em 1em;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 7px;
+   
+}
+
+@media screen and (max-width: 768px){
+    .dsiplay_the_meal_api{
+        padding: 0em 1em;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 7px;
+       
+    }
+}

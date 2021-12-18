@@ -46,7 +46,7 @@
     padding: 0em 1em;
     display: grid;
     grid-template-columns: repeat(3,1fr);
-    grid-gap: 7px;
+    grid-gap: 2px;
    
 }
 .coolForNowBox img{
