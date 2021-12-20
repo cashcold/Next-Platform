@@ -19,6 +19,22 @@ class FoodMain extends Component {
     }
 
     componentDidMount(){
+        var options = {
+            method: 'GET',
+            url: 'https://imdb8.p.rapidapi.com/title/find',
+            params: {q: 'game of thr'},
+            headers: {
+              'x-rapidapi-host': 'imdb8.p.rapidapi.com',
+              'x-rapidapi-key': 'eb58aea156msh88be6213c1aaeddp133cc9jsn5e4283eb9196'
+            }
+          };
+          
+          axios.request(options).then(function (response) {
+              console.log(response.data);
+          }).catch(function (error) {
+              console.error(error);
+          });
+        
         axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
         .then((data)=>{
             this.setState({

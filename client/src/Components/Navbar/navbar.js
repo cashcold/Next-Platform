@@ -92,9 +92,9 @@ class Navbar extends Component {
                                 <li><a href='/artites'>ARTISTE</a></li>
                                 <li><a href='/product'>PRODUCTS</a></li>
                                 <li><a href='/tranding'>TRANDING</a></li>
-                                <li><a href='/sport'>SPORT</a></li>
+                                <li><a href='/sport-main-home'>SPORT</a></li>
                                 <li><a href='/business'>BUSINESS</a></li>
-                                <li><a href='/food_home'>FOOD</a></li>
+                                <li><a href='/food-main-home'>FOOD</a></li>
                                 <li><a href='/watch_next'>WATCH NEXT</a></li>
                                 <li><a href='/about-us'>ABOUT US</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
