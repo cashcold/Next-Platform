@@ -10,30 +10,65 @@ class FoodMain extends Component {
         this.state = { 
             theMealFood_db: [],
             searchResultFood: '',
-            searchResultFoodAll: ''
+            searchResultFoodAll: '',
+             offset: 0,
+             data: [],
+             perPage: 12,
+             currentPage: 0
          }
          this.handleChange = this.handleChange.bind(this)
+         this.handlePageClick = this.handlePageClick.bind(this);
     }
     handleChange = input => (event)=>{
         this.setState({[input]: event.target.value})
     }
+    receivedData() {
+        axios
+            .get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
+            .then(res => {
+
+                const data = res.data.meals;
+                console.log(data)
+                console.log('check out')
+                const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+                const postData = slice.map(pd => <React.Fragment>
+                    <div className="food_box_main_in">
+                        <div className="food_box">
+                            <h3>{pd.strMeal}</h3>
+                            <img src={pd.strMealThumb}/>
+                        </div>
+                    </div>
+                  
+                </React.Fragment>)
+                // const postData = slice.map(pd => <React.Fragment>
+                //     <h3>{pd.strMeal}</h3>
+                //  <img src={pd.strMealThumb}/>
+                // </React.Fragment>)
+
+                this.setState({
+                    pageCount: Math.ceil(data.length / this.state.perPage),
+                   
+                    postData
+                })
+            });
+    }
+    handlePageClick = (e) => {
+        const selectedPage = e.selected;
+        const offset = selectedPage * this.state.perPage;
+
+        this.setState({
+            currentPage: selectedPage,
+            offset: offset
+        }, () => {
+            this.receivedData()
+        });
+
+    };
+   
 
     componentDidMount(){
-        var options = {
-            method: 'GET',
-            url: 'https://imdb8.p.rapidapi.com/title/find',
-            params: {q: 'game of thr'},
-            headers: {
-              'x-rapidapi-host': 'imdb8.p.rapidapi.com',
-              'x-rapidapi-key': 'eb58aea156msh88be6213c1aaeddp133cc9jsn5e4283eb9196'
-            }
-          };
-          
-          axios.request(options).then(function (response) {
-              console.log(response.data);
-          }).catch(function (error) {
-              console.error(error);
-          });
+        
+        
         
         axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
         .then((data)=>{
@@ -45,17 +80,18 @@ class FoodMain extends Component {
             localStorage.setItem('TheMealApi',TheMealApi)
         })
       
-        axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
-        .then((data)=>{
-            console.log("other from ",data.data.meals)
-            this.setState({
-                searchResultFoodAll: data.data
-            })
-        })
+        // axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
+        // .then((data)=>{
+        //     console.log("other from ",data.data.meals)
+        //     this.setState({
+        //         searchResultFoodAll: data.data
+        //     })
+        // })
+        this.receivedData()
       
     }
     render() { 
-        // console.log('this is now new ' , this.state.theMealFood_db)
+        console.log('this is now new ' , this.state.theMealFood_db)
         // console.log(this.state.theMealFood_db.map(data => data.strMeal))
         console.log(this.state.searchResultFood)
         return ( 
@@ -66,12 +102,30 @@ class FoodMain extends Component {
                     <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
                     <link rel="canonical" href="somelink" />
                 </Helmet>
+                <section className="foodDataSection">
+                  {this.state.postData}
+
+                </section>
+                <section className='check_pagination'>
+                <ReactPaginate
+                    previousLabel={"prev"}
+                    nextLabel={"next"}
+                    breakLabel={"..."}
+                    breakClassName={"break-me"}
+                    pageCount={this.state.pageCount}
+                    marginPagesDisplayed={2}
+                    pageRangeDisplayed={5}
+                    onPageChange={this.handlePageClick}
+                    containerClassName={"pagination"}
+                    subContainerClassName={"pages pagination"}
+                    activeClassName={"active"}/>
+                </section>
                 <section className="foodMain_section_1">
                     <h1>FOOD</h1>
                       <input className='SearcInput' type='search' name='searchResult'  onChange={this.handleChange('searchResultFood')}/>
                   
                 </section>
-                <section className="dsiplay_the_meal_api">
+                {/* <section className="dsiplay_the_meal_api">
                 {this.state.theMealFood_db.map(data => {
                         return(
                             <div className='data_TheMeal'>
@@ -80,7 +134,7 @@ class FoodMain extends Component {
                             </div>
                         )
                     })}
-                </section>
+                </section> */}
             </div>
          );
     }
