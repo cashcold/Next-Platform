@@ -58,7 +58,7 @@ class GetFoodMain extends Component {
                         }}>
                             <img src={pd.strMealThumb}/>
                             <h3>{pd.strMeal}</h3>
-                            <a href='#' className='btn btn-warning'>Order Now</a>
+                            <a href='#' className='btn btn-warning'>Learn To Do <br/><span>For Free</span></a>
                         </div>
                     </div>
                   
