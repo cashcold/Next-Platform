@@ -1,0 +1,83 @@
+.data_TheMeal img{
+    width: 100%;
+    margin: 0 auto;
+    transition: all 0.5s cubic-bezier(1,.77,.87,-1.14)
+}
+.foodDataSection{
+    padding: 0em 1em;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 7px;
+    background-color: black;
+    color:white;
+    font-weight: bolder;
+   
+   
+}
+.pagination {
+    margin: 15px auto;
+    display: flex;
+    list-style: none;
+    outline: none;
+  }
+  .pagination > .active > a{
+    background-color: #47ccde ;
+    border-color: #47ccde ;
+    color: #fff;
+  }
+  .pagination > li > a{
+    border: 1px solid #47ccde ;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+  }
+
+
+  .food_box img{
+      border-radius: 10%;
+      backdrop-filter: blur(5px);
+      padding-bottom: 1.5em;
+  }
+  .food_box_main_in{
+      padding: 4.1em 3em;
+  }
+ .food_box h3{
+     padding: 1.3em 0em;
+ }
+
+
+
+
+
+
+  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+    background-color: #47ccde ;
+    border-color: #47ccde;
+    outline: none ;
+  }
+  .pagination > li > a, .pagination > li > span{
+    color: #47ccde
+  }
+  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+    border-radius: unset
+  }
+
+
+
+@media screen and (max-width: 768px){
+    .foodDataSection{
+        padding: 0em 1em;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 7px;
+       
+    }
+    .food_box img{
+        border-radius: 8%;
+        backdrop-filter: blur(5px);
+        padding-bottom: 1.5em;
+    }
+    .food_box_main_in{
+        padding: 2em 1.2em;
+    }
+}

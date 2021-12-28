@@ -13,6 +13,10 @@ class Navbar extends Component {
             redirectUri: 'https://nest-platform.herokuapp.com/music',
          }
     }
+
+
+
+
     componentDidMount(){
          window.addEventListener('scroll',()=>{
             const header = document.querySelector('.navMain')
@@ -70,8 +74,8 @@ class Navbar extends Component {
 
         }
         RegisterHomeTrigger()
-
-
+       
+       
         
 
         
