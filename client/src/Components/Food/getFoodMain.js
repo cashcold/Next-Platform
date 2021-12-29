@@ -76,6 +76,7 @@ class GetFoodMain extends Component {
             });
     }
     handlePageClick = (e) => {
+         window.scrollTo(0, 0)
         const selectedPage = e.selected;
         const offset = selectedPage * this.state.perPage;
 

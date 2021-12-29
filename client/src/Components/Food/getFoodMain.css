@@ -68,8 +68,8 @@
     .foodDataSection{
         padding: 0em 1em;
         display: grid;
-        grid-template-columns: repeat(2,1fr);
-        grid-gap: 7px;
+        grid-template-columns: repeat(1,1fr);
+        grid-gap: 2px;
        
     }
     .food_box img{
@@ -78,13 +78,24 @@
         padding-bottom: 1.5em;
     }
     .food_box_main_in{
-        padding: 2em 1.2em;
+        padding: 2em 0em;
     }
     .food_box_main_in{
-        padding: 3.1em 1.2em;
+        padding: 3.5em 0em;
     }
    .food_box h3{
        padding: 1.3em 0em;
    }
   
 }
+
+
+/* @media screen and (max-width: 320px){
+  .foodDataSection{
+    padding: 0em 1em;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 7px;
+   
+}
+} */
