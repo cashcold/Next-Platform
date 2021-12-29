@@ -14,6 +14,7 @@ class GetFoodMain extends Component {
         this.state = { 
             theMealFood_db: [],
             searchResultFood: '',
+            searchResultFood_api: [],
             searchResultFoodAll: '',
              offset: 0,
              data: [],
@@ -117,6 +118,7 @@ class GetFoodMain extends Component {
     render() { 
         // console.log('this is now new ' , this.state.theMealFood_db)
         // console.log(this.state.theMealFood_db.map(data => data.strMeal))
+        console.log(this.state.searchResultFood_api)
         return ( 
             <div className='food_main'>
                   <Helmet>
@@ -126,10 +128,28 @@ class GetFoodMain extends Component {
                     <link rel="canonical" href="somelink" />
                 </Helmet>
                 <ToastContainer/>
+                <section className="foodMain_section_1">
+                    <h1>FOOD</h1>
+                      <input className='SearcInput' type='search' name='searchResult'  onChange={this.handleChange('searchResultFood')}/>
+                      
+                      <i class="fa fa-search fa-2x" aria-hidden="true" onClick={()=>{
+                             axios.post(`https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata`).then(data =>this.setState({
+                                searchResultFood_api: data.data.meals
+                               }))
+                        }}></i>
+                      {this.state.searchResultFood_api.map(data => {
+                        return(
+                            <div className='getDrinksmap'>
+                                <img src={data.strMealThumb}/>
+                            <h3>{data.strMeal}</h3>
+                            </div>
+                        )
+                    })}
+                  
+                </section>
                 <section className="foodDataSection">
                   {this.state.postData}
-
-                </section>
+                 </section>
                 <section className='check_pagination'>
                 <ReactPaginate
                     previousLabel={"prev"}
@@ -144,11 +164,7 @@ class GetFoodMain extends Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
                 </section>
-                <section className="foodMain_section_1">
-                    <h1>FOOD</h1>
-                      <input className='SearcInput' type='search' name='searchResult'  onChange={this.handleChange('searchResultFood')}/>
-                  
-                </section>
+               
             </div>
          );
     }

@@ -4,7 +4,6 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import { Helmet } from 'react-helmet';
 import GetFoodMain from './getFoodMain';
-import GetDrinksMain from './getDrinks';
 
 class FoodMain extends Component {
     constructor(props) {
@@ -16,7 +15,6 @@ class FoodMain extends Component {
             <div className='getFoodMain'>
                 <section className="getfood_section_1">
                     <GetFoodMain/>
-                    <GetDrinksMain/>
                 </section>
             </div>
          );
