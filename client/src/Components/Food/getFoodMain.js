@@ -16,6 +16,7 @@ class GetFoodMain extends Component {
             searchResultFood: '',
             searchResultFood_api: [],
             searchResultFoodAll: '',
+            theMealFood_db_landing: [],
              offset: 0,
              data: [],
              perPage: 12,
@@ -104,6 +105,13 @@ class GetFoodMain extends Component {
             let TheMealApi = JSON.stringify(stri_the_meal_api)
             localStorage.setItem('TheMealApi',TheMealApi)
         })
+        axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=52822`)
+        .then((data)=>{
+            this.setState({
+                theMealFood_db_landing: data.data.meals
+            })
+        })
+        
       
         // axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
         // .then((data)=>{
@@ -119,6 +127,7 @@ class GetFoodMain extends Component {
         // console.log('this is now new ' , this.state.theMealFood_db)
         // console.log(this.state.theMealFood_db.map(data => data.strMeal))
         console.log(this.state.searchResultFood_api)
+        console.log(this.state.theMealFood_db_landing)
         return ( 
             <div className='food_main'>
                   <Helmet>
@@ -146,6 +155,82 @@ class GetFoodMain extends Component {
                         )
                     })}
                   
+                </section>
+                <section className="landing_1_section">
+                    <div className="landing_box_1 box_landing_A">
+                            <div className="getFood_hhead land_subtru">
+                                <h1>You Can Order Your<br/> <br/><span >{this.state.theMealFood_db_landing.map(data => data.strMeal)}</span></h1>
+                            </div>
+                            <div className="mobileVision">
+                        {this.state.theMealFood_db_landing.map(data => {
+                            return(
+                                <div><img src={data.strMealThumb}/></div>
+                            )
+                        })}
+                        {this.state.theMealFood_db_landing.map(data => {
+                            return(
+                                <div>
+                                    {/* {data.strInstructions} */}
+                                    
+                                    </div>
+                            )
+                        })}
+                    </div>
+                            <div className="div promoCode">
+                                <h2>Use Your Promo Code To Get <span>65% Discount Now</span></h2>
+                            </div>
+                            {/* <div className="ordertext">
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat architecto modi harum. Laudantium neque iure recusandae praesentium libero impedit harum dolorem eligendi quidem? Cupiditate nobis repellendus provident fugit quas doloribus. Adipisci maiores velit, quos et impedit, cupiditate minima molestias molestiae dolor eveniet incidunt fugiat similique ipsam sunt, officia minus eaque.</p>
+                            </div> */}
+                             {this.state.theMealFood_db_landing.map(data => {
+                            return(
+                                <div>
+                                    <h2 className='span_color'>Ingredient</h2>
+                                    <ul>
+                                        <li><h5>{data.strIngredient1}</h5></li>
+                                        <li><h5>{data.strIngredient2}</h5></li>
+                                        <li><h5>{data.strIngredient3}</h5></li>
+                                        <li><h5>{data.strIngredient4}</h5></li>
+                                        <li><h5>{data.strIngredient5}</h5></li>
+                                        <li><h5>{data.strIngredient6}</h5></li>
+                                        <li><h5>{data.strIngredient7}</h5></li> 
+                                        </ul>
+                                    
+                                    </div>
+                            )
+                        })}
+                             <div className='formA'>
+                                        <form className='myFormControl'>
+                                            <div className='myForms'>
+                                                <select className='selectOption' name="" id="changeData">
+                                                <option>SELECT CITY</option>
+                                                <option data-value="Accra">Accra</option>
+                                                <option data-value="Kumasi">Kumasi</option>
+                                                <option data-value="Cape Coast">Cape Coast</option>
+                                                <option data-value="Koforidua">Koforidua</option>
+                                                <option data-value="Sekondi-Takoradi">Sekondi-Takoradi</option>
+                                                <option data-value="Sunyani">Sunyani</option>
+                                                <option data-value="Tamale">Tamale</option>
+                                                <option data-value="Bolgatanga">Bolgatanga</option>
+                                                <option data-value="Wa">Wa</option>
+                                                <option data-value="Ho">Ho</option>
+                                                </select>
+                                            </div>
+                                            <div className='myForms'>
+                                                 <input type='text' name='name' placeholder='PHONE'/>
+                                            </div>
+                                            <a href='' className='btn btn-danger contactBtn'>ORDER NOW</a>
+                                        </form>
+                                   </div>
+                    </div>
+                    <div className="landing_box_2 land_subtru box_landing_B for_web_landing">
+                        {this.state.theMealFood_db_landing.map(data => {
+                            return(
+                                <div><img src={data.strMealThumb}/></div>
+                            )
+                        })}
+                        <div className='landoverlay'></div>
+                    </div>
                 </section>
                 <section className="foodDataSection">
                   {this.state.postData}
