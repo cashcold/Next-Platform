@@ -1,3 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+
+
 .data_TheMeal img{
     width: 100%;
     margin: 0 auto;
@@ -44,6 +49,9 @@
  .food_box h3{
      padding: 1.3em 0em;
  }
+ .styleTextName{
+  font-family: 'Fredericka the Great', cursive;
+ }
 
  .landing_1_section{
    width: 100%;
@@ -75,7 +83,11 @@
   font-size: bold;
   font-size: 1.5em;
   padding: 2em 1em;
+  font-family: 'Fredericka the Great', cursive;
   /* margin: 2em 0em; */
+}
+.promoCode h2, .span_color{
+  font-family: 'Fredericka the Great', cursive;
 }
 
 .landoverlay{

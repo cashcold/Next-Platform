@@ -16,6 +16,7 @@ class GetFoodMain extends Component {
             searchResultFood: '',
             searchResultFood_api: [],
             searchResultFoodAll: '',
+            Check_searchResultFoodAll: [],
             theMealFood_db_landing: [],
              offset: 0,
              data: [],
@@ -59,8 +60,8 @@ class GetFoodMain extends Component {
                                 })
                         }}>
                             <img src={pd.strMealThumb}/>
-                            <h3>{pd.strMeal}</h3>
-                            <a href='#' className='btn btn-warning'>Learn To Do <br/><span>For Free</span></a>
+                            <h3 className='styleTextName'>{pd.strMeal}</h3>
+                            <a href='#' className='btn btn-warning'>Order Now</a>
                         </div>
                     </div>
                   
@@ -162,20 +163,12 @@ class GetFoodMain extends Component {
                                 <h1>You Can Order Your<br/> <br/><span >{this.state.theMealFood_db_landing.map(data => data.strMeal)}</span></h1>
                             </div>
                             <div className="mobileVision">
-                        {this.state.theMealFood_db_landing.map(data => {
-                            return(
-                                <div><img src={data.strMealThumb}/></div>
-                            )
-                        })}
-                        {this.state.theMealFood_db_landing.map(data => {
-                            return(
-                                <div>
-                                    {/* {data.strInstructions} */}
-                                    
-                                    </div>
-                            )
-                        })}
-                    </div>
+                                {this.state.theMealFood_db_landing.map(data => {
+                                    return(
+                                        <div><img src={data.strMealThumb}/></div>
+                                    )
+                                })}
+                            </div>
                             <div className="div promoCode">
                                 <h2>Use Your Promo Code To Get <span>65% Discount Now</span></h2>
                             </div>
