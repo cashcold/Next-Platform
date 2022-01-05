@@ -132,7 +132,7 @@ class GetFoodMain extends Component {
                     <link rel="canonical" href="somelink" />
                 </Helmet>
                 <ToastContainer/>
-                <section className="foodMain_section_1">
+                {/* <section className="foodMain_section_1">
                     <h1>FOOD</h1>
                       <input className='SearcInput' type='search' name='searchResult'  onChange={this.handleChange('searchResultFood')}/>
                       
@@ -150,7 +150,7 @@ class GetFoodMain extends Component {
                         )
                     })}
                   
-                </section>
+                </section> */}
                 <section className="landing_1_section">
                     <div className="landing_box_1 box_landing_A">
                             <div className="getFood_hhead land_subtru">
@@ -260,7 +260,13 @@ class GetFoodMain extends Component {
                         <img src={require('../../AllInOne/hotel/travis-grossen-AXDTTuh-0UI-unsplash.jpg')}/>
                     </div>
                 </section>
+                <section className="inforFlow">
+                    <div className="flow_client">
+                            <h1>Our Food Are Delivery by Top Neighborhood Restaurants</h1>
+                        </div>
+                </section>
                 <section className="foodDataSection">
+                   
                   {this.state.postData}
                  </section>
                 <section className='check_pagination'>

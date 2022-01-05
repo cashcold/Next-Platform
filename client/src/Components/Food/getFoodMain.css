@@ -167,6 +167,17 @@
   font-family: 'Fredericka the Great', cursive;
 }
 
+.inforFlow{
+  background-color: black;
+  color: white;
+  padding: 4em 0em;
+ 
+}
+.flow_client h1{
+  width: 50%;
+  line-height: 2em;
+  margin: 0 auto;
+}
 
 
   .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
