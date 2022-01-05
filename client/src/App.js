@@ -15,6 +15,7 @@ import MusicMain from './Components/Music/music';
 import FoodMain from './Components/Food/food';
 import SportMain from './Components/Sport/sportMain';
 import GetDrinksMain from './Components/Drinks/getDrinks';
+import ReceiveGetdFood from './Components/Food/ReceivedGetFood';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -49,11 +50,14 @@ class MainApp extends Component {
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>
+                                {/* <Route path='/food-main-home' render={(props)=> <FoodMain {...props} />}/> */}
+                                <Route path='/food-main-home/Receive-food-order/:id'  exact component={ReceiveGetdFood}/> 
                                 <Route path='/food-main-home' exact component={FoodMain}/>
                                 <Route path='/drinks-main' exact component={GetDrinksMain}/>
                                 <Route path='/watch_next' exact component={Call_Api}/>
                                 {/* <Route path='/call_api' exact component={Call_Api}/> */}
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
+                                
                             </Switch>
                             </div>
                             <Footer/>

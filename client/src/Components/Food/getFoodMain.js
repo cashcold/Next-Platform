@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {BrowserRouter as Router, Switch, Route, useParams ,useRouteMatch,Link} from 'react-router-dom'
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
@@ -7,6 +8,7 @@ import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import { Helmet } from 'react-helmet';
 import './getFoodMain.css'
+import ReceiveGetdFood from './ReceivedGetFood';
 class GetFoodMain extends Component {
    
     constructor(props) {
@@ -40,25 +42,10 @@ class GetFoodMain extends Component {
                 const postData = slice.map(pd => <React.Fragment>
                     <div className="food_box_main_in">
                         <div className="food_box" onClick={()=>{
-                            toast.dark(<Card>
-                                <Card.Header as="h5">Meal Order</Card.Header>
-                                <Card.Body>
-                                    <Card.Title>New ORDER</Card.Title>
-                                    <Card.Text>
-                                    <img src={pd.strMealThumb}/>
-                                    <h3>{pd.strMeal}</h3>
-                                    </Card.Text>
-                                    {/* <Button variant="primary">Make Order</Button> */}
-                                </Card.Body>
-                                </Card>, {
-                                position: "top-center",
-                                autoClose: false,
-                                hideProgressBar: false,
-                                closeOnClick: true,
-                                pauseOnHover: true,
-                                draggable: true,
-                                progress: undefined,
-                                })
+                              localStorage.setItem('getFood_api_id',pd.idMeal)
+                              localStorage.setItem('getFood_api_strMealThumb',pd.strMealThumb)
+                              localStorage.setItem('getFood_api_strMeal',pd.strMeal)
+                            window.location =`/food-main-home/Receive-food-order/${pd.strMeal}`
                         }}>
                             <img src={pd.strMealThumb}/>
                             <h3 className='styleTextName'>{pd.strMeal}</h3>
@@ -290,10 +277,35 @@ class GetFoodMain extends Component {
                     subContainerClassName={"pages pagination"}
                     activeClassName={"active"}/>
                 </section>
-               
+                <Switch>    
+                    {/* <Route path='/food-main-home/Receive-food-order'  exact component={ReceiveGetdFood}/>  */}
+                    {/* <Route path='/dashboard/transaction/total_transaction'  exact component={TotalTransaction}/> */}
+                </Switch>
             </div>
          );
     }
 }
  
 export default GetFoodMain;
+
+
+
+// toast.dark(<Card>
+//     <Card.Header as="h5">Meal Order</Card.Header>
+//     <Card.Body>
+//         <Card.Title>New ORDER</Card.Title>
+//         <Card.Text>
+//         <img src={pd.strMealThumb}/>
+//         <h3>{pd.strMeal}</h3>
+//         </Card.Text>
+//         {/* <Button variant="primary">Make Order</Button> */}
+//     </Card.Body>
+//     </Card>, {
+//     position: "top-center",
+//     autoClose: false,
+//     hideProgressBar: false,
+//     closeOnClick: true,
+//     pauseOnHover: true,
+//     draggable: true,
+//     progress: undefined,
+//     })
