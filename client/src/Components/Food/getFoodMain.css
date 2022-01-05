@@ -107,8 +107,8 @@
   position: relative;
 }
 .myForms{
-  padding: 3rem 0 0 9rem;
-  width: 70%;
+  padding: 3rem 0 0 3rem;
+  width: 80%;
   margin: auto;
 }
 .selectOption{
@@ -138,7 +138,34 @@
   color: red ;
 }
 
-
+.branHotel{
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+ background-position: center;
+ background-size: cover;
+ filter: brightness(0.7);
+ padding: 5em 2.5em;
+}
+.banding_hot_box_1 h1{
+  width:  80%;
+  margin: 0 auto;
+}
+.getLanding img{
+  width: 80%;
+  margin: 0 auto;
+ border-radius: 50%;
+ margin: 4em 0em;
+}
+.getLanding span{
+  color: #FD8215;
+  font-size: 1.5em;
+  padding: 2em 1em;
+  font-family: 'Fredericka the Great', cursive;
+}
 
 
 
@@ -213,6 +240,18 @@
     padding: 2em 1em;
     /* margin: 2em 0em; */
   }
+  .branHotel{
+  width: 100%;
+  min-height: 100vh;
+  background-color: black;
+  color: white;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+ background-position: center;
+ background-size: cover;
+ filter: brightness(0.7);
+ padding: 2em 1.5em;
+}
   
 }
 

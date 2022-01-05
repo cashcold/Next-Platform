@@ -18,6 +18,7 @@ class GetFoodMain extends Component {
             searchResultFoodAll: '',
             Check_searchResultFoodAll: [],
             theMealFood_db_landing: [],
+            theMealFood_db_landing_Cake: [],
              offset: 0,
              data: [],
              perPage: 12,
@@ -112,6 +113,12 @@ class GetFoodMain extends Component {
                 theMealFood_db_landing: data.data.meals
             })
         })
+        axios.get(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=52900`)
+        .then((data)=>{
+            this.setState({
+                theMealFood_db_landing_Cake: data.data.meals
+            })
+        })
         
       
         // axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${this.state.searchResultFood}`)
@@ -192,29 +199,29 @@ class GetFoodMain extends Component {
                                     </div>
                             )
                         })}
-                             <div className='formA'>
-                                        <form className='myFormControl'>
-                                            <div className='myForms'>
-                                                <select className='selectOption' name="" id="changeData">
-                                                <option>SELECT CITY</option>
-                                                <option data-value="Accra">Accra</option>
-                                                <option data-value="Kumasi">Kumasi</option>
-                                                <option data-value="Cape Coast">Cape Coast</option>
-                                                <option data-value="Koforidua">Koforidua</option>
-                                                <option data-value="Sekondi-Takoradi">Sekondi-Takoradi</option>
-                                                <option data-value="Sunyani">Sunyani</option>
-                                                <option data-value="Tamale">Tamale</option>
-                                                <option data-value="Bolgatanga">Bolgatanga</option>
-                                                <option data-value="Wa">Wa</option>
-                                                <option data-value="Ho">Ho</option>
-                                                </select>
-                                            </div>
-                                            <div className='myForms'>
-                                                 <input type='text' name='name' placeholder='PHONE'/>
-                                            </div>
-                                            <a href='' className='btn btn-danger contactBtn'>ORDER NOW</a>
-                                        </form>
-                                   </div>
+                                <div className='formA'>
+                                    <form className='myFormControl'>
+                                        <div className='myForms'>
+                                            <select className='selectOption' name="" id="changeData">
+                                            <option>SELECT CITY</option>
+                                            <option data-value="Accra">Accra</option>
+                                            <option data-value="Kumasi">Kumasi</option>
+                                            <option data-value="Cape Coast">Cape Coast</option>
+                                            <option data-value="Koforidua">Koforidua</option>
+                                            <option data-value="Sekondi-Takoradi">Sekondi-Takoradi</option>
+                                            <option data-value="Sunyani">Sunyani</option>
+                                            <option data-value="Tamale">Tamale</option>
+                                            <option data-value="Bolgatanga">Bolgatanga</option>
+                                            <option data-value="Wa">Wa</option>
+                                            <option data-value="Ho">Ho</option>
+                                            </select>
+                                        </div>
+                                        <div className='myForms'>
+                                                <input type='text' name='name' placeholder='PHONE'/>
+                                        </div>
+                                        <a href='' className='btn btn-danger contactBtn'>ORDER NOW</a>
+                                    </form>
+                                </div>
                     </div>
                     <div className="landing_box_2 land_subtru box_landing_B for_web_landing">
                         {this.state.theMealFood_db_landing.map(data => {
@@ -223,6 +230,47 @@ class GetFoodMain extends Component {
                             )
                         })}
                         <div className='landoverlay'></div>
+                    </div>
+                </section>
+                <section className="branHotel">
+                    <div className="banding_hot_box_1">
+                        <h4>IN THE KITCHEN WITH  AFRICA’S BEST CHEFS</h4>
+                        
+                        {this.state.theMealFood_db_landing_Cake.map(data => {
+                        return(
+                            <div className='getDrinksmap getLanding'>
+                                <h1>Get Your <br/><span>{data.strMeal}</span> </h1>
+                                <img src={data.strMealThumb}/>
+                                <h5>GHC 8.00</h5>
+                                 <div className='formA'>
+                                    <form className='myFormControl'>
+                                        <div className='myForms'>
+                                            <select className='selectOption' name="" id="changeData">
+                                            <option>SELECT CITY</option>
+                                            <option data-value="Accra">Accra</option>
+                                            <option data-value="Kumasi">Kumasi</option>
+                                            <option data-value="Cape Coast">Cape Coast</option>
+                                            <option data-value="Koforidua">Koforidua</option>
+                                            <option data-value="Sekondi-Takoradi">Sekondi-Takoradi</option>
+                                            <option data-value="Sunyani">Sunyani</option>
+                                            <option data-value="Tamale">Tamale</option>
+                                            <option data-value="Bolgatanga">Bolgatanga</option>
+                                            <option data-value="Wa">Wa</option>
+                                            <option data-value="Ho">Ho</option>
+                                            </select>
+                                        </div>
+                                        <div className='myForms'>
+                                                <input type='text' name='name' placeholder='PHONE'/>
+                                        </div>
+                                        <a href='' className='btn btn-danger contactBtn'>ORDER NOW</a>
+                                    </form>
+                                </div>
+                            </div>
+                        )
+                    })}
+                    </div>
+                    <div className="banding_hot_box_2">
+                        <img src={require('../../AllInOne/hotel/travis-grossen-AXDTTuh-0UI-unsplash.jpg')}/>
                     </div>
                 </section>
                 <section className="foodDataSection">
