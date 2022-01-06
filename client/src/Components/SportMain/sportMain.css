@@ -1,0 +1,22 @@
+.sportMain{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    'sport_main_section_1 sport_main_section_1 sport_main_section_2'
+    ;
+}
+
+.sport_main_section_1{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    grid-area: sport_main_section_1;
+}
+.sport_main_section_2{
+    width: 100%;
+    min-height: 100vh;
+    background-color: red;
+    color: white;
+    grid-area: sport_main_section_2;
+}
