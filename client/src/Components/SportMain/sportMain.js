@@ -11,7 +11,7 @@ class SportMain extends Component {
          }
     }
     componentDidMount(){
-        axios.get(`https://newsapi.org/v2/everything?q=sport&apiKey=2e98525723394a6bbe973d45e9af7afa`)
+        axios.get(`https://newsapi.org/v2/everything?q=sports&apiKey=2e98525723394a6bbe973d45e9af7afa`)
         .then((data)=>{
             this.setState({
                 news_api_main: data.data.articles
@@ -38,7 +38,7 @@ class SportMain extends Component {
                                             <Card.Text>
                                             <h3>{data.title}</h3>
                                             </Card.Text>
-                                            {/* <Button variant="primary">Make Order</Button> */}
+                                            <a href='#' className='btn btn-warning'>Find More <i class="fas fa-arrow-circle-right"></i></a>
                                         </Card.Body>
                                     </Card>
                                 </div>
