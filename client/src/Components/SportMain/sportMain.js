@@ -34,14 +34,14 @@ class SportMain extends Component {
                             return(
                                 <div>
                                      <Card classMame='card_sport' style={{backgroundColor: "red", color: 'white', margin: '2em 0em'}}>
+                                            <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(data.published).format('LLLL')}</span></h5>
                                         <Card.Img src={data.images[0].url} />
                                         <Card.Body>
                                             <Card.Text>
                                             {/* <h3>{data.title}</h3> */}
                                             <h2>{data.images[0].name}</h2>
-                                            <h3>{data.images[0].caption}</h3>
+                                            <h4>{data.images[0].caption}</h4>
                                             {/* <h5>Post: <span>{data.published}</span></h5> */}
-                                            <h5>Post: <span>{moment(data.published).format('LLLL')}</span></h5>
                                             </Card.Text>
                                             <a href='#' className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
                                         </Card.Body>

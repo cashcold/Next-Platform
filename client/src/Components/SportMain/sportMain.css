@@ -20,3 +20,14 @@
     color: white;
     grid-area: sport_main_section_2;
 }
+
+@media screen and (max-width: 768px){
+    .sportMain{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 
+        'sport_main_section_1'
+        'sport_main_section_2'
+        ;
+    }
+}
