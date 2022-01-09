@@ -43,7 +43,7 @@ class SportMain extends Component {
                                             {/* <h5>Post: <span>{data.published}</span></h5> */}
                                             <h5>Post: <span>{moment(data.published).format('LLLL')}</span></h5>
                                             </Card.Text>
-                                            <a href='#' className='btn btn-warning'>Find More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <a href='#' className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
                                         </Card.Body>
                                     </Card>
                                 </div>
