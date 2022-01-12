@@ -121,8 +121,6 @@ class GetFoodMain extends Component {
     render() { 
         // console.log('this is now new ' , this.state.theMealFood_db)
         // console.log(this.state.theMealFood_db.map(data => data.strMeal))
-        console.log(this.state.searchResultFood_api)
-        console.log(this.state.theMealFood_db_landing)
         return ( 
             <div className='food_main'>
                   <Helmet>

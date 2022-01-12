@@ -1,0 +1,25 @@
+.ScoreBatVideoAPI_DataSection{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+
+
+.pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+    background-color: #47ccde ;
+    border-color: #47ccde;
+    outline: none ;
+  }
+  .pagination > li > a, .pagination > li > span{
+    color: #47ccde
+  }
+  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+    border-radius: unset
+  }
+
+  @media screen and (max-width: 768px){
+    .ScoreBatVideoAPI_DataSection{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+  }
