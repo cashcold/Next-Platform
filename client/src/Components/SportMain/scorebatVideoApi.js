@@ -13,7 +13,8 @@ class ScoreBatVideoApi extends Component {
              offset: 0,
              data: [],
              perPage: 14,
-             currentPage: 0
+             currentPage: 0,
+             loading: []
          }
          this.handleChange = this.handleChange.bind(this)
          this.handlePageClick = this.handlePageClick.bind(this);
@@ -57,7 +58,10 @@ class ScoreBatVideoApi extends Component {
                                     <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(pd.date).format('LLLL')}</span></h5>
                                     <Card.Body>
                                         <Card.Text>
-                                        <span>{pd.videos[0].title} </span>
+                                        <span>{pd.videos[0].title}
+                                        {console.log(pd.videos[0].title)}
+                                            <img className='loading_svg' src={require('../../AllInOne/img2/Spinner-0.7s-200px.svg')}/>
+                                         </span>
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
                                         </Card.Text>
@@ -82,6 +86,14 @@ class ScoreBatVideoApi extends Component {
             });
     }
     componentDidMount(){
+        
+
+        axios.get(`https://www.scorebat.com/video-api/v3/`)
+      .then((data)=>{
+          this.setState({
+              scorebat: data.data.response
+          })
+      })
         axios.get(`https://www.scorebat.com/video-api/v3/`)
       .then((data)=>{
           this.setState({
@@ -92,7 +104,7 @@ class ScoreBatVideoApi extends Component {
       this.receivedData()
   }
     render() { 
-        console.log(this.state.scorebat)
+        // console.log(this.state.scorebat)
         return ( 
             <div className='Scorenat_main_folder'>
                 <section className='bat_score'>
