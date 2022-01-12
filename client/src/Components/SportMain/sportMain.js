@@ -15,10 +15,10 @@ class SportMain extends Component {
     }
     componentDidMount(){
 
-          axios.get(`https://www.scorebat.com/video-api/v3/`)
+          axios.get(`https://skysportsapi.herokuapp.com/sky/getnews/football/v1.0/`)
         .then((data)=>{
             this.setState({
-                skyGetNewsFootball: data.data.response
+                skyGetNewsFootball: data.data
             })
         })
           axios.get(`https://www.scorebat.com/video-api/v3/`)
@@ -39,20 +39,21 @@ class SportMain extends Component {
       
     }
     render() { 
+        console.log(this.state.skyGetNewsFootball)
         console.log(this.state.scorebat)
         return ( 
             <div className='sportMain'>
                 <section className="sport_main_section_1">
                     <div className='Scorebat_main'>
                     
+                      <h1>Sport Highlights</h1>
                     {this.state.scorebat.map(data => {
                         return(
                             <div classMame='score_bat_css'>
-                                <img src={data.thumbnail} />
-                                <h4>{data.title}</h4>
-                                 <Card classMame='card_sport' style={{backgroundColor: "red", color: 'white', margin: '4em 0em'}}>
-                                            <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(data.date).format('LLLL')}</span></h5>
+                                 <Card classMame='card_sport' style={{backgroundColor: "black", color: 'white', padding: '2em 0em'}}>
+                                            
                                         <Card.Img src={data.thumbnail} />
+                                        <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(data.date).format('LLLL')}</span></h5>
                                         <Card.Body>
                                             <Card.Text>
                                             {/* <h3>{data.title}</h3> */}

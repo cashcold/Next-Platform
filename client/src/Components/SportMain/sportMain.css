@@ -4,6 +4,7 @@
     grid-template-areas: 
     'sport_main_section_1 sport_main_section_1 sport_main_section_2'
     ;
+    grid-gap: 0.5em;
 }
 
 .sport_main_section_1{
@@ -12,8 +13,10 @@
     background-color: black;
     color: white;
     grid-area: sport_main_section_1;
+    padding: 3em 0em;
 }
 .sport_main_section_2{
+    padding: 3em 0em;
     width: 100%;
     min-height: 100vh;
     background-color: red;
