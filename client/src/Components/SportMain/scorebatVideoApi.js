@@ -58,9 +58,10 @@ class ScoreBatVideoApi extends Component {
                                     <Card.Body>
                                         <Card.Text>
                                         {/* <h3>{pd.title}</h3> */}
-                                        <h2>{pd.title}</h2>
+                                        <h4>{pd.competition}</h4>
+                                        <p>{pd.title}</p>
                                         </Card.Text>
-                                        <a href='#' className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
+                                        <a href={pd.matchviewUrl} className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
                                     </Card.Body>
                                 </Card>
                         </div>
@@ -90,8 +91,12 @@ class ScoreBatVideoApi extends Component {
       this.receivedData()
   }
     render() { 
+        console.log(this.state.scorebat)
         return ( 
             <div className='Scorenat_main_folder'>
+                <section className='bat_score'>
+                    <h1>Sport HightLight</h1>
+                </section>
                  <section className="ScoreBatVideoAPI_DataSection">
                      {this.state.postData}
                   </section>
