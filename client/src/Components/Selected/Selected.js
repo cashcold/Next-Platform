@@ -368,6 +368,7 @@ class Selected extends Component {
                         <div className='bitImg'>
                             <img src={require('../../VR__Pic/google-play-and-apple-app-store.jpg')} alt='pic'/>
                         </div>
+                        <coingecko-coin-market-ticker-list-widget  coin-id="bitcoin" currency="usd" locale="en"></coingecko-coin-market-ticker-list-widget>
                     </div>
                 </section>
                 <section className='exchangeRate'>

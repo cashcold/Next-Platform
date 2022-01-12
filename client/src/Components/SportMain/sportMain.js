@@ -8,10 +8,27 @@ class SportMain extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            news_api_main: []
+            news_api_main: [],
+            scorebat: [],
+            skyGetNewsFootball: []
          }
     }
     componentDidMount(){
+
+          axios.get(`https://www.scorebat.com/video-api/v3/`)
+        .then((data)=>{
+            this.setState({
+                skyGetNewsFootball: data.data.response
+            })
+        })
+          axios.get(`https://www.scorebat.com/video-api/v3/`)
+        .then((data)=>{
+            this.setState({
+                scorebat: data.data.response
+            })
+        })
+
+
         axios.get(`http://site.api.espn.com/apis/site/v2/sports/football/college-football/news`)
         .then((data)=>{
             this.setState({
@@ -19,12 +36,39 @@ class SportMain extends Component {
                 // news_api_main: data.data.articles
             })
         })
+      
     }
     render() { 
-        console.log(this.state.news_api_main)
+        console.log(this.state.scorebat)
         return ( 
             <div className='sportMain'>
-                <section className="sport_main_section_1"></section>
+                <section className="sport_main_section_1">
+                    <div className='Scorebat_main'>
+                    
+                    {this.state.scorebat.map(data => {
+                        return(
+                            <div classMame='score_bat_css'>
+                                <img src={data.thumbnail} />
+                                <h4>{data.title}</h4>
+                                 <Card classMame='card_sport' style={{backgroundColor: "red", color: 'white', margin: '4em 0em'}}>
+                                            <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(data.date).format('LLLL')}</span></h5>
+                                        <Card.Img src={data.thumbnail} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            {/* <h3>{data.title}</h3> */}
+                                            <h2>{data.title}</h2>
+                                            </Card.Text>
+                                            <a href='#' className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
+                                        </Card.Body>
+                                    </Card>
+                            </div>
+                        )
+                    })}
+                    {/* <img src={this.state.scorebat.map(data => data.thumbnail)}/> */}
+                    </div>
+                </section>
+
+
                 <section className="sport_main_section_2">
                     <div className="otherTopLine">
                         <h1>NCAAF News</h1>
@@ -41,7 +85,6 @@ class SportMain extends Component {
                                             {/* <h3>{data.title}</h3> */}
                                             <h2>{data.images[0].name}</h2>
                                             <h4>{data.images[0].caption}</h4>
-                                            {/* <h5>Post: <span>{data.published}</span></h5> */}
                                             </Card.Text>
                                             <a href='#' className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
                                         </Card.Body>
