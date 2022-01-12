@@ -45,8 +45,8 @@ class ScoreBatVideoApi extends Component {
                 const postData = slice.map(pd => <React.Fragment>
                     <div className="food_box_main_in">
                         <div className="food_box" onClick={()=>{
-                              localStorage.setItem('getFood_api_id',pd.title)
-                            // window.location =`/food-main-home/Receive-food-order/${pd.strMeal}`
+                              localStorage.setItem('scoreBat_matchviewUrl',pd.matchviewUrl)
+                            // window.location =`/sport-main-home/${pd.matchviewUrl}`
                         }}>
                             {/* <img src={pd.strMealThumb}/>
                             <h3 className='styleTextName'>{pd.strMeal}</h3>
@@ -57,11 +57,12 @@ class ScoreBatVideoApi extends Component {
                                     <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(pd.date).format('LLLL')}</span></h5>
                                     <Card.Body>
                                         <Card.Text>
-                                        {/* <h3>{pd.title}</h3> */}
+                                        <span>{pd.videos[0].title} </span>
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
                                         </Card.Text>
-                                        <a href={pd.matchviewUrl} className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
+                                        <a href='#' className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
+                                        {/* <a href={pd.matchviewUrl} className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a> */}
                                     </Card.Body>
                                 </Card>
                         </div>
@@ -95,7 +96,7 @@ class ScoreBatVideoApi extends Component {
         return ( 
             <div className='Scorenat_main_folder'>
                 <section className='bat_score'>
-                    <h1>Sport HightLight</h1>
+                    <h1>Stream and Watch Sport HightLight</h1>
                 </section>
                  <section className="ScoreBatVideoAPI_DataSection">
                      {this.state.postData}

@@ -16,6 +16,8 @@ import FoodMain from './Components/Food/food';
 import GetDrinksMain from './Components/Drinks/getDrinks';
 import ReceiveGetdFood from './Components/Food/ReceivedGetFood';
 import SportMain from './Components/SportMain/sportMain';
+import ScoreBatVideoApi from './Components/SportMain/scorebatVideoApi';
+import ScoreBatReceivedApi from './Components/SportMain/scorebatReceivedApi';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -28,7 +30,7 @@ class MainApp extends Component {
 
     }
     render() { 
-      
+        const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
         return ( 
             // animate__animated animate__zoomIn 
             <Router>
@@ -50,6 +52,7 @@ class MainApp extends Component {
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>
+                                <Route path={`/sport-main-home/${scoreBat_matchviewUrl}`} exact component={ScoreBatReceivedApi}/>
                                 <Route path='/food-main-home/Receive-food-order/:id'  exact component={ReceiveGetdFood}/> 
                                 <Route path='/food-main-home' exact component={FoodMain}/>
                                 <Route path='/drinks-main' exact component={GetDrinksMain}/>
