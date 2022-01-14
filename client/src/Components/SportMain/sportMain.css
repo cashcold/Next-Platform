@@ -24,6 +24,12 @@
     grid-area: sport_main_section_2;
 }
 
+.basket_H1{
+    margin: 2em 0em;
+}
+.basketMain{
+    margin: 4em 0em;
+}
 @media screen and (max-width: 768px){
     .sportMain{
         display: grid;

@@ -10,7 +10,8 @@ class SportMain extends Component {
         super(props);
         this.state = { 
             news_api_main: [],
-            skyGetNewsFootball: []
+            skyGetNewsFootball: [],
+            Espn_Basketball: []
          }
     }
     componentDidMount(){
@@ -31,14 +32,21 @@ class SportMain extends Component {
                 // news_api_main: data.data.articles
             })
         })
+        axios.get(`http://site.api.espn.com/apis/site/v2/sports/basketball/nba/news`)
+        .then((data)=>{
+            this.setState({
+                Espn_Basketball: data.data.articles
+                // news_api_main: data.data.articles
+            })
+        })
       
     }
     render() { 
-        console.log(this.state.skyGetNewsFootball)
+        console.log(this.state.Espn_Basketball)
         return ( 
             <div className='sportMain'>
                 <section className="sport_main_section_1">
-                    
+               
                     <ScoreBatVideoApi/>
                 </section>
 
@@ -66,6 +74,31 @@ class SportMain extends Component {
                                 </div>
                             )
                         })}
+                    <div className="basketballMain">
+                        
+                        <h1 className='basket_H1'>Basketball News</h1>
+                        <div className="basketNewsFlow">
+                        {this.state.Espn_Basketball.map(data => {
+                            return(
+                                <div className='basketMain'>
+                                     <Card classMame='card_sport' style={{backgroundColor: "red", color: 'white', margin: '2em 0em'}}>
+                                            <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(data.published).format('LLLL')}</span></h5>
+                                        <Card.Img src={data.images[0].url} />
+                                        <Card.Body>
+                                            <Card.Text>
+                                            <h2>{data.images[0].name}</h2>
+                                            <h4>{data.images[0].caption}</h4>
+                                            </Card.Text>
+                                            <a href='#' className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
+                                        </Card.Body>
+                                    </Card>
+                                </div>
+                            )
+                        })}
+                        </div>
+                    </div>
+                   
+                        
                     </div>
                 </section>
             </div>
