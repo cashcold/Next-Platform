@@ -46,8 +46,8 @@ class ScoreBatVideoApi extends Component {
                 const postData = slice.map(pd => <React.Fragment>
                     <div className="food_box_main_in">
                         <div className="food_box" onClick={()=>{
-                              localStorage.setItem('scoreBat_matchviewUrl',pd.matchviewUrl)
-                            // window.location =`/sport-main-home/${pd.matchviewUrl}`
+                            //   localStorage.setItem('scoreBat_matchviewUrl',pd.matchviewUrl)
+                            // window.location =`/${pd.matchviewUrl}`
                         }}>
                             {/* <img src={pd.strMealThumb}/>
                             <h3 className='styleTextName'>{pd.strMeal}</h3>
@@ -59,13 +59,12 @@ class ScoreBatVideoApi extends Component {
                                     <Card.Body>
                                         <Card.Text>
                                         <span>{pd.videos[0].title}
-                                        {console.log(pd.videos[0].title)}
                                             <img className='loading_svg' src={require('../../AllInOne/img2/Spinner-0.7s-200px.svg')}/>
                                          </span>
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
                                         </Card.Text>
-                                        <a href='#' className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
+                                        <a target="_blank" href={pd.matchviewUrl}  className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
                                         {/* <a href={pd.matchviewUrl} className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a> */}
                                     </Card.Body>
                                 </Card>

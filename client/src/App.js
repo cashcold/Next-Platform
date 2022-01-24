@@ -16,8 +16,8 @@ import FoodMain from './Components/Food/food';
 import GetDrinksMain from './Components/Drinks/getDrinks';
 import ReceiveGetdFood from './Components/Food/ReceivedGetFood';
 import SportMain from './Components/SportMain/sportMain';
-import ScoreBatVideoApi from './Components/SportMain/scorebatVideoApi';
 import ScoreBatReceivedApi from './Components/SportMain/scorebatReceivedApi';
+import ProductMain from './Components/Product/productMain';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -51,6 +51,7 @@ class MainApp extends Component {
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
+                                <Route path='/product-main' exact component={ProductMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>
                                 <Route path={`/sport-main-home/${scoreBat_matchviewUrl}`} exact component={ScoreBatReceivedApi}/>
                                 <Route path='/food-main-home/Receive-food-order/:id'  exact component={ReceiveGetdFood}/> 

@@ -94,7 +94,7 @@ class Navbar extends Component {
                                 <li><a href='/' style={{color: "red"}}>HOME </a></li>
                                 <li><a href={Music_Auth_url}>MUSIC</a></li>
                                 <li><a href='/artites'>ARTISTE</a></li>
-                                <li><a href='/product'>PRODUCTS</a></li>
+                                <li><a href='/product-main'>PRODUCTS</a></li>
                                 <li><a href='/tranding'>TRANDING</a></li>
                                 <li><a href='/sport-main-home'>SPORT</a></li>
                                 <li><a href='/food-main-home'>FOOD</a></li>

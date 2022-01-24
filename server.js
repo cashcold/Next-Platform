@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 const userRouter = require('./Router/userRouter')
 const path = require('path')
 var SpotifyWebApi = require('spotify-web-api-node');
+const { Scraper, Root, OpenLinks, CollectContent, DownloadContent, } = require('nodejs-web-scraper');
+const fs = require('fs');
 
 dotEnv.config()
 
@@ -64,6 +66,10 @@ var spotifyApi = new SpotifyWebApi({
 
     res.redirect(spotifyApi.createAuthorizeURL(scopes));
   });
+
+  // JungleServer.post('/ghanaMotion_scraper', (req, res) => {
+  //     res.send(GhanaMotion_Scraper);
+  // });
   
   JungleServer.get('/music', (req, res) => {
     const error = req.query.error;
@@ -111,6 +117,50 @@ var spotifyApi = new SpotifyWebApi({
         res.send(`Error getting Tokens: ${error}`);
       });
   });
+
+
+// (async () => {
+
+//   const pages = [];//All ad pages.
+
+//   //pageObject will be formatted as {title,phone,images}, becuase these are the names we chose for the scraping operations below.
+//   //Note that each key is an array, because there might be multiple elements fitting the querySelector.
+//   //This hook is called after every page finished scraping.
+//   //It will also get an address argument. 
+//   const getPageObject = (pageObject,address) => {                  
+//       pages.push(pageObject)
+//   }
+
+//   const config = {
+//       baseSiteUrl: `https://www.jumia.com.gh/`,
+//       startUrl: `https://www.jumia.com.gh/breakfast-foods/`,
+//       filePath: './images/',
+//       logPath: './logs_jumia_product/'
+//   }
+
+//   const scraper = new Scraper(config);
+
+//   const root = new Root();
+
+//   const jobAds = new OpenLinks('.item-desc a', { name: 'Ad page', getPageObject });
+
+//   const images = new CollectContent('.img-c' , { name: 'images' })
+
+//   const titles = new CollectContent('.info h3', { name: 'title' });
+//   const titles_price = new CollectContent('.prc', { name: 'title_price' });
+
+//   root.addOperation(jobAds);
+//    jobAds.addOperation(titles);
+//    jobAds.addOperation(titles_price);
+//    jobAds.addOperation(images);
+
+//   await scraper.scrape(root);
+  
+//   fs.writeFile('./pageslogs_jumia_product', JSON.stringify(pages), () => { });
+// })()
+
+
+
 
 JungleServer.listen(PORT,()=>{
     console.log(`server is runing on local Port Number ${PORT}`)

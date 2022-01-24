@@ -11,10 +11,15 @@ class SportMain extends Component {
         this.state = { 
             news_api_main: [],
             skyGetNewsFootball: [],
-            Espn_Basketball: []
+            Espn_Basketball: [],
+            SkyfootballNews: [],
+            Hm_Inew_arriv_cloths: [],
          }
     }
     componentDidMount(){
+        // fetch('https://fakestoreapi.com/products')
+        //     .then(res=>res.json())
+        //     .then(json=>console.log(json))
 
         //   axios.get(`https://skysportsapi.herokuapp.com/sky/getnews/football/v1.0/`)
         // .then((data)=>{
@@ -39,10 +44,17 @@ class SportMain extends Component {
                 // news_api_main: data.data.articles
             })
         })
+        axios.get(`https://skysportsapi.herokuapp.com/sky/getnews/football/v1.0/`)
+        .then((data)=>{
+            this.setState({
+                SkyfootballNews: data.data
+                // news_api_main: data.data.articles
+            })
+        })
+       
       
     }
     render() { 
-        console.log(this.state.Espn_Basketball)
         return ( 
             <div className='sportMain'>
                 <section className="sport_main_section_1">
@@ -68,7 +80,7 @@ class SportMain extends Component {
                                             <h2>{data.images[0].name}</h2>
                                             <h4>{data.images[0].caption}</h4>
                                             </Card.Text>
-                                            <a href='#' className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <a target="_blank" href={data.links.web.href} className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
                                         </Card.Body>
                                     </Card>
                                 </div>
@@ -89,7 +101,7 @@ class SportMain extends Component {
                                             <h2>{data.images[0].name}</h2>
                                             <h4>{data.images[0].caption}</h4>
                                             </Card.Text>
-                                            <a href='#' className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
+                                            <a target="_blank" href={data.links.web.href} className='btn btn-warning'> Find More <i class="fas fa-arrow-circle-right"></i></a>
                                         </Card.Body>
                                     </Card>
                                 </div>
