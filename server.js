@@ -71,7 +71,7 @@ var spotifyApi = new SpotifyWebApi({
   //     res.send(GhanaMotion_Scraper);
   // });
   
-  JungleServer.get('/music', (req, res) => {
+  JungleServer.get('https://nest-platform.herokuapp.com/music', (req, res) => {
     const error = req.query.error;
     const code = req.body.code;
     // const code = req.query.code;
