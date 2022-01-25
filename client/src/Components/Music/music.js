@@ -75,7 +75,7 @@ class MusicMain extends Component {
         var credentials = {
             clientId: '7274681e5f564e29b6246893ed62f20a',
             clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
-            redirectUri: 'https://nest-platform.herokuapp.com/music',
+            redirectUri: 'http://localhost:3000/music',
             accessToken: token,
           };
         const spotifyApi = new SpotifyWebApi(credentials);

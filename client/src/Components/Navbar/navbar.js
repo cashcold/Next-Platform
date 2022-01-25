@@ -10,7 +10,7 @@ class Navbar extends Component {
         super(props);
         this.state = { 
             clientId: '7274681e5f564e29b6246893ed62f20a',
-            redirectUri: 'https://nest-platform.herokuapp.com/music',
+            redirectUri: 'http://nest-platform.herokuapp/music',
          }
     }
 
