@@ -22,15 +22,15 @@ class MusicMain extends Component {
              music_login:  [],
              authEndpoint: 'https://accounts.spotify.com/authorize',
              clientId: '7274681e5f564e29b6246893ed62f20a',
-             redirectUri: 'https://nest-platform.herokuapp.com/music',
+             redirectUri: 'http://localhost:3000/music',
              code: '',
              Spotify_CoolForNow: [],
              Spotify_PlayList_1: [],
-             searchResult: []
+             searchResult: [],
             //  Spotify_CoolForNow_PlayList_uri: '',
             //  Spotify_CoolForNow_PlayList_albumurl: '',
             //  spotify_access_token: [],
-            //  setAccessToken: []
+             setAccessToken: []
              
 
 
@@ -55,16 +55,14 @@ class MusicMain extends Component {
          this.setState({
              code
          })
-         
-        axios.get(`https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state` )
 
         if(code){
-            axios.post(`/users/spotify_login`,{code}).then((response) => {
+            axios.post(`/users/music`,{code}).then((response) => {
                 window.history.pushState({}, null, "/music");
         
                 console.log(response.data);
                 this.setState({
-                    setAccessToken: response.data.accessToken
+                    setAccessToken: response.data.access_token
                 })
                 localStorage.setItem('spotify_access_token',this.state.setAccessToken)
                 
@@ -90,10 +88,6 @@ class MusicMain extends Component {
             this.setState({
                 Spotify_CoolForNow: CoolForNow
             })
-            const Spotify_CoolForNow_JSON = data.body.tracks.items
-         let Spotify_data = JSON.stringify(Spotify_CoolForNow_JSON);
-
-            localStorage.setItem("Spotify_CoolForNow", Spotify_data )
           })
           
         //   spotifyApi.getUserPlaylists().then((data)=>{
@@ -130,7 +124,7 @@ class MusicMain extends Component {
     }
     render() { 
       
-        console.log('this state Spotify_CoolForNow data ', this.state.Spotify_CoolForNow)
+        console.log('this state token', this.state.setAccessToken)
 
         // console.log('this state searchResult '+ this.state.searchResult)
 

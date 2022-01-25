@@ -71,7 +71,7 @@ var spotifyApi = new SpotifyWebApi({
   //     res.send(GhanaMotion_Scraper);
   // });
   
-  JungleServer.get('https://nest-platform.herokuapp.com/music', (req, res) => {
+  JungleServer.get('/music', (req, res) => {
     const error = req.query.error;
     const code = req.body.code;
     // const code = req.query.code;
@@ -132,10 +132,10 @@ var spotifyApi = new SpotifyWebApi({
 //   }
 
 //   const config = {
-//       baseSiteUrl: `https://www.jumia.com.gh/`,
-//       startUrl: `https://www.jumia.com.gh/breakfast-foods/`,
+//       baseSiteUrl: `https://www.ghanamotion.com/`,
+//       startUrl: `https://www.ghanamotion.com/`,
 //       filePath: './images/',
-//       logPath: './logs_jumia_product/'
+//       logPath: './logs_ghanaMotion_new/'
 //   }
 
 //   const scraper = new Scraper(config);
@@ -144,19 +144,17 @@ var spotifyApi = new SpotifyWebApi({
 
 //   const jobAds = new OpenLinks('.item-desc a', { name: 'Ad page', getPageObject });
 
-//   const images = new CollectContent('.img-c' , { name: 'images' })
+//   const images = new CollectContent('.pos-rlt img' , { name: 'images' })
 
-//   const titles = new CollectContent('.info h3', { name: 'title' });
-//   const titles_price = new CollectContent('.prc', { name: 'title_price' });
+//   const titles = new CollectContent('.item-desc a', { name: 'title' });
 
 //   root.addOperation(jobAds);
 //    jobAds.addOperation(titles);
-//    jobAds.addOperation(titles_price);
 //    jobAds.addOperation(images);
 
 //   await scraper.scrape(root);
   
-//   fs.writeFile('./pageslogs_jumia_product', JSON.stringify(pages), () => { });
+//   fs.writeFile('./pageslogs_ghanaMotion_new.json', JSON.stringify(pages), () => { });
 // })()
 
 
