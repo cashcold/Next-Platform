@@ -1,0 +1,8 @@
+.ebayMain_Css{
+    padding: 3em 0em;
+}
+.ebay_section_1 {
+   display: grid;
+   grid-template-columns: repeat(1,1fr);
+   grid-gap: 5em 0em;
+}

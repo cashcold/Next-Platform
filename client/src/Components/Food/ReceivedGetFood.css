@@ -15,7 +15,7 @@
 }
 .receive_section_box_2{
     min-height: 100vh;
-    background-color: blue;
+    /* background-color: blue; */
     grid-area: receive_section_box_2;
     padding: 3em 1em;
 }

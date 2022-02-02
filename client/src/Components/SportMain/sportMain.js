@@ -60,6 +60,10 @@ class SportMain extends Component {
                 <section className="sport_main_section_1">
                
                     <ScoreBatVideoApi/>
+                    <div className="afflate_links">
+                    <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/11de69ae-f7d8-4d53-9ad7-4ef1ffaf8fc2"><img src="https://kol.jumia.com/banners/4Obk5g3jVOhL2ot24iMXbbAqbbCMQAeVvWEHxjUz.jpeg" alt="Men's Shoes Category"/></a>
+                    <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/4a1b695e-04dc-4cc0-be29-b9ef46aaef39"><img src="https://kol.jumia.com/banners/eBnvpZVoKg09JH0rLtsxvSlp3S9ZHtb7i8ccRtFF.jpeg" alt="Sport & Fitness Category"/></a>
+                    </div>
                 </section>
 
 

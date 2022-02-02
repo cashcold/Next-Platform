@@ -8,6 +8,7 @@ const path = require('path')
 var SpotifyWebApi = require('spotify-web-api-node');
 const { Scraper, Root, OpenLinks, CollectContent, DownloadContent, } = require('nodejs-web-scraper');
 const fs = require('fs');
+var Ebay = require('ebay-node-api')
 
 dotEnv.config()
 
@@ -19,6 +20,7 @@ const PORT = process.env.PORT || 8000
 // const PORT_web = process.env.PORT || 3000
 
 const JungleServer = express()
+
 
 JungleServer.use(cors())
 JungleServer.use(bodyParser.json())
@@ -119,44 +121,7 @@ var spotifyApi = new SpotifyWebApi({
   });
 
 
-// (async () => {
-
-//   const pages = [];//All ad pages.
-
-//   //pageObject will be formatted as {title,phone,images}, becuase these are the names we chose for the scraping operations below.
-//   //Note that each key is an array, because there might be multiple elements fitting the querySelector.
-//   //This hook is called after every page finished scraping.
-//   //It will also get an address argument. 
-//   const getPageObject = (pageObject,address) => {                  
-//       pages.push(pageObject)
-//   }
-
-//   const config = {
-//       baseSiteUrl: `https://www.ghanamotion.com/`,
-//       startUrl: `https://www.ghanamotion.com/`,
-//       filePath: './images/',
-//       logPath: './logs_ghanaMotion_new/'
-//   }
-
-//   const scraper = new Scraper(config);
-
-//   const root = new Root();
-
-//   const jobAds = new OpenLinks('.item-desc a', { name: 'Ad page', getPageObject });
-
-//   const images = new CollectContent('.pos-rlt img' , { name: 'images' })
-
-//   const titles = new CollectContent('.item-desc a', { name: 'title' });
-
-//   root.addOperation(jobAds);
-//    jobAds.addOperation(titles);
-//    jobAds.addOperation(images);
-
-//   await scraper.scrape(root);
-  
-//   fs.writeFile('./pageslogs_ghanaMotion_new.json', JSON.stringify(pages), () => { });
-// })()
-
+ 
 
 
 

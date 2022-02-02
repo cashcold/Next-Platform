@@ -8,6 +8,7 @@ const async = require('async')
 const crypto = require('crypto')
 const UserDeposit = require('../UserModel/depositModel')
 var SpotifyWebApi = require('spotify-web-api-node');
+var Ebay = require('ebay-node-api')
 
 dotEnv.config()
 
@@ -176,33 +177,23 @@ Router.post('/music', (req,res) => {
     
     })
 
-// Router.post('/spotify_login', (req,res) => {
-//     const credentials = {
-//         clientId: '7274681e5f564e29b6246893ed62f20a',
-//         clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
-//         redirectUri: "http://localhost:3000/music",
-//       };
-    
-//     //  setup 
-//         let spotifyApi = new SpotifyWebApi(credentials)
-    
-//     //  Get the "code" value posted from the client-side and get the user's accessToken from the spotify api     
-//         const code = req.body.code
-    
-//         // Retrieve an access token
-//         spotifyApi.authorizationCodeGrant(code).then((data) => {
-    
-//             // Returning the User's AccessToken in the json formate  
-//             res.json({
-//                 accessToken : data.body.access_token,
-//             }) 
-//         })
-//         .catch((err) => {
-//             console.log(err);
-//             res.sendStatus(400)
-//         })
-    
+    var ebay = new Ebay({
+      clientID: "CashCold-PRODUCTS-PRD-eac50eb8e-e3204a11",
+      headers: {
+        // optional
+        "X-EBAY-C-MARKETPLACE-ID": "EBAY_GB" // For Great Britain https://www.ebay.co.uk
+      }
+    });
+
+// Router.get('/ebay_produck_ckeck', (req,res) => {
+//   ebay.findItemsByKeywords('iphone').then((data) => {
+//    res.json(data);
+// }, (error) => {
+//     console.log(error);
+// }); 
 //     })
+
+  
 
 
 

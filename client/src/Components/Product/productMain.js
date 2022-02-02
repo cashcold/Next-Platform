@@ -6,6 +6,7 @@ import {Card,Button} from 'react-bootstrap'
 import moment from 'moment'
 import {Hm_api} from '../Api/Hm_API'
 import AmazonFreshProduct from './amazon_fresh_product';
+import EbayMainProduct from './ebayProduct';
 
 
 class ProductMain extends Component {
@@ -32,8 +33,8 @@ class ProductMain extends Component {
             <div className='productMain'>
                 <section className="product_section_1">
                     <div className="product_row_1">
-                        <h1>Roowwwwwww</h1>
-                        <AmazonFreshProduct/>
+                        <EbayMainProduct/>
+                        {/* <AmazonFreshProduct/> */}
                     </div>
                 </section>
             </div>

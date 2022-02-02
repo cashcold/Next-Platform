@@ -117,6 +117,11 @@ class Navbar extends Component {
                  <div className="top_form_go">
                     <Carousel fade>
                             <Carousel.Item>
+                            <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/125820a8-064d-413d-a2f7-18a949b33806"><img src="https://kol.jumia.com/banners/u9bRTR8VkARvQnShWOVcxhF8m7Qe1ZmgyCUi2H18.png" alt="Deal of the day"/></a>
+                                  <Carousel.Caption>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/E-L.jpg')}
                                     alt="First slide"
                                 />
@@ -186,6 +191,12 @@ class Navbar extends Component {
                                 />
                                 <Carousel.Caption>
                                     <h3 className='top_form_capt_h3'> P-SQUARE FT AWILO LONGOMBA</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                            <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
+                                <Carousel.Caption>
+                                  
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>

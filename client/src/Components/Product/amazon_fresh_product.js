@@ -102,12 +102,12 @@ axios.get('https://api.rainforestapi.com/request', { params })
 
   }).catch(error => {
     // catch and print the error
-    console.log(error);
+    // console.log(error);
   })
 
     }
     render() { 
-        console.log(this.state.amazon_hearPhone_product)
+        // console.log(this.state.amazon_hearPhone_product)
 
         return ( 
             <div className='productMain'>

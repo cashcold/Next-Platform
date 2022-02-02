@@ -94,6 +94,28 @@ class Selected extends Component {
             progress: undefined,
             });
        },20000)
+       setTimeout(()=>{
+        toast.dark(
+            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
+               
+                <Card>
+                    <Card.Header as="h5">PROMOTION</Card.Header>
+                    <Card.Body>
+                        <Card.Text>
+                        <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
+                        </Card.Text>
+                    </Card.Body>
+                    </Card>
+            </div>, {
+            position: "top-center",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+       },20000)
    
     //    setTimeout(()=>{
     //        toast.success("PROMOTE YOUR BUSINESS")
@@ -229,11 +251,7 @@ class Selected extends Component {
                             <h1> <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
                         </div>
                     <div className='chance__now'>
-                        <h2>Answere Our Random Qustion and Win Free PES</h2>
-                        <a href='' className='btn btn-success
-                        '>GET START</a>
-                        <img src={require('../../VR__Pic/Playstation-VR-Wallpapers.jpg')} alt='pic'/>
-                        
+                    <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/2ae79bea-a7cd-4fc0-9dbb-09204a6bcb66"><img src="https://kol.jumia.com/banners/fYNATNCzPGG6M9z5RQtIxtF2yM3PW4XVoUgQWYlF.jpeg" alt="Games Category"/></a>
                     </div>
                 </section>
                 <section className="check_music_name">
@@ -287,6 +305,7 @@ class Selected extends Component {
                         </div>
                     </section>
                 </section>
+              
                 <section className='pes5__family-main'>
                    <div className='famil__family'>
                         <div className='famil__family__text'>

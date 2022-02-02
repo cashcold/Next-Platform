@@ -65,6 +65,7 @@ class ReceiveGetdFood extends Component {
                 </section>
                 <section className="receive_section_box_2">
                    
+                <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/562def27-3f06-4c6e-915b-94dc00160e8d"><img src="https://kol.jumia.com/banners/RiVTNA2HFyfW9hqIryy3fSBpBbTHdldvH20szMsR.jpeg" alt="Grocery Category"/></a>
                 </section>
             </div>
          );
