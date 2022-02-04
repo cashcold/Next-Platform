@@ -1,6 +1,9 @@
 {
   "name": "my-setapp",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.14.1"
+  },
   "private": true,
   "dependencies": {
     "@barba/core": "^2.9.7",
