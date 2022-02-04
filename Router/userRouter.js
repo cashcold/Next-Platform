@@ -14,87 +14,6 @@ dotEnv.config()
 
 const Router = express.Router()
 
-Router.post('/register/', async(req,res)=>{
-
-    
-    User.findOne({reffer : req.params})
-
-    const user = await User.findOne({email: req.body.email})
-    if(user) return res.status(400).send('Email already Exist')
-
-
-    const salt = await bcrypt.genSalt(10)
-    const hashPassword = await bcrypt.hash(req.body.password, salt)
-
-    const saveUser = new User({
-        full_Name: req.body.full_Name,
-        user_Name: req.body.user_Name,
-        password: hashPassword,
-        email: req.body.email,
-        bitcoin: req.body.bitcoin,
-        bitcoinCash: req.body.bitcoinCash,
-        ethereum: req.body.ethereum,
-        ip_address: req.body.ip_address,
-        accountBalance: req.body.accountBalance,
-        reffer: req.body.reffer
-    })
-
-    var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-    var data = {
-        from: 'PayItForward <payitforwardinvestmentlimited@gmail.com>',
-        to: 'frankainoo@gmail.com',
-        subject: 'Hello',
-        text: 'Thank you for making Bussiness with us, Have a nice day. Thank You'
-    };
-    mailgun.messages().send(data, function (error, body) {
-        console.log(body);
-      });
-  
-
-    await saveUser.save()
-    res.send("user save")
-
-})
-
-Router.post('/register', async(req,res)=>{
-
-
-    const user = await User.findOne({email: req.body.email})
-    if(user) return res.status(400).send('Email already Exist')
-
-
-    const salt = await bcrypt.genSalt(10)
-    const hashPassword = await bcrypt.hash(req.body.password, salt)
-
-    const saveUser = new User({
-        full_Name: req.body.full_Name,
-        user_Name: req.body.user_Name,
-        password: hashPassword,
-        email: req.body.email,
-        bitcoin: req.body.bitcoin,
-        bitcoinCash: req.body.bitcoinCash,
-        ethereum: req.body.ethereum,
-        ip_address: req.body.ip_address,
-        accountBalance: req.body.accountBalance,
-        reffer: req.body.reffer
-    })
-
-    var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-    var data = {
-        from: 'PayItForward <payitforwardinvestmentlimited@gmail.com>',
-        to: 'frankainoo@gmail.com',
-        subject: 'Hello',
-        text: 'Thank you for making Bussiness with us, Have a nice day. Thank You'
-    };
-    mailgun.messages().send(data, function (error, body) {
-        console.log(body);
-      });
-  
-
-    await saveUser.save()
-    res.send("user save")
-
-})
 
 
 // Router.post('/login', async(req,res)=>{
@@ -177,21 +96,10 @@ Router.post('/music', (req,res) => {
     
     })
 
-    var ebay = new Ebay({
-      clientID: "CashCold-PRODUCTS-PRD-eac50eb8e-e3204a11",
-      headers: {
-        // optional
-        "X-EBAY-C-MARKETPLACE-ID": "EBAY_GB" // For Great Britain https://www.ebay.co.uk
-      }
-    });
+ 
 
-// Router.get('/ebay_produck_ckeck', (req,res) => {
-//   ebay.findItemsByKeywords('iphone').then((data) => {
-//    res.json(data);
-// }, (error) => {
-//     console.log(error);
-// }); 
-//     })
+
+ 
 
   
 

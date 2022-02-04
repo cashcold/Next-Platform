@@ -2,7 +2,7 @@
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-areas: 
-    'sport_main_section_1 sport_main_section_1 sport_main_section_2'
+    'sport_main_section_1 sport_main_section_1 sport_main_section_2' 
     ;
     grid-gap: 0.5em;
 }

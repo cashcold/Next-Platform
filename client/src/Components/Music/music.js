@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import './style.css'
-import SpotifyPlayer from 'react-spotify-web-playback';
-// import './getMe.js'
-// import './script_function.js'
+import SpotifyPlayer from 'react-spotify-player';
 import axios from 'axios'
 import { Helmet } from 'react-helmet';
-import {TimelineLite, TimelineMax} from 'gsap'
 import {gsap} from 'gsap'
 import {Button,Card} from 'react-bootstrap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger'
+import MusicReceivedMain from '../Music_Received/music_receivedMain';
 const SpotifyWebApi = require('spotify-web-api-node');
 let token_main = localStorage.getItem('spotify_access_token')
 const token = token_main;
+
+
 
 
 class MusicMain extends Component {
@@ -27,10 +27,8 @@ class MusicMain extends Component {
              Spotify_CoolForNow: [],
              Spotify_PlayList_1: [],
              searchResult: [],
-            //  Spotify_CoolForNow_PlayList_uri: '',
-            //  Spotify_CoolForNow_PlayList_albumurl: '',
-            //  spotify_access_token: [],
-             setAccessToken: []
+             setAccessToken: [],
+             spotify_new_release_focus: [],
              
 
 
@@ -89,11 +87,38 @@ class MusicMain extends Component {
                 Spotify_CoolForNow: CoolForNow
             })
           })
-          
-        //   spotifyApi.getUserPlaylists().then((data)=>{
-        //     console.log('This is PlayList main', data.body)
-        //   })
+          spotifyApi.getNewReleases({offset: 0, country: 'GH' })
+            .then(function(data) {
+                // console.log(data.body);
+                }, function(err) {
+                console.log("Something went wrong!", err);
+            });
 
+            spotifyApi.getPlaylistsForCategory('party', {
+                    country: 'GH',
+                    offset : 0
+                    })
+                .then(function(data) {
+                    // console.log(data.body);
+                }, function(err) {
+                    console.log("Something went wrong!", err);
+             });
+
+                   
+
+
+               
+                //   let config = {
+                //     headers: {
+                //         Authorization: `Bearer ${this.state.setAccessToken}`
+                //     }
+                //     }
+          
+                // axios.get(`https://open.spotify.com/genre/section0JQ5DAob0JCuWaGLU6ntFY`, config).then((data)=>{
+                //     this.setState({
+                //         spotify_new_release_focus: data
+                //     })
+                // })
          
             
             gsap.registerPlugin(ScrollTrigger)
@@ -124,11 +149,16 @@ class MusicMain extends Component {
     }
     render() { 
       
-        console.log('this state token', this.state.setAccessToken)
+        console.log(this.state.Spotify_CoolForNow)
 
         // console.log('this state searchResult '+ this.state.searchResult)
 
-   
+        const size = {
+            width: '100%',
+            height: 300,
+          };
+          const view = 'list'; // or 'coverart'
+          const theme = 'black'; // or 'white'
 
         return ( 
             <div className='music_main'>
@@ -138,7 +168,15 @@ class MusicMain extends Component {
                     <meta name="description" content="NEXT-PLATFORM-HOME" />
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
-                <h1>MUSIC</h1>
+                <section className="sectionMianLayOut">
+                    <MusicReceivedMain/>
+                </section>
+                <SpotifyPlayer
+                    uri="spotify:track:5Vp6x6DnVjh2JDaC4It6ak"
+                    size={size}
+                    view={view}
+                    theme={theme}
+                />
                 <section className="spotify_CoolForNow_section_1">
                     <div className="Spotify_PlayList_CoolForNow">
                         {this.state.Spotify_CoolForNow.map(data => {
@@ -157,30 +195,6 @@ class MusicMain extends Component {
                         })}
                     </div>
                 </section>
-                {/* <input className='LoginInput' type='search' name='searchResult'  onChange={this.handleChange('searchResult')}/> */}
-                
-                {/* <div className="music_para">
-                    <section className="music_prara_box_1">
-                    <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/ab67616d0000b2736a1f5bea27488489a5c6d604.jpg')}
-                                    alt="First slide"
-                                />
-                    </section>
-                    <section className="music_prara_box_2">
-                    <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/7988ab7e47764d3e861de705f1bd4605.640x640x1.jpg')}
-                                    alt="First slide"
-                                />
-                    </section>
-                    <section className="music_prara_box_3">
-                    <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/d6900db9766fbea444d9709c16e664c99843e236c4989a62440786cf51f0851b.jpeg')}
-                                    alt="First slide"
-                                />
-                    </section>
-                    <section className="music_prara_box_4">
-                    <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/big_shaq.jpeg')}
-                                    alt="First slide"
-                                />
-                    </section>
-                </div> */}
             </div>
          );
     }
