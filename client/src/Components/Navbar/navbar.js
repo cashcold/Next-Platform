@@ -92,7 +92,7 @@ class Navbar extends Component {
                         <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
                             <ul className='links'>
                                 <li><a href='/' style={{color: "red"}}>HOME </a></li>
-                                <li><a href={Music_Auth_url}>MUSIC</a></li>
+                                <li><a href='/music'>MUSIC</a></li>
                                 <li><a href='/artites'>ARTISTE</a></li>
                                 <li><a href='/product-main'>PRODUCTS</a></li>
                                 <li><a href='/tranding'>TRANDING</a></li>
