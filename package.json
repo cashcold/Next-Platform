@@ -28,6 +28,7 @@
     "dotenv": "^8.2.0",
     "ebay-node-api": "^2.9.0",
     "ejs": "^3.0.1",
+    "eslint": "^8.8.0",
     "express": "^4.17.1",
     "express-ejs-layouts": "^2.5.0",
     "express-handlebars": "^3.1.0",
