@@ -104,15 +104,19 @@ class MusicMain extends Component {
                     console.log("Something went wrong!", err);
              });
 
-                   
+          
+
+            // fetch("https://api.spotify.com/v1/me/player/devices", {
+            //     method: "GET",
+            //     headers: {
+            //       Authorization: `Bearer ${this.state.setAccessToken}`
+            //     }
+            //   })
+            //   .then(response =>console.log(response))
 
 
                
-                //   let config = {
-                //     headers: {
-                //         Authorization: `Bearer ${this.state.setAccessToken}`
-                //     }
-                //     }
+             
           
                 // axios.get(`https://open.spotify.com/genre/section0JQ5DAob0JCuWaGLU6ntFY`, config).then((data)=>{
                 //     this.setState({
@@ -149,16 +153,12 @@ class MusicMain extends Component {
     }
     render() { 
       
-        console.log(this.state.Spotify_CoolForNow)
+        // console.log(this.state.Spotify_CoolForNow)
 
         // console.log('this state searchResult '+ this.state.searchResult)
+       
 
-        const size = {
-            width: '100%',
-            height: 300,
-          };
-          const view = 'list'; // or 'coverart'
-          const theme = 'black'; // or 'white'
+     
 
         return ( 
             <div className='music_main'>
@@ -171,19 +171,13 @@ class MusicMain extends Component {
                 <section className="sectionMianLayOut">
                     <MusicReceivedMain/>
                 </section>
-                <SpotifyPlayer
-                    uri="spotify:track:5Vp6x6DnVjh2JDaC4It6ak"
-                    size={size}
-                    view={view}
-                    theme={theme}
-                />
                 <section className="spotify_CoolForNow_section_1">
                     <div className="Spotify_PlayList_CoolForNow">
                         {this.state.Spotify_CoolForNow.map(data => {
                             return(
                                 <div className='coolForNow'>
                                     <Card  style={{backgroundColor: 'black', color: "white", padding: "0.5em" }}>
-                                       {/* <Card.Img src={data.images[0].url} /> */}
+                             
                                        <Card.Img src={data.track.album.images[0].url} />
                                         <Card.Body>
                                             <Card.Title style={{ color: 'rgb(236, 78, 78)' }}><h1>{data.track.name}</h1></Card.Title>
