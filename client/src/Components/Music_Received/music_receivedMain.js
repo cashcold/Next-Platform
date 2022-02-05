@@ -20,7 +20,7 @@ class MusicReceivedMain extends Component {
                         <iframe  src="https://open.spotify.com/embed/playlist/3M75W37HkFPdnkkaaOhvPo?utm_source=generator&theme=0" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>             
                     <div className="iframe_list">
-                        <h2>Top 100 GHANA</h2>
+                        <h2>Top 100 GHANA IN</h2>
                         <iframe src="https://open.spotify.com/embed/playlist/4AJYrpCpoZdvwCC1YGmrct?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>             
                </section>
