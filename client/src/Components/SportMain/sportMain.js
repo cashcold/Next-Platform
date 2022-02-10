@@ -59,6 +59,10 @@ class SportMain extends Component {
             <div className='sportMain'>
                 <section className="sport_main_section_1">
                
+                <div className="AdvertLinks">
+                <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM74867-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/38232bde-caff-40ca-8f65-43898a606cad/" border="0"  alt="" /></a>
+                    <iframe scrolling='no' frameBorder='0'  width='728' height='90' src="https://refbanners.com/I?tag=d_1405231m_45955c_&site=1405231&ad=45955" ></iframe>
+                </div>
                     <ScoreBatVideoApi/>
                     <div className="afflate_links">
                     <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/11de69ae-f7d8-4d53-9ad7-4ef1ffaf8fc2"><img src="https://kol.jumia.com/banners/4Obk5g3jVOhL2ot24iMXbbAqbbCMQAeVvWEHxjUz.jpeg" alt="Men's Shoes Category"/></a>
@@ -68,6 +72,9 @@ class SportMain extends Component {
 
 
                 <section className="sport_main_section_2">
+                    <div className="1x_bet">
+                    <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
+                    </div>
                     <div className="otherTopLine">
                         <h1>NCAAF News</h1>
                     </div>
