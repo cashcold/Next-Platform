@@ -44,6 +44,29 @@ class SportMain extends Component {
                 progress: undefined,
                 });
            },10000)
+        
+        //    setTimeout(()=>{
+        //     toast.dark(
+        //         <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
+        //             <Card>
+        //                 <Card.Body>
+        //                     <Card.Text>
+        //                     <div className="adv_links">
+        //                                 <iframe scrolling='no' frameBorder='0'  width='1200' height='879' src="https://refbanners.com/I?tag=d_1405231m_8423c_&site=1405231&ad=8423" ></iframe>
+        //                             </div>
+        //                     </Card.Text>
+        //                 </Card.Body>
+        //                 </Card>
+        //         </div>, {
+        //         position: "top-center",
+        //         autoClose: false,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //         });
+        //    },10000)
 
         // fetch('https://fakestoreapi.com/products')
         //     .then(res=>res.json())
@@ -87,7 +110,7 @@ class SportMain extends Component {
             <div className='all_time_main'>
                 
                 <ToastContainer/>
-                <iframe scrolling='no' frameBorder='0' width='728' height='90' src="https://refbanners.com/I?tag=d_1405231m_45955c_&site=1405231&ad=45955" ></iframe>
+               
                 <div className='sportMain'>
                     <section className="sport_main_section_1">
                         
@@ -105,7 +128,6 @@ class SportMain extends Component {
                         <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
                         </div>
                         <div className="betway">
-                        <iframe scrolling='no' frameBorder='0'  width='350' height='200' src="https://refbanners.com/I?tag=d_1405231m_31547c_&site=1405231&ad=31547" ></iframe>
                         </div>
                         <div className="otherTopLine">
                             <h1>NCAAF News</h1>

@@ -271,9 +271,6 @@ class Selected extends Component {
                         </div>
                     </section>
                 </section>
-                <div className="adv_links">
-                    <iframe scrolling='no' frameBorder='0'  width='1200' height='879' src="https://refbanners.com/I?tag=d_1405231m_8423c_&site=1405231&ad=8423" ></iframe>
-                </div>
                 <section className='game__ads'>
                     <section className='about__game'>
                         <div className='about_game_text'>

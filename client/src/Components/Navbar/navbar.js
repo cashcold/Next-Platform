@@ -137,6 +137,7 @@ class Navbar extends Component {
                                     <h3 className='top_form_capt_h3'>HARMONIZE FT DIAMOND</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
+                            
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/big_shaq.jpeg')}
                                     alt="First slide"
