@@ -45,34 +45,8 @@ class Selected extends Component {
       
        setTimeout(()=>{
         toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__flash welcome_trans_h4'>
-                <h1> <h4>HARMONIZE FT DIAMOND</h4></h1>
-                <Card>
-                    <Card.Header as="h5">Featured</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Special title treatment</Card.Title>
-                        <Card.Text>
-                        <img src={require('../../AllInOne/next_platform_img/ab67616d0000b2736a1f5bea27488489a5c6d604.jpg')} alt='pic'/>
-                        With supporting text below as a natural lead-in to additional content.
-                        </Card.Text>
-                        <Button variant="primary">Find More</Button>
-                    </Card.Body>
-                    </Card>
-            </div>, {
-            position: "top-center",
-            autoClose: 15000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-            // 40000
-       },40000)
-       setTimeout(()=>{
-        toast.dark(
             <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-                <h1> <h4>BASE ON THE MOMENT PLATFORM FOCUSE ON POINT AFRICA TALENT</h4></h1>
+                <h1> <h4>BASE ON THE MOMENT </h4></h1>
                 <Card>
                     <Card.Header as="h5">ABOUT NEXT-PLATFORM</Card.Header>
                     <Card.Body>
@@ -98,8 +72,8 @@ class Selected extends Component {
         toast.dark(
             <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
                
-                <Card>
-                    <Card.Header as="h5">PROMOTIONS</Card.Header>
+                <Card style={{backgroundColour: 'black', color: 'white'}}>
+                    <Card.Header as="h5" style={{backgroundColour: 'black', color: 'white'}} >PROMOTIONS</Card.Header>
                     <Card.Body>
                         <Card.Text>
                         <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
@@ -297,6 +271,9 @@ class Selected extends Component {
                         </div>
                     </section>
                 </section>
+                <div className="adv_links">
+                    <iframe scrolling='no' frameBorder='0'  width='1200' height='879' src="https://refbanners.com/I?tag=d_1405231m_8423c_&site=1405231&ad=8423" ></iframe>
+                </div>
                 <section className='game__ads'>
                     <section className='about__game'>
                         <div className='about_game_text'>
