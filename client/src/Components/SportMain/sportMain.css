@@ -16,7 +16,7 @@
     padding: 3em 0em;
 }
 .sport_main_section_2{
-    padding: 3em 0em;
+    padding: 0em 0em;
     width: 100%;
     min-height: 100vh;
     background-color: red;
@@ -30,6 +30,12 @@
 .basketMain{
     margin: 4em 0em;
 }
+.main_batstream{
+    padding: 3em 0em;
+}
+
+
+
 @media screen and (max-width: 768px){
     .sportMain{
         display: grid;

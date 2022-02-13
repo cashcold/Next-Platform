@@ -35,7 +35,7 @@ class SportMain extends Component {
                         </Card.Body>
                         </Card>
                 </div>, {
-                position: "top-center",
+                position: "right",
                 autoClose: false,
                 hideProgressBar: false,
                 closeOnClick: true,
@@ -120,15 +120,19 @@ class SportMain extends Component {
                         <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/11de69ae-f7d8-4d53-9ad7-4ef1ffaf8fc2"><img src="https://kol.jumia.com/banners/4Obk5g3jVOhL2ot24iMXbbAqbbCMQAeVvWEHxjUz.jpeg" alt="Men's Shoes Category"/></a>
                         <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/4a1b695e-04dc-4cc0-be29-b9ef46aaef39"><img src="https://kol.jumia.com/banners/eBnvpZVoKg09JH0rLtsxvSlp3S9ZHtb7i8ccRtFF.jpeg" alt="Sport & Fitness Category"/></a>
                         </div>
+                        
                     </section>
 
 
                     <section className="sport_main_section_2">
-                        <div className="1x_bet">
-                        <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
+                        <div className="bet_way">
+                            <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
                         </div>
-                        <div className="betway">
+                        <div className="main_batstream">
+                            <h3>Watch Live Sports, Shows, and Events<br/> Online</h3>
+                            <div className="bt_widget live_streams"><iframe src="https://live.batstream.live/?d=1&s=1" width="100%" height="900" scrolling="auto" align="top" frameborder="0">Your browser does not support frames, so you will not be able to view this page.</iframe></div>
                         </div>
+                        
                         <div className="otherTopLine">
                             <h1>NCAAF News</h1>
                         </div>
