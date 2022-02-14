@@ -18,6 +18,7 @@ import ReceiveGetdFood from './Components/Food/ReceivedGetFood';
 import SportMain from './Components/SportMain/sportMain';
 import ScoreBatReceivedApi from './Components/SportMain/scorebatReceivedApi';
 import ProductMain from './Components/Product/productMain';
+import WatchNextMain from './Components/Watch_Next/watch_next';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -57,7 +58,8 @@ class MainApp extends Component {
                                 <Route path='/food-main-home/Receive-food-order/:id'  exact component={ReceiveGetdFood}/> 
                                 <Route path='/food-main-home' exact component={FoodMain}/>
                                 <Route path='/drinks-main' exact component={GetDrinksMain}/>
-                                <Route path='/watch_next' exact component={Call_Api}/>
+                                <Route path='/watch_next' exact component={WatchNextMain}/>
+                                {/* <Route path='/watch_next' exact component={Call_Api}/> */}
                                 {/* <Route path='/call_api' exact component={Call_Api}/> */}
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
                                 
