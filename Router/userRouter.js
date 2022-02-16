@@ -50,11 +50,11 @@ Router.post('/marvel', async(req,res)=>{
 var marvel = new Marvel({ publicKey: "1a38b2b7e17525de3762d2dfd0ce396c", privateKey: "6eb16e205b1528ea154f67f4577f59d7fafc5912"})
  
 marvel.characters
-  .name("Hulk")
+  .name("SPIDER-MAN")
   .get(function(err, resp) {
     if (err) { console.log("Error: ", err) }
     // else { console.log(resp) }
-    res.send(resp.data)
+    res.send(resp)
 
   })
 })
