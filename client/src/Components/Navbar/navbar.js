@@ -93,7 +93,7 @@ class Navbar extends Component {
                             <ul className='links'>
                                 <li><a href='/' style={{color: "red"}}>HOME </a></li>
                                 <li><a href='/music'>MUSIC</a></li>
-                                <li><a href='/artites'>ARTISTE</a></li>
+                                <li><a href='/link_box'>LinkBox</a></li>
                                 <li><a href='/product-main'>PRODUCTS</a></li>
                                 <li><a href='/tranding'>TRANDING</a></li>
                                 <li><a href='/sport-main-home'>SPORT</a></li>

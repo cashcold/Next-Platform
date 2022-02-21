@@ -26,7 +26,7 @@ class WatchNextMain extends Component {
         return ( 
             <div className='watch_next_main'>
                 <section className="next_watch_section_1">
-                    <h1>Watch Next</h1>
+                   
                 </section>
             </div>
          );
