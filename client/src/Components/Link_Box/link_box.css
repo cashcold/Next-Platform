@@ -9,12 +9,22 @@
     color: white;
 }
 .watch_next_main a h3{
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
-    padding: 2em 0em;
+    padding: 1em 0em;
     line-height: 1.5em;
 }
 .watch_next_main{
+    padding: 3em 0em;
     display: grid;
     grid-gap: 5em 0em;
+}
+
+@media screen and (max-width: 768px){
+    .watch_next_main a h3{
+        width: 90%;
+        margin: 0 auto;
+        padding: 2em 0em;
+        line-height: 1.2em;
+    }
 }
