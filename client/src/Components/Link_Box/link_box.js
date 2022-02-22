@@ -40,6 +40,22 @@ class LinkBoxMain extends Component {
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://cardvest.ng/'>
+                    <img src='https://scontent.facc8-2.fna.fbcdn.net/v/t45.1600-4/cp0/q75/spS444/p526x296/273632989_23850089667700397_5903033884409116475_n.jpg?_nc_cat=110&ccb=1-5&_nc_sid=e84a38&_nc_eui2=AeH_DGXiedotzw4hHFrrmX1rSc5pp8BC9-9JzmmnwEL377XAp-Nfwp_eu6pm4ftL3ffjWWXLEeY-aRam6kvlpdu5&_nc_ohc=YG5sQpz7ex0AX8cnrZ5&_nc_ht=scontent.facc8-2.fna&oh=00_AT-UgOMD9tGvbATef2bnisL3sxG3z1ZuPyf9hxdvf5b2zg&oe=6218FF22'/>
+                    <h3> SELL 🎁GIFT CARDS📇 at best rates<br/>
+                     Most profitable and customer-focused gift card trading platform in Nigeria and Ghana.
+                    Stop trading your giftcard at a loss!<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://www.xm.com/'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/271911259_23849251277790751_4736910237507740726_n.png?stp=cp0_dst-jpg_p526x296_q90_spS444&_nc_cat=100&ccb=1-5&_nc_sid=e84a38&_nc_eui2=AeGCBlQX1eUzJ_LN7vDz_Fn4C0eCh-KYV2ALR4KH4phXYM6DPvkVHCqLTG1jcEhpLesS75_hScgq8XGj6F36gk6r&_nc_ohc=PTr8JAI25asAX_szF8Z&tn=CrG_bAVXfnDePAKQ&_nc_ht=scontent.facc8-1.fna&oh=00_AT-vUhZwVbxEjn5pxDggBny27LsBoks3FN1tHGf4gG0p3A&oe=621B0093'/>
+                    <h3> XM's Trade and Win🎐 promo is giving away over 💰$30,000 in cash prizes. Register now for the chance to win big! T&Cs apply.<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
             </div>
          );
     }
