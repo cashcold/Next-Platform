@@ -20,6 +20,8 @@
     grid-gap: 5em 0em;
 }
 
+
+
 @media screen and (max-width: 768px){
     .watch_next_main a h3{
         width: 90%;

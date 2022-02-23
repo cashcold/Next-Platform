@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import './sportMain.css'
 import axios from 'axios'
 import moment from 'moment'
@@ -108,7 +109,12 @@ class SportMain extends Component {
     render() { 
         return ( 
             <div className='all_time_main'>
-                
+                 <Helmet>
+                    <base />
+                    <title>Next-Platform Sport Main</title>
+                    <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
+                    <link rel="canonical" href="somelink" />
+                </Helmet>
                 <ToastContainer/>
                
                 <div className='sportMain'>

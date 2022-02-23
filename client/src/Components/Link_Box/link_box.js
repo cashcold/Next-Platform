@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './link_box.css'
+import { Helmet } from 'react-helmet';
 import axios from 'axios'
 
 class LinkBoxMain extends Component {
@@ -16,6 +17,12 @@ class LinkBoxMain extends Component {
     render() { 
         return ( 
             <div className='watch_next_main'>
+                 <Helmet>
+                    <base />
+                    <title>Next-Platform LinkBox</title>
+                    <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
+                    <link rel="canonical" href="somelink" />
+                </Helmet>
                 <section className="next_watch_section_1">
                     <a target='_blank' href='https://www.facebook.com/yellowcardapp'>
                     <img src='https://scontent.facc8-2.fna.fbcdn.net/v/t39.30808-6/273451231_5677950762231699_7917947454472796315_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=2c4854&_nc_eui2=AeFTECg4-loQ_oJHfcIuSPPxKGfIWEGT3ckoZ8hYQZPdyRYlsH0fmWZhNTRz__IjmzNStJeRsYfZNVakf9kf-j96&_nc_ohc=vi9ok8fCaswAX-lY_Di&_nc_ht=scontent.facc8-2.fna&oh=00_AT-Wxj-IqSZJHL-Ps7ICvNACC7HsjeXQZdv-VOzk9kCoCg&oe=62195162'/>
@@ -46,6 +53,16 @@ class LinkBoxMain extends Component {
                     <h3> SELL 🎁GIFT CARDS📇 at best rates<br/>
                      Most profitable and customer-focused gift card trading platform in Nigeria and Ghana.
                     Stop trading your giftcard at a loss!<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://superforex.com/'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/196212934_23847791751840216_2548333905321734010_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=105&ccb=1-5&_nc_sid=de7202&_nc_eui2=AeFk_bnTH-IMjl_K4Wo5IzRXFADSg_b3Zp0UANKD9vdmnWcOjb-vu2lM3pdzHtmfV0t1W89QEB88v6vZ8tQCu0r1&_nc_ohc=-1bDZF-DDRYAX9_q4tm&_nc_ht=scontent.facc8-1.fna&oh=00_AT9TQaIIEaQXZbOTohrmUWR5W_VwAfQeh8IrZT8lOtsWbA&oe=621C0732'/>
+                    <h3> We are excited to offer an exclusive trading account in Ghanaian cedi 👏
+                    By opening a free account at SuperForex you choose a licensed broker. Be sure to install our mobile app.
+                    GHS will be used for deposit and withdrawal transfers without conversion to the USD, saving you some extra cash.
+                    👇<br/> Don't miss out!!! 👉 </h3>
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>

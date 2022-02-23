@@ -12,7 +12,7 @@ class ScoreBatVideoApi extends Component {
              scorebat: [],
              offset: 0,
              data: [],
-             perPage: 14,
+             perPage: 12,
              currentPage: 0,
              loading: []
          }
@@ -58,8 +58,9 @@ class ScoreBatVideoApi extends Component {
                                     <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(pd.date).format('LLLL')}</span></h5>
                                     <Card.Body>
                                         <Card.Text>
+                                            
                                         <span>{pd.videos[0].title}
-                                            <img className='loading_svg' src={require('../../AllInOne/img2/Spinner-0.7s-200px.svg')}/>
+                                            <img className='loading_svg' src={require('../../AllInOne/img2/Ellipsis-1.3s-214px.svg')}/>
                                          </span>
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
