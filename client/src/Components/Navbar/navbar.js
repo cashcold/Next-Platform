@@ -87,7 +87,7 @@ class Navbar extends Component {
                <section className='navMain '>
                     <nav>
                         <div className='logoImg animate__animated animate__slower animate__flash'>
-                            <h1>NEXT-PLATFORM</h1>
+                            <h1 className='text-red blink-soft'>NEXT-PLATFORM</h1>
                         </div>
                         <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
                             <ul className='links'>
@@ -95,11 +95,11 @@ class Navbar extends Component {
                                 <li><a href='/music'>MUSIC</a></li>
                                 <li><a href='/link_box'>LinkBox</a></li>
                                 <li><a href='/product-main'>PRODUCTS</a></li>
-                                <li><a href='/tranding'>TRANDING</a></li>
                                 <li><a href='/sport-main-home'>SPORT</a></li>
+                                <li><a href='/watch_next'>WATCH NEXT</a></li>
+                                <li><a href='/tranding'>TRANDING</a></li>
                                 <li><a href='/food-main-home'>FOOD</a></li>
                                 <li><a href='/drinks-main'>Drinks</a></li>
-                                <li><a href='/watch_next'>WATCH NEXT</a></li>
                                 <li><a href='/about-us'>ABOUT US</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>

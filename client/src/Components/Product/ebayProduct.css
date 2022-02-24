@@ -6,3 +6,15 @@
    grid-template-columns: repeat(1,1fr);
    grid-gap: 5em 0em;
 }
+
+.ebay_section_1 a{
+    background-color: black;
+    color: white;
+    padding: 3em 0em;
+}
+.ebay_section_1 a h3{
+    width: 80%;
+    margin: 0 auto;
+    padding: 1em 0em;
+    line-height: 1.5em;
+}

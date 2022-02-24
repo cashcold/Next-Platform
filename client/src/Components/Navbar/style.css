@@ -130,12 +130,7 @@
     height: 5px;
     margin: 4px 0;
 }
-/* .toggle__bar div{
-    background-color: white;
-    width: 30px;
-    height: 5px;
-    margin: 4px 0;
-} */
+
 
 .togglo__dash{
     display: none;
@@ -146,6 +141,21 @@
 .other_h1_nav{
     color: white;
 }
+
+.text-red {
+    color: white;
+  }
+
+
+  .blink-soft {
+    animation: blinker 1.5s linear infinite;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  
 
 
 
