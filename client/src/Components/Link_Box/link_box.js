@@ -43,7 +43,7 @@ class LinkBoxMain extends Component {
                 <section className="next_watch_section_1">
                     <a target='_blank' href='https://www.mpowerfinancing.com/'>
                     <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t39.30808-6/273715674_3227024697583742_5980608295611256206_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHPgUTO0wDIhfvYBzYxY4U5FQjXgYxLQPwVCNeBjEtA_H4S_WWCAAvuBPbVgiI4m1f7NAUkgzs50BBtLVUPck_x&_nc_ohc=d6D-KkkNCe0AX-4GYAP&_nc_ht=scontent.facc8-1.fna&oh=00_AT8OfKri-NAfU0V9LmmAhgTOotZ2uS2jSJgkf0jdesmjWQ&oe=62191F1C'/>
-                    <h3> Our 🧑‍🤝‍🧑student loans help you achieve your education goals🥅. MPOWER’s loans have fixed interest rates with flexible🆓 loan amounts up to US$100,000 that can be used to cover tuition, school🏫 supplies, and living✔️ expenses for future semesters or past due balances. 👫We also support all majors and degrees with no requirement for a cosigner, collateral, or existing credit history.<br/> Don't miss out!!! 👉 </h3>
+                    <h3> Our 🧑‍🤝‍🧑student loans help you achieve your education goals. MPOWER’s loans have fixed interest rates with flexible loan amounts up to US$100,000 that can be used to cover tuition, school🏫 supplies, and living✔️ expenses for future semesters or past due balances. 👫We also support all majors and degrees with no requirement for a cosigner, collateral, or existing credit history.<br/> Don't miss out!!! 👉 </h3>
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>
@@ -86,6 +86,21 @@ class LinkBoxMain extends Component {
                     <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/272367713_23850426724370321_4567014968893609488_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=111&ccb=1-5&_nc_sid=68ce8d&_nc_eui2=AeETopgs0i52Gzim8SQdoUHL0TP4qGBzgpfRM_ioYHOClxSYuKKT53IwTmXLkttkCQlrD5qI7Id8kyV8x_ZxT0ft&_nc_ohc=rTWY5eXU_pAAX9ElSoZ&_nc_ht=scontent.facc8-1.fna&oh=00_AT9odbWzX3FhQOLuglQxZavXsiEuWBEgfkpEMmN77gB_Gg&oe=621BCCC0'/>
                     <h3> Send, receive, hold and exchange your local African currency to any of our supported currencies.
                     Sign up Now<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://www.cloudatcost.com/'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t39.30808-6/242721993_257909806260665_1476713798573711313_n.jpg?stp=dst-jpg_p526x296&_nc_cat=105&ccb=1-5&_nc_sid=2c4854&_nc_eui2=AeGb_LI0MaA_wCpupDj1APffdy3m9ixLRy13Leb2LEtHLVt4LzM3dqUiIELTK9zgT0NQLdV8CPyc1ljKX6WUfroj&_nc_ohc=QzCr6oBVK08AX9Xiw5P&_nc_ht=scontent.facc8-1.fna&oh=00_AT-RUAyIMLH9r8u70bne913VoUGnTOoFReCbo37u_3ofjA&oe=621D10DF'/>
+                    <h3> 🆓Free Virtual 🚀Mining! 
+                    Register, login and choose a free miner on the order page. Learn how to start<br/> Don't miss out!!! 👉 </h3>ss
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://bima.com.gh/'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/96785960_23844785669600253_3281976358472777728_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=105&ccb=1-5&_nc_sid=67cdda&_nc_eui2=AeEoZr3vdQCKTXx17voN5T7JjBAZ_F1UDjaMEBn8XVQONmf-K4o9sXjGc0rd9tZJOMPHhFFWBYVKD-iHr2OQJLsf&_nc_ohc=MsCd86rvo-oAX8cG1BR&_nc_ht=scontent.facc8-1.fna&oh=00_AT9_f4GfNRfDcvhZZAfZZDA2BdRsMQYycgtINk7zyvsoZA&oe=621CA1CE'/>
+                    <h3>Kojo gets GHs 15 Medication Support to buy prescribed medicine<br/> Don't miss out!!! 👉 </h3>ss
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>

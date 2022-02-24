@@ -5,6 +5,7 @@ import {Carousel,Container,Nav} from 'react-bootstrap'
 import {TimelineLite} from 'gsap'
 import {gsap} from 'gsap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger'
+import Other__NavBar from '../other_Navbar/other_nav';
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -84,8 +85,10 @@ class Navbar extends Component {
         const Music_Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
         return ( 
             <div className='navbarMain'>
+              
                <section className='navMain'>
                     <nav>
+                    {/* <Other__NavBar/> */}
                         <div className='logoImg animate__animated animate__slower animate__flash'>
                             <h1 className='text-red blink-soft'>NEXT-PLATFORM</h1>
                         </div>
@@ -112,8 +115,14 @@ class Navbar extends Component {
                                 </div>
                         </div>
                      </nav>
+                     {/* <marquee className='marqueeText'>
+                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ut ab accusamus doloremque facilis temporibus modi numquam repudiandae doloribus debitis?</p>
+                           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, vel.</p>
+                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ea voluptatem dolore hic ab et?</p>
+                       </marquee> */}
                </section>
                 <section className='top_form'>
+                        
                  <div className="top_form_go">
                     <Carousel fade>
                             <Carousel.Item>
