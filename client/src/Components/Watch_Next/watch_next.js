@@ -32,6 +32,13 @@ class WatchNextMain extends Component {
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://www.facebook.com/mouhafassahy'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t39.30808-6/274317644_7827201567305993_6509753712061071956_n.jpg?stp=dst-jpg_p526x296&_nc_cat=100&ccb=1-5&_nc_sid=8bfeb9&_nc_eui2=AeGzrOENwElFtNKT5xtez_tiGXO8oaocdvUZc7yhqhx29UVN7_9fgZZmYxOq28WYK7rQyRjZMR5sxPcJGPD1nidr&_nc_ohc=IZXnfFXCYrsAX9PFr-e&_nc_ht=scontent.facc8-1.fna&oh=00_AT9wgfySD50K9_Bz5sLVs7vqFJZhyb5ECitdcBMzKwgYTw&oe=621CA65E'/>
+                    <h3> From the day you are born till you die, ❤️relationships play a major role in your life👨‍👦. Join Joe Asmah and I Thursday for an insightful episode.<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
             </div>
          );
     }

@@ -84,23 +84,23 @@ class Navbar extends Component {
         const Music_Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
         return ( 
             <div className='navbarMain'>
-               <section className='navMain '>
+               <section className='navMain'>
                     <nav>
                         <div className='logoImg animate__animated animate__slower animate__flash'>
                             <h1 className='text-red blink-soft'>NEXT-PLATFORM</h1>
                         </div>
                         <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
                             <ul className='links'>
-                                <li><a href='/' style={{color: "red"}}>HOME </a></li>
-                                <li><a href='/music'>MUSIC</a></li>
-                                <li><a href='/link_box'>LinkBox</a></li>
-                                <li><a href='/product-main'>PRODUCTS</a></li>
-                                <li><a href='/sport-main-home'>SPORT</a></li>
-                                <li><a href='/watch_next'>WATCH NEXT</a></li>
-                                <li><a href='/tranding'>TRANDING</a></li>
-                                <li><a href='/food-main-home'>FOOD</a></li>
-                                <li><a href='/drinks-main'>Drinks</a></li>
-                                <li><a href='/about-us'>ABOUT US</a></li>
+                                <li><a className='btn btn-two' href='/' style={{color: "red"}}>HOME </a></li>
+                                <li><a className='btn btn-two' href='/music'>MUSIC</a></li>
+                                <li><a className='btn btn-two' href='/link_box'>LinkBox</a></li>
+                                <li><a className='btn btn-two' href='/product-main'>PRODUCTS</a></li>
+                                <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
+                                <li><a className='btn btn-two' href='/watch_next'>WATCH NEXT</a></li>
+                                <li><a className='btn btn-two' href='/tranding'>TRANDING</a></li>
+                                <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>
+                                <li><a className='btn btn-two' href='/drinks-main'>Drinks</a></li>
+                                <li><a className='btn btn-two' href='/about-us'>ABOUT US</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>
                         </div>

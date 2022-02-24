@@ -67,9 +67,25 @@ class LinkBoxMain extends Component {
                     </a>
                 </section>
                 <section className="next_watch_section_1">
+                    <a target='_blank' href='https://uptrendapp.io/'>sss
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/269684603_23849292829280018_4815344622737263801_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=105&ccb=1-5&_nc_sid=68ce8d&_nc_eui2=AeEwGLoo4hXY-5EorHrVmdXL9tf8mVuN2Kf21_yZW43Yp4-CWD4CWWT8PAihCpBMVs6dI8u3ePonWAPtPBP5Wohb&_nc_ohc=Ck-hxXasTAcAX-oaMZA&_nc_ht=scontent.facc8-1.fna&oh=00_AT9n8QzNXR_JJntRDVWAzH_UCSnwaGNLh7noLcBJs6-Zxg&oe=621B3AAF'/>
+                    <h3> Join the TREND movement 📲
+                    Sign up to the Uptrend Telegram for the latest updates on TREND Token.<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
                     <a target='_blank' href='https://www.xm.com/'>
                     <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/271911259_23849251277790751_4736910237507740726_n.png?stp=cp0_dst-jpg_p526x296_q90_spS444&_nc_cat=100&ccb=1-5&_nc_sid=e84a38&_nc_eui2=AeGCBlQX1eUzJ_LN7vDz_Fn4C0eCh-KYV2ALR4KH4phXYM6DPvkVHCqLTG1jcEhpLesS75_hScgq8XGj6F36gk6r&_nc_ohc=PTr8JAI25asAX_szF8Z&tn=CrG_bAVXfnDePAKQ&_nc_ht=scontent.facc8-1.fna&oh=00_AT-vUhZwVbxEjn5pxDggBny27LsBoks3FN1tHGf4gG0p3A&oe=621B0093'/>
                     <h3> XM's Trade and Win🎐 promo is giving away over 💰$30,000 in cash prizes. Register now for the chance to win big! T&Cs apply.<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
+                    <a target='_blank' href='https://transfy.io/'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/272367713_23850426724370321_4567014968893609488_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=111&ccb=1-5&_nc_sid=68ce8d&_nc_eui2=AeETopgs0i52Gzim8SQdoUHL0TP4qGBzgpfRM_ioYHOClxSYuKKT53IwTmXLkttkCQlrD5qI7Id8kyV8x_ZxT0ft&_nc_ohc=rTWY5eXU_pAAX9ElSoZ&_nc_ht=scontent.facc8-1.fna&oh=00_AT9odbWzX3FhQOLuglQxZavXsiEuWBEgfkpEMmN77gB_Gg&oe=621BCCC0'/>
+                    <h3> Send, receive, hold and exchange your local African currency to any of our supported currencies.
+                    Sign up Now<br/> Don't miss out!!! 👉 </h3>
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>
