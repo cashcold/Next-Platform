@@ -55,6 +55,15 @@ class LinkBoxMain extends Component {
                     </a>
                 </section>
                 <section className="next_watch_section_1">
+                    <a target='_blank' href='https://autochek.africa/en/gh'>
+                    <img src={require('../../AllInOne/img2/243195594_23848694616780294_3443146564760435547_n.jpg')}/>
+                    <h3> Find a car you love 👍 <br/>Apply for a car loan. 👍<br/>
+                         Get the best rates on Autochek. 👍
+                        Think Cars Think Autochek👌<br/> Don't miss out!!! 👉 </h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>
+                <section className="next_watch_section_1">
                     <a target='_blank' href='https://cardvest.ng/'>
                     <img src={require('../../AllInOne/img2/274034570_499353405080470_3857785958542022341_n.jpg')}/>
                     <h3> SELL 🎁GIFT CARDS📇 at best rates<br/>
@@ -107,7 +116,7 @@ class LinkBoxMain extends Component {
                 <section className="next_watch_section_1">
                     <a target='_blank' href='https://bima.com.gh/'>
                     <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/96785960_23844785669600253_3281976358472777728_n.jpg?stp=cp0_dst-jpg_p526x296_q75_spS444&_nc_cat=105&ccb=1-5&_nc_sid=67cdda&_nc_eui2=AeEoZr3vdQCKTXx17voN5T7JjBAZ_F1UDjaMEBn8XVQONmf-K4o9sXjGc0rd9tZJOMPHhFFWBYVKD-iHr2OQJLsf&_nc_ohc=MsCd86rvo-oAX8cG1BR&_nc_ht=scontent.facc8-1.fna&oh=00_AT9_f4GfNRfDcvhZZAfZZDA2BdRsMQYycgtINk7zyvsoZA&oe=621CA1CE'/>
-                    <h3>Kojo gets GHs 15 Medication Support to buy prescribed medicine<br/> Don't miss out!!! 👉 </h3>ss
+                    <h3>Kojo gets GHs 15 Medication Support to buy prescribed medicine<br/> Don't miss out!!! 👉 </h3>
                     <h4 className='btn btn-warning'>Find More</h4>
                     </a>
                 </section>
