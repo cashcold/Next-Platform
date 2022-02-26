@@ -41,6 +41,13 @@ class LinkBoxMain extends Component {
                     </a>
                 </section>  
                 <section className="next_watch_section_1">
+                    <a target='_blank' href='https://www.facebook.com/Edu-continues-103700362219243/'>
+                    <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t45.1600-4/272380624_23849541340040519_2329179721995487364_n.png?stp=cp0_dst-jpg_p526x296_q90_spS444&_nc_cat=104&ccb=1-5&_nc_sid=68ce8d&_nc_ohc=vv1IyijfmCkAX8rRM0o&_nc_ht=scontent.facc8-1.fna&oh=00_AT8aXACHLf44O3bcbChFi4ezjbIuxKJmB33YXQ_WAjuVOQ&oe=621F3F45'/>
+                    <h3> This scheme is open to all 🧑‍🎓students who are can't  afford  due to fininacial💰 reasons afford laptops in their level of education  <br/> Don't miss out!!!👉</h3>
+                    <h4 className='btn btn-warning'>Find More</h4>
+                    </a>
+                </section>  
+                <section className="next_watch_section_1">
                     <a target='_blank' href='https://www.mpowerfinancing.com/'>
                     <img src='https://scontent.facc8-1.fna.fbcdn.net/v/t39.30808-6/273715674_3227024697583742_5980608295611256206_n.jpg?_nc_cat=108&ccb=1-5&_nc_sid=730e14&_nc_eui2=AeHPgUTO0wDIhfvYBzYxY4U5FQjXgYxLQPwVCNeBjEtA_H4S_WWCAAvuBPbVgiI4m1f7NAUkgzs50BBtLVUPck_x&_nc_ohc=d6D-KkkNCe0AX-4GYAP&_nc_ht=scontent.facc8-1.fna&oh=00_AT8OfKri-NAfU0V9LmmAhgTOotZ2uS2jSJgkf0jdesmjWQ&oe=62191F1C'/>
                     <h3> Our 🧑‍🤝‍🧑student loans help you achieve your education goals. MPOWER’s loans have fixed interest rates with flexible loan amounts up to US$100,000 that can be used to cover tuition, school🏫 supplies, and living✔️ expenses for future semesters or past due balances. 👫We also support all majors and degrees with no requirement for a cosigner, collateral, or existing credit history.<br/> Don't miss out!!! 👉 </h3>
