@@ -46,18 +46,34 @@ class Selected extends Component {
        setTimeout(()=>{
         toast.dark(
             <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-                <h1> <h4>BASE ON THE MOMENT </h4></h1>
+                <h1> <h4>BTC SHARKS </h4></h1>
                 <Card>
-                    <Card.Header as="h5">ABOUT NEXT-PLATFORM</Card.Header>
+                    {/* <Card.Header as="h5"></Card.Header> */}
                     <Card.Body>
-                        <Card.Title>FOCUSE</Card.Title>
+                        {/* <Card.Title>FOCUSE</Card.Title> */}
                         <Card.Text>
-                        <img src={require('../../AllInOne/next_platform_img/images.jpg')} alt='pic'/>
+                        <img src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')} alt='pic'/>
                         With supporting text below as a natural lead-in to additional content.
                         </Card.Text>
                         <Button variant="primary">Find More</Button>
                     </Card.Body>
                     </Card>
+            </div>, {
+            position: "top-center",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+       },20000)
+      
+       setTimeout(()=>{
+        toast.dark(
+            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
+                {/* <h1> <h4>BASE ON THE MOMENT </h4></h1> */}
+                <img src={require('../../AllInOne/next_platform_img/images.jpg')} alt='pic'/>
             </div>, {
             position: "top-center",
             autoClose: false,
@@ -220,6 +236,13 @@ class Selected extends Component {
                         </div>
                     </div>
                 </section>
+                <div className="btc_shark">
+                <a target='_blank' href='tel:+233203808479'>
+                <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                    alt="First slide" />
+                </a>
+                
+                </div>
                 <div className="1x_bet">
                     <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
                     </div>
@@ -237,40 +260,7 @@ class Selected extends Component {
                     </ul>
                 </section>
                
-                <section className='check_para'>
-                    <section className='div-container parallax1_box_1 '  id="section-beaches"> 
-                        <div className="parallax parallax1">
-                            <div id="div-span-beaches" className="text">
-                                <div className="update_news_iframe">
-                                    <h4>LISTEN NOW</h4>
-                                <iframe src="https://open.spotify.com/embed/track/1QsIiYa5GeTg9x30Pbs82N?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </section>
-                    <section className='div-container parallax1_box_2 '  id="section-civilization">
-                        <div className="parallax parallax2">
-                            <div id="div-span-beaches" className="text">
-                                 <div className="update_news_iframe">
-                                    <h4>LISTEN NOW</h4>
-                                    <iframe src="https://open.spotify.com/embed/track/1aNryETX3dSY4A0M8BIqPE?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </section>
-                    <section className='div-containerparallax1_box_3 '  id="section-places">
-                        <div className="parallax parallax3">
-                            <div id="div-span-beaches" className="text">
-                            <div className="update_news_iframe">
-                                    <h4>LISTEN NOW</h4>
-                                    <iframe src="https://open.spotify.com/embed/track/0H1Jd2NNq80u7xF7FzyJtn?utm_source=generator" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </section>
+               
                 <section className='game__ads'>
                     <section className='about__game'>
                         <div className='about_game_text'>

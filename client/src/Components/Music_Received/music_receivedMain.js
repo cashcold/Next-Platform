@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MusicBox_1 from '../Music_Box/Box_Music_1/Music_box_1';
 import './music_receivedMain.css'
 class MusicReceivedMain extends Component {
     constructor(props) {
@@ -17,20 +18,11 @@ class MusicReceivedMain extends Component {
                         <h2>favourite </h2>
                         <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1EQn4jwNIohw50?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
-                    <div className="feature_playlist">
-                        <h2>Most PlayList </h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/3uoJe6AzO1kcC3WQVOdObe?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
-                    <div className="feature_playlist">
-                        <h2>Feature PlayList</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1E39Hw0aZcRwV5?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
                 </section>
                 <section className="receivedMusic_section_1 music_center_main">
                     <div className="iframe_list">
-                        <h2>Top Naija Count Down</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/3M75W37HkFPdnkkaaOhvPo?utm_source=generator&theme=0" width="100%" height="400" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-                        </iframe>
+                     <MusicBox_1/>
+                       
                     </div>             
                     <div className="iframe_list">
                         <h2>Ghana Count Down</h2>
@@ -45,22 +37,7 @@ class MusicReceivedMain extends Component {
                         <h2>Afrobeats Mix</h2>
                         <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1EQqFPe2ux3rbj?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>             
-                    <div className="iframe_list">
-                        <h2>Ghana Mix</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/4t5QcqXgA5gmtomjxt774E?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                    <div className="iframe_list">
-                        <h2>100% Ghana All Times</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/2EaYQXxLM3CGH3tqn0D7ZV?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                    <div className="iframe_list">
-                        <h2>Ghana on Fire</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/4Yrhyo1vC28QsUcZJghhGK?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                    <div className="iframe_list">
-                        <h2>100% Naija</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/4t5QcqXgA5gmtomjxt774E?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
+                             
                </section>
 
                 <section className="receivedMusic_section_1 music_RightSideBar">

@@ -1,0 +1,48 @@
+.music_link_box{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    'link_view_1 link_view_1 link_view_2'
+    ;
+    padding: 4em 0em;
+}
+.link_view_1{
+    grid-area: link_view_1;
+}
+.link_view_2{
+    grid-area: link_view_2;
+}
+
+.view_1_tab{
+   
+    display: flex;
+    width: 55%;
+    margin: 0 auto;
+    justify-content: space-between;
+    padding: 1em 0em;
+}
+.all_eye{
+    display: flex;
+}
+.fa-facebook{
+    color: blue;
+}
+.fa-twitter{
+    color: #29C5F6;
+}
+.fa-pinterest{
+    color: #CA212A;
+}
+.fa-whatsapp{
+    color: #7BBF6A;
+}
+.socail_icon i{
+    margin: 0em 1em;
+}
+.socail_icon i:hover{
+    cursor: pointer;
+}
+.link_view_1 img{
+    margin: 1.5em 0em;
+    width: 80%;
+}

@@ -148,6 +148,14 @@ class Navbar extends Component {
                             </Carousel.Item>
                             
                             <Carousel.Item>
+                                <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>BTC SHARK</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/big_shaq.jpeg')}
                                     alt="First slide"
                                 />
