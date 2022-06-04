@@ -50,6 +50,12 @@ class MusicLinkBox extends Component {
             
         })
 
+        document.querySelector('.fa-facebook').addEventListener('click',()=>{
+            <a href='https://www.facebook.com/sharer.php?u=https://nest-platform.herokuapp.com/Gosple/this-week-top-count/Amb-Lawrence-I-Still-Believe'></a>
+            
+
+        })
+
     }
     render() { 
       
@@ -73,14 +79,14 @@ class MusicLinkBox extends Component {
                         </div>
                         
               
-                         <div class="addthis_inline_share_toolbox"></div>
+                         {/* <div class="addthis_inline_share_toolbox"></div> */}
             
-                        {/* <div className='socail_icon'>
+                        <div className='socail_icon'>
                             <i class="fa-brands fa-facebook fa-3x "></i>
                             <i class="fa-brands fa-twitter fa-3x"></i>
                             <i class="fa-brands fa-pinterest fa-3x"></i>
                             <i class="fa-brands fa-whatsapp fa-3x"></i>
-                        </div> */}
+                        </div>
                 
                     </div>
                 <img src={`${this.state.home_url}${this.state.mp3_api_img}`} alt='pic'/>
