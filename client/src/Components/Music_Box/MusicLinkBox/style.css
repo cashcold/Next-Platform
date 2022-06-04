@@ -56,14 +56,35 @@
 }
 .other_mp3_info h2{
     line-height: 1.5em;
-}
-.download_link{
-    margin-top: 2em;
-}
-.download_link a{
-    width: 30%;
+    width: 70%;
     margin: 0 auto;
 }
+.download_link{
+    margin: 2em 0em;
+}
+
+.download_link a{
+    width: 40%;
+    margin: 0 auto;
+}
+.about_main h3{
+    width: 70%;
+    margin: 0 auto;
+    line-height: 1.3em;
+}
+
+audio::-webkit-media-controls-play-button,
+     audio::-webkit-media-controls-panel {
+     background-color: white;
+     border-radius: 10%;
+     margin: 0 auto;
+
+     /* color: white; */
+     }
+
+
+
+
 
 @media screen and (max-width: 768px){
     .music_link_box{

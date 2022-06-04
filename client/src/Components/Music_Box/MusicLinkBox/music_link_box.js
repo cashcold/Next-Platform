@@ -16,7 +16,8 @@ class MusicLinkBox extends Component {
            mp3_api_date: '',
            mp3_api_eye_seen: '',
            mp3_api_music_type: '',
-           mp3_api_song_href: ''
+           mp3_api_song_href: '',
+           mp3_api_about_Main: ''
          }
     }
     componentDidMount(){
@@ -30,6 +31,7 @@ class MusicLinkBox extends Component {
         const mp3_api_eye_seen = localStorage.getItem('mp3_api_eye_seen')
         const mp3_api_music_type = localStorage.getItem('mp3_api_music_type')
         const mp3_api_song_href = localStorage.getItem('mp3_api_song_href')
+        const mp3_api_about_Main = localStorage.getItem('mp3_api_about_Main')
         const home_url = localStorage.getItem('home_url')
 
         this.setState({
@@ -43,6 +45,7 @@ class MusicLinkBox extends Component {
             mp3_api_eye_seen,
             mp3_api_music_type,
             mp3_api_song_href,
+            mp3_api_about_Main,
             home_url
             
         })
@@ -68,17 +71,25 @@ class MusicLinkBox extends Component {
                             <h5>{this.state.mp3_api_eye_seen}</h5>
                           </div>
                         </div>
-                        <div className='socail_icon'>
+                        
+              
+                         <div class="addthis_inline_share_toolbox"></div>
+            
+                        {/* <div className='socail_icon'>
                             <i class="fa-brands fa-facebook fa-3x "></i>
                             <i class="fa-brands fa-twitter fa-3x"></i>
                             <i class="fa-brands fa-pinterest fa-3x"></i>
                             <i class="fa-brands fa-whatsapp fa-3x"></i>
-                        </div>
+                        </div> */}
                 
                     </div>
                 <img src={`${this.state.home_url}${this.state.mp3_api_img}`} alt='pic'/>
+                
                 <div className='download_link'>
                     <a className='btn btn-primary' href={`${this.state.mp3_api_song_href}`} download>DOWNLOAD</a>
+                </div>
+                <div className='about_main'>
+                    <h3>{this.state.mp3_api_about_Main}</h3>
                 </div>
                 <div className="other_mp3_info">
                     <h2>Stream and Download {this.state.mp3_api_music_type} musician {this.state.mp3_api_name} new song <br/>

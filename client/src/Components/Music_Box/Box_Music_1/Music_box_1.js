@@ -32,6 +32,7 @@ class MusicBox_1 extends Component {
                     localStorage.setItem('mp3_api_eye_seen',pd.eye_seen)
                     localStorage.setItem('mp3_api_music_type',pd.music_type)
                     localStorage.setItem('mp3_api_song_href',pd.song_href)
+                    localStorage.setItem('mp3_api_about_Main',pd.about_Main)
                     
                     window.location = `/${pd.music_type}/${pd.head_Text_url}`
                     }}>
