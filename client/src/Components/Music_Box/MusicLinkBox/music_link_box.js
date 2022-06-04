@@ -77,10 +77,6 @@ class MusicLinkBox extends Component {
                             <h5>{this.state.mp3_api_eye_seen}</h5>
                           </div>
                         </div>
-                        
-              
-                         {/* <div class="addthis_inline_share_toolbox"></div> */}
-            
                         <div className='socail_icon'>
                             <i class="fa-brands fa-facebook fa-3x "></i>
                             <i class="fa-brands fa-twitter fa-3x"></i>
