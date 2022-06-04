@@ -25,10 +25,14 @@ class MainApp extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-           
+            music_type: ''
          }
     }
     componentDidMount(){
+        const music_type = localStorage.getItem('mp3_api_music_type')
+        this.setState({
+            music_type
+        })
       
 
     }
@@ -65,7 +69,8 @@ class MainApp extends Component {
                                 <Route path='/call_api' exact component={Call_Api}/>
                                 {/* <Route path='/call_api' exact component={Call_Api}/> */}
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
-                                <Route path='/music_link_box/:id' exact component={MusicLinkBox}/>
+                                <Route path={`/${this.state.music_type}/:id`} exact component={MusicLinkBox}/> 
+                                {/* <Route path='/gospel/:id' exact component={MusicLinkBox}/>  */}
                                 
                             </Switch>
                             </div>

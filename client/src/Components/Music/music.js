@@ -173,7 +173,7 @@ class MusicMain extends Component {
                 </section>
                 <section className="spotify_CoolForNow_section_1">
                     <div className="Spotify_PlayList_CoolForNow">
-                        {this.state.Spotify_CoolForNow.map(data => {
+                        {this.state.Spotify_CoolForNow.map(data => { 
                             return(
                                 <div className='coolForNow'>
                                     <Card  style={{backgroundColor: 'black', color: "white", padding: "0.5em" }}>

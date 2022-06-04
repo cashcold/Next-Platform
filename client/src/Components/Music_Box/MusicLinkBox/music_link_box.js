@@ -14,6 +14,9 @@ class MusicLinkBox extends Component {
            mp3_api_img: '',
             home_url: '',
            mp3_api_date: '',
+           mp3_api_eye_seen: '',
+           mp3_api_music_type: '',
+           mp3_api_song_href: ''
          }
     }
     componentDidMount(){
@@ -24,6 +27,9 @@ class MusicLinkBox extends Component {
         const mp3_api_text = localStorage.getItem('mp3_api_text')
         const mp3_api_img = localStorage.getItem('mp3_api_img')
         const mp3_api_date = localStorage.getItem('mp3_api_date')
+        const mp3_api_eye_seen = localStorage.getItem('mp3_api_eye_seen')
+        const mp3_api_music_type = localStorage.getItem('mp3_api_music_type')
+        const mp3_api_song_href = localStorage.getItem('mp3_api_song_href')
         const home_url = localStorage.getItem('home_url')
 
         this.setState({
@@ -34,6 +40,9 @@ class MusicLinkBox extends Component {
             mp3_api_text,
             mp3_api_img,
             mp3_api_date,
+            mp3_api_eye_seen,
+            mp3_api_music_type,
+            mp3_api_song_href,
             home_url
             
         })
@@ -56,7 +65,7 @@ class MusicLinkBox extends Component {
                           <h5>{this.state.mp3_api_date}</h5>
                           <div className='all_eye'>
                             <i class="fa-solid fa-eye fa-1x"></i>
-                            <h5>898</h5>
+                            <h5>{this.state.mp3_api_eye_seen}</h5>
                           </div>
                         </div>
                         <div className='socail_icon'>
@@ -68,11 +77,21 @@ class MusicLinkBox extends Component {
                 
                     </div>
                 <img src={`${this.state.home_url}${this.state.mp3_api_img}`} alt='pic'/>
-                
+                <div className='download_link'>
+                    <a className='btn btn-primary' href={`${this.state.mp3_api_song_href}`} download>DOWNLOAD</a>
+                </div>
                 <div className="other_mp3_info">
-                    <h2>Stream and Download Ghanaian Gospel musician {this.state.mp3_api_name} new song <br/>
+                    <h2>Stream and Download {this.state.mp3_api_music_type} musician {this.state.mp3_api_name} new song <br/>
                     captioned {this.state.mp3_api_title} Mp3 By {this.state.mp3_api_name}  –{this.state.mp3_api_title}
                     </h2>
+                </div>
+                <div className='steam_song'>
+                    <audio
+                        controls
+                        src={`${this.state.mp3_api_song_href}`}>
+                            Your browser does not support the
+                            <code>audio</code> element.
+                    </audio>
                 </div>
                 </section>
                 <section className='link_view_2'>

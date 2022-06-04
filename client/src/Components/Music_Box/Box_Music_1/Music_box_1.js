@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Mp3_main_api} from '../../Api/mp3_main_api'
 import ReactPaginate from 'react-paginate';
+import {Card,Button} from 'react-bootstrap'
 
 import './style.css'
 class MusicBox_1 extends Component {
@@ -9,7 +10,7 @@ class MusicBox_1 extends Component {
         this.state = { 
             music_box_1: Mp3_main_api,
             offset: 0,
-            perPage: 2,
+            perPage: 8,
             currentPage: 0
          }
 
@@ -19,21 +20,33 @@ class MusicBox_1 extends Component {
         const data = this.state.music_box_1
         const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)  
         const postData = slice.map(pd => <React.Fragment>
+           <div className='drop_main_data'>
             <div className='drop_data' onClick={()=>{
-                 localStorage.setItem('mp3_api_id',pd.id)
-                 localStorage.setItem('mp3_api_name',pd.name)
-                 localStorage.setItem('mp3_api_title',pd.title)
-                 localStorage.setItem('mp3_api_img',pd.img)
-                 localStorage.setItem('mp3_api_head_Text',pd.head_Text)
-                 localStorage.setItem('mp3_api_song_href',pd.song_href)
-                 localStorage.setItem('mp3_api_date',pd.date)
-                
-                  window.location = `/music_link_box/${pd.head_Text_url}`
-            }}>
-            <h3>{pd.head_Text}</h3>
-            <img src={pd.img}/>
-            <p>{pd.text}</p>
-            </div>
+                    localStorage.setItem('mp3_api_id',pd.id)
+                    localStorage.setItem('mp3_api_name',pd.name)
+                    localStorage.setItem('mp3_api_title',pd.title)
+                    localStorage.setItem('mp3_api_img',pd.img)
+                    localStorage.setItem('mp3_api_head_Text',pd.head_Text)
+                    localStorage.setItem('mp3_api_song_href',pd.song_href)
+                    localStorage.setItem('mp3_api_date',pd.date)
+                    localStorage.setItem('mp3_api_eye_seen',pd.eye_seen)
+                    localStorage.setItem('mp3_api_music_type',pd.music_type)
+                    localStorage.setItem('mp3_api_song_href',pd.song_href)
+                    
+                    window.location = `/${pd.music_type}/${pd.head_Text_url}`
+                    }}>
+                    <section className='drop_data_info_main'>
+                        <div className='data_drop_info_box_1'>
+                        <img src={pd.img}/>
+                    </div>
+                    <div className='data_drop_info_box_2'>
+                        <h3>Download: {pd.name} mp3</h3>
+                        <p>Title: {pd.title}</p>
+                    </div>
+                </section>
+
+                </div>
+           </div>
         </React.Fragment>)
         this.setState({
          pageCount: Math.ceil(data.length / this.state.perPage),
@@ -62,8 +75,8 @@ class MusicBox_1 extends Component {
         console.log(this.state.music_box_1)
         return ( 
             <div className='music_box_1'>
-                <section className="box_music_1_main">
                     <h1>Music Box On Fire</h1>
+                <section className="box_music_1_main">
                     {this.state.postData}
                 <section className='check_pagination'>
                 <ReactPaginate
