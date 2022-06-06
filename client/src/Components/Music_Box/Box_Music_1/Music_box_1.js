@@ -43,6 +43,7 @@ class MusicBox_1 extends Component {
                     <div className='data_drop_info_box_2'>
                         <h3>Download: {pd.name} mp3</h3>
                         <p>Title: {pd.title}</p>
+                        <button className='btn btn-danger'>Download</button>
                     </div>
                 </section>
 

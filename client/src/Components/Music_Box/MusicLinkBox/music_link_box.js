@@ -17,10 +17,13 @@ class MusicLinkBox extends Component {
            mp3_api_eye_seen: '',
            mp3_api_music_type: '',
            mp3_api_song_href: '',
-           mp3_api_about_Main: ''
+           mp3_api_about_Main: '',
+           home_url_location: ''
          }
     }
     componentDidMount(){
+        const home_url_location =  window.location.href
+
         const mp3_api_id = localStorage.getItem('mp3_api_id')
         const mp3_api_name = localStorage.getItem('mp3_api_name')
         const mp3_api_title = localStorage.getItem('mp3_api_title')
@@ -46,34 +49,46 @@ class MusicLinkBox extends Component {
             mp3_api_music_type,
             mp3_api_song_href,
             mp3_api_about_Main,
+            home_url_location,
             home_url
             
         })
 
-        document.querySelector('.fa-facebook').addEventListener('click',()=>{
-            <a href='https://www.facebook.com/sharer.php?u=https://nest-platform.herokuapp.com/Gosple/this-week-top-count/Amb-Lawrence-I-Still-Believe'></a>
-            
+        const whatsap_api = `https://api.whatsapp.com/send?text=${this.state.mp3_api_head_Text}. ${this.state.home_url_location}
+        `
+       
 
+        document.querySelector('.fa-facebook').addEventListener('click',()=>{
+          
         })
+       
+
+       
 
     }
-    render() { 
-      
+    render() {
+       
+
         return ( 
             <div className='music_link_box'>
             <Helmet>
                 <base />
                 <title> {this.state.mp3_api_head_Text}</title>
-                <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
+                <meta name={this.state.mp3_api_about_Main} content="React hel/ment is useful for seo for dynamically changing head information" />
+                <meta property="og:title" content={this.state.mp3_api_head_Text} />
+                <meta property="og:description" content={this.state.mp3_api_about_Main} />
+                <meta property="og:url" content={this.state.home_url_location} />
+                <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg" />
                 <link rel="canonical" href="somelink" />
             </Helmet>
                 <section className="link_view_1">
                     <div className='both_view'>
                         <h1>DOWNLOAD: {this.state.mp3_api_head_Text} Mp3</h1><br/>
                         <div className='view_1_tab'>
-                          <h5>{this.state.mp3_api_date}</h5>
+                          <h5><i class="fa-solid fa-calendar-check fa-1x"></i> {this.state.mp3_api_date}</h5>
                           <div className='all_eye'>
-                            <i class="fa-solid fa-eye fa-1x"></i>
+                              <h5>View 
+                            <i class="fa-solid fa-eye fa-1x"></i></h5>
                             <h5>{this.state.mp3_api_eye_seen}</h5>
                           </div>
                         </div>
@@ -88,7 +103,7 @@ class MusicLinkBox extends Component {
                 <img src={`${this.state.home_url}${this.state.mp3_api_img}`} alt='pic'/>
                 
                 <div className='download_link'>
-                    <a className='btn btn-primary' href={`${this.state.mp3_api_song_href}`} download>DOWNLOAD</a>
+                    <a className='btn btn-danger' href={`${this.state.mp3_api_song_href}`} download>DOWNLOAD</a>
                 </div>
                 <div className='about_main'>
                     <h3>{this.state.mp3_api_about_Main}</h3>
