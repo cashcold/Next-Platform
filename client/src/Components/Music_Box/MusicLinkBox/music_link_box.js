@@ -75,10 +75,12 @@ class MusicLinkBox extends Component {
                 <base />
                 <title> {this.state.mp3_api_head_Text}</title>
                 <meta name="desscription" content={this.state.mp3_api_about_Main} />
-                 <meta property="og:description" content={this.state.mp3_api_about_Main}/>
-                <meta property="og:title" content={this.state.mp3_api_head_Text} />
-                <meta property="og:url" content={this.state.home_url_location} />
-                <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg" />
+                <meta property="og:url" content="https://www.byeindonesia.com/"/>
+                <meta property="og:type" content="website"/>
+                <meta property="og:title" content="Bye Indonesia - Renunciation of Indonesian Citizenship Guide 2021"/>
+                <meta property="og:description" content="Renunciation of Indonesian citizenship process changed in 2020. This site aims to answer all your questions on the new process."/>
+                <meta property="og:image" content="https://www.byeindonesia.com/og-bye-indonesia.png"/>
+
                 <link rel="canonical" href={this.state.home_url} />
             </Helmet>
                 <section className="link_view_1">
