@@ -75,6 +75,7 @@ class MusicLinkBox extends Component {
                 <base />
                 <title> {this.state.mp3_api_head_Text}</title>
                 <meta name="desscription" content={this.state.mp3_api_about_Main} />
+                 <meta property="og:description" content={this.state.mp3_api_about_Main}/>
                 <meta property="og:title" content={this.state.mp3_api_head_Text} />
                 <meta property="og:url" content={this.state.home_url_location} />
                 <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg" />
