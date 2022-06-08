@@ -23,6 +23,7 @@ class MusicLinkBox extends Component {
     }
     componentDidMount(){
         const home_url_location =  window.location.href
+        localStorage.setItem('home_url_location',home_url_location)
 
         const mp3_api_id = localStorage.getItem('mp3_api_id')
         const mp3_api_name = localStorage.getItem('mp3_api_name')
@@ -75,11 +76,7 @@ class MusicLinkBox extends Component {
                 <base />
                 <title> {this.state.mp3_api_head_Text}</title>
                 <meta name="desscription" content={this.state.mp3_api_about_Main} />
-                <meta property="og:url" content="https://www.byeindonesia.com/"/>
-                <meta property="og:type" content="website"/>
-                <meta property="og:title" content="Bye Indonesia - Renunciation of Indonesian Citizenship Guide 2021"/>
-                <meta property="og:description" content="Renunciation of Indonesian citizenship process changed in 2020. This site aims to answer all your questions on the new process."/>
-                <meta property="og:image" content="https://www.byeindonesia.com/og-bye-indonesia.png"/>
+                
 
                 <link rel="canonical" href={this.state.home_url} />
             </Helmet>

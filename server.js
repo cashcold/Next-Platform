@@ -33,40 +33,6 @@ if(process.env.NODE_ENV === 'production'){
     })
 }
 
-const scopes = [
-    'ugc-image-upload',
-    'user-read-playback-state',
-    'user-modify-playback-state',
-    'user-read-currently-playing',
-    'streaming',
-    'app-remote-control',
-    'user-read-email',
-    'user-read-private',
-    'playlist-read-collaborative',
-    'playlist-modify-public',
-    'playlist-read-private',
-    'playlist-modify-private',
-    'user-library-modify',
-    'user-library-read',
-    'user-top-read',
-    'user-read-playback-position',
-    'user-read-recently-played',
-    'user-follow-read',
-    'user-follow-modify'
-  ];
-  
-// credentials are optional
-var spotifyApi = new SpotifyWebApi({
-    clientId: '7274681e5f564e29b6246893ed62f20a',
-    clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
-    redirectUri: 'http://localhost:3000/music'
-  });
-  
-  
-  JungleServer.get('/login_spotify', (req, res) => {
-
-    res.redirect(spotifyApi.createAuthorizeURL(scopes)); 
-  });
 
   // JungleServer.post('/ghanaMotion_scraper', (req, res) => {
   //     res.send(GhanaMotion_Scraper);
