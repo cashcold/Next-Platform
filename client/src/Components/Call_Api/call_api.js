@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css'
-import {sport_api} from '../Api/sport_api'
+import {sport_api} from '../Api/sport_api.js'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import { Helmet } from 'react-helmet';

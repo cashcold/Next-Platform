@@ -390,6 +390,23 @@
     min-height: 100vh;
 }
 
+.btc_shark img{
+   padding: 5.5em 4em;
+   background-color: black;
+}
+.bet_1X img{
+   padding: 5.5em 4em;
+   background-color: black;
+}
+.chance__now img{
+   padding: 5.5em 4.9em;
+   background-color: black;
+}
+
+
+
+
+
 
 
 
@@ -600,6 +617,24 @@
     grid-template-columns: repeat(1,1fr);
     padding: 0em 1em;
 }
+.btc_shark img{
+    padding: 1.5em 1em;
+    background-color: black;
+ }
+ .bet_1X img{
+    padding: 1.5em 1em;
+    background-color: black;
+ }
+ .chance__now img{
+    padding: 1.5em 1.3em;
+    background-color: black;
+ }
+ 
+
+
+
+
+
 }
 
 @media screen and (max-width: 560px){

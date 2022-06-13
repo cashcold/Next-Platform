@@ -11,8 +11,7 @@ class MusicReceivedMain extends Component {
             <div className='music_received_main'>
                 <section className="receivedMusic_section_1 music_LeftSideBar">
                     <div className="feature_playlist">
-                        <h2>R&B Mix PlayList</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1EQoqCH7BwIYb7?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+                    <MusicBox_1/>
                     </div>
                     <div className="feature_playlist">
                         <h2>favourite </h2>
@@ -21,8 +20,8 @@ class MusicReceivedMain extends Component {
                 </section>
                 <section className="receivedMusic_section_1 music_center_main">
                     <div className="iframe_list">
-                     <MusicBox_1/>
-                       
+                        <h2>R&B Mix PlayList</h2>
+                        <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1EQoqCH7BwIYb7?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>             
                     <div className="iframe_list">
                         <h2>Ghana Count Down</h2>

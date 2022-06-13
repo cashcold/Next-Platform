@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import axios from 'axios'
 import'./style.css'
 import { Helmet } from 'react-helmet';
 
@@ -9,7 +10,7 @@ class MusicLinkBox extends Component {
            mp3_api_id: '',
            mp3_api_name: '',
            mp3_api_title: '',
-           mp3_api_head_Text: '',
+           mp3_api_head_Text: 'Amb-Lawrence-I-Still-Believe',
            mp3_api_text: '',
            mp3_api_img: '',
             home_url: '',
@@ -18,9 +19,16 @@ class MusicLinkBox extends Component {
            mp3_api_music_type: '',
            mp3_api_song_href: '',
            mp3_api_about_Main: '',
-           home_url_location: ''
+           home_url_location: '',
+           social_img: ''
          }
+         this.handleChange = this.handleChange.bind(this)
     }
+    handleChange = input => (event)=>{
+        this.setState({[input]: event.target.value})
+    }
+   
+
     componentDidMount(){
         const home_url_location =  window.location.href
         localStorage.setItem('home_url_location',home_url_location)
@@ -55,8 +63,7 @@ class MusicLinkBox extends Component {
             
         })
 
-        const whatsap_api = `https://api.whatsapp.com/send?text=${this.state.mp3_api_head_Text}. ${this.state.home_url_location}
-        `
+       
        
 
         document.querySelector('.fa-facebook').addEventListener('click',()=>{
@@ -68,7 +75,7 @@ class MusicLinkBox extends Component {
 
     }
     render() {
-       
+    //    console.log(this.state)
 
         return ( 
             <div className='music_link_box'>
@@ -76,8 +83,9 @@ class MusicLinkBox extends Component {
                 <base />
                 <title> {this.state.mp3_api_head_Text}</title>
                 <meta name="desscription" content={this.state.mp3_api_about_Main} />
-                
-
+                <meta property="og:title" content={this.state.mp3_api_head_Text} />
+                <meta property="og:description" content={this.state.mp3_api_about_Main} />
+                <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
                 <link rel="canonical" href={this.state.home_url} />
             </Helmet>
                 <section className="link_view_1">

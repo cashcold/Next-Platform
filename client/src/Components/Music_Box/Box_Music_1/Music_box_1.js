@@ -34,7 +34,7 @@ class MusicBox_1 extends Component {
                     localStorage.setItem('mp3_api_song_href',pd.song_href)
                     localStorage.setItem('mp3_api_about_Main',pd.about_Main)
                     
-                    window.location = `/${pd.music_type}/${pd.head_Text_url}`
+                    window.location = `/music/${pd.music_type}/${pd.head_Text_url}`
                     }}>
                     <section className='drop_data_info_main'>
                         <div className='data_drop_info_box_1'>
@@ -74,7 +74,6 @@ class MusicBox_1 extends Component {
         this.receivedData()
      }
     render() { 
-        console.log(this.state.music_box_1)
         return ( 
             <div className='music_box_1'>
                     <h1>Music Box On Fire</h1>

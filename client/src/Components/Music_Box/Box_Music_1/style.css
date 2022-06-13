@@ -10,7 +10,7 @@
 }
 .box_music_1_main{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-columns: repeat(1,1fr);
   row-gap: 3.5em;
 }
 .music_box_1 h1{
@@ -20,7 +20,7 @@
     padding: 1em 0em;
     margin:0em ;
 }
-
+ 
 @media screen and (max-width: 768px){
     .drop_data img{
         width: 90%;

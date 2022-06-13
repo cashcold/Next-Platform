@@ -1,15 +1,15 @@
-const express = require('express')
-const cors = require('cors')
-const dotEnv = require('dotenv')
-const bodyParser = require('body-parser')
-const mongoose = require('mongoose')
-const userRouter = require('./Router/userRouter')
-const path = require('path')
-var SpotifyWebApi = require('spotify-web-api-node');
-const { Scraper, Root, OpenLinks, CollectContent, DownloadContent, } = require('nodejs-web-scraper');
+// const express = require('express')
+import express from 'express'
+import cors from 'cors'
+import dotEnv from 'dotenv'
+import bodyParser from 'body-parser'
+import mongoose from 'mongoose'
+// import userRouter from './Router/userRouter.js'
+import path  from 'path'
 const fs = require('fs');
-var Ebay = require('ebay-node-api')
-
+import ReactDOMServer from 'react-dom/server.js';
+import { Helmet } from 'react-helmet';
+import App from './client/src/App.js'
 dotEnv.config()
 
 
@@ -18,32 +18,49 @@ mongoose.connect(process.env.DataBaseConnecting,{ useNewUrlParser: true,  useUni
 })
 const PORT = process.env.PORT || 8000
 
-const JungleServer = express()
+const app = express()
 
 
-JungleServer.use(cors())
-JungleServer.use(bodyParser.json())
+app.use(cors())
+app.use(bodyParser.json())
+app.use(express.Router())
+app.get('/*', (req, res) => {
+    const appString = ReactDOMServer.renderToString(App);
+    const helmet = Helmet.renderStatic();
 
-JungleServer.use('/users',userRouter)
+    const html = `<!DOCTYPE html>
+      <html lang="en">
+        <head>
+          ${helmet.title.toString()}
+          ${helmet.meta.toString()}
+        </head>
+        <body>
+          <div id="root">
+            ${ appString }
+          </div>
+        </body>
+      </html>
+    `
+
+    res.send(html);
+});
+
+// app.use('/users',userRouter)
 
 if(process.env.NODE_ENV === 'production'){
-    JungleServer.use(express.static("client/build"))
-    JungleServer.get('*',(req,res)=>{
+    app.use(express.static("client/build"))
+    app.get('*',(req,res)=>{
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
 
 
-  // JungleServer.post('/ghanaMotion_scraper', (req, res) => {
-  //     res.send(GhanaMotion_Scraper);
-  // });
-  
 
 
  
 
 
 
-JungleServer.listen(PORT,()=>{
+app.listen(PORT,()=>{
     console.log(`server is runing on local Port Number ${PORT}`)
 })

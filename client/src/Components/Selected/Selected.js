@@ -8,6 +8,7 @@ import './style.css'
 import {TimelineLite, TimelineMax} from 'gsap'
 import {gsap} from 'gsap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger'
+import { Helmet } from 'react-helmet';
 
 class Selected extends Component {
     constructor(props) {
@@ -67,7 +68,7 @@ class Selected extends Component {
             draggable: true,
             progress: undefined,
             });
-       },20000)
+       },20000) 
       
        setTimeout(()=>{
         toast.dark(
@@ -208,6 +209,15 @@ class Selected extends Component {
         
         return ( 
             <div className='SelectedMain'>
+            <Helmet>
+            <base />
+            <title> Next-Platform-Home</title>
+            <meta name="desscription" content='Next-Platform-All Bind' />
+            <meta property="og:title" content='Join The next PlatForm' />
+            <meta property="og:description" content='Next-Platform-All Bind Join The next PlatForm' />
+            <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
+            <link rel="canonical" href={window.location.href} />
+        </Helmet>
                 <ToastContainer 
                 position="top-center"
                 autoClose={5000}
@@ -243,7 +253,7 @@ class Selected extends Component {
                 </a>
                 
                 </div>
-                <div className="1x_bet">
+                <div className="1x_bet bet_1X">
                     <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
                     </div>
                 <section className='chanceMain'>

@@ -5,8 +5,8 @@ import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import moment from 'moment'
 import {Hm_api} from '../Api/Hm_API'
-import AmazonFreshProduct from './amazon_fresh_product';
-import EbayMainProduct from './ebayProduct';
+import AmazonFreshProduct from './amazon_fresh_product.js';
+import EbayMainProduct from './ebayProduct.js';
 
 
 class ProductMain extends Component {
