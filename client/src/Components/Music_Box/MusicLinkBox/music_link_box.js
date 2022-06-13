@@ -10,7 +10,7 @@ class MusicLinkBox extends Component {
            mp3_api_id: '',
            mp3_api_name: '',
            mp3_api_title: '',
-           mp3_api_head_Text: ',
+           mp3_api_head_Text: '',
            mp3_api_text: '',
            mp3_api_img: '',
             home_url: '',
@@ -90,7 +90,7 @@ class MusicLinkBox extends Component {
             </Helmet>
                 <section className="link_view_1">
                     <div className='both_view'>
-                        <h1>DOWNLOAD: <br/>{this.state.mp3_api_head_Text} Mp3</h1><br/>
+                        <h1>DOWNLOAD: {this.state.mp3_api_head_Text} Mp3</h1><br/>
                         <div className='view_1_tab'>
                           <h5><i class="fa-solid fa-calendar-check fa-1x"></i> {this.state.mp3_api_date}</h5>
                           <div className='all_eye'>
