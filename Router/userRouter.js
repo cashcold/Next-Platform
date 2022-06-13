@@ -1,16 +1,17 @@
-import express from 'express'
-import User from '../UserModel/userModel.js'
-import bcrypt from 'bcryptjs'
-import mailgun from 'mailgun-js'
-import dotEnv from 'dotenv'
-import jwt from 'jsonwebtoken'
-import async from 'async'
-import crypto from 'crypto'
-import UserDeposit from '../UserModel/depositModel'
+const express = require('express')
+const bcrypt = require('bcryptjs')
+const mailgun = require('mailgun-js')
+const dotEnv = require('dotenv')
+const jwt = require('jsonwebtoken')
+const async = require('async')
+const crypto = require('crypto')
+const UserDeposit = require('../UserModel/depositModel')
+var SpotifyWebApi = require('spotify-web-api-node');
+var Ebay = require('ebay-node-api')
 
 dotEnv.config()
 
-const Router = express.Router() 
+const Router = express.Router()
 
 
 
