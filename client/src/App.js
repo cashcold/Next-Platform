@@ -40,7 +40,7 @@ class MainApp extends Component {
     render() { 
         const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
         return ( 
-            <HelmetProvider>
+           
             <Router>
                <Helmet>
                     <base />
@@ -79,7 +79,7 @@ class MainApp extends Component {
                         </div>
                 </div>
             </Router>
-            </HelmetProvider>
+         
          );
     }
 }

@@ -1,15 +1,14 @@
-// const express = require('express')
-import express from 'express'
-import cors from 'cors'
-import dotEnv from 'dotenv'
-import bodyParser from 'body-parser'
-import mongoose from 'mongoose'
-// import userRouter from './Router/userRouter.js'
-import path  from 'path'
+const express = require('express')
+const cors = require('cors')
+const dotEnv = require('dotenv')
+const bodyParser = require('body-parser')
+const mongoose = require('mongoose')
+const userRouter = require('./Router/userRouter')
+const path = require('path')
+var SpotifyWebApi = require('spotify-web-api-node');
 const fs = require('fs');
-import ReactDOMServer from 'react-dom/server.js';
-import { Helmet } from 'react-helmet';
-import App from './client/src/App.js'
+var Ebay = require('ebay-node-api')
+
 dotEnv.config()
 
 
@@ -18,38 +17,17 @@ mongoose.connect(process.env.DataBaseConnecting,{ useNewUrlParser: true,  useUni
 })
 const PORT = process.env.PORT || 8000
 
-const app = express()
+const JungleServer = express()
 
 
-app.use(cors())
-app.use(bodyParser.json())
-app.use(express.Router())
-app.get('/*', (req, res) => {
-    const appString = ReactDOMServer.renderToString(App);
-    const helmet = Helmet.renderStatic();
+JungleServer.use(cors())
+JungleServer.use(bodyParser.json())
 
-    const html = `<!DOCTYPE html>
-      <html lang="en">
-        <head>
-          ${helmet.title.toString()}
-          ${helmet.meta.toString()}
-        </head>
-        <body>
-          <div id="root">
-            ${ appString }
-          </div>
-        </body>
-      </html>
-    `
-
-    res.send(html);
-});
-
-// app.use('/users',userRouter)
+JungleServer.use('/users',userRouter)
 
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static("client/build"))
-    app.get('*',(req,res)=>{
+    JungleServer.use(express.static("client/build"))
+    JungleServer.get('*',(req,res)=>{
         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
     })
 }
@@ -61,6 +39,6 @@ if(process.env.NODE_ENV === 'production'){
 
 
 
-app.listen(PORT,()=>{
+JungleServer.listen(PORT,()=>{
     console.log(`server is runing on local Port Number ${PORT}`)
 })
