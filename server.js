@@ -44,7 +44,7 @@ app.get('/', function(request, response) {
       response.send(result);
     });
   });
-app.get('/music', function(request, response) {
+app.get('/music/gosple/id', function(request, response) {
     console.log('Home page visited! okay');
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
   
