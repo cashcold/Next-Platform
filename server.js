@@ -18,7 +18,6 @@ mongoose.connect(process.env.DataBaseConnecting,{ useNewUrlParser: true,  useUni
 const PORT = process.env.PORT || 8000
 
 const app = express()
-const Router = express.Router()
 
 
 app.use(cors())
@@ -26,17 +25,11 @@ app.use(bodyParser.json())
 
 app.use('/users',userRouter)
 
-if(process.env.NODE_ENV === 'production'){
-    app.use(express.static("client/build"))
-    app.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
 
-}
 
 app.get('/', function(request, response) {
     console.log('Home page visited! okay');
-    const filePath = path.resolve(__dirname, 'client', 'build', 'index.html');
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
   
     // read in the index.html file
     fs.readFile(filePath, 'utf8', function (err,data) {
@@ -51,7 +44,14 @@ app.get('/', function(request, response) {
       response.send(result);
     });
   });
+  app.use(express.static("client/build"))
+  if(process.env.NODE_ENV === 'production'){
+    app.use(express.static("client/build"))
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
 
+}
 
 
  
