@@ -5,8 +5,8 @@ import axios from 'axios'
 import { Helmet } from 'react-helmet';
 import {gsap} from 'gsap'
 import {Button,Card} from 'react-bootstrap'
-import{ScrollTrigger} from 'gsap/ScrollTrigger'
-import MusicReceivedMain from '../Music_Received/music_receivedMain';
+import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
+import MusicReceivedMain from '../Music_Received/music_receivedMain.js';
 const SpotifyWebApi = require('spotify-web-api-node');
 let token_main = localStorage.getItem('spotify_access_token')
 const token = token_main;

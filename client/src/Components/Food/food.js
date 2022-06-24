@@ -3,7 +3,7 @@ import './style.css'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import { Helmet } from 'react-helmet';
-import GetFoodMain from './getFoodMain';
+import GetFoodMain from './getFoodMain.js';
 
 class FoodMain extends Component {
     constructor(props) {

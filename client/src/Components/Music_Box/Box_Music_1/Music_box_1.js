@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Mp3_main_api} from '../../Api/mp3_main_api'
+import {Mp3_main_api} from '../../Api/mp3_main_api.js'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 
@@ -25,6 +25,7 @@ class MusicBox_1 extends Component {
                     localStorage.setItem('mp3_api_id',pd.id)
                     localStorage.setItem('mp3_api_name',pd.name)
                     localStorage.setItem('mp3_api_title',pd.title)
+                    localStorage.setItem('mp3_api_head_Text_url',pd.head_Text_url)
                     localStorage.setItem('mp3_api_img',pd.img)
                     localStorage.setItem('mp3_api_head_Text',pd.head_Text)
                     localStorage.setItem('mp3_api_song_href',pd.song_href)

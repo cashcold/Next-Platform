@@ -9,7 +9,7 @@ import { ToastContainer } from 'react-toastify';
 
 
 import {Card,Button} from 'react-bootstrap'
-import ScoreBatVideoApi from './scorebatVideoApi';
+import ScoreBatVideoApi from './scorebatVideoApi.js';
 class SportMain extends Component {
     constructor(props) {
         super(props);

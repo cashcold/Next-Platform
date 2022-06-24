@@ -1,31 +1,36 @@
 import React, { Component } from 'react';
+import {HelmetProvider} from "react-helmet-async";  
 import './App.css'
 import 'animate.css'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
-import Navbar from './Components/Navbar/navbar';
-import Selected from './Components/Selected/Selected';
-import ContactMain from './Components/Contact-us/Contact-us';
-import BecomeAgent from './Components/Agent/Agent';
-import Footer from './Components/Footer/Footer';
-import Poster from './Components/Poster/poster';
-import Call_Api from './Components/Call_Api/call_api';
-import ReceivedApi from './Components/Received_Api/received_api';
+import Navbar from './Components/Navbar/navbar.js';
+import Selected from './Components/Selected/Selected.js';
+import ContactMain from './Components/Contact-us/Contact-us.js';
+import BecomeAgent from './Components/Agent/Agent.js';
+import Footer from './Components/Footer/Footer.js';
+import Poster from './Components/Poster/poster.js';
+import Call_Api from './Components/Call_Api/call_api.js';
+import ReceivedApi from './Components/Received_Api/received_api.js';
 import { Helmet } from 'react-helmet';
-import MusicMain from './Components/Music/music';
-import FoodMain from './Components/Food/food';
-import GetDrinksMain from './Components/Drinks/getDrinks';
-import ReceiveGetdFood from './Components/Food/ReceivedGetFood';
-import SportMain from './Components/SportMain/sportMain';
-import ScoreBatReceivedApi from './Components/SportMain/scorebatReceivedApi';
-import ProductMain from './Components/Product/productMain';
-import WatchNextMain from './Components/Watch_Next/watch_next';
-import LinkBoxMain from './Components/Link_Box/link_box';
-import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box';
+import MusicMain from './Components/Music/music.js';
+import FoodMain from './Components/Food/food.js';
+import GetDrinksMain from './Components/Drinks/getDrinks.js';
+import ReceiveGetdFood from './Components/Food/ReceivedGetFood.js';
+import SportMain from './Components/SportMain/sportMain.js';
+import ScoreBatReceivedApi from './Components/SportMain/scorebatReceivedApi.js';
+import ProductMain from './Components/Product/productMain.js';
+import WatchNextMain from './Components/Watch_Next/watch_next.js';
+import LinkBoxMain from './Components/Link_Box/link_box.js';
+import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js';
 class MainApp extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            music_type: ''
+            music_type: '',
+            title: 'NEXT-PLATFORM-HOME',
+            description: 'Join the bigest platform NextPlatform HoME Enterterment Music Box',
+            on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
+
          }
     }
     componentDidMount(){
@@ -39,12 +44,15 @@ class MainApp extends Component {
     render() { 
         const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
         return ( 
-            // animate__animated animate__zoomIn 
+          
             <Router>
                <Helmet>
                     <base />
                     <title>NEXT-PLATFORM HOME</title>
                     <meta name="description" content="NEXT-PLATFORM-HOME" />
+                    <meta property="og:title" content='NextPlatForm Home Main' />
+                <meta property="og:description" content='Join the bigest platform NextPlatform HoME Enterterment Music Box' />
+                <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <div className=' mainApp '>
@@ -80,6 +88,7 @@ class MainApp extends Component {
                         </div>
                 </div>
             </Router>
+ 
          );
     }
 }

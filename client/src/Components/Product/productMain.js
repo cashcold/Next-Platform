@@ -4,7 +4,7 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import moment from 'moment'
-import {Hm_api} from '../Api/Hm_API'
+// import {Hm_api} from '../Api/Hm_API.js'
 import AmazonFreshProduct from './amazon_fresh_product.js';
 import EbayMainProduct from './ebayProduct.js';
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './getDrinks' 
+import './getDrinks.js' 
 import axios from 'axios'
 
 import { toast } from 'react-toastify';

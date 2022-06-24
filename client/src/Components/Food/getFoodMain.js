@@ -8,7 +8,7 @@ import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import { Helmet } from 'react-helmet';
 import './getFoodMain.css'
-import ReceiveGetdFood from './ReceivedGetFood';
+import ReceiveGetdFood from './ReceivedGetFood.js';
 class GetFoodMain extends Component {
    
     constructor(props) {

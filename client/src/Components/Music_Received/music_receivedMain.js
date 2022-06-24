@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import MusicBox_1 from '../Music_Box/Box_Music_1/Music_box_1';
+import MusicBox_1 from '../Music_Box/Box_Music_1/Music_box_1.js';
 import './music_receivedMain.css'
 class MusicReceivedMain extends Component {
     constructor(props) {

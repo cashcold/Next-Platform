@@ -7,7 +7,7 @@ import {Card,Button} from 'react-bootstrap'
 import './style.css'
 import {TimelineLite, TimelineMax} from 'gsap'
 import {gsap} from 'gsap'
-import{ScrollTrigger} from 'gsap/ScrollTrigger'
+import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
 import { Helmet } from 'react-helmet';
 
 class Selected extends Component {

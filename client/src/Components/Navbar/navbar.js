@@ -4,8 +4,8 @@ import 'animate.css'
 import {Carousel,Container,Nav} from 'react-bootstrap'
 import {TimelineLite} from 'gsap'
 import {gsap} from 'gsap'
-import{ScrollTrigger} from 'gsap/ScrollTrigger'
-import Other__NavBar from '../other_Navbar/other_nav';
+import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
+import Other__NavBar from '../other_Navbar/other_nav.js';
 class Navbar extends Component {
     constructor(props) {
         super(props);
@@ -103,7 +103,7 @@ class Navbar extends Component {
                                 <li><a className='btn btn-two' href='/tranding'>TRANDING</a></li>
                                 <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>
                                 <li><a className='btn btn-two' href='/drinks-main'>Drinks</a></li>
-                                <li><a className='btn btn-two' href='/about-us'>ABOUT US</a></li>
+                                <li><a className='btn btn-two' href='/contact-us'>ABOUT US</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>
                         </div>

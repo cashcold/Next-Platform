@@ -8,9 +8,6 @@ const path = require('path')
 var SpotifyWebApi = require('spotify-web-api-node');
 const fs = require('fs');
 var Ebay = require('ebay-node-api')
-const Router = express.Router()
-
-
 
 dotEnv.config()
 
@@ -20,17 +17,24 @@ mongoose.connect(process.env.DataBaseConnecting,{ useNewUrlParser: true,  useUni
 })
 const PORT = process.env.PORT || 8000
 
-const JungleServer = express()
+const app = express()
+const Router = express.Router()
 
 
-JungleServer.use(cors())
-JungleServer.use(bodyParser.json())
+app.use(cors())
+app.use(bodyParser.json())
 
-JungleServer.use('/users',userRouter)
-JungleServer.use(Router)
- JungleServer.use(express.static("client/build"))
+app.use('/users',userRouter)
 
-Router.get('/', function(request, response) {
+if(process.env.NODE_ENV === 'production'){
+    app.use(express.static("client/build"))
+    app.get('*',(req,res)=>{
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
+    })
+
+}
+
+app.get('/', function(request, response) {
     console.log('Home page visited!');
     const filePath = path.resolve(__dirname, 'client', 'build', 'index.html');
   
@@ -41,22 +45,12 @@ Router.get('/', function(request, response) {
       }
       
       // replace the special strings with server generated strings
-      data = data.replace(/\$OG_TITLE/g, 'Home Page');
-      data = data.replace(/\$OG_DESCRIPTION/g, "Home page description");
-      result = data.replace(/\$OG_IMAGE/g, 'https://i.imgur.com/V7irMl8.png');
+      data = data.replace(/\$OG_TITLE/g, 'NEXT-PLATFORM-HOME');
+      data = data.replace(/\$OG_DESCRIPTION/g, "Join the bigest platform NextPlatform HoME Enterterment Music Box");
+      result = data.replace(/\$OG_IMAGE/g, 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg');
       response.send(result);
     });
   });
-
-if(process.env.NODE_ENV === 'production'){
-    JungleServer.use(express.static("client/build"))
-    JungleServer.get('*',(req,res)=>{
-        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'))
-    })
-}
-
-
-
 
 
 
@@ -64,6 +58,6 @@ if(process.env.NODE_ENV === 'production'){
 
 
 
-JungleServer.listen(PORT,()=>{
+app.listen(PORT,()=>{
     console.log(`server is runing on local Port Number ${PORT}`)
 })

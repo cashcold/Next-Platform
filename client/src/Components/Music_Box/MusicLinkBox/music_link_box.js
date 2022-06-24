@@ -10,6 +10,7 @@ class MusicLinkBox extends Component {
            mp3_api_id: '',
            mp3_api_name: '',
            mp3_api_title: '',
+           mp3_api_head_Text_url: '',
            mp3_api_head_Text: '',
            mp3_api_text: '',
            mp3_api_img: '',
@@ -30,6 +31,8 @@ class MusicLinkBox extends Component {
    
 
     componentDidMount(){
+
+        
         const home_url_location =  window.location.href
         localStorage.setItem('home_url_location',home_url_location)
 
@@ -37,6 +40,7 @@ class MusicLinkBox extends Component {
         const mp3_api_name = localStorage.getItem('mp3_api_name')
         const mp3_api_title = localStorage.getItem('mp3_api_title')
         const mp3_api_head_Text = localStorage.getItem('mp3_api_head_Text')
+        const mp3_api_head_Text_url = localStorage.getItem('mp3_api_head_Text_url')
         const mp3_api_text = localStorage.getItem('mp3_api_text')
         const mp3_api_img = localStorage.getItem('mp3_api_img')
         const mp3_api_date = localStorage.getItem('mp3_api_date')
@@ -51,6 +55,7 @@ class MusicLinkBox extends Component {
             mp3_api_name,
             mp3_api_title,
             mp3_api_head_Text,
+            mp3_api_head_Text_url,
             mp3_api_text,
             mp3_api_img,
             mp3_api_date,
@@ -75,7 +80,15 @@ class MusicLinkBox extends Component {
 
     }
     render() {
-    //    console.log(this.state)
+    //   const sendSocial_link = {
+    //     id: this.state.mp3_api_id,
+    //     title: this.state.mp3_api_title,
+    //     description: this.state.mp3_api_about_Main,
+    //     on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
+
+    //   }
+    //   axios.post(`/music/${this.state.mp3_api_head_Text}`,sendSocial_link).then(console.log(sendSocial_link))
+
 
         return ( 
             <div className='music_link_box'>
@@ -83,7 +96,7 @@ class MusicLinkBox extends Component {
                 <base />
                 <title> {this.state.mp3_api_head_Text}</title>
                 <meta name="desscription" content={this.state.mp3_api_about_Main} />
-                <meta property="og:title" content={this.state.mp3_api_head_Text} />
+                <meta property="og:title" content={this.state.mp3_api_head_Text_url} />
                 <meta property="og:description" content={this.state.mp3_api_about_Main} />
                 <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
                 <link rel="canonical" href={this.state.home_url} />

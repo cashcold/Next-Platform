@@ -1,3 +1,7 @@
+.contactNow{
+    padding-top: 5em;
+   
+}
 .bothAll{
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -5,6 +9,8 @@
 .bothSupportA{
     width: 100%;
     text-align: center;
+    display: grid;
+    grid-row-gap: 2em;
 }
 .bothSupportB{
     margin: 2rem 0;
@@ -43,16 +49,44 @@
 .mainContact{
     overflow: hidden;
 }
-.mainContact{
-    margin-top: 70px;
-}
+
 .lineSupport p{
     width: 70%;
     margin: 0 auto;
 }
+.mainContact{
+    
+    width: 100%;
+    min-height: 100vh;
+    background-color: #121212;
+    color: white;
+}
+.mainContact h1{
+padding-bottom: 0em;
+}
+.mainContact span{
+    color:  #F8941D;
+}
+.mainContact{
+    padding: 7em 0;
+    background-position: 20%;
+    min-height: 100vh;
+}
+.contactNow{
+    
+    width: 90%;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color:#0D1430;
+}
+.bothSupportA i{
+    color: #B9244C;
+}
+.mainContact span{
+    color: #B9244C;
+}
 
-
-@media screen and ( max-width: 500px){
+@media screen and (max-width: 768px){
     .bothAll{
         display: grid;
         grid-template-columns: repeat(1,1fr);

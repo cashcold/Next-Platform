@@ -9,39 +9,14 @@ class ContactMain extends Component {
         return ( 
             <div className='mainContact'>
                 <section className='contactNow'>
+                    <h1><span>CONTACT WITH US</span></h1>
                 <div className='bothAll'>
-                        <div className='bothSupportA'>
-                            <div className='bothMenu bothMenuCount1' >
-                                <div className='supportInfo'>
-                                    <h1> <i class="fas fa-envelope-square fa-3x"></i></h1>
-                                    <h4>OUR E-MAIL</h4>
-                                    <p>nextplatfrom2@gmail.com</p>
-                                </div>
-                            </div>
-                            <div className='bothMenu bothMenuCount2' >
-                                <div className='supportInfo'>
-                                    <h1><i class="fas fa-phone fa-3x"></i></h1>
-                                    <h4>PHONE NUMBER </h4>
-                                    <p>+16692544417</p>
-                                    <p>+12812319819</p>
-                                </div>
-                            </div>
-                            <div className='bothMenu bothMenuCount3'>
-                                <div className='supportInfo'>
-                                <h1><i class="fas fa-address-card fa-3x"></i></h1>
-                                    <h4>ADDRESS LINE</h4>
-                                    <p>State: New York</p>
-                                    <p>City: BRONX</p>
-                                    <p>Street: 2340  Jerry Dove Drive</p>
-                                </div>
-                            </div>  
-                        </div>
-                        <div className='bothSupportB'>
+                             <div className='bothSupportB'>
                             <div className='supportLine'>
                                 <div className='supportNow'>
                                     <div className='lineSupport'>
-                                        <h1>SEND US A MESSAGE</h1>
-                                        <p>Get in touch with us any time you need an assistance. We are available 24/7 to answer your queries, We are here to guide you with anything you need.</p>
+                                        <h1>SEND <span>US MAIL</span></h1>
+                                        <p>Taking care of our customers is important at Next-platform. So we've made it easy for you to find help when you need it online 24/7.</p>
                                     </div>
                                 </div>
                                 <div className='contactDiv'>
@@ -56,12 +31,39 @@ class ContactMain extends Component {
                                             <div className='myForms'>
                                                 <textarea name='message' placeholder='Message Us'></textarea>
                                             </div>
-                                            <a href='' className='btn btn-warning contactBtn'>Send</a>
+                                            <a href='' className='btn btn-danger contactBtn'>Send</a>
                                         </form>
                                    </div>
                                 </div>
                             </div>
                         </div>
+                        <div className='bothSupportA'>
+                            <div className='bothMenu bothMenuCount1' >
+                                <div className='supportInfo'>
+                                    <h1> <i class="fas fa-envelope-square fa-3x"></i></h1>
+                                    <h4>OUR <span>E-MAIL</span></h4>
+                                    <p>next-platform@gmail.com</p>
+                                </div>
+                            </div>
+                            <div className='bothMenu bothMenuCount2' >
+                                <div className='supportInfo'>
+                                    <h1><i class="fas fa-phone fa-3x"></i></h1>
+                                    <h4>PHONE <span>NUMBER</span> </h4>
+                                    <p>0203808479</p>
+                                    <p>0268253787</p>
+                                </div>
+                            </div>
+                            <div className='bothMenu bothMenuCount3'>
+                                <div className='supportInfo'>
+                                <h1><i class="fas fa-address-card fa-3x"></i></h1>
+                                    <h4>ADDRESS <span>INFO</span></h4>
+                                    <p>Country:  Ghana</p>
+                                    <p>City: Arcca Tema</p>
+                                    <p>Tema Comm. 10 SOS, 114 Apple avneu</p>
+                                </div>
+                            </div>  
+                        </div>
+
                     </div>
                 </section>
             </div>
