@@ -35,7 +35,7 @@ if(process.env.NODE_ENV === 'production'){
 }
 
 app.get('/', function(request, response) {
-    console.log('Home page visited!');
+    console.log('Home page visited! okay');
     const filePath = path.resolve(__dirname, 'client', 'build', 'index.html');
   
     // read in the index.html file
