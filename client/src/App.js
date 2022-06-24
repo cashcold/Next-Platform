@@ -64,7 +64,7 @@ class MainApp extends Component {
                                 <Route path='/' exact component={Selected}/> 
                                 <Route path='/contact-us' exact component={ContactMain}/>
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
-                                <Route path='/poster' exact component={Poster}/>ss
+                                <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
                                 <Route path='/product-main' exact component={ProductMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>

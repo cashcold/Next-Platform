@@ -40,10 +40,53 @@ app.get('/', function(request, response) {
       // replace the special strings with server generated strings
       data = data.replace(/\$OG_TITLE/g, 'NEXT-PLATFORM-HOME');
       data = data.replace(/\$OG_DESCRIPTION/g, "Join the bigest platform NextPlatform HoME Enterterment Music Box");
+      result = data.replace(/\$OG_IMAGE/g, 'http://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg');
+      response.send(result);
+    });
+  });
+app.get('/music', function(request, response) {
+    console.log('Home page visited! okay');
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g, 'Check Your Music on NEXT-PLATFORM-HOME');
+      data = data.replace(/\$OG_DESCRIPTION/g, "Music Join the bigest platform NextPlatform HoME Enterterment Music Box");
+      result = data.replace(/\$OG_IMAGE/g, 'http://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg');
+      response.send(result);
+    });
+  });
+
+
+app.get('/link_box', function(request, response) {
+    console.log('Home page visited! okay');
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g, 'Music NEXT-PLATFORM-HOME');
+      data = data.replace(/\$OG_DESCRIPTION/g, "Music Join the bigest platform NextPlatform HoME Enterterment Music Box");
       result = data.replace(/\$OG_IMAGE/g, 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg');
       response.send(result);
     });
   });
+
+
+
+
+
+
+
   app.use(express.static("client/build"))
   if(process.env.NODE_ENV === 'production'){
     app.use(express.static("client/build"))
