@@ -24,14 +24,9 @@ const PORT = process.env.PORT || 8000
 
 const app = express()
 
-
-const Router = express.Router()
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/users',userRouter)
-app.use(Router)
-
-
 
 
 
@@ -53,11 +48,7 @@ app.get('/', function(request, response) {
   });
 
 
-  Router.post('/meta_tags',(req,res)=>{
-    // console.log(req.body)
-      res.send(req.body)
-  })
-  
+ 
 
 app.get('/music', function(request, response) {
  
@@ -69,10 +60,21 @@ app.get('/music', function(request, response) {
         return console.log(err);
       }
       
-      // replace the special strings with server generated strings
-      data = data.replace(/\$OG_TITLE/g, 'Check Your Music ');
-      data = data.replace(/\$OG_DESCRIPTION/g, "bigest platform NextPlatform HoME Enterterment Music Box");
-      result = data.replace(/\$OG_IMAGE/g, 'http://nest-platform.herokuapp.com/static/media/Rosam-Im-free.96157f170e836c264ab6.jpeg');
+      
+      const parsed = (request.url)
+      var url = require('url');
+
+      var q = url.parse(parsed, true);
+
+      var qdata = q.query
+      
+      const {info, name, on_image} = qdata
+ 
+ 
+// replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,name);
+      data = data.replace(/\$OG_DESCRIPTION/g,info);
+      result = data.replace(/\$OG_IMAGE/g,on_image);
       response.send(result);
     });
   });
@@ -93,12 +95,9 @@ app.get('/music/:id', function(request, response) {
       var q = url.parse(parsed, true);
 
       var qdata = q.query
-
+      
       const {info, name, on_image} = qdata
-
-    
-      
-      
+ 
  
 // replace the special strings with server generated strings
       data = data.replace(/\$OG_TITLE/g,name);
