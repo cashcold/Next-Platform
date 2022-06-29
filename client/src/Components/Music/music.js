@@ -48,62 +48,10 @@ class MusicMain extends Component {
 
     componentDidMount(){
           
-          
-        const code = new URLSearchParams(window.location.search).get('code')
-         this.setState({
-             code
-         })
-
-        if(code){
-            axios.post(`/users/music`,{code}).then((response) => {
-                window.history.pushState({}, null, "/music");
-        
-                console.log(response.data);
-                this.setState({
-                    setAccessToken: response.data.access_token
-                })
-                localStorage.setItem('spotify_access_token',this.state.setAccessToken)
-                
-        
-              })
-        
-        }
-        var credentials = {
-            clientId: '7274681e5f564e29b6246893ed62f20a',
-            clientSecret: '6c641ca17e444af4a111c84d7f83ddb9',
-            redirectUri: 'http://localhost:3000/music',
-            accessToken: token,
-          };
-        const spotifyApi = new SpotifyWebApi(credentials);
-          spotifyApi.setAccessToken(token);
-
-        
+      
 
 
-            
-          spotifyApi.getPlaylist('3M75W37HkFPdnkkaaOhvPo').then((data)=>{
-            const CoolForNow = data.body.tracks.items
-            this.setState({
-                Spotify_CoolForNow: CoolForNow
-            })
-          })
-          spotifyApi.getNewReleases({offset: 0, country: 'GH' })
-            .then(function(data) {
-                // console.log(data.body);
-                }, function(err) {
-                console.log("Something went wrong!", err);
-            });
-
-            spotifyApi.getPlaylistsForCategory('party', {
-                    country: 'GH',
-                    offset : 0
-                    })
-                .then(function(data) {
-                    // console.log(data.body);
-                }, function(err) {
-                    console.log("Something went wrong!", err);
-             });
-
+         
           
 
             // fetch("https://api.spotify.com/v1/me/player/devices", {

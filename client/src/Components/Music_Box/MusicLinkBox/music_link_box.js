@@ -31,6 +31,7 @@ class MusicLinkBox extends Component {
    
 
     componentDidMount(){
+        console.log(this.props.location.search)
 
         
         const home_url_location =  window.location.href
@@ -80,14 +81,18 @@ class MusicLinkBox extends Component {
 
     }
     render() {
-    //   const sendSocial_link = {
-    //     id: this.state.mp3_api_id,
-    //     title: this.state.mp3_api_title,
-    //     description: this.state.mp3_api_about_Main,
-    //     on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
+        console.log(this.props.location.search)
+      const sendSocial_link = {
+        title: this.state.mp3_api_title,
+        description: this.state.mp3_api_about_Main,
+        music_type: this.state.mp3_api_music_type,
+        head_Text_url: this.state.mp3_api_head_Text_url,
+        on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
 
-    //   }
-    //   axios.post(`/music/${this.state.mp3_api_head_Text}`,sendSocial_link).then(console.log(sendSocial_link))
+      }
+    
+
+      
 
 
         return ( 
@@ -143,7 +148,8 @@ class MusicLinkBox extends Component {
                 </div>
                 </section>
                 <section className='link_view_2'>
-                    <h1>Hello</h1>
+                <img src={require('../../../AllInOne/advert/7f96701a-987b-412c-b320-d4b307476737.jpg')} alt='pic'/>
+                <img src={require('../../../AllInOne/advert/photo5841186347996525631.jpg')} alt='pic'/>
                 </section>
             </div>
          );

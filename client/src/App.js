@@ -75,11 +75,14 @@ class MainApp extends Component {
                                 <Route path='/watch_next' exact component={WatchNextMain}/>
                                 <Route path='/link_box' exact component={LinkBoxMain}/>
                                 <Route path='/call_api' exact component={Call_Api}/>
-                                
-                                {/* <Route path='/call_api' exact component={Call_Api}/> */}
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
-                                <Route path={`/music/${this.state.music_type}/:id`} exact component={MusicLinkBox}/> 
+                                <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
+
+
+
+                                
                                 {/* <Route path='/gospel/:id' exact component={MusicLinkBox}/>  */}
+                                {/* <Route path='/call_api' exact component={Call_Api}/> */}
 
                                 
                             </Switch>

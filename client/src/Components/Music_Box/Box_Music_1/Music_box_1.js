@@ -3,6 +3,7 @@ import {Mp3_main_api} from '../../Api/mp3_main_api.js'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 
+
 import './style.css'
 class MusicBox_1 extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class MusicBox_1 extends Component {
         const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)  
         const postData = slice.map(pd => <React.Fragment>
            <div className='drop_main_data'>
-            <div className='drop_data' onClick={()=>{
+            <div className='drop_data' onClick={()=>{ 
                     localStorage.setItem('mp3_api_id',pd.id)
                     localStorage.setItem('mp3_api_name',pd.name)
                     localStorage.setItem('mp3_api_title',pd.title)
@@ -34,8 +35,19 @@ class MusicBox_1 extends Component {
                     localStorage.setItem('mp3_api_music_type',pd.music_type)
                     localStorage.setItem('mp3_api_song_href',pd.song_href)
                     localStorage.setItem('mp3_api_about_Main',pd.about_Main)
+                    localStorage.setItem('mp3_api_social_on_image',pd.social_on_image)
+
+
+                    const musicParamsUrl = {
+                        name: pd.name,
+                        info: pd.head_Text_url,
+                        on_image: pd.social_on_image
+                    }
+                    const queryMusicParams = require('query-string')
+
+                    const passMusicParams = queryMusicParams.stringify(musicParamsUrl)
                     
-                    window.location = `/music/${pd.music_type}/${pd.head_Text_url}`
+                    window.location = `/music/${pd.head_Text_url}?${passMusicParams}`
                     }}>
                     <section className='drop_data_info_main'>
                         <div className='data_drop_info_box_1'>
