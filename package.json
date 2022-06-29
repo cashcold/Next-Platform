@@ -2,7 +2,6 @@
 
   "name": "new_rest-tut",
 
- 
   "version": "1.0.0",
 
   "engines": {
@@ -27,7 +26,7 @@
 
     "dev": "concurrently \"npm run server\" \"npm run client\"",
 
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install server"
 
   },
 
@@ -44,6 +43,8 @@
     "@babel/register": "^7.17.7",
 
     "@hapi/joi": "^17.1.1",
+
+    "axios": "^0.27.2",
 
     "babel-core": "^6.26.3",
 
@@ -110,6 +111,8 @@
     "passport-local": "^1.0.0",
 
     "pug": "^2.0.4",
+
+    "query-string": "^7.1.1",
 
     "react": "^18.1.0",
 
