@@ -25,7 +25,7 @@ class LinkBoxMain extends Component {
 
       
         
-        let title = document.querySelectorAll(".title")
+        let title = document.querySelector(".title").textContent
         let description = document.querySelector(".description").textContent
         let display_social_imag = document.querySelector(".display_social_imag").textContent
         let on_image = document.querySelector(".on_image").src
