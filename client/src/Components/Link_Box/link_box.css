@@ -3,42 +3,70 @@
         min-height: 100vh;
         background-color: black;
         color: white;
+        padding: 7em 3.5em;
 }
-.watch_next_main a{
-    background-color: black;
-    color: white;
-}
-.watch_next_main a h3{
+
+.pagination {
+    margin: 15px auto;
+    display: flex;
+    list-style: none;
+    outline: none;
+  }
+  .pagination > .active > a{
+    background-color: #47ccde ;
+    border-color: #47ccde ;
+    color: #fff;
+  }
+  .pagination > li > a{
+    border: 1px solid #47ccde ;
+    padding: 5px 10px;
+    outline: none;
+    cursor: pointer;
+  }
+  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
+    background-color: #47ccde ;
+    border-color: #47ccde;
+    outline: none ;
+  }
+  .pagination > li > a, .pagination > li > span{
+    color: #47ccde
+  }
+  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
+    border-radius: unset
+  }
+
+.data_link_info_box_1 img{
     width: 80%;
     margin: 0 auto;
-    padding: 1em 0em;
-    line-height: 1.5em;
+}
+
+.linkbox_main{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    gap: 0.5em;
 }
 .watch_next_main{
-    padding: 3em 0em;
-    display: grid;
-    grid-gap: 5em 0em;
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    padding: 2em 1.5em;
 }
-
-.next_watch_section_1 img{
+.data_link_info_box_2 h3{
+    margin: 1.5em 0em;
+}
+.data_link_info_box_2 p{
     width: 80%;
     margin: 0 auto;
+    margin-bottom: 2em;
 }
 
-/* .display_social_imag{
-    display: none;
-} */
+
 
 
 @media screen and (max-width: 768px){
-    .watch_next_main a h3{
-        width: 90%;
-        margin: 0 auto;
-        padding: 2em 0em;
-        line-height: 1.2em;
-    }
-    .next_watch_section_1 img{
-        width: 90%;
+    .data_link_info_box_1 img{
+        width: 98%;
         margin: 0 auto;
     }
 }

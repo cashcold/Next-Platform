@@ -152,15 +152,15 @@ app.get('/link_box/:id', function(request, response) {
 
       var qdata = q.query
       
-      const {description, title, display_social_imag} = qdata
+      const {name, info, on_image} = qdata
 
-      // console.log(qdata)
+      console.log(qdata)
  
  
 // replace the special strings with server generated strings
-      data = data.replace(/\$OG_TITLE/g,title);
-      data = data.replace(/\$OG_DESCRIPTION/g,description);
-      result = data.replace(/\$OG_IMAGE/g,display_social_imag);
+      data = data.replace(/\$OG_TITLE/g,name);
+      data = data.replace(/\$OG_DESCRIPTION/g,info);
+      result = data.replace(/\$OG_IMAGE/g,on_image);
       response.send(result);
     });
 

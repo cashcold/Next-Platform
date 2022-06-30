@@ -10,19 +10,23 @@ class LinkBoxInfo extends Component {
             title: '',
             description: '',
             on_image: '',
+            img: '',
+            home_url: '',
         }
     }
 
     
     componentDidMount(){
 
-        const title = localStorage.getItem('link_box_title')
-        const description = localStorage.getItem('link_box_description')
-        const on_image = localStorage.getItem('link_box_on_image')
+        const title = localStorage.getItem('linkBox_api_title')
+        const description = localStorage.getItem('linkBox_api_description')
+        const on_image = localStorage.getItem('linkBox_api_social_on_image')
+        const img = localStorage.getItem('linkBox_api_img')
+        const home_url = localStorage.getItem('home_url')
         
         
         this.setState({
-            title,description,on_image
+            title,description,on_image,img,home_url
         })
        
     }
@@ -38,7 +42,7 @@ class LinkBoxInfo extends Component {
 
               <section className='linkBox_info_main'>
                   <div>
-                  <img src={`${this.state.on_image}`} alt='pic'/>
+                  <img src={`${this.state.home_url}${this.state.img}`} alt='pic'/>
                     <h1>{this.state.title}</h1>
                     <h4>{this.state.description}</h4>
                   </div>

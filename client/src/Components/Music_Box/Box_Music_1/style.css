@@ -26,7 +26,7 @@
         width: 90%;
         margin: 0 auto;
     }
-    .box_music_1_main{
+    .linkbox_main{
         display: grid;
         grid-template-columns: repeat(1,1fr);
       column-gap: 3.5em;

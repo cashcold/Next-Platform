@@ -23,3 +23,18 @@
     grid-area: linkbox_flow_B;
     background-color: blue;
 }
+
+
+
+
+@media screen and (max-width: 768px){
+    .linkBox_info_main_box{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas:  
+        'linkbox_flow_A' ,
+        'linkbox_flow_B' 
+        ;
+    }
+    
+}

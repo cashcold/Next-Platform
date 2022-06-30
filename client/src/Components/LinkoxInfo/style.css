@@ -15,4 +15,22 @@
     width: 80%;
     margin: 0 auto;
     line-height: 1.5em;
+} 
+
+
+
+
+@media screen and (max-width: 768px){
+    .linkBox_info_main img{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .linkBox_info_main h1{
+        margin: 0.5em;
+    }
+    .linkBox_info_main h4{
+        width: 95%;
+        margin: 0 auto;
+        line-height: 1.5em;
+    } 
 }
