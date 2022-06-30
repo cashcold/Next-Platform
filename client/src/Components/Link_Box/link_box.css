@@ -25,6 +25,10 @@
     margin: 0 auto;
 }
 
+/* .display_social_imag{
+    display: none;
+} */
+
 
 @media screen and (max-width: 768px){
     .watch_next_main a h3{

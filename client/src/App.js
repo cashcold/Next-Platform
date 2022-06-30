@@ -22,6 +22,8 @@ import ProductMain from './Components/Product/productMain.js';
 import WatchNextMain from './Components/Watch_Next/watch_next.js';
 import LinkBoxMain from './Components/Link_Box/link_box.js';
 import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js';
+import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
+import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -66,6 +68,7 @@ class MainApp extends Component {
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
+                                <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
                                 <Route path='/product-main' exact component={ProductMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>
                                 <Route path={`/sport-main-home/${scoreBat_matchviewUrl}`} exact component={ScoreBatReceivedApi}/>
@@ -74,9 +77,9 @@ class MainApp extends Component {
                                 <Route path='/drinks-main' exact component={GetDrinksMain}/>
                                 <Route path='/watch_next' exact component={WatchNextMain}/>
                                 <Route path='/link_box' exact component={LinkBoxMain}/>
+                                <Route path='/link_box/:id' exact component={LinkBoxMainBox}/>
                                 <Route path='/call_api' exact component={Call_Api}/>
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
-                                <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
 
 
 

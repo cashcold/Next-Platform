@@ -1,0 +1,25 @@
+.linkBox_info_main{
+    background-color: black;
+    color: white;
+}
+
+.linkBox_info_main_box{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-areas:  
+    'linkbox_flow_A linkbox_flow_A linkbox_flow_A  linkbox_flow_B' 
+    ;
+}
+
+.linkbox_flow_A{
+    width: 100%;
+    min-height: 100vh;
+    grid-area: linkbox_flow_A;
+    background-color: red;
+}
+.linkbox_flow_B{
+    width: 100%;
+    min-height: 100vh;
+    grid-area: linkbox_flow_B;
+    background-color: blue;
+}
