@@ -62,7 +62,7 @@ class LinkBoxMain extends Component {
                     <h3 className='description'>Are you from Uganda🇺🇬, Kenya🇰🇪 Nigeria🇳🇬  Ghana🇬🇭 Tanzania🇹🇿 Botswana🇧🇼 Rwanda🇷🇼 USA🇺🇸 Libirea🇱🇷 Zambia🇿🇲 Zimbabwe🇿🇼, South Africa🇿🇦 Cameroon🇨🇲 Kuwait🇰🇼 UAE🇪🇭 Philippines 🇵🇭 China🇨🇳 U.K🇬🇧 INDONESIA🇮🇩  Brazil🇧🇷 Jamaica🇯🇲 Ethiopia🇪🇹, KOREA🇰🇷 Ecuador🇻🇪
                     Lebanon🇦🇹 Japan🇯🇵 Saudi Arabia🇸🇦 Honduras🇳🇮 Singapore🇲🇹  Bahrain🇧🇭 Thailand🇨🇷 Qatar🇶🇦  Italy🇮🇹 Canada🇨🇦 india🇮🇳 Vietnam🇲🇦  Malaysia🇲🇾
                     Germany🇩🇪 and Pakistan🇵🇰. Good news to you all🔅🔅
-                    Just by bitcoin investment you can make good profits each 24hours from every investment you make, 
+                    🔅 🔅                   Just by bitcoin investment you can make good profits each 24hours from every investment you make, 
                     all that is required is a valid email address and a valid Blockchain with wallet address. 👍<br/> Don't miss out!!!👉</h3>
                      <h4 className='btn btn-warning' onClick={this.socialParamsUrl}>Find More</h4>
                   
