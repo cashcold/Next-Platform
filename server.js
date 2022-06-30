@@ -107,6 +107,64 @@ app.get('/music/:id', function(request, response) {
     });
 
   });
+app.get('/link_box', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+
+      var q = url.parse(parsed, true);
+
+      var qdata = q.query
+      
+      const {info, name, on_image} = qdata
+ 
+ 
+// replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,name);
+      data = data.replace(/\$OG_DESCRIPTION/g,info);
+      result = data.replace(/\$OG_IMAGE/g,on_image);
+      response.send(result);
+    });
+
+  });
+app.get('/link_box/:id', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+
+      var q = url.parse(parsed, true);
+
+      var qdata = q.query
+      
+      const {description, title, display_social_imag} = qdata
+
+      // console.log(qdata)
+ 
+ 
+// replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,title);
+      data = data.replace(/\$OG_DESCRIPTION/g,description);
+      result = data.replace(/\$OG_IMAGE/g,display_social_imag);
+      response.send(result);
+    });
+
+  });
 
 
 
