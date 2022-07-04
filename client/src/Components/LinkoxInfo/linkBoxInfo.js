@@ -35,13 +35,20 @@ class LinkBoxInfo extends Component {
             <div className='watch_next_main'>
                  <Helmet>
                     <base />
-                    <title>Next-Platform LinkBoxInfo</title>
+                    <title>{this.state.title}</title>
                     <meta name="description" content="React helment is useful for seo for dynamically changing head information" />
                     <link rel="canonical" href="somelink" />
                 </Helmet>
 
               <section className='linkBox_info_main'>
+               <div className='socail_icon'>
+                            <i class="fa-brands fa-facebook  "></i>
+                            <i class="fa-brands fa-twitter "></i>
+                            <i class="fa-brands fa-pinterest "></i>
+                            <i class="fa-brands fa-whatsapp "></i>
+                        </div>
                   <div>
+            
                   <img src={`${this.state.home_url}${this.state.img}`} alt='pic'/>
                     <h1>{this.state.title}</h1>
                     <h4>{this.state.description}</h4>

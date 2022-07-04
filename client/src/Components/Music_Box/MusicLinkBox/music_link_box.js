@@ -31,7 +31,8 @@ class MusicLinkBox extends Component {
    
 
     componentDidMount(){
-        console.log(this.props.location.search)
+        var url= document.location.href;
+        window.history.pushState({}, "", url.split("?")[0]);
 
         
         const home_url_location =  window.location.href
@@ -69,27 +70,26 @@ class MusicLinkBox extends Component {
             
         })
 
+        const social_url_location = window.location.href.split("?")[0];
        
-       
-
+        const facebook_api = `
+        https://www.facebook.com/sharer.php?u=${social_url_location}
+        `
         document.querySelector('.fa-facebook').addEventListener('click',()=>{
-          alert('hmmm hmmmmm')
+           window.open(url = facebook_api, )
         })
        
-
-       
-
     }
     render() {
-        console.log(this.props.location.search)
-      const sendSocial_link = {
-        title: this.state.mp3_api_title,
-        description: this.state.mp3_api_about_Main,
-        music_type: this.state.mp3_api_music_type,
-        head_Text_url: this.state.mp3_api_head_Text_url,
-        on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
+      
+    //   const sendSocial_link = {
+    //     title: this.state.mp3_api_title,
+    //     description: this.state.mp3_api_about_Main,
+    //     music_type: this.state.mp3_api_music_type,
+    //     head_Text_url: this.state.mp3_api_head_Text_url,
+    //     on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
 
-      }
+    //   }
     
 
       
@@ -118,6 +118,7 @@ class MusicLinkBox extends Component {
                           </div>
                         </div>
                         <div className='socail_icon'>
+                        {/* <div class="addthis_inline_share_toolbox"></div> */}
                             <i class="fa-brands fa-facebook fa-3x "></i>
                             <i class="fa-brands fa-twitter fa-3x"></i>
                             <i class="fa-brands fa-pinterest fa-3x"></i>
