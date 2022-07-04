@@ -32,7 +32,7 @@ class MusicLinkBox extends Component {
 
     componentDidMount(){
         var url= document.location.href;
-        window.history.pushState({}, "", url.split("?")[0]);
+        // window.history.pushState({}, "", url.split("?")[0]);
 
         
         const home_url_location =  window.location.href
@@ -70,7 +70,7 @@ class MusicLinkBox extends Component {
             
         })
 
-        const social_url_location = window.location.href.split("?")[0];
+        const social_url_location = window.location.href;
        
         const facebook_api = `
         https://www.facebook.com/sharer.php?u=${social_url_location}
