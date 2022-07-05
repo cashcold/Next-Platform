@@ -93,7 +93,7 @@ class MusicBox_1 extends Component {
     render() { 
         return ( 
             <div className='music_box_1'>
-                    <h1>Next-Platform <br/>Music Box On Fire</h1>
+                    <h3>Next-Platform <br/>Music Box On Fire</h3>
                 <section className="box_music_1_main">
                     {this.state.postData}
                 <section className='check_pagination'>
