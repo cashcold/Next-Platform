@@ -41,8 +41,8 @@ app.get('/', function(request, response) {
       
       // replace the special strings with server generated strings
       data = data.replace(/\$OG_TITLE/g, 'NEXT-PLATFORM-HOME');
-      data = data.replace(/\$OG_DESCRIPTION/g, "Join the bigest platform NextPlatform HoME Enterterment Music Box");
-      result = data.replace(/\$OG_IMAGE/g, 'http://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg');
+      data = data.replace(/\$OG_DESCRIPTION/g, "Join The Growing Platform. NextPlatform Home Enterterment Music Box, Sport & Online Links More");
+      result = data.replace(/\$OG_IMAGE/g, 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
       response.send(result);
     });
   });

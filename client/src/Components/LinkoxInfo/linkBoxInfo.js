@@ -41,18 +41,28 @@ class LinkBoxInfo extends Component {
                 </Helmet>
 
               <section className='linkBox_info_main'>
-               <div className='socail_icon'>
-                            <i class="fa-brands fa-facebook  "></i>
-                            <i class="fa-brands fa-twitter "></i>
-                            <i class="fa-brands fa-pinterest "></i>
-                            <i class="fa-brands fa-whatsapp "></i>
-                        </div>
+               
                   <div>
-            
-                  <img src={`${this.state.home_url}${this.state.img}`} alt='pic'/>
+                    <img src={`${this.state.home_url}${this.state.img}`} alt='pic'/>
                     <h1>{this.state.title}</h1>
                     <h4>{this.state.description}</h4>
                   </div>
+                  <div className="info_social">
+                    <div className='socail_icon'>
+                        <div class="a2a_kit a2a_kit_size_42 a2a_default_style">
+                        <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                        <a class="a2a_button_facebook"></a>
+                        <a class="a2a_button_twitter"></a>
+                        <a class="a2a_button_whatsapp"></a>
+                        <a class="a2a_button_linkedin"></a>
+                        <a class="a2a_button_telegram"></a>
+                        <a class="a2a_button_snapchat"></a>
+                        <a class="a2a_button_viber"></a>
+                        <a class="a2a_button_line"></a>
+                        <a class="a2a_button_pinterest"></a>
+                        </div>
+                    </div>
+                </div>
               </section>
             </div>
          );

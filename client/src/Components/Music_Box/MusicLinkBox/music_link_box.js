@@ -117,24 +117,24 @@ class MusicLinkBox extends Component {
                         <div className='view_1_tab'>
                           <h5><i class="fa-solid fa-calendar-check fa-1x"></i> {this.state.mp3_api_date}</h5>
                           <div className='all_eye'>
-                              <h5>View 
+                              <h5>Viewed 
                             <i class="fa-solid fa-eye fa-1x"></i></h5>
                             <h5>{this.state.mp3_api_eye_seen}</h5>
                           </div>
                         </div>
                         <div className='socail_icon'>
-                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
-<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-<a class="a2a_button_facebook"></a>
-<a class="a2a_button_twitter"></a>
-<a class="a2a_button_whatsapp"></a>
-<a class="a2a_button_linkedin"></a>
-<a class="a2a_button_telegram"></a>
-<a class="a2a_button_snapchat"></a>
-<a class="a2a_button_viber"></a>
-<a class="a2a_button_line"></a>
-<a class="a2a_button_pinterest"></a>
-</div>
+                            <div class="a2a_kit a2a_kit_size_42 a2a_default_style">
+                            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+                            <a class="a2a_button_facebook"></a>
+                            <a class="a2a_button_twitter"></a>
+                            <a class="a2a_button_whatsapp"></a>
+                            <a class="a2a_button_linkedin"></a>
+                            <a class="a2a_button_telegram"></a>
+                            <a class="a2a_button_snapchat"></a>
+                            <a class="a2a_button_viber"></a>
+                            <a class="a2a_button_line"></a>
+                            <a class="a2a_button_pinterest"></a>
+                        </div>
 
                             {/* <i class="fa-brands fa-facebook fa-3x "></i>
                             <i class="fa-brands fa-twitter fa-3x"></i>
