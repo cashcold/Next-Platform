@@ -93,6 +93,14 @@ audio::-webkit-media-controls-play-button,
 .link_view_2 img{
     padding: 0em 1.5em;
 }
+.both_view span{
+    color: red;
+    padding: 1em 0em;
+}
+.socail_icon{
+   display: flex;
+   justify-content: center;
+}
 
 
 

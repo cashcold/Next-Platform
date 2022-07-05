@@ -21,7 +21,8 @@ class MusicLinkBox extends Component {
            mp3_api_song_href: '',
            mp3_api_about_Main: '',
            home_url_location: '',
-           social_img: ''
+           social_img: '',
+           social_url: ''
          }
          this.handleChange = this.handleChange.bind(this)
     }
@@ -32,6 +33,9 @@ class MusicLinkBox extends Component {
 
     componentDidMount(){
         var url= document.location.href;
+        this.setState({
+            social_url: url
+        })
         // window.history.pushState({}, "", url.split("?")[0]);
 
         
@@ -75,12 +79,13 @@ class MusicLinkBox extends Component {
         const facebook_api = `
         https://www.facebook.com/sharer.php?u=${social_url_location}
         `
-        document.querySelector('.fa-facebook').addEventListener('click',()=>{
-           window.open(url = facebook_api, )
-        })
+        // document.querySelector('.fa-facebook').addEventListener('click',()=>{
+        //    window.open(url = facebook_api, )
+        // })
        
     }
     render() {
+      
       
     //   const sendSocial_link = {
     //     title: this.state.mp3_api_title,
@@ -108,7 +113,7 @@ class MusicLinkBox extends Component {
             </Helmet>
                 <section className="link_view_1">
                     <div className='both_view'>
-                        <h1>DOWNLOAD: {this.state.mp3_api_head_Text} Mp3</h1>
+                        <h1><span>DOWNLOAD:</span><br/> {this.state.mp3_api_head_Text} Mp3</h1>
                         <div className='view_1_tab'>
                           <h5><i class="fa-solid fa-calendar-check fa-1x"></i> {this.state.mp3_api_date}</h5>
                           <div className='all_eye'>
@@ -118,11 +123,23 @@ class MusicLinkBox extends Component {
                           </div>
                         </div>
                         <div className='socail_icon'>
-                        {/* <div class="addthis_inline_share_toolbox"></div> */}
-                            <i class="fa-brands fa-facebook fa-3x "></i>
+                        <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<a class="a2a_button_facebook"></a>
+<a class="a2a_button_twitter"></a>
+<a class="a2a_button_whatsapp"></a>
+<a class="a2a_button_linkedin"></a>
+<a class="a2a_button_telegram"></a>
+<a class="a2a_button_snapchat"></a>
+<a class="a2a_button_viber"></a>
+<a class="a2a_button_line"></a>
+<a class="a2a_button_pinterest"></a>
+</div>
+
+                            {/* <i class="fa-brands fa-facebook fa-3x "></i>
                             <i class="fa-brands fa-twitter fa-3x"></i>
                             <i class="fa-brands fa-pinterest fa-3x"></i>
-                            <i class="fa-brands fa-whatsapp fa-3x"></i>
+                            <i class="fa-brands fa-whatsapp fa-3x"></i> */}
                         </div>
                 
                     </div>
