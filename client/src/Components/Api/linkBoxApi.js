@@ -12,7 +12,7 @@ export const LinkBoxApi = [
         Germany🇩🇪 and Pakistan🇵🇰. Good news to you all🔅🔅
         🔅 🔅                   Just by bitcoin investment you can make good profits each 24hours from every investment you make, 
         all that is required is a valid email address and a valid Blockchain with wallet address. 👍`,
-        display_social_imag: `http://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg`,
+        display_social_imag: `http://next-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg`,
 
         personalLinks: [
            {
@@ -30,7 +30,7 @@ export const LinkBoxApi = [
         name: 'YELLOWCARD',
         description: ` ®️Sign up today to start enjoying the best rates when 🤑 buying and selling digital assets on Yellow Card! 👍
         Use promo Code 🎁Cashcold to get 🥰300GHC..Are you following the official Yellow Card accounts? Unfortunately, fake Yellow Card accounts appear online from time to time, putting our users at risk.countries and regions are available on Yellow Card: ; Ghana Nigeria Kenya Cameroon Tanzania ; South Africa Botswana Uganda ...`,
-        display_social_imag: `http://nest-platform.herokuapp.com/static/media/273451231_5677950762231699_7917947454472796315_n.7e044df8e683568ad43c.jpg`,
+        display_social_imag: `http://next-platform.herokuapp.com/static/media/273451231_5677950762231699_7917947454472796315_n.7e044df8e683568ad43c.jpg`,
 
         personalLinks: [
             {
@@ -56,7 +56,7 @@ export const LinkBoxApi = [
         Continue your application where you left off
         Upload your documents when you have them, anytime.
         We will hold onto your application details in the section where you left off - No need to start over!`,
-        display_social_imag: `http://nest-platform.herokuapp.com/static/media/273851525_23849943095780210_177150845390722455_n.90ec96e88f8612ec8dce.jpg`,
+        display_social_imag: `http://next-platform.herokuapp.com/static/media/273851525_23849943095780210_177150845390722455_n.90ec96e88f8612ec8dce.jpg`,
 
         personalLinks: [
             {
@@ -73,7 +73,7 @@ export const LinkBoxApi = [
         title: ' Our 🧑‍🤝‍🧑student loans help you achieve your education goals.',
         name: 'MPOWER FINANCING',
         description: ` Our 🧑‍🤝‍🧑student loans help you achieve your education goals. MPOWER’s loans have fixed interest rates with flexible loan amounts up to US$100,000 that can be used to cover tuition, school🏫 supplies, and living✔️ expenses for future semesters or past due balances. 👫We also support all majors and degrees with no requirement for a cosigner, collateral, or existing credit history.`,
-        display_social_imag: `http://nest-platform.herokuapp.com/static/media/49270406_2317460395206848_5994933837296041984_n.85d8aa683728b68095e2.png`,
+        display_social_imag: `http://next-platform.herokuapp.com/static/media/49270406_2317460395206848_5994933837296041984_n.85d8aa683728b68095e2.png`,
 
         personalLinks: [
             {
@@ -93,7 +93,7 @@ export const LinkBoxApi = [
         description: ` Find a car you love 👍 <br/>Apply for a car loan. 👍<br/>
         Get the best rates on Autochek. 👍
        Think Cars Think Autochek👌`,
-        display_social_imag: `http://nest-platform.herokuapp.com/static/media/243195594_23848694616780294_3443146564760435547_n.06260489ddd5b1b90b19.jpg`,
+        display_social_imag: `http://next-platform.herokuapp.com/static/media/243195594_23848694616780294_3443146564760435547_n.06260489ddd5b1b90b19.jpg`,
 
         personalLinks: [
             {
@@ -112,7 +112,7 @@ export const LinkBoxApi = [
         name: 'CARDVEST',
         description: ` SELL 🎁GIFT CARDS📇 at best rates, Most profitable and customer-focused gift card trading platform in Nigeria and Ghana.
         Stop trading your giftcard at a loss! <br/> Don't miss out!!! 👉`,
-        display_social_imag: `http://nest-platform.herokuapp.com/static/media/274034570_499353405080470_3857785958542022341_n.99023033571c2e49d1ec.jpg`,
+        display_social_imag: `http://next-platform.herokuapp.com/static/media/274034570_499353405080470_3857785958542022341_n.99023033571c2e49d1ec.jpg`,
         
 
         personalLinks: [

@@ -15,7 +15,7 @@ export const Mp3_main_api = [
         eye_seen: '3.9k',
         country: 'Ghana',
         music_type: 'Gosple/on-fire',
-        social_on_image: 'https://nest-platform.herokuapp.com/static/media/Rosam-Im-free.96157f170e836c264ab6.jpeg',
+        social_on_image: 'https://next-platform.herokuapp.com/static/media/Rosam-Im-free.96157f170e836c264ab6.jpeg',
         about_Main: 'Expressive Ghanaian female gospel music minister, Rosam  issues another groovy and exciting song titled “I’m free, Rosam  is an anointed song minister, singer, songwriter, and recording artist.'
     },
     {
@@ -31,7 +31,7 @@ export const Mp3_main_api = [
         eye_seen: '3.4k',
         country: 'Nigerian',
         music_type: 'Gosple/this-week-top-count',
-        social_on_image: 'http://nest-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg',
+        social_on_image: 'http://next-platform.herokuapp.com/static/media/Amb-Lawrence-I-Still-Believe.0ad92c107bc5a518840e.jpg',
         about_Main: 'Nigerian recording artist, Amb Lawrence releases a new single titled; I still believe. Following singles such as God dey, Higher and No one compares, the vocally gifted worship leader and vocal coach emerges with this faith-inspiring single.'
 
     },
