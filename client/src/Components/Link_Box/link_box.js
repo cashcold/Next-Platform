@@ -12,7 +12,7 @@ class LinkBoxMain extends Component {
         this.state = {
             linkBox_api: LinkBoxApi,
             offset: 0,
-            perPage: 1,
+            perPage: 8,
             currentPage: 0
         }
 
@@ -36,7 +36,7 @@ class LinkBoxMain extends Component {
                     const musicParamsUrl = {
                         name: pd.name,
                         info: pd.title,
-                        on_image: pd.display_social_imag
+                        on_image: pd.img
                     }
                     const queryMusicParams = require('query-string')
 

@@ -110,7 +110,7 @@ class ScoreBatVideoApi extends Component {
                 <section className='bat_score'>
                     <h1>Stream and Watch Sport HightLight</h1>
                 </section>
-                 <section className="ScoreBatVideoAPI_DataSection">
+                 <section className="ScoreBatVideoAPI_DataSection"> 
                      {this.state.postData}
                   </section>
                   <section className='check_pagination'>

@@ -4,7 +4,7 @@ import moment from 'moment'
 export const LinkBoxApi = [
     {
         id: 1,
-        img: require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg'),
+        img:`https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2FA2%20STICKER-01%20(1).jpg?alt=media&token=9ed5ea63-bda2-4f71-a054-96c7207367ec`,
         title: 'Buy Bitcoin And Invest Online',
         name: 'BTC_SHARK',
         description: `Are you from Uganda🇺🇬, Kenya🇰🇪 Nigeria🇳🇬  Ghana🇬🇭 Tanzania🇹🇿 Botswana🇧🇼 Rwanda🇷🇼 USA🇺🇸 Libirea🇱🇷 Zambia🇿🇲 Zimbabwe🇿🇼, South Africa🇿🇦 Cameroon🇨🇲 Kuwait🇰🇼 UAE🇪🇭 Philippines 🇵🇭 China🇨🇳 U.K🇬🇧 INDONESIA🇮🇩  Brazil🇧🇷 Jamaica🇯🇲 Ethiopia🇪🇹, KOREA🇰🇷 Ecuador🇻🇪
@@ -25,7 +25,7 @@ export const LinkBoxApi = [
     },
     {
         id: 2,
-        img: require('../../AllInOne/img2/273451231_5677950762231699_7917947454472796315_n.jpg'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2F273451231_5677950762231699_7917947454472796315_n.jpg?alt=media&token=6c2fd709-b09d-4ca5-bdcc-036c41b5e0e4`,
         title: 'YellowCard  Use promo Code 🎁Cashcold to get 🥰300GHC.',
         name: 'YELLOWCARD',
         description: ` ®️Sign up today to start enjoying the best rates when 🤑 buying and selling digital assets on Yellow Card! 👍
@@ -43,7 +43,7 @@ export const LinkBoxApi = [
     },
     {
         id: 3,
-        img: require('../../AllInOne/img2/273851525_23849943095780210_177150845390722455_n.jpg'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2F273851525_23849943095780210_177150845390722455_n.jpg?alt=media&token=3fff2c45-6457-48b2-bab0-ad010f65b514`,
         name: 'BAYPORT',
         title: ' Get a loan up to Ghc 🤑200,000 with just a call!',
         description: ` Get a loan up to Ghc 🤑200,000 with just a call!📱
@@ -69,7 +69,7 @@ export const LinkBoxApi = [
     },
     {
         id: 4,
-        img: require('../../AllInOne/img2/49270406_2317460395206848_5994933837296041984_n.png'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2F49270406_2317460395206848_5994933837296041984_n.png?alt=media&token=2929c708-2dd9-42f4-a9cd-fe30ffb55508`,
         title: ' Our 🧑‍🤝‍🧑student loans help you achieve your education goals.',
         name: 'MPOWER FINANCING',
         description: ` Our 🧑‍🤝‍🧑student loans help you achieve your education goals. MPOWER’s loans have fixed interest rates with flexible loan amounts up to US$100,000 that can be used to cover tuition, school🏫 supplies, and living✔️ expenses for future semesters or past due balances. 👫We also support all majors and degrees with no requirement for a cosigner, collateral, or existing credit history.`,
@@ -87,7 +87,7 @@ export const LinkBoxApi = [
     },
     {
         id: 5,
-        img: require('../../AllInOne/img2/243195594_23848694616780294_3443146564760435547_n.jpg'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2F243195594_23848694616780294_3443146564760435547_n.jpg?alt=media&token=d90d4594-0a20-47b6-83b6-9938cbc720ad`,
         title: 'Find a car you love Driver and pay latere',
         name: 'AUTOCHEK',
         description: ` Find a car you love 👍 <br/>Apply for a car loan. 👍<br/>
@@ -107,7 +107,7 @@ export const LinkBoxApi = [
     },
     {
         id: 6,
-        img: require('../../AllInOne/img2/274034570_499353405080470_3857785958542022341_n.jpg'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2F274034570_499353405080470_3857785958542022341_n.jpg?alt=media&token=c0186b9e-74c6-45bd-880f-e7e9de104db9`,
         title: 'SELL 🎁GIFT CARDS📇 at best rates',
         name: 'CARDVEST',
         description: ` SELL 🎁GIFT CARDS📇 at best rates, Most profitable and customer-focused gift card trading platform in Nigeria and Ghana.

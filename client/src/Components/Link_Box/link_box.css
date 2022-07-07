@@ -42,7 +42,7 @@
 
 .linkbox_main{
     display: grid;
-    grid-template-columns: repeat(1,1fr);
+    grid-template-columns: repeat(2,1fr);
     gap: 0.5em;
 }
 .watch_next_main{
@@ -69,4 +69,9 @@
         width: 98%;
         margin: 0 auto;
     }
+    .linkbox_main{
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+      gap: 0.5em;
+  }
 }

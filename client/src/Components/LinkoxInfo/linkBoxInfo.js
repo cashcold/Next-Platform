@@ -43,7 +43,8 @@ class LinkBoxInfo extends Component {
               <section className='linkBox_info_main'>
                
                   <div>
-                    <img src={`${this.state.home_url}${this.state.img}`} alt='pic'/>
+                    <img src={`${this.state.img}`} alt='pic'/>
+                    {/* <img src={`${this.state.home_url}${this.state.img}`} alt='pic'/> */}
                     <h1>{this.state.title}</h1>
                     <h4>{this.state.description}</h4>
                   </div>
