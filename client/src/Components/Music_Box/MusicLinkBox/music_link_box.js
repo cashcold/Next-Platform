@@ -2,6 +2,49 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import'./style.css'
 import { Helmet } from 'react-helmet';
+import {
+    EmailShareButton,
+    FacebookShareButton,
+    InstapaperShareButton,
+    LineShareButton,
+    LinkedinShareButton,
+    MailruShareButton,
+    OKShareButton,
+    PinterestShareButton,
+    PocketShareButton,
+    RedditShareButton,
+    TelegramShareButton,
+    TumblrShareButton,
+    TwitterShareButton,
+    ViberShareButton,
+    VKShareButton,
+    WhatsappShareButton,
+    WorkplaceShareButton
+  } from "react-share";
+  import {
+    EmailIcon,
+    FacebookIcon,
+    FacebookMessengerIcon,
+    HatenaIcon,
+    InstapaperIcon,
+    LineIcon,
+    LinkedinIcon,
+    LivejournalIcon,
+    MailruIcon,
+    OKIcon,
+    PinterestIcon,
+    PocketIcon,
+    RedditIcon,
+    TelegramIcon,
+    TumblrIcon,
+    TwitterIcon,
+    ViberIcon,
+    VKIcon,
+    WeiboIcon,
+    WhatsappIcon,
+    WorkplaceIcon
+  } from "react-share";
+
 
 class MusicLinkBox extends Component {
     constructor(props) {
@@ -123,23 +166,58 @@ class MusicLinkBox extends Component {
                           </div>
                         </div>
                         <div className='socail_icon'>
-                            <div class="a2a_kit a2a_kit_size_42 a2a_default_style">
-                            <a class="a2a_dd" href="https://www.addtoany.com/share"></a>
-                            <a class="a2a_button_facebook"></a>
-                            <a class="a2a_button_twitter"></a>
-                            <a class="a2a_button_whatsapp"></a>
-                            <a class="a2a_button_linkedin"></a>
-                            <a class="a2a_button_telegram"></a>
-                            <a class="a2a_button_snapchat"></a>
-                            <a class="a2a_button_viber"></a>
-                            <a class="a2a_button_line"></a>
-                            <a class="a2a_button_pinterest"></a>
-                        </div>
-
-                            {/* <i class="fa-brands fa-facebook fa-3x "></i>
-                            <i class="fa-brands fa-twitter fa-3x"></i>
-                            <i class="fa-brands fa-pinterest fa-3x"></i>
-                            <i class="fa-brands fa-whatsapp fa-3x"></i> */}
+                                <FacebookShareButton  url={window.location.href}>
+                                <FacebookIcon size={40}  round={true} />
+                            </FacebookShareButton>
+                            <PinterestShareButton  url={window.location.href}>
+                                <PinterestIcon size={40}  round={true} />
+                            </PinterestShareButton>
+                            <WhatsappShareButton  url={window.location.href}>
+                                <WhatsappIcon size={40}  round={true} />
+                            </WhatsappShareButton>
+                            <TwitterShareButton  url={window.location.href}>
+                            <VKShareButton  url={window.location.href}>
+                                <VKIcon size={40}  round={true} />
+                            </VKShareButton>
+                                <TwitterIcon size={40}  round={true} />
+                            </TwitterShareButton>
+                            <LineShareButton  url={window.location.href}>
+                                <LineIcon size={40}  round={true} />
+                            </LineShareButton>
+                            <RedditShareButton  url={window.location.href}>
+                                <RedditIcon size={40}  round={true} />
+                            </RedditShareButton>
+                            <ViberShareButton  url={window.location.href}>
+                                <ViberIcon size={40}  round={true} />
+                            </ViberShareButton>
+                            <LinkedinShareButton  url={window.location.href}>
+                                <LinkedinIcon size={40}  round={true} />
+                            </LinkedinShareButton>
+                            <TelegramShareButton  url={window.location.href}>
+                                <TelegramIcon size={40}  round={true} />
+                            </TelegramShareButton>
+                            <OKShareButton  url={window.location.href}>
+                                <OKIcon size={40}  round={true} />
+                            </OKShareButton>
+                            <InstapaperShareButton  url={window.location.href}>
+                                <InstapaperIcon size={40}  round={true} />
+                            </InstapaperShareButton>
+                            <MailruShareButton  url={window.location.href}>
+                                <MailruIcon size={40}  round={true} />
+                            </MailruShareButton>
+                            <TumblrShareButton  url={window.location.href}>
+                                <TumblrIcon size={40}  round={true} />
+                            </TumblrShareButton>
+                            <PocketShareButton  url={window.location.href}>
+                                <PocketIcon size={40}  round={true} />
+                            </PocketShareButton>
+                            < WorkplaceShareButton  url={window.location.href}>
+                                <WorkplaceIcon size={40}  round={true} />
+                            </ WorkplaceShareButton>
+                            <EmailShareButton  url={window.location.href}>
+                                <EmailIcon size={40}  round={true} />
+                            </EmailShareButton>
+                            
                         </div>
                 
                     </div>
