@@ -221,7 +221,7 @@ class MusicLinkBox extends Component {
                         </div>
                 
                     </div>
-                <img src={`${this.state.home_url}${this.state.mp3_api_img}`} alt='pic'/>
+                <img src={`${this.state.mp3_api_img}`} alt='pic'/>
                 
                 <div className='download_link'>
                     <a className='btn btn-danger' href={`${this.state.mp3_api_song_href}`} download>DOWNLOAD</a>

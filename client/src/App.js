@@ -24,6 +24,7 @@ import LinkBoxMain from './Components/Link_Box/link_box.js';
 import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js';
 import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
 import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
+import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMain';
 class MainApp extends Component {
     constructor(props) {
         super(props);
@@ -80,6 +81,7 @@ class MainApp extends Component {
                                 <Route path='/link_box/:id' exact component={LinkBoxMainBox}/>
                                 <Route path='/call_api' exact component={Call_Api}/>
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
+                                <Route path='/music_still_trending' exact component={MusicCenterFlowMain}/>
 
 
 

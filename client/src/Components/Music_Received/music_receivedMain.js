@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MusicCenterFlowMain from '../MusicCenterFlow/MusicCenterFlowMain.js';
 import MusicBox_1 from '../Music_Box/Box_Music_1/Music_box_1.js';
 import './music_receivedMain.css'
 class MusicReceivedMain extends Component {
@@ -19,46 +20,13 @@ class MusicReceivedMain extends Component {
                     </div>
                 </section>
                 <section className="receivedMusic_section_1 music_center_main">
-                    <div className="iframe_list">
-                        <h2>R&B Mix PlayList</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1EQoqCH7BwIYb7?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                    <div className="iframe_list">
-                        <h2>Ghana Count Down</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/21Z6B4gRqzkvcyegENqNPw?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                              
-                    <div className="iframe_list">
-                        <h2>GH Meet Naija</h2>
-                        <iframe src="https://open.spotify.com/embed/playlist/4AJYrpCpoZdvwCC1YGmrct?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                    <div className="iframe_list">
-                        <h2>Afrobeats Mix</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/37i9dQZF1EQqFPe2ux3rbj?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>             
-                             
+                   <MusicCenterFlowMain/>
                </section>
 
                 <section className="receivedMusic_section_1 music_RightSideBar">
                     <div className="gosple_main">
                         <h2>Praise and Worship Vol. 1|| Naija vs Ghana</h2>
                         <iframe  src="https://open.spotify.com/embed/playlist/2rdcocOpQzLq0VI0lmGOAb?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
-                    <div className="gosple_main">
-                        <h2>Gosple Mix Time</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/2tkwlVDrj0EymokWhtR3lw?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
-                    <div className="gosple_main">
-                        <h2>Top Nigerian Gosple</h2>
-                        <iframe  src="https://open.spotify.com/embed/album/3dY5SHT5Tx1oXIIUE9zoGH?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
-                    <div className="gosple_main">
-                        <h2>Nigerian Praise</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/11uxWJrYMrsvbEzP4Hvr6t?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-                    </div>
-                    <div className="gosple_main">
-                        <h2>Nigerian Mix Go</h2>
-                        <iframe  src="https://open.spotify.com/embed/playlist/5v0nHekCRbODpHtDgPnAwX?utm_source=generator" width="100%" height="380" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
                     </div>
                 </section>
             </div>

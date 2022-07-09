@@ -4,7 +4,7 @@ import moment from 'moment'
 export const Mp3_main_api = [
     {
         id: 1,
-        img: require('../../AllInOne/next_platform_img/Rosam-Im-free.jpeg'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2FRosam-Im-free.jpeg?alt=media&token=398f7864-2dc4-4af9-92f9-047d6a2bebf3`,
         head_Text_url: 'new-release-out-Rosam-Im-free',
         head_Text: 'Rosam-Im-free',
         name: 'Rosam',
@@ -20,7 +20,7 @@ export const Mp3_main_api = [
     },
     {
         id: 11,
-        img: require('../../AllInOne/Music_box_1_img/Amb-Lawrence-I-Still-Believe.jpg'),
+        img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2FAmb-Lawrence-I-Still-Believe.jpg?alt=media&token=c5419c3f-e78f-4473-8389-edcfadfacb29`,
         head_Text_url: 'Amb-Lawrence-I-Still-Believe',
         head_Text: 'Amb-Lawrence-I-Still-Believe',
         name: 'Amb-Lawrence',
