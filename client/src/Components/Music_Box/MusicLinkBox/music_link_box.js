@@ -186,7 +186,11 @@ class MusicLinkBox extends Component {
                             </LineShareButton>
                             <RedditShareButton  url={window.location.href}>
                                 <RedditIcon size={40}  round={true} />
-                            </RedditShareButton>
+                            </RedditShareButton><br/><br/>
+                            
+                        </div>
+                        <div className='socail_icon'>
+                              <br/><br/>
                             <ViberShareButton  url={window.location.href}>
                                 <ViberIcon size={40}  round={true} />
                             </ViberShareButton>
@@ -202,6 +206,11 @@ class MusicLinkBox extends Component {
                             <InstapaperShareButton  url={window.location.href}>
                                 <InstapaperIcon size={40}  round={true} />
                             </InstapaperShareButton>
+                           
+                        </div>
+                        <div className='socail_icon'>
+                              <br/><br/>
+                           
                             <MailruShareButton  url={window.location.href}>
                                 <MailruIcon size={40}  round={true} />
                             </MailruShareButton>
@@ -244,8 +253,14 @@ class MusicLinkBox extends Component {
                 </div>
                 </section>
                 <section className='link_view_2'>
-                <img src={require('../../../AllInOne/advert/7f96701a-987b-412c-b320-d4b307476737.jpg')} alt='pic'/>
-                <img src={require('../../../AllInOne/advert/photo5841186347996525631.jpg')} alt='pic'/>
+                <div className="reffer">
+                    <img src={require('../../../AllInOne/advert/7f96701a-987b-412c-b320-d4b307476737.jpg')} alt='pic'/>
+                    <img src={require('../../../AllInOne/advert/photo5841186347996525631.jpg')} alt='pic'/>
+                </div>
+                <div className="reffer">
+                    <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/30b5299f-ac96-42b8-973b-46d1fa73d8e1"><img src="https://kol.jumia.com/banners/tpGd5bXW49b01TkUq1IGkx4rYhSIj3QQrLpEXhVS.jpeg" alt="Grocery Category"/></a>
+                </div>
+               
                 </section>
             </div>
          );

@@ -4,11 +4,10 @@
     grid-template-areas: 
     'link_view_1 link_view_1 link_view_2'
     ;
-    padding: 4em 0em;
 }
 
 .link_view_1{
-    padding: 3.5em 0em;
+    padding: 8.5em 0em;
     margin-top: -5em;
     grid-area: link_view_1;
     background-color: rgba(239, 236, 236, 0.676);
@@ -16,6 +15,7 @@
 }
 .link_view_2{
     grid-area: link_view_2;
+   
 }
 
 .view_1_tab{
@@ -102,7 +102,13 @@ audio::-webkit-media-controls-play-button,
    justify-content: center;
 }
 
-
+.link_view_2{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    padding: 2em 0em;
+    background-color: black;
+    gap: 3em 0em;
+}
 
 @media screen and (max-width: 768px){
     .music_link_box{
@@ -114,6 +120,11 @@ audio::-webkit-media-controls-play-button,
         ;
         padding: 4em 0em;
     }
+    
+.link_view_1 img{
+    margin: 1.5em 0em;
+    width: 95%;
+}
     .other_mp3_info h2{
         line-height: 0.9em;
     }
@@ -129,5 +140,12 @@ audio::-webkit-media-controls-play-button,
     /* width: 98%;
     margin: 0 auto;
     padding: 1em 0.5em; */
+}
+.link_view_2{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    padding: 3em 0em;
+    background-color: black;
+    gap: 4em 0em;
 }
 }
