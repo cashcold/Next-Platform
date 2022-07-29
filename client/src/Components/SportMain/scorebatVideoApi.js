@@ -67,12 +67,11 @@ class ScoreBatVideoApi extends Component {
                                         <Card.Text>
                                             
                                         <span>{pd.videos[0].title}
+                                       
                                         <div className="loading_img">
-                                            <img className='loading_io' src={loading_io} alt='pic'/>
+                                            {/* <img className='loading_io' src={loading_io} alt='pic'/> */}
                                             <img className='loading_io_2' src={loading_io_2} alt='pic'/>
                                         </div>
-                                            <div className="loand_recheck-_svg"></div>
-                                           
                                          </span>
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
@@ -126,12 +125,12 @@ class ScoreBatVideoApi extends Component {
         //   console.log(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream'))
         //   console.log(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights'))
 
-          if(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream')){
-                document.querySelector(".loading_io").style.display = "none"
-          }
-          if(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights')){
-                document.querySelector(".loading_io_2").style.display = "none"
-          }
+        //   if(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream')){
+        //         document.querySelector(".loading_io").style.display = "none"
+        //   }
+        //   if(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights')){
+        //         document.querySelector(".loading_io_2").style.display = "none"
+        //   }
         return ( 
             <div className='Scorenat_main_folder'>
                 <section className='bat_score'>
