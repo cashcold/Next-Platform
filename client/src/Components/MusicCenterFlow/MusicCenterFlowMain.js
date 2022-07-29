@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {music_mainbox} from '../Api/music_mainbox'
 import ReactPaginate from 'react-paginate'; 
 import {Card,Button} from 'react-bootstrap'
+import  axios from 'axios'
 
 // import './link_box.css'
 // import { Helmet } from 'react-helmet';
@@ -89,6 +90,23 @@ class MusicCenterFlowMain extends Component {
      };
      componentDidMount(){
         this.receivedData()
+
+
+        const options = {
+            method: 'GET',
+            url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
+            params: {q: 'game of thr'},
+            headers: {
+              'X-RapidAPI-Key': '26deb37eaamsh3f3919f4d771adfp14666bjsn99a8e15ee5c7',
+              'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
+            }
+          };
+          
+          axios.request(options).then(function (response) {
+              console.log(response.data);
+          }).catch(function (error) {
+              console.error(error);
+          });
      }
     render() { 
         return ( 

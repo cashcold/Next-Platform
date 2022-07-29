@@ -25,11 +25,12 @@ import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js'
 import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
 import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
 import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMain';
+import {firebase} from './firebase'
+
 class MainApp extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            music_type: '',
             title: 'NEXT-PLATFORM-HOME',
             description: 'Join the bigest platform NextPlatform HoME Enterterment Music Box',
             on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
@@ -37,6 +38,11 @@ class MainApp extends Component {
          }
     }
     componentDidMount(){
+     
+        // const messaging = firebase.messaging()
+
+
+
         const music_type = localStorage.getItem('mp3_api_music_type')
         this.setState({
             music_type
@@ -102,3 +108,11 @@ class MainApp extends Component {
 }
  
 export default MainApp;
+
+
+
+// Public Key:
+// BHagVjlaZA_blIpvC3ab6bpU4DtzCy0tmw1emF1Sb2_8hnO5VWX6TsgztctkekwwR6xuaAhwKyuLdVtf8pCRFeE
+
+// Private Key:
+// feTDgRbjCFdT7qLLclsz3BinF9o-GeaePSLrXJVT5F4

@@ -3,6 +3,9 @@ import './scorebatVideoApi.css'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
+import loading_io from '../../AllInOne/img2/Spinner.svg'
+import loading_io_2 from '../../AllInOne/img2/Ellipsis-1.3s-214px.svg'
+import './scorebatVideoApiEng'
 import moment from 'moment'
 
 class ScoreBatVideoApi extends Component {
@@ -14,14 +17,17 @@ class ScoreBatVideoApi extends Component {
              data: [],
              perPage: 12,
              currentPage: 0,
-             loading: []
+             loading: [],
+            //  isLiveMatch: 'Hight Light Match',
+             isLiveMatch: 'LiveMatch',
+             dataMatch: []
          }
          this.handleChange = this.handleChange.bind(this)
          this.handlePageClick = this.handlePageClick.bind(this);
     }
   
    
-    handlePageClick = (e) => {
+    handlePageClick = (e) => { 
          window.scrollTo(0, 0)
         const selectedPage = e.selected;
         const offset = selectedPage * this.state.perPage;
@@ -41,6 +47,7 @@ class ScoreBatVideoApi extends Component {
         axios
             .get(`https://www.scorebat.com/video-api/v3/`)
             .then(data => {
+                this.setState({dataMatch: data.data.response})
                 data = data.data.response
                 const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
                 const postData = slice.map(pd => <React.Fragment>
@@ -60,7 +67,12 @@ class ScoreBatVideoApi extends Component {
                                         <Card.Text>
                                             
                                         <span>{pd.videos[0].title}
-                                            <img className='loading_svg' src={require('../../AllInOne/img2/Ellipsis-1.3s-214px.svg')}/>
+                                        <div className="loading_img">
+                                            <img className='loading_io' src={loading_io} alt='pic'/>
+                                            <img className='loading_io_2' src={loading_io_2} alt='pic'/>
+                                        </div>
+                                            <div className="loand_recheck-_svg"></div>
+                                           
                                          </span>
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
@@ -70,14 +82,11 @@ class ScoreBatVideoApi extends Component {
                                     </Card.Body>
                                 </Card>
                         </div>
+
                     </div>
                   
                 </React.Fragment>)
-                // const postData = slice.map(pd => <React.Fragment>
-                //     <h3>{pd.strMeal}</h3>
-                //  <img src={pd.strMealThumb}/>
-                // </React.Fragment>)
-
+              
                 this.setState({
                     pageCount: Math.ceil(data.length / this.state.perPage),
                    
@@ -86,7 +95,8 @@ class ScoreBatVideoApi extends Component {
             });
     }
     componentDidMount(){
-        
+     
+        localStorage.setItem('isLiveMatch', this.state.isLiveMatch)
 
         axios.get(`https://www.scorebat.com/video-api/v3/`)
       .then((data)=>{
@@ -102,9 +112,26 @@ class ScoreBatVideoApi extends Component {
       })
 
       this.receivedData()
+         console.log(this.state.dataMatch)
+
+      
+// if(this.state.isLiveMatch == 'LiveMatch'){
+//     document.querySelector(".loading_io").style.display = "none"
+// }else{
+//     document.querySelector(".loading_io_2").style.display = "none"
+// }
   }
     render() { 
         // console.log(this.state.scorebat)
+        //   console.log(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream'))
+        //   console.log(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights'))
+
+          if(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream')){
+                document.querySelector(".loading_io").style.display = "none"
+          }
+          if(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights')){
+                document.querySelector(".loading_io_2").style.display = "none"
+          }
         return ( 
             <div className='Scorenat_main_folder'>
                 <section className='bat_score'>
@@ -113,6 +140,7 @@ class ScoreBatVideoApi extends Component {
                  <section className="ScoreBatVideoAPI_DataSection"> 
                      {this.state.postData}
                   </section>
+                 
                   <section className='check_pagination'>
                     <ReactPaginate
                         previousLabel={"prev"}

@@ -1,4 +1,5 @@
 const express = require('express')
+const axios = require('axios')
 const bcrypt = require('bcryptjs')
 const mailgun = require('mailgun-js')
 const dotEnv = require('dotenv')
@@ -14,35 +15,6 @@ dotEnv.config()
 const Router = express.Router()
 
 
-
-// Router.post('/login', async(req,res)=>{
-//     const user = await User.findOne({email: req.body.email})
-//     if(!user) {
-//         return res.status(400).send('Email Do Not Exist')
-//     }
-
-//     await bcrypt.compare(req.body.password, user.password,(err,isMatch)=>{
-//         if(!isMatch) return res.status(400).send('Invalid Password ')
-//         else{
-//             const payload = {
-                
-//                  full_Name: user.full_Name,
-//                  user_Name: user.user_Name,
-//                  email: user.email,
-//                  password: user.password,
-//                  bitcoin: user.bitcoin,
-//                  bitcoinCash: user.bitcoinCash,
-//                  ethereum: user.ethereum,
-//                  ip_address: user.ip_address,           
-//                  date: user.Date,
-//                  accountBalance: user.accountBalance
-//             }
-//             const token = jwt.sign(payload, process.env.TokenSecret)
-//             res.header('x-access-token', token)
-//             return res.status(200).send(token)
-//         }
-//     })
-// })
 Router.post('/marvel', async(req,res)=>{
   var Marvel = require('marvel')
  
@@ -107,6 +79,36 @@ Router.post('/music', (req,res) => {
             res.send(`Error getting Tokens: ${error}`);
           });
     
+    })
+
+    Router.post('/sendToAll',(req,res)=>{
+      let notification = {
+        'title': 'Title of Notification',
+        'text': 'we are checking notification for web wide'
+      }
+
+      let fcm_tokens = []
+
+      let notification_body = {
+        'notification': notification,
+        'registration': fcm_tokens
+      }
+
+     axios.post('https://fcm.googleapis.com/fcm/send',{
+       "header": {
+         'Authorization': 'key='+'',
+         'Content-Type': 'application/json'
+       },
+       "body": JSON.stringify(notification_body)
+     }).then(()=>{
+         res.status(200).sen('Notification send successfuly')
+     })
+     .catch((err)=>{
+        res.status(400).sen('Something went wrong')
+        console.log(err)
+     })
+
+
     })
 
     

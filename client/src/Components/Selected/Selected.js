@@ -47,47 +47,6 @@ class Selected extends Component {
        setTimeout(()=>{
         toast.dark(
             <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-                <h1> <h4>BTC SHARKS </h4></h1>
-                <Card>
-                    {/* <Card.Header as="h5"></Card.Header> */}
-                    <Card.Body>
-                        {/* <Card.Title>FOCUSE</Card.Title> */}
-                        <Card.Text>
-                        <img src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')} alt='pic'/>
-                        With supporting text below as a natural lead-in to additional content.
-                        </Card.Text>
-                        <Button variant="primary">Find More</Button>
-                    </Card.Body>
-                    </Card>
-            </div>, {
-            position: "top-center",
-            autoClose: false,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-       },20000) 
-      
-       setTimeout(()=>{
-        toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-                {/* <h1> <h4>BASE ON THE MOMENT </h4></h1> */}
-                <img src={require('../../AllInOne/next_platform_img/images.jpg')} alt='pic'/>
-            </div>, {
-            position: "top-center",
-            autoClose: false,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-       },20000)
-       setTimeout(()=>{
-        toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
                
                 <Card style={{backgroundColour: 'black', color: 'white'}}>
                     <Card.Header as="h5" style={{backgroundColour: 'black', color: 'white'}} >PROMOTIONS</Card.Header>

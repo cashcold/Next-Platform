@@ -22,6 +22,14 @@
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
     border-radius: unset
   }
+.loading_io,.loading_io_2{
+  width: 52px;
+}
+
+
+
+
+
 
   @media screen and (max-width: 768px){
     .ScoreBatVideoAPI_DataSection{

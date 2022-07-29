@@ -148,4 +148,14 @@ audio::-webkit-media-controls-play-button,
     background-color: black;
     gap: 4em 0em;
 }
+.about_main h3{
+    width: 92%;
+    margin: 0 auto;
+    line-height: 1.3em;
+}
+.other_mp3_info h2{
+    line-height: 1.5em;
+    width: 92%;
+    margin: 0 auto;
+}
 }

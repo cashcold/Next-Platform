@@ -11,6 +11,7 @@ var Ebay = require('ebay-node-api')
 const axios = require('axios')
 const queryString = require('query-string');
 const { parse } = require('querystring')
+const webpush = require("web-push");
 
 dotEnv.config()
 
@@ -27,7 +28,6 @@ const app = express()
 app.use(cors())
 app.use(bodyParser.json())
 app.use('/users',userRouter)
-
 
 
 app.get('/', function(request, response) {
@@ -94,8 +94,8 @@ app.get('/music/:id', function(request, response) {
 
       var q = url.parse(parsed, true);
 
-      var qdata = q.query
-      
+      var qdata = q.query        
+                     
       const {info, name, on_image} = qdata
  
  

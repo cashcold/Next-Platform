@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import loading_io from '../../../AllInOne/img2/Spinner.svg'
 import'./style.css'
 import { Helmet } from 'react-helmet';
 import {
@@ -251,6 +252,7 @@ class MusicLinkBox extends Component {
                             <code>audio</code> element.
                     </audio>
                 </div>
+                
                 </section>
                 <section className='link_view_2'>
                 <div className="reffer">
@@ -258,8 +260,11 @@ class MusicLinkBox extends Component {
                     <img src={require('../../../AllInOne/advert/photo5841186347996525631.jpg')} alt='pic'/>
                 </div>
                 <div className="reffer">
-                    <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/30b5299f-ac96-42b8-973b-46d1fa73d8e1"><img src="https://kol.jumia.com/banners/tpGd5bXW49b01TkUq1IGkx4rYhSIj3QQrLpEXhVS.jpeg" alt="Grocery Category"/></a>
+                <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/562def27-3f06-4c6e-915b-94dc00160e8d"><img src="https://kol.jumia.com/banners/RiVTNA2HFyfW9hqIryy3fSBpBbTHdldvH20szMsR.jpeg" alt="Grocery Category"/></a>
                 </div>
+                {/* <div className="reffer">
+                    <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/30b5299f-ac96-42b8-973b-46d1fa73d8e1"><img src="https://kol.jumia.com/banners/tpGd5bXW49b01TkUq1IGkx4rYhSIj3QQrLpEXhVS.jpeg" alt="Grocery Category"/></a>
+                </div> */}
                
                 </section>
             </div>

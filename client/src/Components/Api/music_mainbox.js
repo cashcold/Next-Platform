@@ -1,7 +1,7 @@
 import moment from 'moment'
 
 
-export const music_mainbox = [
+export const music_mainbox = [ 
     {
         id: 1,
         img: `https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/nextPlatform_stoneBwoy%2Fgrace.jpg?alt=media&token=c6b9bfbe-8896-43a4-b775-f5c8670a33c1`,
