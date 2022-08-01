@@ -6,3 +6,30 @@ body{
 .marqueeText p {
   display: inline-block;
 }
+.title_checkk_up{
+  display: flex;
+ justify-content: space-between;
+}
+.title_checkk_up p{
+  display: flex;
+ margin: 0em 2.5em;
+}
+.title_checkk_up a{
+ color: white;
+ text-decoration: none;
+}
+.title_checkk_up a:hover{
+ color: red;
+}
+.flow_marq{
+  display: flex;
+  height: 20vh;
+  justify-content: center;
+  align-items: center;
+
+}
+.flow_marq h3{
+  width: 10%;
+  color: rgb(133, 24, 24);
+
+}

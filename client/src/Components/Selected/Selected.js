@@ -46,10 +46,9 @@ class Selected extends Component {
       
        setTimeout(()=>{
         toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
+            <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
                
-                <Card style={{backgroundColour: 'black', color: 'white'}}>
-                    <Card.Header as="h5" style={{backgroundColour: 'black', color: 'white'}} >PROMOTIONS</Card.Header>
+                <Card >
                     <Card.Body>
                         <Card.Text>
                         <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
@@ -57,7 +56,29 @@ class Selected extends Component {
                     </Card.Body>
                     </Card>
             </div>, {
-            position: "top-center",
+            position: "bottom-left",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+       },40000)
+       setTimeout(()=>{
+        toast.dark(
+            <div className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'>
+               
+                <Card >
+                    
+                    <Card.Body>
+                        <Card.Text>
+                        <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/562def27-3f06-4c6e-915b-94dc00160e8d"><img src="https://kol.jumia.com/banners/RiVTNA2HFyfW9hqIryy3fSBpBbTHdldvH20szMsR.jpeg" alt="Grocery Category"/></a>
+                        </Card.Text>
+                    </Card.Body>
+                    </Card>
+            </div>, {
+            position: "top-right",
             autoClose: false,
             hideProgressBar: false,
             closeOnClick: true,

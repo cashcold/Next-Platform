@@ -16,10 +16,11 @@ export const LinkBoxApi = [
 
         personalLinks: [
            {
-            facebook: '',
+            facebook: 'fb',
             whatsapp: '0203808479',
             call: '0203808479',
-            twitter: ''
+            twitter: '',
+            site: 'http://next-platform.herokuapp.com'
            }
         ]
     },
@@ -37,7 +38,8 @@ export const LinkBoxApi = [
              facebook: 'https://www.facebook.com/yellowcardapp',
              whatsapp: 'xxxxxxxxx',
              call: '020 xxxxxxxx',
-             twitter: 'xxxxxxxx'
+             twitter: 'xxxxxxxx',
+             site: 'https://www.facebook.com/yellowcardapp'
             }
          ]
     },
@@ -63,7 +65,8 @@ export const LinkBoxApi = [
              facebook: 'https://signup.bayportghana.com/payroll_loan/?utm_source=facebook&utm_medium=cpm&utm_campaign=L4_VP_PAYROLL_MAN%20DESK%20NEW_14.02.2022&utm_content=MAN%20DESK%20NEW&utm_term=23849943086460210%20Facebook_Desktop_Feed&fbclid=IwAR2CTgJwpiFBpCxDnPKpIiU2RMwup0qfl6hIqczAUtJ46srNEmRV0ymEFOI',
              whatsapp: '020xxxxx',
              call: '020xxxx',
-             twitter: 'xxxxxx'
+             twitter: 'xxxxxx',
+             site: 'https://signup.bayportghana.com/payroll_loan/?utm_source=facebook&utm_medium=cpm&utm_campaign=L4_VP_PAYROLL_MAN%20DESK%20NEW_14.02.2022&utm_content=MAN%20DESK%20NEW&utm_term=23849943086460210%20Facebook_Desktop_Feed&fbclid=IwAR2CTgJwpiFBpCxDnPKpIiU2RMwup0qfl6hIqczAUtJ46srNEmRV0ymEFOI'
             }
          ]
     },

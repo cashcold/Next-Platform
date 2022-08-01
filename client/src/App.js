@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {HelmetProvider} from "react-helmet-async";  
 import './App.css'
+// import './client'
+// import './worker'
 import 'animate.css'
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './Components/Navbar/navbar.js';
@@ -38,6 +40,7 @@ class MainApp extends Component {
          }
     }
     componentDidMount(){
+        
      
         // const messaging = firebase.messaging()
 

@@ -29,6 +29,33 @@ app.use(cors())
 app.use(bodyParser.json())
 app.use('/users',userRouter)
 
+const publicVapidKey =
+  "BHl7N0MHnESNNyl-kbrSHkI1KW2ge9ux2isIf_jHQa0-zn7e0-s9Z_5QCy_30y6lQsjPcLuRqLgD9-yVJsctZco";
+const privateVapidKey = "7ZZKiZMYbCaAR6n4W3ZF9FXL82PUhpSSBGvohBJR3XU";
+
+webpush.setVapidDetails(
+  "mailto:test@test.com",
+  publicVapidKey,
+  privateVapidKey
+);
+
+// Subscribe Route
+app.post("/subscribe", (req, res) => {
+  // Get pushSubscription object
+  const subscription = req.body;
+
+  // Send 201 - resource created
+  res.status(201).json({});
+
+  // Create payload
+  const payload = JSON.stringify({ title: "Push Test" });
+
+  // Pass object into sendNotification
+  webpush
+    .sendNotification(subscription, payload)
+    .catch(err => console.error(err));
+});
+
 
 app.get('/', function(request, response) {
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
