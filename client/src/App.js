@@ -4,6 +4,9 @@ import './App.css'
 // import './client'
 // import './worker'
 import 'animate.css'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 import Navbar from './Components/Navbar/navbar.js';
 import Selected from './Components/Selected/Selected.js';
@@ -27,7 +30,7 @@ import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js'
 import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
 import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
 import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMain';
-import {firebase} from './firebase'
+
 
 class MainApp extends Component {
     constructor(props) {
@@ -35,21 +38,24 @@ class MainApp extends Component {
         this.state = { 
             title: 'NEXT-PLATFORM-HOME',
             description: 'Join the bigest platform NextPlatform HoME Enterterment Music Box',
-            on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg'
+            on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg',
+            msg_title:  '',
+            msg_body: ''
 
          }
     }
     componentDidMount(){
         
+
+   
+
      
-        // const messaging = firebase.messaging()
-
-
-
-        const music_type = localStorage.getItem('mp3_api_music_type')
-        this.setState({
-            music_type
-        })
+        
+     
+    const music_type = localStorage.getItem('mp3_api_music_type')
+    this.setState({
+        music_type
+    })
       
 
     }

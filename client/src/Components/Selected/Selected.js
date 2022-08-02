@@ -213,10 +213,10 @@ class Selected extends Component {
                     <h3 className='feature_h3'>FEATURED VIDEOS</h3>
                     <div className="feature_videos_list">
                         <div className="feature_vides_row iframe-container">
-                             <iframe src="https://www.youtube.com/embed/M6PJp1p6BLg?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        <iframe width="560" height="315"  src="https://www.youtube.com/embed/ylFR9VqLMYg" title="Eben - Victory (Video)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className="feature_vides_row iframe-container">
-                             <iframe src="https://www.youtube.com/embed/3M_5oYU-IsU?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/7xSoXxUEkvk" title="Hosanna by KODA" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                         </div>
                         <div className="feature_vides_row iframe-container">
                             <iframe src="https://www.youtube.com/embed/YRnEY4znKp0?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>

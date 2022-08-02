@@ -1,6 +1,6 @@
 LinkBoxApi = [
     {
-        id: 1,
+        id: 1, 
         img:`https://firebasestorage.googleapis.com/v0/b/next-platform02.appspot.com/o/Next-platform02%2FA2%20STICKER-01%20(1).jpg?alt=media&token=9ed5ea63-bda2-4f71-a054-96c7207367ec`,
         title: 'Buy Bitcoin And Invest Online',
         name: 'BTC_SHARK',
