@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './style.css'
 import 'animate.css'
-import './nav'
+// import './nav'
 import {Carousel,Container,Nav} from 'react-bootstrap'
 import {TimelineLite} from 'gsap'
 import {gsap} from 'gsap'

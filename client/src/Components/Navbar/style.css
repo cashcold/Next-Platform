@@ -336,6 +336,12 @@
         box-shadow: 0 5px  20px rgba(0,0,0,0.5);
        
     }
+    .flow_marq h3{
+        width: 10%;
+        color: rgb(133, 24, 24);        
+        font-size: 0.9em;
+      
+      }
    
 
   
