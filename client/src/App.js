@@ -30,7 +30,7 @@ import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js'
 import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
 import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
 import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMain';
-import { requestForToken, onMessageListener } from './firebase';
+
 
 class MainApp extends Component {
     constructor(props) {
@@ -39,42 +39,13 @@ class MainApp extends Component {
             title: 'NEXT-PLATFORM-HOME',
             description: 'Join the bigest platform NextPlatform HoME Enterterment Music Box',
             on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg',
-            title:  '',
-            body: '',
-            notification: ''
+            msg_title:  '',
+            msg_body: ''
 
          }
     }
     componentDidMount(){
         
-        requestForToken()
-
-      
-
-    onMessageListener()
-    .then((payload) => {
-        let {title, body, image} = payload.notification
-
-        toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-               <div className="notification_main">
-                   <p>{title}</p>
-                   <img src={image}/>
-                   <p>{body}</p>
-               </div>
-            </div>, {
-            position: "top-center",
-            autoClose: false,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            })
-    })
-    .catch((err) => console.log('failed: ', err));
-
-      
 
    
 
@@ -105,7 +76,6 @@ class MainApp extends Component {
                 <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
-                            <ToastContainer/>
                             <Navbar/>
                             <div className='switch'> 
                              <Switch> 

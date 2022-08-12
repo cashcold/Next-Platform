@@ -76,7 +76,7 @@ class ScoreBatVideoApi extends Component {
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
                                         </Card.Text>
-                                        <a target="_blank" href={pd.matchviewUrl}  className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a>
+                                        {/* <a target="_blank" href={pd.matchviewUrl}  className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a> */}
                                         {/* <a href={pd.matchviewUrl} className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a> */}
                                     </Card.Body>
                                 </Card>
