@@ -240,9 +240,9 @@ class Navbar extends Component {
                             <h1 className='text-red blink-soft'>NEXT-PLATFORM</h1>
                         </div>
                         <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
-                         <div class="flow_marq">
+                         <div class="flow_marq ">
                             <h3>Update News </h3>
-                            <marquee classN='marqueeText' onmouseover="this.stop()" onmouseout="this.start()">
+                            <marquee className='marqueeText_T' onmouseover="this.stop()" onmouseout="this.start()">
                                 <p class="title_checkk_up"></p>
                             </marquee>
                         </div>
@@ -268,11 +268,6 @@ class Navbar extends Component {
                                 </div>
                         </div>
                      </nav>
-                     {/* <marquee className='marqueeText'>
-                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit ut ab accusamus doloremque facilis temporibus modi numquam repudiandae doloribus debitis?</p>
-                           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestiae, vel.</p>
-                           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias ea voluptatem dolore hic ab et?</p>
-                       </marquee> */}
                      
                </section> 
                 <section className='top_form'>

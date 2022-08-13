@@ -53,8 +53,12 @@ class ScoreBatVideoApi extends Component {
                 const postData = slice.map(pd => <React.Fragment>
                     <div className="food_box_main_in">
                         <div className="food_box" onClick={()=>{
-                            //   localStorage.setItem('scoreBat_matchviewUrl',pd.matchviewUrl)
-                            // window.location =`/${pd.matchviewUrl}`
+                            localStorage.setItem('scoreBat_pd_thumbnail',pd.thumbnail)
+                            localStorage.setItem('scoreBat_pd_competition',pd.competition)
+                            localStorage.setItem('scoreBat_pd_title',pd.title)
+                            localStorage.setItem('scoreBat_pd_date',pd.date)
+                            localStorage.setItem('scoreBat_pd_embed',pd.videos[0].embed)
+                            window.location =`/sport-main-home/${pd.title}}`
                         }}>
                             {/* <img src={pd.strMealThumb}/>
                             <h3 className='styleTextName'>{pd.strMeal}</h3>
@@ -73,6 +77,7 @@ class ScoreBatVideoApi extends Component {
                                             <img className='loading_io_2' src={loading_io_2} alt='pic'/>
                                         </div>
                                          </span>
+                                         {/* {pd.videos[0].embed} */}
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
                                         </Card.Text>
@@ -94,6 +99,7 @@ class ScoreBatVideoApi extends Component {
             });
     }
     componentDidMount(){
+      
      
         localStorage.setItem('isLiveMatch', this.state.isLiveMatch)
 
@@ -111,26 +117,13 @@ class ScoreBatVideoApi extends Component {
       })
 
       this.receivedData()
-         console.log(this.state.dataMatch)
+       
 
       
-// if(this.state.isLiveMatch == 'LiveMatch'){
-//     document.querySelector(".loading_io").style.display = "none"
-// }else{
-//     document.querySelector(".loading_io_2").style.display = "none"
-// }
+
   }
     render() { 
-        // console.log(this.state.scorebat)
-        //   console.log(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream'))
-        //   console.log(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights'))
-
-        //   if(this.state.dataMatch.filter(data => data.videos[0].title == 'Live Stream')){
-        //         document.querySelector(".loading_io").style.display = "none"
-        //   }
-        //   if(this.state.dataMatch.filter(data => data.videos[0].title == 'Highlights')){
-        //         document.querySelector(".loading_io_2").style.display = "none"
-        //   }
+        console.log(this.state.dataMatch)
         return ( 
             <div className='Scorenat_main_folder'>
                 <section className='bat_score'>

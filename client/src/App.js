@@ -30,6 +30,7 @@ import MusicLinkBox from './Components/Music_Box/MusicLinkBox/music_link_box.js'
 import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
 import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
 import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMain';
+import SportDropInfo from './Components/SportMain/sportDropInfo';
 
 
 class MainApp extends Component {
@@ -87,6 +88,7 @@ class MainApp extends Component {
                                 <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
                                 <Route path='/product-main' exact component={ProductMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>
+                                <Route path='/sport-main-home/:id' exact component={SportDropInfo}/>
                                 <Route path={`/sport-main-home/${scoreBat_matchviewUrl}`} exact component={ScoreBatReceivedApi}/>
                                 <Route path='/food-main-home/Receive-food-order/:id'  exact component={ReceiveGetdFood}/> 
                                 <Route path='/food-main-home' exact component={FoodMain}/>
