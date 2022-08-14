@@ -214,7 +214,6 @@ class MusicLinkBox extends Component {
                             <EmailShareButton  url={window.location.href}>
                                 <EmailIcon size={40}  round={true} />
                             </EmailShareButton>
-                            
                         </div>
                 
                     </div>

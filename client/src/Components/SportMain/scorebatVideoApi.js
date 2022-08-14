@@ -58,7 +58,18 @@ class ScoreBatVideoApi extends Component {
                             localStorage.setItem('scoreBat_pd_title',pd.title)
                             localStorage.setItem('scoreBat_pd_date',pd.date)
                             localStorage.setItem('scoreBat_pd_embed',pd.videos[0].embed)
-                            window.location =`/sport-main-home/${pd.title}}`
+
+
+                            const scoreBatParamsUrl = { 
+                                name: pd.title,
+                                info: pd.competition,
+                                on_image: pd.thumbnail
+                            }
+                            const queryMusicParams = require('query-string')
+
+                            const passScoreBatParams = queryMusicParams.stringify(scoreBatParamsUrl)
+                            
+                            window.location =`/sport-main-home/${pd.title}?${passScoreBatParams}`
                         }}>
                             {/* <img src={pd.strMealThumb}/>
                             <h3 className='styleTextName'>{pd.strMeal}</h3>

@@ -24,6 +24,20 @@
     padding: 3em 0em;
 }
 
+.scoreBat_embeded{
+    width: 89%;
+    margin: 0 auto  ;
+}
+.competition{
+    margin: 1em 0em;
+    color: rgb(238, 138, 138);
+}
+.all_icons{
+    margin: 3em 0em;
+}
+
+
+
 @media screen and (max-width: 768px){
     .sport_drop_table{
         display: grid;
@@ -32,5 +46,9 @@
         'sport_table_1'
         'sport_table_2'
         ;
+    }
+    .scoreBat_embeded{
+        width: 95%;
+        margin: 0 auto  ;
     }
 }
