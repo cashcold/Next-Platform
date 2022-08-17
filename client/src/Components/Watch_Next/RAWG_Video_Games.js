@@ -45,7 +45,7 @@ class RAWG_Video_Games_Main extends Component {
     }
     loading_prev_game_qury(){
                 this.setState({
-                    loading_next_game_qury: this.state.loading_next_game_qury + 1
+                    loading_next_game_qury: this.state.loading_next_game_qury - 1
                 })
 
                 axios.get(`https://api.rawg.io/api/games?key=e1fbdfe6840f485282801980ab3f63de&page=${this.state.loading_prev_game_qury}`).then(data => 
@@ -77,7 +77,7 @@ class RAWG_Video_Games_Main extends Component {
             <div className='Scorenat_main_folder'>
                 <section className='bat_score'>
                     <h1 >Play Free Games Online<br/>And Save Your Progress </h1>
-                    <h3>{this.state.loading_next_game_qury}</h3>
+                    <h3>More than 350,000 games for 50 platforms including mobiles.</h3>
                 </section>
                  <section className="RAWG_Video_Games_data"> 
                      {/* {this.state.postData} */}
