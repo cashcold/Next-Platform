@@ -42,7 +42,7 @@ class MusicBox_1 extends Component {
                     localStorage.setItem('mp3_api_social_on_image',pd.social_on_image)
 
 
-                    const musicParamsUrl = { 
+                    const musicParamsUrl = {
                         name: pd.name,
                         info: pd.head_Text_url,
                         on_image: pd.social_on_image

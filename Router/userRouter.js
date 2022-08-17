@@ -18,16 +18,35 @@ const Router = express.Router()
 Router.post('/marvel', async(req,res)=>{
   var Marvel = require('marvel')
  
-var marvel = new Marvel({ publicKey: "1a38b2b7e17525de3762d2dfd0ce396c", privateKey: "6eb16e205b1528ea154f67f4577f59d7fafc5912"})
- 
-marvel.characters
-  .name("SPIDER-MAN")
-  .get(function(err, resp) {
-    if (err) { console.log("Error: ", err) }
-    // else { console.log(resp) }
-    res.send(resp)
+  var marvel = new Marvel({ publicKey: "1a38b2b7e17525de3762d2dfd0ce396c", privateKey: "6eb16e205b1528ea154f67f4577f59d7fafc5912"})
+  
+  marvel.characters
+    .name("SPIDER-MAN")
+    .get(function(err, resp) {
+      if (err) { console.log("Error: ", err) }
+      // else { console.log(resp) }
+      res.send(resp)
 
-  })
+    })
+})
+Router.post('/rawg_video_games', async(req,res)=>{
+
+  const options = {
+    method: 'GET',
+    url: 'https://rawg-video-games-database.p.rapidapi.com/games',
+    headers: {
+      'X-RapidAPI-Key': '26deb37eaamsh3f3919f4d771adfp14666bjsn99a8e15ee5c7',
+      'X-RapidAPI-Host': 'rawg-video-games-database.p.rapidapi.com'
+    }
+  };
+  
+  axios.request(options).then(function (response) {
+    console.log(response.data);
+    res.send(response.data)
+  }).catch(function (error) {
+    console.error(error);
+  });
+
 })
 
 

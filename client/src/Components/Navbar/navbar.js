@@ -271,7 +271,6 @@ class Navbar extends Component {
                      
                </section> 
                 <section className='top_form'>
-                        
                  <div className="top_form_go">
                     <Carousel fade>
                             <Carousel.Item>
@@ -371,7 +370,8 @@ class Navbar extends Component {
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>PEPSI COFFEE</h3>
+                                    <h3 className='top_form_capt_h3'>GET PEPSI COFFEE  FREE FOR TRY</h3>
+                                    <a href='#' btn btn-warning> Learn More</a>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>

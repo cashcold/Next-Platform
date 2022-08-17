@@ -31,6 +31,7 @@ import LinkBoxInfo from './Components/LinkoxInfo/linkBoxInfo.js';
 import LinkBoxMainBox from './Components/LinkBoxMain/linkBoxMain';
 import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMain';
 import SportDropInfo from './Components/SportMain/sportDropInfo';
+import RAWG_Video_Games_Main from './Components/Watch_Next/RAWG_Video_Games';
 
 
 class MainApp extends Component {
@@ -48,10 +49,6 @@ class MainApp extends Component {
     componentDidMount(){
         
 
-   
-
-     
-        
      
     const music_type = localStorage.getItem('mp3_api_music_type')
     this.setState({
@@ -99,6 +96,7 @@ class MainApp extends Component {
                                 <Route path='/call_api' exact component={Call_Api}/>
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
                                 <Route path='/music_still_trending' exact component={MusicCenterFlowMain}/>
+                                <Route path='/next-platform_RAWG_Video_Games_Main' exact component={RAWG_Video_Games_Main}/>
 
 
 
