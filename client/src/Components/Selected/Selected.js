@@ -256,11 +256,15 @@ class Selected extends Component {
                         <div className='about_game_text'>
                             <h1>All In One Boost</h1>
                             <h2>Play incredible games like Astro Bot Rescue Mission,Spider-Man,God of War, Blood and Truth and Dreams VR. etc</h2>
+                            
+                          <a href='/next-platform_RAWG_Video_Games_Main' className='btn btn-warning'>Play Video Games<i class="fas fa-arrow-circle-right"></i></a>
                         </div>
                         <div className='game__ads_start'>
                             <img src={require('../../VR__Pic/46f24237e05ea9d2fb80f4064225732a.jpg')} alt='pic'/>
                         </div>
                     </section>
+                    <div className="video_games_tab_1">
+                    </div>
                 </section>
               
                 <section className='pes5__family-main'>

@@ -63,21 +63,20 @@ class RAWG_Video_Games_Main extends Component {
     
       
  
-       
+      
 
       
 
   }
     render() { 
-        // console.log(this.state.dataMatch)
-        console.log(this.state.dataMatch_check)
+       
 
       
         return ( 
-            <div className='Scorenat_main_folder'>
+            <div className='RAWG_main_folder'>
                 <section className='bat_score'>
                     <h1 >Play Free Games Online<br/>And Save Your Progress </h1>
-                    <h3>More than 350,000 games for 50 platforms including mobiles.</h3>
+                    <h3>NEXT-PLATFORM Offer <br/>You More than 350,000 Video Games.</h3>
                 </section>
                  <section className="RAWG_Video_Games_data"> 
                      {/* {this.state.postData} */}

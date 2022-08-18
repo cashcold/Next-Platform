@@ -163,6 +163,9 @@ class Navbar extends Component {
         document.querySelector('.title_checkk_up').innerHTML = `
             ${output}
         `
+        document.querySelector('.marqueeText_4_mobile_title_checkk_up').innerHTML = `
+            ${output}
+        `
         
         
 
@@ -270,6 +273,7 @@ class Navbar extends Component {
                      </nav>
                      
                </section> 
+               
                 <section className='top_form'>
                  <div className="top_form_go">
                     <Carousel fade>
@@ -482,7 +486,14 @@ class Navbar extends Component {
                     </Carousel>
                 </div>
                 </section>
-             
+                <section className="fow_mobile_marquee">
+                <div class="marqueeText_4_mobile">
+                            <h3>Update News </h3>
+                            <marquee className='marqueeText_T marqueeText_4_mobile' onmouseover="this.stop()" onmouseout="this.start()">
+                                <p class="marqueeText_4_mobile_title_checkk_up"></p>
+                            </marquee>
+                     </div>
+                </section>
             </div>
          );
     }

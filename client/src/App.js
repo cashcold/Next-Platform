@@ -75,6 +75,7 @@ class MainApp extends Component {
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
                             <Navbar/>
+                            
                             <div className='switch'> 
                              <Switch> 
                                 <Route path='/' exact component={Selected}/> 
