@@ -4,18 +4,22 @@
 }
 
 
+.api_namme{
+    margin: 1em 0em;
+}
+
 
 
  @media screen and (max-width: 768px){
     .raw_js h2{
         display: grid;
-        grid-template-columns: repeat(1,1fr);
+        grid-template-columns: repeat(2,1fr);
+       
     }
     .RAWG_main_folder{
        margin-top: 5em;
     }
     .raw_js img{
-       width: 95%;
-      margin: 0 auto;
+      width: 90%;
     }
  }

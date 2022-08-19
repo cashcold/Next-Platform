@@ -85,7 +85,10 @@ class RAWG_Video_Games_Main extends Component {
                         <section className="raw_js">
                             <h2>{this.state.dataMatch_check.map(data => <ul><li>
                                 <img src={data.background_image}/>
+                                <div className="api_namme">
                                 {data.name}
+                                </div>
+                                <a href='#' className='btn btn-warning'>Play Now</a>
                                 </li></ul>)}</h2>
                         </section>
                   </section >
