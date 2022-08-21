@@ -1,12 +1,19 @@
 .raw_js h2{
     display: grid;
     grid-template-columns: repeat(3,1fr);
+    gap: 2em;
 }
 
 
 .api_namme{
     margin: 1em 0em;
 }
+
+.RAWG_main_folder{
+    background-color: black;
+    color: white;
+}
+
 
 
 

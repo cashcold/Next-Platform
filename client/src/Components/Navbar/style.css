@@ -360,7 +360,7 @@
 .marqueeText_4_mobile{
     display: block;
     background-color: black;
-    height: 10vh;
+    min-height: 10vh;
     padding: 1em 0em;
   
 }

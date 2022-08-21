@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Helmet } from 'react-helmet';
 import './RAWG_Video_Games.css'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
@@ -69,11 +70,21 @@ class RAWG_Video_Games_Main extends Component {
 
   }
     render() { 
-       
+       console.log(this.state.loading_next_game_qury)
 
       
         return ( 
+          
             <div className='RAWG_main_folder'>
+                  <Helmet>
+                    <base />
+                    <title>NEXT-PLATFORM VIDEO GAMES</title>
+                    <meta name="description" content="NEXT-PLATFORM-HOME" />
+                    <meta property="og:title" content='NextPlatForm Home Main' />
+                <meta property="og:description" content='Join the bigest platform NextPlatform HoME Enterterment Music Box' />
+                <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
+                    <link rel="canonical" href="next-platform.com" />
+                </Helmet>
                 <section className='bat_score'>
                     <h1 >Play Free Games Online<br/>And Save Your Progress </h1>
                     <h3>NEXT-PLATFORM Offer <br/>You More than 350,000 Video Games.</h3>
