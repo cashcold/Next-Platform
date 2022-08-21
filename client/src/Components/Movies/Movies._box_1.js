@@ -68,7 +68,7 @@ class MovieBoxMain extends Component {
         axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&${TMDB_api}`).then(data => 
                 this.setState({
                     TMDB_Discovery: data.data.results
-                }))
+          }))
         
     
   }
@@ -96,16 +96,26 @@ class MovieBoxMain extends Component {
                 </section>
                   <section className='section_inner_movies'>
                         <section className="movies_raw_js">
-                            <h2>{this.state.TMDB_Discovery.map(data => <ul><li>
-                                <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
-                                <div className="api_namme">
-                                {data.title}
-                                </div>
-                                </li></ul>)}</h2>
+                            <h2>{this.state.TMDB_Discovery.map(data =>
+                                 <ul><li>
+                                    <div className="movies_inner" onClick={()=>{
+                                       localStorage.setItem('TMDB_pd_id',data.id)
+                                       localStorage.setItem('TMDB_pd_title',data.title)
+                                        
+                                       window.location =`/watch_movies`
+                                    }}>
+                                        <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                                        <div className="api_namme">
+                                        {data.title}
+                                        </div>
+                                    </div>
+                                    </li>
+                                </ul>)}
+                            </h2>
                         </section>
                         <section className="for_next_prev_tab">
-                            <div className="" onClick={this.loading_prev_movies_qury}>PREV</div>
-                            <div className="" onClick={this.loading_next_movies_qury}>NEXT</div>
+                            <div className="btn btn-warning" onClick={this.loading_prev_movies_qury}>PREV</div>
+                            <div className="btn btn-warning" onClick={this.loading_next_movies_qury}>NEXT</div>
                         </section>
                   </section >
              

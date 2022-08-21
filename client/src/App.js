@@ -33,6 +33,7 @@ import MusicCenterFlowMain from './Components/MusicCenterFlow/MusicCenterFlowMai
 import SportDropInfo from './Components/SportMain/sportDropInfo';
 import RAWG_Video_Games_Main from './Components/Watch_Next/RAWG_Video_Games';
 import MovieBoxMain from './Components/Movies/Movies._box_1';
+import MoviesBoxChartShow from './Components/Movies/Movies_box_2';
 
 
 class MainApp extends Component {
@@ -94,6 +95,7 @@ class MainApp extends Component {
                                 <Route path='/drinks-main' exact component={GetDrinksMain}/>
                                 <Route path='/watch_next' exact component={WatchNextMain}/>
                                 <Route path='/movie_box_main' exact component={MovieBoxMain}/>
+                                <Route path='/watch_movies' exact component={MoviesBoxChartShow}/>
                                 <Route path='/link_box' exact component={LinkBoxMain}/>
                                 <Route path='/link_box/:id' exact component={LinkBoxMainBox}/>
                                 <Route path='/call_api' exact component={Call_Api}/>
