@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import './Movies._box_1.css'
+import MoviesBoxChartShow from  './Movies_box_2.js'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
-
 import moment from 'moment'
+
+export const MovieContext = React.createContext()
 
 class MovieBoxMain extends Component {
     constructor(props) {
@@ -13,7 +15,9 @@ class MovieBoxMain extends Component {
         this.state = { 
             TMDB_Discovery: [],
             loading_next_movie_qury: 2,
-            loading_prev_movie_qury: 1
+            loading_prev_movie_qury: 1,
+            TMDB_id: '',
+            TMDB_title: ''
 
          }
 
@@ -73,14 +77,12 @@ class MovieBoxMain extends Component {
     
   }
     render() { 
-       
-    console.log(this.state.TMDB_Discovery)
-    // console.log(this.state.TMDB_Discovery)
+       console.log(this.state.TMDB_id)
+       console.log(this.state.TMDB_title)
 
-
-      
         return ( 
             <div className='movies_box_1'>
+                
               <Helmet>
                     <base />
                     <title>NEXT-PLATFORM MOVIES</title>
@@ -92,7 +94,6 @@ class MovieBoxMain extends Component {
                 </Helmet>
                 <section classNme='movieBox_1_section'>
                     <h1 >Movies</h1>
-                  
                 </section>
                   <section className='section_inner_movies'>
                         <section className="movies_raw_js">
@@ -101,8 +102,22 @@ class MovieBoxMain extends Component {
                                     <div className="movies_inner" onClick={()=>{
                                        localStorage.setItem('TMDB_pd_id',data.id)
                                        localStorage.setItem('TMDB_pd_title',data.title)
+                                       this.setState({
+                                        TMDB_id: data.id,
+                                        TMDB_title: data.title
+                                       })
+
+                                       const TMDB_api_ParamsUrl = { 
+                                        TMDB_id: data.id,
+                                        TMDB_title: data.title
+                                    }
+                                    const queryMusicParams = require('query-string')
+        
+                                    const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+                                    
+                                    window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
                                         
-                                       window.location =`/watch_movies`
+                                    //    window.location =`/watch_movies`
                                     }}>
                                         <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
                                         <div className="api_namme">
@@ -118,7 +133,8 @@ class MovieBoxMain extends Component {
                             <div className="btn btn-warning" onClick={this.loading_next_movies_qury}>NEXT</div>
                         </section>
                   </section >
-             
+             <div className="pass_props_to_next">
+             </div>
             </div>
          );
     }

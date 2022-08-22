@@ -64,6 +64,7 @@ class MainApp extends Component {
         return ( 
           
             <Router>
+              
                <Helmet>
                     <base />
                     <title>NEXT-PLATFORM HOME</title>
@@ -95,7 +96,7 @@ class MainApp extends Component {
                                 <Route path='/drinks-main' exact component={GetDrinksMain}/>
                                 <Route path='/watch_next' exact component={WatchNextMain}/>
                                 <Route path='/movie_box_main' exact component={MovieBoxMain}/>
-                                <Route path='/watch_movies' exact component={MoviesBoxChartShow}/>
+                                <Route path='/watch_movies/:id' exact component={MoviesBoxChartShow}/>
                                 <Route path='/link_box' exact component={LinkBoxMain}/>
                                 <Route path='/link_box/:id' exact component={LinkBoxMainBox}/>
                                 <Route path='/call_api' exact component={Call_Api}/>

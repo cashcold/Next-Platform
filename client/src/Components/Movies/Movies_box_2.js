@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import queryString from 'query-string';
 import './Movies_box_2.css'
+import MoviesBoxMain from  './Movies._box_1.js'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
@@ -12,11 +14,15 @@ class MoviesBoxChartShow extends Component {
         super(props);
         this.state = { 
             TMDB_id: '',
-            TMDB_Info_Discovery_videos: []
+            TMDB_Info_Discovery_videos: [],
+            TMDB_Trailer: [],
+            TMDB_video_name: '',
+            TMDB_video_key: ''
 
          }
 
          this.handleChange = this.handleChange.bind(this)
+         this. CheckHandle_req = this. CheckHandle_req.bind(this)
          
          
     }
@@ -28,45 +34,57 @@ class MoviesBoxChartShow extends Component {
 
  
 
+   CheckHandle_req = ()=>{
    
+   }
    
     componentDidMount(){
-        const TMDB_id = localStorage.getItem('TMDB_pd_id')
 
-        this.setState({
-            TMDB_id
-        })
-
-        const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
-      
        
+        let parsed = queryString.parse(window.location.search);
+        let TMDB_id = parsed.TMDB_id
+        // let TMDB_title = parsed.TMDB_title
+    
+    
+       
+        const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
+    
+        axios.get(`http://api.themoviedb.org/3/movie/${TMDB_id}?${TMDB_api}&append_to_response=videos`).then(data => 
+        this.setState({
+            TMDB_Info_Discovery_videos: data.data,
+            TMDB_Trailer: data.data.videos.results,
+        }))
 
-        axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/videos?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US`).then(data => 
-                this.setState({
-                    TMDB_Info_Discovery_videos: data.data.results
-          })).then(data => console.log(data.data.results))
-
+       
+    
+      
+    //     document.querySelector('.show_movies_now').innerHTML = `
+    //     <iframe width="640" height="360" src="https://www.youtube.com/embed/DtQycgMD4HQ" title="Trailer 2" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    // `
       
   }
     render() { 
+
+        let TMDB_video_filter = this.state.TMDB_Trailer.filter(data => data.type === 'Trailer')
+
+        let TMDB_video_key = TMDB_video_filter.map(data => data.key)
+        let TMDB_video_name = TMDB_video_filter.map(data => data.name)
+        
       
+
   
-    // console.log(this.state.TMDB_Info_Discovery)
-    console.log(this.state.TMDB_Info_Discovery_videos)
 
-    let name = this.state.TMDB_Info_Discovery_videos.map(data => data.name)
-    let key = this.state.TMDB_Info_Discovery_videos.map(data => data.key)
+   
 
-   let name_embed = name[1]
-   let key_embed = key[1]
-
-   console.log(`this is name ${name_embed}`)
-   console.log(`this is key ${key_embed}`)
-   console.log(`this is TMDB_id ${this.state.TMDB_id}`)
+ 
+   
 
       
         return ( 
+
+           
             <div className='movies_box_2_maain'>
+                
               <Helmet>
                     <base />
                     <title>NEXT-PLATFORM WATCH MOVIES</title>
@@ -77,14 +95,12 @@ class MoviesBoxChartShow extends Component {
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <section classNme='movieBox_1_section'>
-                    <h1 >WATCH MOVIES</h1>
                   
                 </section>
-                <section className="youtube_embed">
-                    <iframe width="100%" height="360" src={`https://www.youtube.com/embed/${key_embed}`} title={name_embed} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </section>
-                
-             
+               
+               <section className='show_movies_now'>
+                    <iframe width="100%" height="560" src={`https://www.youtube.com/embed/${TMDB_video_key[0]}`} title={TMDB_video_name[0]} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+               </section>
             </div>
          );
     }
