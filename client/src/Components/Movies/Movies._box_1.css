@@ -15,6 +15,9 @@
     grid-template-columns: repeat(4,1fr);
     gap: 1.5em;
 }
+.movies_raw_js{
+    cursor: pointer;
+}
 
 
 .api_namme{

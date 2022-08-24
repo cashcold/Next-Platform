@@ -69,7 +69,6 @@ class MoviesBoxChartShow extends Component {
             TMDB_genres: [],
             TMDB_tagline: [],
             TMDB_overview: [],
-            TMDB_production_companies: [],
             TMDB_credit_main_crew: [],
 
          }
@@ -192,7 +191,6 @@ class MoviesBoxChartShow extends Component {
             TMDB_genres: data.data.genres,
             TMDB_tagline: data.data.tagline,
             TMDB_overview: data.data.overview,
-            TMDB_production_companies: data.data.production_companies,
             TMDB_Trailer: data.data.videos.results,
         }))
         axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/credits?${TMDB_api}`).then(data => 
@@ -260,19 +258,11 @@ class MoviesBoxChartShow extends Component {
                 </div>
             </li>
         </ul>)
-        let TMDB_production_companies = this.state.TMDB_production_companies.map(data => <ul>
-            <li className='prod_company_list_view'>
-                <div  className='prod_company'>
-                    <img src={`https://image.tmdb.org/t/p/original/${data.logo_path}`}/>
-                    <p className='movie_position_job'>{data.name}</p>
-                </div>
-            </li>
-        </ul>)
+    
 
         
         
       console.log(this.state.TMDB_Info_Discovery_videos)
-      console.log(this.state.TMDB_production_companies)
  
    
 
@@ -332,9 +322,7 @@ class MoviesBoxChartShow extends Component {
                                 {TMDB_Editor}
                                 {TMDB_Screenplay[0]}
                             </div>
-                            <div className="prod_company_list_view">
-                                {TMDB_production_companies}
-                            </div>
+                          
                         </section>
              </section>
             </div>
