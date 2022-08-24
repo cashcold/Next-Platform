@@ -3,3 +3,110 @@
     color: white;
     padding: 5em 1.5em;
 }
+
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  .iframe-container iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  
+.display_movie_info_main{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-template-areas: 
+  'movie_box_1_info movie_box_1_info movie_box_2_info movie_box_2_info movie_box_2_info movie_box_2_info'
+  ;
+  padding: 2.5em 3em;
+  gap: 1em;
+  background-color: #020e1e;
+}
+
+.movie_box_1_info{
+  width: 100%;
+  min-height: 80vh;
+  grid-area: movie_box_1_info;
+  background-color: #060D17;
+  padding: 1em 2em;
+}
+.movie_box_2_info{
+  width: 100%;
+  min-height: 80vh;
+  grid-area: movie_box_2_info;
+  background-color: #060D17;
+  padding: 1em 2em;
+}
+
+
+.first_div_box_1{
+  display: flex;
+  justify-content: space-between;
+}
+
+.share_div img{
+ border-radius: 50%;
+ width: 40%;
+}
+
+.other_movie_info_flow{
+  display: flex;
+   justify-content: space-between;
+   margin: 2em 0em;
+}
+.other_movie_info_genres{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1em;
+}
+.info_date{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 0.5em;
+
+}
+
+
+.overview_main p{
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+
+.overview_main h2, .first_div_box_1_tab_styleColor, .movie_position_job{
+  color:  rgb(239, 101, 101);
+}
+
+.about_head_role{
+  margin: 4em 0em;
+}
+
+.about_head_role{
+  margin: 2em 0em;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0.5em;
+
+}
+
+
+
+.prod_company img{
+  width: 100%;
+}
+
+.prod_company_list_view{
+  margin: 1em 0em;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0.5em;
+
+}

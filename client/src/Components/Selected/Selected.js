@@ -46,16 +46,16 @@ class Selected extends Component {
       
        setTimeout(()=>{
         toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
-               
-                <Card >
-                    <Card.Body>
-                        <Card.Text>
-                        <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
-                        </Card.Text>
-                    </Card.Body>
-                    </Card>
-            </div>, {
+                <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
+                
+                    <Card >
+                        <Card.Body>
+                            <Card.Text>
+                            <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
+                            </Card.Text>
+                        </Card.Body>
+                        </Card>
+                </div>, {
             position: "bottom-left",
             autoClose: false,
             hideProgressBar: false,

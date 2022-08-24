@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import './Movies._box_1.css'
 import MoviesBoxChartShow from  './Movies_box_2.js'
 import axios from 'axios'
@@ -46,6 +49,7 @@ class MovieBoxMain extends Component {
             TMDB_Discovery: data.data.results
         }))
         window.scrollTo(0, 0)
+       
     }
     loading_prev_movie_qury(e){
         e.preventDefault()
@@ -82,7 +86,8 @@ class MovieBoxMain extends Component {
 
         return ( 
             <div className='movies_box_1'>
-                
+                <ToastContainer/>
+               
               <Helmet>
                     <base />
                     <title>NEXT-PLATFORM MOVIES</title>
@@ -133,8 +138,7 @@ class MovieBoxMain extends Component {
                             <div className="btn btn-warning" onClick={this.loading_next_movies_qury}>NEXT</div>
                         </section>
                   </section >
-             <div className="pass_props_to_next">
-             </div>
+            
             </div>
          );
     }
