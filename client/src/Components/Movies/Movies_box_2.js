@@ -346,8 +346,11 @@ class MoviesBoxChartShow extends Component {
                 <meta property="og:image" content={`https://image.tmdb.org/t/p/original${this.state.TMDB_poster_path}`}/>
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
-                <section classNme='movieBox_1_section'>
-                  
+                <section className='movieBox_1_back_tab' onClick={()=>{
+                     window.location =`/movie_box_main`
+                }}>
+                    <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
+                        <p className="">Back</p>
                 </section>
                
                <section className='show_movies_now'>

@@ -139,6 +139,24 @@
   margin: 1em 0em;
 }
 
+.movieBox_1_back_tab {
+ display: flex;
+ margin: 1.8em 1em;
+ align-items: center;
+ cursor: pointer;
+}
+
+.movieBox_1_back_tab img{
+  width: 52px;
+  border-radius: 20%;
+  margin: 0em 1em;
+
+}
+
+
+
+
+
 @media screen and (max-width: 768px){
   .display_movie_info_main{
     display: grid;
@@ -177,7 +195,7 @@
 }
 .movies_box_main_in img{
   width: 100%;
-  border-radius: 60%;
+  border-radius: 50%;
 }
 
 
