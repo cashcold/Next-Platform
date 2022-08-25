@@ -106,6 +106,65 @@ app.get('/music', function(request, response) {
     });
   });
 
+app.get('/movie_box_main', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      
+      const parsed = (request.url)
+      var url = require('url');
+
+      var q = url.parse(parsed, true);
+
+      var qdata = q.query
+      
+      const {info, name, on_image} = qdata
+ 
+ 
+// replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,name);
+      data = data.replace(/\$OG_DESCRIPTION/g,info);
+      result = data.replace(/\$OG_IMAGE/g,on_image);
+      response.send(result);
+    });
+  });
+
+app.get('/watch_movies/:id', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+
+      var q = url.parse(parsed, true);
+
+      var qdata = q.query
+      
+      const {TMDB_overview,TMDB_title, TMDB_img} = qdata
+
+      console.log(qdata)
+ 
+ 
+// replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,TMDB_title);
+      data = data.replace(/\$OG_DESCRIPTION/g,TMDB_overview);
+      result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+      response.send(result);
+    });
+  });
+
 app.get('/music/:id', function(request, response) {
  
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
@@ -134,6 +193,8 @@ app.get('/music/:id', function(request, response) {
     });
 
   });
+
+
 app.get('/link_box', function(request, response) {
  
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
@@ -244,7 +305,6 @@ app.get('/sport-main-home/:id', function(request, response) {
       console.log(qdata)
  
  
-// replace the special strings with server generated strings
       data = data.replace(/\$OG_TITLE/g,name);
       data = data.replace(/\$OG_DESCRIPTION/g,info);
       result = data.replace(/\$OG_IMAGE/g,on_image);

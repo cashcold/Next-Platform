@@ -274,11 +274,11 @@ class MoviesBoxChartShow extends Component {
                 <ToastContainer/>
               <Helmet>
                     <base />
-                    <title>NEXT-PLATFORM WATCH MOVIES</title>
-                    <meta name="description" content="NEXT-PLATFORM-HOME" />
-                    <meta property="og:title" content='NextPlatForm Home Main' />
-                <meta property="og:description" content='Join the bigest platform NextPlatform HoME Enterterment Music Box' />
-                <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
+                    <title>{this.state.TMDB_title}</title>
+                    <meta name="description" content={this.state.TMDB_overview} />
+                    <meta property="og:title" content={this.state.TMDB_title} />
+                <meta property="og:description" content={this.state.TMDB_overview}  />
+                <meta property="og:image" content={`https://image.tmdb.org/t/p/original${this.state.TMDB_poster_path}`}/>
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <section classNme='movieBox_1_section'>
@@ -292,7 +292,7 @@ class MoviesBoxChartShow extends Component {
                </section>
                <section className="display_movie_info_main">
                         <section className="movie_box_info movie_box_1_info">
-                           <img src={`https://image.tmdb.org/t/p/original/${this.state.TMDB_poster_path}`}/>
+                           <img src={`https://image.tmdb.org/t/p/original${this.state.TMDB_poster_path}`}/>
                         </section>
                         <section className="movie_box_info movie_box_2_info">
                             <div className="first_div_box_1">

@@ -46,7 +46,8 @@ class MovieBoxMain extends Component {
 
         axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&${TMDB_api}&page=${this.state.loading_next_movie_qury}`).then(data => 
         this.setState({
-            TMDB_Discovery: data.data.results
+            TMDB_Discovery: data.data.results,
+            TMDB_title: data.data.results.title
         }))
         window.scrollTo(0, 0)
        
@@ -75,14 +76,13 @@ class MovieBoxMain extends Component {
       
         axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&${TMDB_api}`).then(data => 
                 this.setState({
-                    TMDB_Discovery: data.data.results
+                    TMDB_Discovery: data.data.results,
           }))
         
     
   }
     render() { 
-       console.log(this.state.TMDB_id)
-       console.log(this.state.TMDB_title)
+    //    console.log(this.state.TMDB_Discovery)
 
         return ( 
             <div className='movies_box_1'>
@@ -90,7 +90,7 @@ class MovieBoxMain extends Component {
                
               <Helmet>
                     <base />
-                    <title>NEXT-PLATFORM MOVIES</title>
+                    <title>Next-Platform</title>
                     <meta name="description" content="NEXT-PLATFORM-HOME" />
                     <meta property="og:title" content='NextPlatForm Home Main' />
                 <meta property="og:description" content='Join the bigest platform NextPlatform HoME Enterterment Music Box' />
@@ -114,7 +114,9 @@ class MovieBoxMain extends Component {
 
                                        const TMDB_api_ParamsUrl = { 
                                         TMDB_id: data.id,
-                                        TMDB_title: data.title
+                                        TMDB_title: data.title,
+                                        TMDB_overview: data.overview,
+                                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
                                     }
                                     const queryMusicParams = require('query-string')
         

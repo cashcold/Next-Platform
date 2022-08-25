@@ -120,26 +120,25 @@
     'movie_box_2_info'
     ;
     padding: 1.5em 1em;
-    gap: 0.5em;
+    gap: 1.5em;
     background-color: #020e1e;
   }
-  /* .prod_company_list_view{
-    margin: 1em 0em;
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    gap: 0.5em;
-  
-  } */
+
   .about_head_role{
     margin: 2em 0em;
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    gap: 0.5em;
+    gap: 1.5em;
   
   }
   .other_movie_info_genres{
     display: grid;
-    grid-template-columns: repeat(1,1fr);
-    gap: 0.5em;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5em;
   }
+  .other_movie_info_flow{
+  display: block;
+   justify-content: space-between;
+   margin: 2em 0em;
+}
 }
