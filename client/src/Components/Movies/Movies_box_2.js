@@ -58,6 +58,11 @@ class MoviesBoxChartShow extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            offset: 0,
+            data: [],
+            perPage: 12,
+            currentPage: 0,
+            loading: [],
             TMDB_id: '',
             TMDB_Info_Discovery_videos: [],
             TMDB_Trailer: [],
@@ -70,11 +75,13 @@ class MoviesBoxChartShow extends Component {
             TMDB_tagline: [],
             TMDB_overview: [],
             TMDB_credit_main_crew: [],
+            TMDB_credit_main_cast: [],
 
          }
 
          this.handleChange = this.handleChange.bind(this)
          this.ShareHandle = this.ShareHandle.bind(this)
+         this.handlePageClick = this.handlePageClick.bind(this);
          
          
     }
@@ -83,6 +90,52 @@ class MoviesBoxChartShow extends Component {
     handleChange = input => (event)=>{
         this.setState({[input]: event.target.value})
     }
+
+    handlePageClick = (e) => { 
+       const selectedPage = e.selected;
+       const offset = selectedPage * this.state.perPage;
+
+       this.setState({
+           currentPage: selectedPage,
+           offset: offset
+       }, () => {
+           this.receivedData()
+       });
+
+   };
+   handleChange = input => (event)=>{
+       this.setState({[input]: event.target.value})
+   }
+   receivedData() {
+    let parsed = queryString.parse(window.location.search);
+    let TMDB_id = parsed.TMDB_id
+
+
+   
+    const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
+       axios
+           .get(`https://api.themoviedb.org/3/movie/${TMDB_id}/credits?${TMDB_api}`)
+           .then(data => {
+               data = data.data.cast
+               const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
+               const postData = slice.map(data => <React.Fragment>
+                   <div className="movies_box_main_in">
+                        <div>
+                            <img src={`https://image.tmdb.org/t/p/original${data.profile_path}`}/>
+                        <h4 className='movie_position_name'>{data.name}</h4>
+                        <p className='movie_position_job'>{data.character}</p>
+                        </div>
+                   </div>
+                 
+               </React.Fragment>)
+             
+               this.setState({
+                   pageCount: Math.ceil(data.length / this.state.perPage),
+                  
+                   postData
+               })
+           });
+   }
 
  
 
@@ -173,7 +226,7 @@ class MoviesBoxChartShow extends Component {
    }
    
     componentDidMount(){
-
+        this.receivedData()
        
         let parsed = queryString.parse(window.location.search);
         let TMDB_id = parsed.TMDB_id
@@ -196,6 +249,7 @@ class MoviesBoxChartShow extends Component {
         axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/credits?${TMDB_api}`).then(data => 
         this.setState({
             TMDB_credit_main_crew: data.data.crew,
+            TMDB_credit_main_cast: data.data.cast,
         }))
 
        
@@ -258,11 +312,22 @@ class MoviesBoxChartShow extends Component {
                 </div>
             </li>
         </ul>)
+        let TMDB_credit_main_cast = this.state.TMDB_credit_main_cast.map(data => <ul>
+            <li>
+                <div>
+                    <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                   <h4>{data.name}</h4>
+                   <p className='movie_position_job'>{data.character}</p>
+                </div>
+            </li>
+        </ul>)
     
 
         
         
-      console.log(this.state.TMDB_Info_Discovery_videos)
+    //   console.log(this.state.TMDB_credit_main_crew)
+      console.log(this.state.TMDB_credit_main_cast)
+    //   console.log(this.state.TMDB_Info_Discovery_videos)
  
    
 
@@ -324,6 +389,29 @@ class MoviesBoxChartShow extends Component {
                             </div>
                           
                         </section>
+             </section>
+             <section className="display_crew_members">
+                
+                 <div className="crew_members_inner">
+                    <h1>Top Billed Cast</h1>
+                    <div className="profile_movie">
+                    {this.state.postData}
+                    </div>
+                    <section className='check_pagination'>
+                    <ReactPaginate
+                        previousLabel={"prev"}
+                        nextLabel={"next"}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={this.state.pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={this.handlePageClick}
+                        containerClassName={"pagination"}
+                        subContainerClassName={"pages pagination"}
+                        activeClassName={"active"}/>
+                </section>
+                 </div>
              </section>
             </div>
          );

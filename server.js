@@ -302,7 +302,7 @@ app.get('/sport-main-home/:id', function(request, response) {
       
       const {name, info, on_image} = qdata
 
-      console.log(qdata)
+      // console.log(qdata)
  
  
       data = data.replace(/\$OG_TITLE/g,name);
