@@ -130,7 +130,7 @@
   gap: 1.8em;
 }
 
-.movies_box_main_in img{
+.movies_box_main_in_credit img{
   width: 50%;
   border-radius: 50%;
 }
@@ -152,6 +152,63 @@
   margin: 0em 1em;
 
 }
+
+.review_client{
+  width: 100%;
+  min-height: 100vh;
+  padding: 1em 2em;
+  background-color: #020e1e;
+  margin: 5em 0em;
+}
+
+.review_client h3{
+  width: 80%;
+  line-height: 1.8em;
+  margin: 0 auto;
+}
+
+.review_client h1{
+  padding: 1.5em 0em;
+}
+.flow_review_box img{
+  width: 80%;
+  margin: 0 auto;
+  
+}
+
+.review_client h2{
+  margin: 1.5em 0em;
+}
+
+.review_text_overLay{
+padding: 1.5em 1em;
+  width: 50%;
+  margin: 0 auto;
+  min-height: 15vh;
+  background-color: #060D17;
+  color: white;
+}
+
+.swiperBox_1{
+ display: grid;
+ grid-template-columns: repeat(4,1fr);
+ gap: 2em 0em;
+}
+
+/* .movies_box_main_in_credit img{
+width: 100%;
+margin: 0 auto;
+} */
+
+.movies_box_main_in img{
+  width: 80%;
+  border-radius: 10%;
+}
+
+.Recommendations_main_section h1{
+  margin: 2em 0em;
+}
+
 
 
 
@@ -193,9 +250,52 @@
   grid-template-columns: repeat(1,1fr);
   gap: 1.8em;
 }
-.movies_box_main_in img{
+.movies_box_main_in_credit img{
   width: 70%;
   border-radius: 50%;
+}
+
+.overview_main p{
+  width: 95%;
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+.review_client h1{
+  padding: 1.5em 0em;
+}
+.flow_review_box img{
+  width: 98%;
+  margin: 0 auto;
+  
+}
+
+.review_client h2{
+  margin: 1.5em 0em;
+}
+
+.review_text_overLay{
+padding: 1.5em 1em;
+  width: 80%;
+  margin: 0 auto;
+  min-height: 15vh;
+  background-color: #060D17;
+  color: white;
+}
+
+.swiperBox_1{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.5em 0em;
+ }
+
+ .movies_box_main_in img{
+  width: 95%;
+  border-radius: 5%;
+}
+.review_client h3{
+  width: 98%;
+  line-height: 1.8em;
+  margin: 0 auto;
 }
 
 

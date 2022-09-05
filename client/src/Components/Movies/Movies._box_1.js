@@ -10,7 +10,6 @@ import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import moment from 'moment'
 
-export const MovieContext = React.createContext()
 
 class MovieBoxMain extends Component {
     constructor(props) {
@@ -82,7 +81,7 @@ class MovieBoxMain extends Component {
     
   }
     render() { 
-    //    console.log(this.state.TMDB_Discovery)
+       console.log(this.state.TMDB_Discovery)
 
         return ( 
             <div className='movies_box_1'>
@@ -98,7 +97,9 @@ class MovieBoxMain extends Component {
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <section classNme='movieBox_1_section'>
-                    <h1 >Movies</h1>
+                    <h1 onClick={()=>{
+                     window.location =`/movies_home_box`
+                }}>Movies Home Box</h1>
                 </section>
                   <section className='section_inner_movies'>
                         <section className="movies_raw_js">

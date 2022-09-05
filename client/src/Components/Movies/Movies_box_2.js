@@ -4,11 +4,16 @@ import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import queryString from 'query-string';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
 import './Movies_box_2.css'
 import MoviesBoxMain from  './Movies._box_1.js'
 import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
+import moment from 'moment'
 import {
     EmailShareButton,
     FacebookShareButton,
@@ -52,7 +57,6 @@ import {
     WorkplaceIcon
   } from "react-share";
 
-import moment from 'moment'
 
 class MoviesBoxChartShow extends Component {
     constructor(props) {
@@ -69,6 +73,7 @@ class MoviesBoxChartShow extends Component {
             TMDB_video_name: '',
             TMDB_video_key: '',
             TMDB_poster_path: [],
+            TMDB_backdrop_path: [],
             TMDB_release_date: [],
             TMDB_title: [],
             TMDB_genres: [],
@@ -76,6 +81,13 @@ class MoviesBoxChartShow extends Component {
             TMDB_overview: [],
             TMDB_credit_main_crew: [],
             TMDB_credit_main_cast: [],
+            TMDB_credit_main_check: [],
+            TMDB_review_main_check: [],
+            TMDB_review_main_content: [],
+            TMDB_review_main_avatar_path: [],
+            TMDB_review_main_name: [],
+            TMDB_review_main_updated_at: [],
+            TMDB_similar_main_check: [],
 
          }
 
@@ -119,7 +131,7 @@ class MoviesBoxChartShow extends Component {
                data = data.data.cast
                const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)
                const postData = slice.map(data => <React.Fragment>
-                   <div className="movies_box_main_in">
+                   <div className="movies_box_main_in_credit">
                         <div>
                             <img src={`https://image.tmdb.org/t/p/original${data.profile_path}`}/>
                         <h4 className='movie_position_name'>{data.name}</h4>
@@ -226,6 +238,36 @@ class MoviesBoxChartShow extends Component {
    }
    
     componentDidMount(){
+
+
+               setTimeout(()=>{
+        toast.dark(
+            <div className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'>
+               
+                <Card >
+                    
+                    <Card.Body>
+                        <Card.Text>
+                        <div className="btc_shark">
+                            <a target='_blank' href='tel:+233203808479'>
+                            <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                                alt="First slide" />
+                            </a>
+                            
+                            </div>
+                        </Card.Text>
+                    </Card.Body>
+                    </Card>
+            </div>, {
+            position: "top-right",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+       },20000)
         this.receivedData()
        
         let parsed = queryString.parse(window.location.search);
@@ -240,6 +282,7 @@ class MoviesBoxChartShow extends Component {
             TMDB_Info_Discovery_videos: data.data,
             TMDB_title: data.data.title,
             TMDB_poster_path: data.data.poster_path,
+            TMDB_backdrop_path: data.data.backdrop_path,
             TMDB_release_date: data.data.release_date,
             TMDB_genres: data.data.genres,
             TMDB_tagline: data.data.tagline,
@@ -248,8 +291,21 @@ class MoviesBoxChartShow extends Component {
         }))
         axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/credits?${TMDB_api}`).then(data => 
         this.setState({
+            TMDB_credit_main_check: data.data,
             TMDB_credit_main_crew: data.data.crew,
             TMDB_credit_main_cast: data.data.cast,
+        }))
+        axios.get(`https://api.themoviedb.org/3/movie//${TMDB_id}/reviews?${TMDB_api}&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_review_main_check: data.data.results,
+            TMDB_review_main_content: data.data.results[0].content,
+            TMDB_review_main_avatar_path: data.data.results[0].author_details.avatar_path,
+            TMDB_review_main_name: data.data.results[0].author_details.name,
+            TMDB_review_main_updated_at: data.data.results[0].updated_at,
+        }))
+        axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/similar?${TMDB_api}&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_similar_main_check: data.data.results,
         }))
 
        
@@ -258,6 +314,7 @@ class MoviesBoxChartShow extends Component {
       
   }
     render() { 
+   
 
         let TMDB_video_filter = this.state.TMDB_Trailer.filter(data => data.type === 'Trailer')
         let TMDB_video_key = TMDB_video_filter.map(data => data.key)
@@ -312,21 +369,39 @@ class MoviesBoxChartShow extends Component {
                 </div>
             </li>
         </ul>)
-        let TMDB_credit_main_cast = this.state.TMDB_credit_main_cast.map(data => <ul>
-            <li>
-                <div>
-                    <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
-                   <h4>{data.name}</h4>
-                   <p className='movie_position_job'>{data.character}</p>
-                </div>
-            </li>
-        </ul>)
+        let Similar_Main_Movies = this.state.TMDB_similar_main_check.map(data =>  <React.Fragment className='movies_swiper_frag'>
+        <div className="movies_box_main_in" onClick={()=>{
+            const TMDB_api_ParamsUrl = { 
+                TMDB_id: data.id,
+                TMDB_title: data.title,
+                TMDB_overview: data.overview,
+                TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+            }
+            const queryMusicParams = require('query-string')
+
+            const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+            
+            window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
+        }}>
+            <div>
+            <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+            <h4 className='movie_position_name'>{data.title}</h4>
+            {
+                
+            }
+        
+            </div>
+        </div>
+         
+          
+         </React.Fragment>)
+     
+     
     
 
         
         
-    //   console.log(this.state.TMDB_credit_main_crew)
-      console.log(this.state.TMDB_credit_main_cast)
+      console.log(this.state.TMDB_similar_main_check)
     //   console.log(this.state.TMDB_Info_Discovery_videos)
  
    
@@ -375,8 +450,9 @@ class MoviesBoxChartShow extends Component {
                             <div className="other_movie_info_flow">
                                 <p>{this.state.TMDB_tagline}</p>
                                  <div className="info_date">
-                                    <p>Date Release: </p><h5>({this.state.TMDB_release_date})</h5>
-                                 </div>
+                                    <p>Date Release: </p><h5>({moment(this.state.TMDB_release_date).format('LLLL')})</h5>
+                                    {/* <p>Date Release: </p><h5>({this.state.TMDB_release_date})</h5> */}
+                                 </div><br/>
                                 <h5 className="other_movie_info_genres">{this.state.TMDB_genres.map(data => <ul><li>{data.name}</li></ul>)}</h5>
                             </div>
                             <div className="overview_main">
@@ -414,6 +490,26 @@ class MoviesBoxChartShow extends Component {
                         subContainerClassName={"pages pagination"}
                         activeClassName={"active"}/>
                 </section>
+                 </div>
+             </section>
+             <section className="review_client">
+                 <h1>Featured Review</h1>
+                 <div className="flow_review_box">
+                    <img src={`https://image.tmdb.org/t/p/original${this.state.TMDB_backdrop_path}`}/>
+                    <div className="review_text_overLay">
+                    <h2>A review by {this.state.TMDB_review_main_name}</h2>
+                    <p>Written by {this.state.TMDB_review_main_name} on ({moment(this.state.TMDB_review_main_updated_at).format('LLLL')})</p>
+                     </div>
+                   
+                    <h3>{this.state.TMDB_review_main_content}</h3>
+                 </div>
+             </section>
+             <section className="Recommendations_main_section">
+                 <h1>Similar Movies</h1>
+                 <div className="swiperBox_1">
+                 {
+                     Similar_Main_Movies
+                 }
                  </div>
              </section>
             </div>
