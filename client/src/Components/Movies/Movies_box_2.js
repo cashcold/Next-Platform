@@ -88,12 +88,17 @@ class MoviesBoxChartShow extends Component {
             TMDB_review_main_name: [],
             TMDB_review_main_updated_at: [],
             TMDB_similar_main_check: [],
+            loading_next_movie_qury: 2,
+            TMDB_movie_id: []
 
          }
 
          this.handleChange = this.handleChange.bind(this)
          this.ShareHandle = this.ShareHandle.bind(this)
          this.handlePageClick = this.handlePageClick.bind(this);
+         
+         this.loading_next_movies_qury = this.loading_next_movies_qury.bind(this)
+         this.loading_prev_movie_qury = this.loading_prev_movie_qury.bind(this)
          
          
     }
@@ -236,11 +241,53 @@ class MoviesBoxChartShow extends Component {
         progress: undefined,
         });
    }
+
+   loading_next_movies_qury(e){
+    e.preventDefault()
+  
+    this.setState({
+        loading_next_movie_qury: this.state.loading_next_movie_qury + 1
+    })
+
+    let parsed = queryString.parse(window.location.search);
+    let TMDB_id = parsed.TMDB_id
+
+    const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
+
+    axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/similar?${TMDB_api}&language=en-US&page=${this.state.loading_next_movie_qury}`).then(data => 
+    this.setState({
+        TMDB_similar_main_check: data.data.results,
+    }))
+    window.scrollTo(0, 0)
+
+    console.log(this.state.TMDB_similar_main_check)
+}
+loading_prev_movie_qury(e){
+    e.preventDefault()
+  
+    this.setState({
+        loading_next_movie_qury: this.state.loading_next_movie_qury - 1
+    })
+
+    let parsed = queryString.parse(window.location.search);
+    let TMDB_id = parsed.TMDB_id
+
+    const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
+
+    axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/similar?${TMDB_api}&language=en-US&page=${this.state.loading_next_movie_qury}`).then(data => 
+    this.setState({
+        TMDB_similar_main_check: data.data.results,
+    }))
+    window.scrollTo(0, 0)
+
+    console.log(this.state.TMDB_similar_main_check)
+}
    
     componentDidMount(){
+        
+        
 
-
-               setTimeout(()=>{
+        setTimeout(()=>{
         toast.dark(
             <div className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'>
                
@@ -248,7 +295,7 @@ class MoviesBoxChartShow extends Component {
                     
                     <Card.Body>
                         <Card.Text>
-                        <div className="btc_shark">
+                        <div className="btc_shark_img">
                             <a target='_blank' href='tel:+233203808479'>
                             <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
                                 alt="First slide" />
@@ -303,11 +350,16 @@ class MoviesBoxChartShow extends Component {
             TMDB_review_main_name: data.data.results[0].author_details.name,
             TMDB_review_main_updated_at: data.data.results[0].updated_at,
         }))
+
+        
         axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/similar?${TMDB_api}&language=en-US&page=1`).then(data => 
         this.setState({
             TMDB_similar_main_check: data.data.results,
+            
         }))
 
+
+        
        
     
   
@@ -506,12 +558,48 @@ class MoviesBoxChartShow extends Component {
              </section>
              <section className="Recommendations_main_section">
                  <h1>Similar Movies</h1>
-                 <div className="swiperBox_1">
-                 {
-                     Similar_Main_Movies
-                 }
-                 </div>
+                    
+                 <section className="movies_raw_js">
+                            <h2>{this.state.TMDB_similar_main_check.map(data =>
+                                 <ul><li>
+                                    <div className="movies_inner" onClick={()=>{
+                                       localStorage.setItem('TMDB_pd_id',data.id)
+                                       localStorage.setItem('TMDB_pd_title',data.title)
+                                       this.setState({
+                                        TMDB_id: data.id,
+                                        TMDB_title: data.title
+                                       })
+
+                                       const TMDB_api_ParamsUrl = { 
+                                        TMDB_id: data.id,
+                                        TMDB_title: data.title,
+                                        TMDB_overview: data.overview,
+                                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+                                    }
+                                    const queryMusicParams = require('query-string')
+        
+                                    const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+                                    
+                                    window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
+                                        
+                                    //    window.location =`/watch_movies`
+                                    }}>
+                                        <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                                        <div className="api_namme">
+                                        {data.title}
+                                        </div>
+                                    </div>
+                                    </li>
+                                </ul>)}
+                            </h2>
+                        </section>
+                        <section className="for_next_prev_tab">
+                            <div className="btn btn-warning" onClick={this.loading_prev_movie_qury}>PREV</div>
+                            <h1>Page {this.state.loading_next_movie_qury}</h1>
+                            <div className="btn btn-warning" onClick={this.loading_next_movies_qury}>NEXT</div>
+                        </section>
              </section>
+          
             </div>
          );
     }

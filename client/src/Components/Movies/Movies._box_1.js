@@ -17,7 +17,7 @@ class MovieBoxMain extends Component {
         this.state = { 
             TMDB_Discovery: [],
             loading_next_movie_qury: 2,
-            loading_prev_movie_qury: 1,
+            // loading_prev_movie_qury: 1,
             TMDB_id: '',
             TMDB_title: ''
 
@@ -25,6 +25,7 @@ class MovieBoxMain extends Component {
 
          this.handleChange = this.handleChange.bind(this)
          this.loading_next_movies_qury = this.loading_next_movies_qury.bind(this)
+         this.loading_prev_movie_qury = this.loading_prev_movie_qury.bind(this)
          
          
     }
@@ -53,19 +54,22 @@ class MovieBoxMain extends Component {
     }
     loading_prev_movie_qury(e){
         e.preventDefault()
-      
+    
         this.setState({
-            loading_prev_movie_qury:-this.state.loading_prev_movie_qury - 1
+            loading_next_movie_qury: this.state.loading_next_movie_qury - 1
         })
 
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
 
         axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&${TMDB_api}&page=${this.state.loading_next_movie_qury}`).then(data => 
         this.setState({
-            TMDB_Discovery: data.data.results
+            TMDB_Discovery: data.data.results,
+            TMDB_title: data.data.results.title
         }))
         window.scrollTo(0, 0)
+       
     }
+  
 
    
    
@@ -136,8 +140,10 @@ class MovieBoxMain extends Component {
                                 </ul>)}
                             </h2>
                         </section>
+                       
                         <section className="for_next_prev_tab">
-                            <div className="btn btn-warning" onClick={this.loading_prev_movies_qury}>PREV</div>
+                            <div className="btn btn-warning" onClick={this.loading_prev_movie_qury}>PREV</div>
+                            <h1>Page {this.state.loading_next_movie_qury}</h1>
                             <div className="btn btn-warning" onClick={this.loading_next_movies_qury}>NEXT</div>
                         </section>
                   </section >
