@@ -226,7 +226,7 @@ class GetFoodMain extends Component {
                             <div className='getDrinksmap getLanding'>
                                 <h1>Get Your <br/><span>{data.strMeal}</span> </h1>
                                 <img src={data.strMealThumb}/>
-                                <h5>GHC 8.00</h5>
+                                <h5>GHC 10.00</h5>
                                  <div className='formA'>
                                     <form className='myFormControl'>
                                         <div className='myForms'>

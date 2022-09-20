@@ -251,7 +251,7 @@ class Navbar extends Component {
                         </div>
                             <ul className='links'>
                                 <li><a className='btn btn-two' href='/' style={{color: "red"}}>HOME </a></li>
-                                <li><a className='btn btn-two' href='/movie_box_main'>MOVIES</a></li>
+                                <li><a className='btn btn-two' href='/movies_home_box'>MOVIES</a></li>
                                 <li><a className='btn btn-two' href='/music'>MUSIC</a></li>
                                 <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
                                 <li><a className='btn btn-two' href='/next-platform_RAWG_Video_Games_Main'>VIDEO GAMES</a></li>
