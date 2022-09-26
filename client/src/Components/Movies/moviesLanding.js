@@ -16,6 +16,8 @@ class MoviesLandingPage extends Component {
         this.state = { 
             TMDB_Discovery_landing_main: [],
             searchResultMovies: [],
+            TMDB_movies_genres: [],
+            TMDB_genres_landing: [],
 
          }
 
@@ -35,10 +37,10 @@ class MoviesLandingPage extends Component {
         
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
       
-        // axios.get(`https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&${TMDB_api}`).then(data => 
-        //         this.setState({
-        //             TMDB_Discovery_landing_main: data.data.results,
-        //   }))
+        axios.get(`https://api.themoviedb.org/3/genre/movie/list?${TMDB_api}&language=en-US`).then(data => 
+                this.setState({
+                    TMDB_movies_genres: data.data.genres,
+          }))
         
     
   }
@@ -46,7 +48,34 @@ class MoviesLandingPage extends Component {
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
 
 
-        console.log(this.state.searchResultMovies)
+        let Movies_TMDB_movies_genres = this.state.TMDB_movies_genres.map(data =>  <React.Fragment className='movies_genres_click_div'>
+        <div className="movies_box_main_in" onClick={()=>{
+           axios.get(`https://api.themoviedb.org/3/discover/movie?${TMDB_api}&with_genres=${data.id}`).then(data => 
+           this.setState({
+            TMDB_genres_landing: data.data.results,
+     }))
+
+          
+        }}>
+            <div>
+            {
+                <h2 className='movie_position_name_head btn '>{data.name}</h2> 
+            }
+        
+            </div>
+        </div>
+         
+          
+         </React.Fragment>)
+
+
+
+
+
+
+
+
+        console.log(this.state.TMDB_movies_genres)
 
         return ( 
             <div className='Movie_landing_page'>
@@ -114,7 +143,47 @@ class MoviesLandingPage extends Component {
                                     </li>
                                 </ul>)}
                             </h2>
+                            <section className="display_geners_main_1">
+                                {
+                                    Movies_TMDB_movies_genres
+                                }
+                            </section>
+                            <section className="movies_raw_js">
+                            <h2>{this.state.TMDB_genres_landing.map(data =>
+                                 <ul><li>
+                                    <div className="movies_inner" onClick={()=>{
+                                       localStorage.setItem('TMDB_pd_id',data.id)
+                                       localStorage.setItem('TMDB_pd_title',data.title)
+                                       this.setState({
+                                        TMDB_id: data.id,
+                                        TMDB_title: data.title
+                                       })
+
+                                       const TMDB_api_ParamsUrl = { 
+                                        TMDB_id: data.id,
+                                        TMDB_title: data.title,
+                                        TMDB_overview: data.overview,
+                                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+                                    }
+                                    const queryMusicParams = require('query-string')
+        
+                                    const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+                                    
+                                    window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
+                                        
+                                    //    window.location =`/watch_movies`
+                                    }}>
+                                        <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                                        <div className="api_namme">
+                                        {data.title}
+                                        </div>
+                                    </div>
+                                    </li>
+                                </ul>)}
+                            </h2>
                         </section>
+                        </section>
+                       
                   
                 </section>
                         </div>
