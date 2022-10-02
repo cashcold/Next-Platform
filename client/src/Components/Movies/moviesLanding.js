@@ -8,6 +8,14 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import moment from 'moment'
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/swiper-bundle.min.css'
+import 'swiper/swiper.min.css'
+
+
+
+
+import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 
 class MoviesLandingPage extends Component {
@@ -18,6 +26,8 @@ class MoviesLandingPage extends Component {
             searchResultMovies: [],
             TMDB_movies_genres: [],
             TMDB_genres_landing: [],
+            TMDB_genres_landing_name: [],
+            TMDB_Movies_now_playing_main: [],
 
          }
 
@@ -31,17 +41,28 @@ class MoviesLandingPage extends Component {
         this.setState({[input]: event.target.value})
     }
 
+
+
+  
+
    
    
     componentDidMount(){
-        
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
+
+        axios.get(`https://api.themoviedb.org/3/movie/now_playing?${TMDB_api}&language=en-US&page=1`).then(data => 
+        this.setState({
+           TMDB_Movies_now_playing_main: data.data.results,
+       }))
+       
+        
       
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?${TMDB_api}&language=en-US`).then(data => 
-                this.setState({
-                    TMDB_movies_genres: data.data.genres,
-          }))
-        
+            this.setState({
+                TMDB_movies_genres: data.data.genres,
+        }))
+
+       
     
   }
     render() { 
@@ -50,9 +71,13 @@ class MoviesLandingPage extends Component {
 
         let Movies_TMDB_movies_genres = this.state.TMDB_movies_genres.map(data =>  <React.Fragment className='movies_genres_click_div'>
         <div className="movies_box_main_in" onClick={()=>{
-           axios.get(`https://api.themoviedb.org/3/discover/movie?${TMDB_api}&with_genres=${data.id}`).then(data => 
+            console.log(data.name)
+           axios.get(`https://api.themoviedb.org/3/discover/movie?${TMDB_api}&with_genres=${data.id}`).then(data_new => 
            this.setState({
-            TMDB_genres_landing: data.data.results,
+            TMDB_genres_landing: data_new.data.results,
+            
+            TMDB_genres_landing_name: data.name
+            
      }))
 
           
@@ -69,13 +94,43 @@ class MoviesLandingPage extends Component {
          </React.Fragment>)
 
 
+         axios.get(`https://api.themoviedb.org/3/movie/now_playing?${TMDB_api}&language=en-US&page=1`).then(data => 
+         this.setState({
+            TMDB_Movies_now_playing_main: data.data.results,
+        }))
 
+       
 
+        let HandleMoviesNowPlayingT = 
+         <Swiper
+            spaceBetween={10}
+            slidesPerView={6}
+            onSlideChange={() => console.log('slide change')}
+            onSwiper={(swiper) => console.log(swiper)}
+            >
+            {this.state.TMDB_Movies_now_playing_main.map(data => 
+            <SwiperSlide >
+                <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                {data.title}
+            </SwiperSlide>)}
+            ...
+        </Swiper>
 
-
-
-
-        console.log(this.state.TMDB_movies_genres)
+        // let MovieNowPlaying = this.state.TMDB_Movies_now_playing_main.map(data => <React.Fragment>
+        //     <Swiper
+        //     spaceBetween={50}
+        //     slidesPerView={3}
+        //     onSlideChange={() => console.log('slide change')}
+        //     onSwiper={(swiper) => console.log(swiper)}
+        //     >
+        //     <SwiperSlide >
+        //         <div className="nowPlay_swuiper">
+        //             {data.title}
+        //         </div>
+        //     </SwiperSlide>
+        //     ...
+        //     </Swiper>
+        // </React.Fragment>)
 
         return ( 
             <div className='Movie_landing_page'>
@@ -148,6 +203,9 @@ class MoviesLandingPage extends Component {
                                     Movies_TMDB_movies_genres
                                 }
                             </section>
+                            <section className="title_name">
+                                <h1>{this.state.TMDB_genres_landing_name} Movies</h1>
+                            </section>
                             <section className="movies_raw_js">
                             <h2>{this.state.TMDB_genres_landing.map(data =>
                                  <ul><li>
@@ -189,9 +247,18 @@ class MoviesLandingPage extends Component {
                         </div>
                    </div>
                </section>
+               <section className="whats_popular">
+                   <h1>POPULAR</h1>
+                 
+                  <div className="moviesNowSwuiper">
+                      {HandleMoviesNowPlayingT}
+                  </div>
+               </section>
             </div>
          );
     }
 }
  
 export default MoviesLandingPage;
+
+ 

@@ -76,8 +76,20 @@
   display: grid;
    grid-template-columns: repeat(8,150px);
 }
-
-
+ 
+.title_name{
+  padding: 1em 0em;
+  display: flex;
+  justify-content: center;
+}
+.whats_popular{
+  padding: 2em;
+  width: 100%;
+  min-height: 70vh;
+  background-color: black;
+  color: white;
+  
+}
 
 
 

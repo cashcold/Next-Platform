@@ -41,7 +41,7 @@ class ScoreBatVideoApi extends Component {
 
     };
     handleChange = input => (event)=>{
-        this.setState({[input]: event.target.value})
+        this.setState({[input]: event.target.value}) 
     }
     receivedData() {
         axios

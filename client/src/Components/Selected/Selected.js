@@ -233,9 +233,6 @@ class Selected extends Component {
                 </a>
                 
                 </div>
-                <div className="1x_bet bet_1X">
-                    <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
-                    </div>
                 <section className='chanceMain'>
                         <div className='subHead'>
                             <h1> <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
