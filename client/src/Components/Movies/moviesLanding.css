@@ -90,7 +90,12 @@
   color: white;
   
 }
-
+.moviesNowSwuiper_HandleMoviesNowPlaying_mobile{
+  display: none;
+}
+.landing_api_title{
+  margin: 1em 0em;
+}
 
 
 
@@ -114,6 +119,12 @@
     .display_geners_main_1{
       display: grid;
       grid-template-columns: repeat(2,1fr);
+    }
+    .moviesNowSwuiper_HandleMoviesNowPlaying_mobile{
+      display: block;
+    }
+    .moviesNowSwuiper{
+      display: none;
     }
     
 }

@@ -6,8 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import queryString from 'query-string';
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/swiper.min.css'
+
 import './Movies_box_2.css'
 import MoviesBoxMain from  './Movies._box_1.js'
 import axios from 'axios'
@@ -475,7 +474,7 @@ loading_prev_movie_qury(e){
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <section className='movieBox_1_back_tab' onClick={()=>{
-                     window.location =`/movie_box_main`
+                     window.location =`/movies_home_box`
                 }}>
                     <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
                         <p className="">Back</p>

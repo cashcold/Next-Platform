@@ -8,14 +8,17 @@ import axios from 'axios'
 import ReactPaginate from 'react-paginate';
 import {Card,Button} from 'react-bootstrap'
 import moment from 'moment'
+import { Navigation, Pagination, Scrollbar, A11y ,EffectCube} from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
-import 'swiper/swiper-bundle.min.css'
-import 'swiper/swiper.min.css'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+import "swiper/css/effect-cube";
 
 
 
 
-import { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+
 
 
 class MoviesLandingPage extends Component {
@@ -102,15 +105,68 @@ class MoviesLandingPage extends Component {
        
 
         let HandleMoviesNowPlayingT = 
-         <Swiper
-            spaceBetween={10}
-            slidesPerView={6}
-            onSlideChange={() => console.log('slide change')}
-            onSwiper={(swiper) => console.log(swiper)}
+         <Swiper 
+         pagination={{
+            type: "fraction",
+          }}
+         modules={[Navigation,Pagination, Scrollbar, A11y]} 
+        className="mySwiper"
+         spaceBetween={3}
+         slidesPerView={7}
+         navigation
+
             >
             {this.state.TMDB_Movies_now_playing_main.map(data => 
-            <SwiperSlide >
+            <SwiperSlide  
+                onClick={()=>{
+                    const TMDB_api_ParamsUrl = { 
+                        TMDB_id: data.id,
+                        TMDB_title: data.title,
+                        TMDB_overview: data.overview,
+                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+                    }
+                    const queryMoviesParams = require('query-string')
+        
+                    const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
+                    
+                    window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
+                }}>
                 <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                <div className='landing_api_title'>
+                     {data.title}
+                </div>
+               
+            </SwiperSlide>)}
+            ...
+        </Swiper>
+        let HandleMoviesNowPlaying_mobile = 
+         <Swiper 
+         pagination={{
+            type: "fraction",
+          }}
+         modules={[Navigation,Pagination, Scrollbar, A11y]} 
+        className="mySwiper"
+         spaceBetween={3}
+         slidesPerView={2}
+         navigation
+            >
+            {this.state.TMDB_Movies_now_playing_main.map(data => 
+            <SwiperSlide  
+                onClick={()=>{
+                    const TMDB_api_ParamsUrl = { 
+                        TMDB_id: data.id,
+                        TMDB_title: data.title,
+                        TMDB_overview: data.overview,
+                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+                    }
+                    const queryMoviesParams = require('query-string')
+        
+                    const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
+                    
+                    window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
+                }}>
+                <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+               
                 {data.title}
             </SwiperSlide>)}
             ...
@@ -182,9 +238,9 @@ class MoviesLandingPage extends Component {
                                         TMDB_overview: data.overview,
                                         TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
                                     }
-                                    const queryMusicParams = require('query-string')
+                                    const queryMoviesParams = require('query-string')
         
-                                    const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+                                    const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
                                     
                                     window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
                                         
@@ -223,9 +279,9 @@ class MoviesLandingPage extends Component {
                                         TMDB_overview: data.overview,
                                         TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
                                     }
-                                    const queryMusicParams = require('query-string')
+                                    const queryMoviesParams = require('query-string')
         
-                                    const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+                                    const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
                                     
                                     window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
                                         
@@ -253,6 +309,10 @@ class MoviesLandingPage extends Component {
                   <div className="moviesNowSwuiper">
                       {HandleMoviesNowPlayingT}
                   </div>
+                  <div className="moviesNowSwuiper_HandleMoviesNowPlaying_mobile">
+                      {HandleMoviesNowPlaying_mobile}
+                  </div>
+                 
                </section>
             </div>
          );
