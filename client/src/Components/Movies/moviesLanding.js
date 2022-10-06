@@ -51,6 +51,27 @@ class MoviesLandingPage extends Component {
    
    
     componentDidMount(){
+
+        const listOfThings = document.getElementById('list')
+
+            // Add event listener 
+            listOfThings.addEventListener("click", function(event) {
+            // Grab all the li elements
+            let list = document.querySelectorAll('li')
+            for (let i = 0; i < list.length; i++) {
+                if (event.target.dataset.id === list[i].dataset.id) {
+                if (event.target.className === 'inactive') {
+                    event.target.className = 'active'
+                } else {
+                    event.target.className = 'inactive'
+                }
+                } else {
+                list[i].className = 'inactive'
+                }
+            }
+            })
+
+
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
 
         axios.get(`https://api.themoviedb.org/3/movie/now_playing?${TMDB_api}&language=en-US&page=1`).then(data => 
@@ -111,8 +132,8 @@ class MoviesLandingPage extends Component {
           }}
          modules={[Navigation,Pagination, Scrollbar, A11y]} 
         className="mySwiper"
-         spaceBetween={3}
-         slidesPerView={7}
+         spaceBetween={10}
+         slidesPerView={6}
          navigation
 
             >
@@ -131,9 +152,9 @@ class MoviesLandingPage extends Component {
                     
                     window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
                 }}>
-                <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
+                <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
                 <div className='landing_api_title'>
-                     {data.title}
+                     {/* {data.title} */}
                 </div>
                
             </SwiperSlide>)}
@@ -165,9 +186,9 @@ class MoviesLandingPage extends Component {
                     
                     window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
                 }}>
-                <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
-               
-                {data.title}
+               <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
+{/*                
+                {data.title} */}
             </SwiperSlide>)}
             ...
         </Swiper>
@@ -304,7 +325,16 @@ class MoviesLandingPage extends Component {
                    </div>
                </section>
                <section className="whats_popular">
-                   <h1>POPULAR</h1>
+
+                   <div className="toogle_list_main">
+                        <ul id="list">
+                            <p class="title">Now Playing...</p>
+                            <li class="inactive " data-id="0">Streaming</li>
+                            <li class="inactive " data-id="1">On TV</li>
+                            <li class="inactive " data-id="2">For Rent</li>
+                            <li class="inactive " data-id="3">In Theaters</li>
+                        </ul>
+                   </div>
                  
                   <div className="moviesNowSwuiper">
                       {HandleMoviesNowPlayingT}

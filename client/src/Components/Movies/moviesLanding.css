@@ -83,7 +83,7 @@
   justify-content: center;
 }
 .whats_popular{
-  padding: 2em;
+  padding: 2.5em;
   width: 100%;
   min-height: 70vh;
   background-color: black;
@@ -96,6 +96,48 @@
 .landing_api_title{
   margin: 1em 0em;
 }
+.toogle_list_main .title {
+  border-bottom: 15px solid #cc0000;
+  font-weight: 700;
+  font-size: 133%;
+}
+
+.toogle_list_main span {
+  font-weight: 300;
+}
+
+.toogle_list_main ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5,150px);
+}
+
+.toogle_list_main ul li {
+  margin-bottom: 15px;
+  padding: 10px 0 10px 25px;
+  cursor: pointer;
+ 
+}
+
+.toogle_list_main .active {
+  background: #cc0000;
+  color: #fff;
+  transition: .20s;
+  border-radius:  1em;
+}
+
+.toogle_list_main .inactive {
+  background: black;
+}
+.toogle_list_main{
+  padding: 1em 0em;
+}
+
+
+
+
+
+
 
 
 
@@ -126,5 +168,12 @@
     .moviesNowSwuiper{
       display: none;
     }
+    .toogle_list_main ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+}
+
+
     
 }
