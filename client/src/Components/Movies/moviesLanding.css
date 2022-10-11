@@ -97,9 +97,10 @@
   margin: 1em 0em;
 }
 .toogle_list_main .title {
-  border-bottom: 15px solid #cc0000;
+  border-bottom: 10px solid #cc0000;
   font-weight: 700;
   font-size: 133%;
+  margin-right: 1em;
 }
 
 .toogle_list_main span {
@@ -114,8 +115,11 @@
 
 .toogle_list_main ul li {
   margin-bottom: 15px;
-  padding: 10px 0 10px 25px;
+  padding: 10px 0 10px 15px;
   cursor: pointer;
+  border: 1px solid;
+  border-color: red;
+  margin: 0em 0.5em;
  
 }
 

@@ -482,7 +482,7 @@ loading_prev_movie_qury(e){
                
                <section className='show_movies_now'>
                    <div className="feature_vides_row iframe-container">
-                        <iframe width="560" height="315" src={`https://www.youtube.com/embed/${TMDB_video_key[0]}`} title={TMDB_video_name[0]} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                   <iframe width="560" height="315" src={`https://www.youtube.com/embed/${TMDB_video_key[0]}?rel=0`} title={TMDB_video_name[0]} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                </section>
                <section className="display_movie_info_main">

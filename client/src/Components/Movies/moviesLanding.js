@@ -31,10 +31,15 @@ class MoviesLandingPage extends Component {
             TMDB_genres_landing: [],
             TMDB_genres_landing_name: [],
             TMDB_Movies_now_playing_main: [],
+            TMDB_Movies_now_playing_main_flash: [],
 
          }
 
          this.handleChange = this.handleChange.bind(this)
+         this.hanndleStreaming = this.hanndleStreaming.bind(this)
+         this.hanndleRenting = this.hanndleRenting.bind(this)
+         this.hanndleTheaters = this.hanndleTheaters.bind(this)
+         this.hanndleOnTv = this.hanndleOnTv.bind(this)
          
          
     }
@@ -43,6 +48,43 @@ class MoviesLandingPage extends Component {
     handleChange = input => (event)=>{
         this.setState({[input]: event.target.value})
     }
+    
+
+    
+
+   
+    hanndleStreaming(){
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=f820d8f2d83e87602797b2b0760a4f17&watch_region=US&with_watch_monetization_types=flatrate`).then(data => 
+        this.setState({
+            TMDB_Movies_now_playing_main: data.data.results,
+        }))
+        
+    }
+    hanndleOnTv(){
+        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_Movies_now_playing_main: data.data.results,
+        }))
+        
+    }
+    hanndleRenting(){
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=f820d8f2d83e87602797b2b0760a4f17&watch_region=US&with_watch_monetization_types=rent`).then(data => 
+        this.setState({
+            TMDB_Movies_now_playing_main: data.data.results,
+        }))
+        
+    }
+    hanndleTheaters(){
+        axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=f820d8f2d83e87602797b2b0760a4f17&region=US&with_release_type=3|2`).then(data => 
+        this.setState({
+            TMDB_Movies_now_playing_main: data.data.results,
+        }))
+        
+    }
+
+  
+
+    
 
 
 
@@ -118,10 +160,7 @@ class MoviesLandingPage extends Component {
          </React.Fragment>)
 
 
-         axios.get(`https://api.themoviedb.org/3/movie/now_playing?${TMDB_api}&language=en-US&page=1`).then(data => 
-         this.setState({
-            TMDB_Movies_now_playing_main: data.data.results,
-        }))
+        
 
        
 
@@ -193,21 +232,7 @@ class MoviesLandingPage extends Component {
             ...
         </Swiper>
 
-        // let MovieNowPlaying = this.state.TMDB_Movies_now_playing_main.map(data => <React.Fragment>
-        //     <Swiper
-        //     spaceBetween={50}
-        //     slidesPerView={3}
-        //     onSlideChange={() => console.log('slide change')}
-        //     onSwiper={(swiper) => console.log(swiper)}
-        //     >
-        //     <SwiperSlide >
-        //         <div className="nowPlay_swuiper">
-        //             {data.title}
-        //         </div>
-        //     </SwiperSlide>
-        //     ...
-        //     </Swiper>
-        // </React.Fragment>)
+      
 
         return ( 
             <div className='Movie_landing_page'>
@@ -325,14 +350,14 @@ class MoviesLandingPage extends Component {
                    </div>
                </section>
                <section className="whats_popular">
-
+                       
                    <div className="toogle_list_main">
                         <ul id="list">
-                            <p class="title">Now Playing...</p>
-                            <li class="inactive " data-id="0">Streaming</li>
-                            <li class="inactive " data-id="1">On TV</li>
-                            <li class="inactive " data-id="2">For Rent</li>
-                            <li class="inactive " data-id="3">In Theaters</li>
+                            <p class="title"> Now Playing...</p>
+                            <li class="inactive " data-id="0" onClick={this.hanndleStreaming} >Streaming</li>
+                            <li class="inactive " data-id="1" onClick={this.hanndleOnTv}>On TV</li>
+                            <li class="inactive " data-id="2" onClick={this.hanndleRenting}>For Rent</li>
+                            <li class="inactive " data-id="3" onClick={this.hanndleTheaters}>In Theaters</li>
                         </ul>
                    </div>
                  
