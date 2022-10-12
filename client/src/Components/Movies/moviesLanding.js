@@ -39,7 +39,7 @@ class MoviesLandingPage extends Component {
          this.hanndleStreaming = this.hanndleStreaming.bind(this)
          this.hanndleRenting = this.hanndleRenting.bind(this)
          this.hanndleTheaters = this.hanndleTheaters.bind(this)
-         this.hanndleOnTv = this.hanndleOnTv.bind(this)
+         this.HandleUpComingMovies = this.HandleUpComingMovies.bind(this)
          
          
     }
@@ -60,12 +60,11 @@ class MoviesLandingPage extends Component {
         }))
         
     }
-    hanndleOnTv(){
-        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+    HandleUpComingMovies(){
+        axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
         this.setState({
             TMDB_Movies_now_playing_main: data.data.results,
         }))
-        
     }
     hanndleRenting(){
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=f820d8f2d83e87602797b2b0760a4f17&watch_region=US&with_watch_monetization_types=rent`).then(data => 
@@ -355,7 +354,7 @@ class MoviesLandingPage extends Component {
                         <ul id="list">
                             <p class="title"> Now Playing...</p>
                             <li class="inactive " data-id="0" onClick={this.hanndleStreaming} >Streaming</li>
-                            <li class="inactive " data-id="1" onClick={this.hanndleOnTv}>On TV</li>
+                            <li class="inactive " data-id="1" onClick={this.HandleUpComingMovies}>Up Coming Movies</li>
                             <li class="inactive " data-id="2" onClick={this.hanndleRenting}>For Rent</li>
                             <li class="inactive " data-id="3" onClick={this.hanndleTheaters}>In Theaters</li>
                         </ul>
