@@ -352,7 +352,7 @@ class MoviesLandingPage extends Component {
                        
                    <div className="toogle_list_main">
                         <ul id="list">
-                            <p class="title"> Now Playing...</p>
+                            <p class="title title_style"> Now Playing...</p>
                             <li class="inactive " data-id="0" onClick={this.hanndleStreaming} >Streaming</li>
                             <li class="inactive " data-id="1" onClick={this.HandleUpComingMovies}>Up Coming Movies</li>
                             <li class="inactive " data-id="2" onClick={this.hanndleRenting}>For Rent</li>

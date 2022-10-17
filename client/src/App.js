@@ -78,7 +78,7 @@ class MainApp extends Component {
                 <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
-                        <Navbar/>
+                        {/* <Navbar/> */}
                             
                             <div className='switch'> 
                              <Switch> 
