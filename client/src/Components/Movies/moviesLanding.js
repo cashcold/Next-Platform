@@ -368,6 +368,26 @@ class MoviesLandingPage extends Component {
                   </div>
                  
                </section>
+               {/* <section className="whats_popular whats_popular_next_1">
+                       
+                   <div className="toogle_list_main">
+                        <ul id="list">
+                            <p class="title title_style"> Steaming On Tv...</p>
+                            <li class="inactive " data-id="0" onClick={this.hanndleStreaming} >Streaming</li>
+                            <li class="inactive " data-id="1" onClick={this.HandleUpComingMovies}>Up Coming Movies</li>
+                            <li class="inactive " data-id="2" onClick={this.hanndleRenting}>For Rent</li>
+                            <li class="inactive " data-id="3" onClick={this.hanndleTheaters}>In Theaters</li>
+                        </ul>
+                   </div>
+                 
+                  <div className="moviesNowSwuiper">
+                      {HandleMoviesNowPlayingT}
+                  </div>
+                  <div className="moviesNowSwuiper_HandleMoviesNowPlaying_mobile">
+                      {HandleMoviesNowPlaying_mobile}
+                  </div>
+                 
+               </section> */}
             </div>
          );
     }
