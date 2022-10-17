@@ -31,6 +31,7 @@ class MoviesLandingPage extends Component {
             TMDB_genres_landing: [],
             TMDB_genres_landing_name: [],
             TMDB_Movies_now_playing_main: [],
+            TMDB_Movies_Tv_show_main: [],
             TMDB_Movies_now_playing_main_flash: [],
 
          }
@@ -40,6 +41,10 @@ class MoviesLandingPage extends Component {
          this.hanndleRenting = this.hanndleRenting.bind(this)
          this.hanndleTheaters = this.hanndleTheaters.bind(this)
          this.HandleUpComingMovies = this.HandleUpComingMovies.bind(this)
+         this.hanndlePopularTvShow = this.hanndlePopularTvShow.bind(this)
+         this.hanndleTvShowToday = this.hanndleTvShowToday.bind(this)
+         this.hanndleTvShowOnAir = this.hanndleTvShowOnAir.bind(this)
+         this.hanndleTvShowRated = this.hanndleTvShowRated.bind(this)
          
          
     }
@@ -60,6 +65,7 @@ class MoviesLandingPage extends Component {
         }))
         
     }
+  
     HandleUpComingMovies(){
         axios.get(`https://api.themoviedb.org/3/movie/upcoming?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
         this.setState({
@@ -77,6 +83,35 @@ class MoviesLandingPage extends Component {
         axios.get(`https://api.themoviedb.org/3/discover/movie?api_key=f820d8f2d83e87602797b2b0760a4f17&region=US&with_release_type=3|2`).then(data => 
         this.setState({
             TMDB_Movies_now_playing_main: data.data.results,
+        }))
+        
+    }
+
+    hanndlePopularTvShow(){
+        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_Movies_Tv_show_main: data.data.results,
+        }))
+        
+    }
+    hanndleTvShowToday(){
+        axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_Movies_Tv_show_main: data.data.results,
+        }))
+        
+    }
+    hanndleTvShowOnAir(){
+        axios.get(`https://api.themoviedb.org/3/tv/on_the_air?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_Movies_Tv_show_main: data.data.results,
+        }))
+        
+    }
+    hanndleTvShowRated(){
+        axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_Movies_Tv_show_main: data.data.results,
         }))
         
     }
@@ -125,6 +160,11 @@ class MoviesLandingPage extends Component {
         axios.get(`https://api.themoviedb.org/3/genre/movie/list?${TMDB_api}&language=en-US`).then(data => 
             this.setState({
                 TMDB_movies_genres: data.data.genres,
+        }))
+
+        axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=f820d8f2d83e87602797b2b0760a4f17&language=en-US&page=1`).then(data => 
+        this.setState({
+            TMDB_Movies_Tv_show_main: data.data.results,
         }))
 
        
@@ -192,12 +232,13 @@ class MoviesLandingPage extends Component {
                 }}>
                 <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
                 <div className='landing_api_title'>
-                     {/* {data.title} */}
+                     {data.title}
                 </div>
                
             </SwiperSlide>)}
             ...
         </Swiper>
+      
         let HandleMoviesNowPlaying_mobile = 
          <Swiper 
          pagination={{
@@ -227,6 +268,77 @@ class MoviesLandingPage extends Component {
                <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
 {/*                
                 {data.title} */}
+            </SwiperSlide>)}
+            ...
+        </Swiper>
+
+          let HandleMoviesNowPlayingT_TvShow = 
+         <Swiper 
+         pagination={{
+            type: "fraction",
+          }}
+         modules={[Navigation,Pagination, Scrollbar, A11y]} 
+        className="mySwiper"
+         spaceBetween={10}
+         slidesPerView={6}
+         navigation
+
+            >
+            {this.state.TMDB_Movies_Tv_show_main.map(data => 
+            <SwiperSlide  
+                onClick={()=>{
+                    const TMDB_api_ParamsUrl = { 
+                        TMDB_id: data.id,
+                        TMDB_title: data.name,
+                        TMDB_overview: data.overview,
+                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+                    }
+                    const queryMoviesParams = require('query-string')
+        
+                    const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
+                    
+                    window.location =`/watch_movies/${data.name}?${passTMDB_api_Params}`
+                }}>
+                <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
+                <div className='landing_api_title'>
+                     {data.name}
+                </div>
+               
+            </SwiperSlide>)}
+            ...
+        </Swiper>
+          let HandleMoviesNowPlayingT_TvShow_mobile = 
+         <Swiper 
+         pagination={{
+            type: "fraction",
+          }}
+         modules={[Navigation,Pagination, Scrollbar, A11y]} 
+        className="mySwiper"
+         spaceBetween={3}
+         slidesPerView={2}
+         navigation
+
+            >
+            {this.state.TMDB_Movies_Tv_show_main.map(data => 
+            <SwiperSlide  
+                onClick={()=>{
+                    const TMDB_api_ParamsUrl = { 
+                        TMDB_id: data.id,
+                        TMDB_title: data.name,
+                        TMDB_overview: data.overview,
+                        TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
+                    }
+                    const queryMoviesParams = require('query-string')
+        
+                    const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
+                    
+                    window.location =`/watch_movies/${data.name}?${passTMDB_api_Params}`
+                }}>
+                <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
+                <div className='landing_api_title'>
+                     {data.name}
+                </div>
+               
             </SwiperSlide>)}
             ...
         </Swiper>
@@ -368,26 +480,26 @@ class MoviesLandingPage extends Component {
                   </div>
                  
                </section>
-               {/* <section className="whats_popular whats_popular_next_1">
+               <section className="whats_popular whats_popular_next_1">
                        
                    <div className="toogle_list_main">
                         <ul id="list">
                             <p class="title title_style"> Steaming On Tv...</p>
-                            <li class="inactive " data-id="0" onClick={this.hanndleStreaming} >Streaming</li>
-                            <li class="inactive " data-id="1" onClick={this.HandleUpComingMovies}>Up Coming Movies</li>
-                            <li class="inactive " data-id="2" onClick={this.hanndleRenting}>For Rent</li>
-                            <li class="inactive " data-id="3" onClick={this.hanndleTheaters}>In Theaters</li>
+                            <li class="inactive " data-id="1" onClick={this.hanndleTvShowToday}>TV Shows Today</li>
+                            <li class="inactive " data-id="2" onClick={this.hanndleTvShowOnAir}>Tv Shows On Air</li>
+                            <li class="inactive " data-id="3" onClick={this.hanndleTvShowRated}>Top Rated Tv Shows</li>
+                            <li class="inactive " data-id="0" onClick={this.hanndlePopularTvShow} >Popular Tv Shows</li>
                         </ul>
                    </div>
                  
                   <div className="moviesNowSwuiper">
-                      {HandleMoviesNowPlayingT}
+                      {HandleMoviesNowPlayingT_TvShow}
                   </div>
                   <div className="moviesNowSwuiper_HandleMoviesNowPlaying_mobile">
-                      {HandleMoviesNowPlaying_mobile}
+                      {HandleMoviesNowPlayingT_TvShow_mobile}
                   </div>
                  
-               </section> */}
+               </section>
             </div>
          );
     }
