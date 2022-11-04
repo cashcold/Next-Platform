@@ -35,6 +35,7 @@ import RAWG_Video_Games_Main from './Components/Watch_Next/RAWG_Video_Games';
 import MovieBoxMain from './Components/Movies/Movies._box_1';
 import MoviesBoxChartShow from './Components/Movies/Movies_box_2';
 import MoviesLandingPage from './Components/Movies/moviesLanding';
+import MoviesTvShow from './Components/Movies/Movies_box__3';
 
 
 class MainApp extends Component {
@@ -99,6 +100,7 @@ class MainApp extends Component {
                                 <Route path='/movies_home_box' exact component={MoviesLandingPage}/>
                                 <Route path='/movie_box_main' exact component={MovieBoxMain}/>
                                 <Route path='/watch_movies/:id' exact component={MoviesBoxChartShow}/>
+                                <Route path='/next-platform_Tv_Show/:id' exact component={MoviesTvShow}/>
                                 <Route path='/link_box' exact component={LinkBoxMain}/>
                                 <Route path='/link_box/:id' exact component={LinkBoxMainBox}/>
                                 <Route path='/call_api' exact component={Call_Api}/>

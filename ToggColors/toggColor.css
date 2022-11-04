@@ -1,0 +1,26 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+
+.toggColor_main_section{
+    background-color: black;
+    color: white;
+    width: 100%;
+    min-height: 100vh;
+}
+
+input{
+    border: none;
+    width: 60%;
+    height: 30px;
+    font-size: 1.5em;
+}
+
+.colors-btn-point{
+    padding: 0.5em;
+}
+/* .colors_btn_point{
+    display: none;
+} */

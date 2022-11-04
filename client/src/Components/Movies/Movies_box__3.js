@@ -57,7 +57,7 @@ import {
   } from "react-share";
 
 
-class MoviesBoxChartShow extends Component {
+class MoviesTvShow extends Component {
     constructor(props) {
         super(props);
         this.state = { 
@@ -284,32 +284,6 @@ loading_prev_movie_qury(e){
 }
    
     componentDidMount(){
-
-        setTimeout(()=>{
-            <React.Fragment>
-        
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
-            
-            <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-lg">
-                <div class="modal-content">
-                  ...
-                </div>
-              </div>
-            </div>
-            
-         
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-            
-            <div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-sm">
-                <div class="modal-content">
-                  ...
-                </div>
-              </div>
-            </div>
-            </React.Fragment>
-        },50000)
         
         
 
@@ -350,10 +324,10 @@ loading_prev_movie_qury(e){
        
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
     
-        axios.get(`http://api.themoviedb.org/3/movie/${TMDB_id}?${TMDB_api}&append_to_response=videos`).then(data => 
+        axios.get(`https://api.themoviedb.org/3/tv/${TMDB_id}?${TMDB_api}&language=en-US&append_to_response=videos`).then(data => 
         this.setState({
             TMDB_Info_Discovery_videos: data.data,
-            TMDB_title: data.data.title,
+            TMDB_title: data.data.name,
             TMDB_poster_path: data.data.poster_path,
             TMDB_backdrop_path: data.data.backdrop_path,
             TMDB_release_date: data.data.release_date,
@@ -479,8 +453,7 @@ loading_prev_movie_qury(e){
 
         
         
-      
-    //   console.log(this.state.TMDB_Info_Discovery_videos)
+      console.log(this.state.TMDB_Info_Discovery_videos)
  
    
 
@@ -505,10 +478,10 @@ loading_prev_movie_qury(e){
                     <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
                         <p className="">Back</p>
                 </section>
-               
-               <section className='show_movies_now_boot'>
-                   <div class="embed-responsive embed-responsive-16by9">
-                   <iframe class="embed-responsive-item" src={`https://www.youtube.com/embed/${TMDB_video_key[0]}?rel=0`} title={TMDB_video_name[0]} allowfullscreen></iframe>
+               <h1>Tv show</h1>
+               <section className='show_movies_now'>
+                   <div className="feature_vides_row iframe-container">
+                   <iframe width="560" height="315" src={`https://www.youtube.com/embed/${TMDB_video_key[0]}?rel=0`} title={TMDB_video_name[0]} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     </div>
                </section>
                <section className="display_movie_info_main">
@@ -631,4 +604,4 @@ loading_prev_movie_qury(e){
     }
 }
  
-export default MoviesBoxChartShow;
+export default MoviesTvShow;

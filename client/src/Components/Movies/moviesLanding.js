@@ -171,6 +171,10 @@ class MoviesLandingPage extends Component {
     
   }
     render() { 
+
+        console.log(this.state.TMDB_Movies_Tv_show_main)
+
+
         const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
 
 
@@ -297,7 +301,7 @@ class MoviesLandingPage extends Component {
         
                     const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
                     
-                    window.location =`/watch_movies/${data.name}?${passTMDB_api_Params}`
+                    window.location =`/next-platform_Tv_Show/${data.name}?${passTMDB_api_Params}`
                 }}>
                 <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
                 <div className='landing_api_title'>
@@ -332,7 +336,7 @@ class MoviesLandingPage extends Component {
         
                     const passTMDB_api_Params = queryMoviesParams.stringify(TMDB_api_ParamsUrl)
                     
-                    window.location =`/watch_movies/${data.name}?${passTMDB_api_Params}`
+                    window.location =`/next-platform_Tv_Show/${data.name}?${passTMDB_api_Params}`
                 }}>
                 <img src={`https://image.tmdb.org/t/p/original/${data.poster_path}`}/>
                 <div className='landing_api_title'>
@@ -500,6 +504,7 @@ class MoviesLandingPage extends Component {
                   </div>
                  
                </section>
+              
             </div>
          );
     }

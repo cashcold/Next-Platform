@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Helmet } from 'react-helmet';
 import './sportMain.css'
+import './scorebatVideoApiEng.js'
 import axios from 'axios'
 import moment from 'moment'
 import 'react-toastify/dist/ReactToastify.css';
@@ -22,6 +23,8 @@ class SportMain extends Component {
          }
     }
     componentDidMount(){
+        
+        
         
            setTimeout(()=>{
             toast.dark(
@@ -119,6 +122,11 @@ class SportMain extends Component {
                
                 <div className='sportMain'>
                     <section className="sport_main_section_1">
+
+                        <div className="Check_olesport_tv">
+                            <h1>Next Tv</h1>
+                          
+                        </div>
                         
                         <ScoreBatVideoApi/>
 
@@ -131,8 +139,8 @@ class SportMain extends Component {
 
 
                     <section className="sport_main_section_2">
-                        <div className="bet_way">
-                            <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM76661-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/6ddbbca8-c8e2-4a02-a90b-7632674cf6bf/" border="0"  alt="" /></a>
+                        <div className="scoreAxis_main">
+                        
                         </div>
                         <div className="main_batstream">
                             <h3>Watch Live Sports, Shows, and Events<br/> Online</h3>
@@ -188,10 +196,14 @@ class SportMain extends Component {
                             
                         </div>
                     </section>
+
                 </div>
+                
             </div>
          );
     }
 }
+
+
  
 export default SportMain;
