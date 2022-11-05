@@ -169,10 +169,10 @@ class Navbar extends Component {
         
         
 
-         window.addEventListener('scroll',()=>{
-            const header = document.querySelector('.navMain')
-            header.classList.toggle('sticky',window.scrollY > 0);
-        })
+        //  window.addEventListener('scroll',()=>{
+        //     const header = document.querySelector('.navMain')
+        //     header.classList.toggle('sticky',window.scrollY > 0);
+        // })
       
         const ToggleBtn = ()=>{
             const toggleBtn = document.querySelector('.toggle__bar')
