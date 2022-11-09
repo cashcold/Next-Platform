@@ -193,14 +193,14 @@ class MoviesLandingPage extends Component {
         }}>
             <div>
             {
-                <h2 className='movie_position_name_head btn '>{data.name}</h2> 
+                <h3 className='movie_position_name_head btn  '>{data.name}</h3> 
             }
         
             </div>
         </div>
          
           
-         </React.Fragment>)
+        </React.Fragment>)
 
 
         
@@ -383,7 +383,7 @@ class MoviesLandingPage extends Component {
                                   </div>
                     
                          <section className="movies_raw_js">
-                            <h2>{this.state.TMDB_Discovery_landing_main.map(data =>
+                            <h3>{this.state.TMDB_Discovery_landing_main.map(data =>
                                  <ul><li>
                                     <div className="movies_inner" onClick={()=>{
                                        localStorage.setItem('TMDB_pd_id',data.id)
@@ -414,7 +414,7 @@ class MoviesLandingPage extends Component {
                                     </div>
                                     </li>
                                 </ul>)}
-                            </h2>
+                            </h3>
                             <section className="display_geners_main_1">
                                 {
                                     Movies_TMDB_movies_genres

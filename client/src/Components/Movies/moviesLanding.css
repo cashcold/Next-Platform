@@ -60,12 +60,10 @@
     width: 100%;
     background-color: black;
     color: white;
-    padding: 1em 0em;
+    padding: 1em 3.5em;
 }
 
-.display_geners_main_1{
-  padding: 1.5em 0em;
-}
+
 
 .movie_position_name_head{
   color: white;
@@ -74,7 +72,8 @@
 }
 .display_geners_main_1{
   display: grid;
-   grid-template-columns: repeat(8,150px);
+   grid-template-columns: repeat(7,150px);
+   padding: 1.5em 0em;
 }
  
 .title_name{
@@ -110,7 +109,7 @@
 .toogle_list_main ul {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(5,150px);
+  grid-template-columns: repeat(5,100px);
 }
 
 .toogle_list_main ul li {
@@ -138,8 +137,11 @@
 }
 
 
-
-
+.movies_raw_js h3{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 1.5em;
+}
 
 
 
@@ -164,7 +166,8 @@
     }
     .display_geners_main_1{
       display: grid;
-      grid-template-columns: repeat(2,1fr);
+      grid-template-columns: repeat(2,125px);
+      margin: 0 auto;
     }
     .moviesNowSwuiper_HandleMoviesNowPlaying_mobile{
       display: block;
@@ -192,7 +195,17 @@
       margin: 0.5em 0em;
      
     }
-
+    .movies_raw_js{
+      width: 100%;
+      background-color: black;
+      color: white;
+      padding: 1em 1.5em;
+  }
+    /* .movies_raw_js h3{
+      display: grid;
+      grid-template-columns: repeat(1,100px);
+      gap: 1.5em;
+    } */
 
 
     
