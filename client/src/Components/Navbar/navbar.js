@@ -254,7 +254,7 @@ class Navbar extends Component {
                                 <li><a className='btn btn-two' href='/movies_home_box'>MOVIES</a></li>
                                 <li><a className='btn btn-two' href='/music'>MUSIC</a></li>
                                 <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
-                                <li><a className='btn btn-two' href='/next-platform_RAWG_Video_Games_Main'>VIDEO GAMES</a></li>
+                                <li><a className='btn btn-two' href='/online_Tv'>Online TV</a></li>
                                 <li><a className='btn btn-two' href='/link_box'>LinkBox</a></li>
                                 <li><a className='btn btn-two' href='/product-main'>PRODUCTS</a></li>
                                 <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>

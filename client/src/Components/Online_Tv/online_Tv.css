@@ -1,0 +1,4 @@
+.online_tv_section_1{
+    display: grid;
+    grid-template-columns: repeat(2,0.5fr);
+}

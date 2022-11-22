@@ -36,6 +36,7 @@ import MovieBoxMain from './Components/Movies/Movies._box_1';
 import MoviesBoxChartShow from './Components/Movies/Movies_box_2';
 import MoviesLandingPage from './Components/Movies/moviesLanding';
 import MoviesTvShow from './Components/Movies/Movies_box__3';
+import OnlineTv from './Components/Online_Tv/online_Tv';
 
 
 class MainApp extends Component {
@@ -107,6 +108,7 @@ class MainApp extends Component {
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
                                 <Route path='/music_still_trending' exact component={MusicCenterFlowMain}/>
                                 <Route path='/next-platform_RAWG_Video_Games_Main' exact component={RAWG_Video_Games_Main}/>
+                                <Route path='/online_Tv' exact component={OnlineTv}/>
 
 
 
