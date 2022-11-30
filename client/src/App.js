@@ -37,6 +37,7 @@ import MoviesBoxChartShow from './Components/Movies/Movies_box_2';
 import MoviesLandingPage from './Components/Movies/moviesLanding';
 import MoviesTvShow from './Components/Movies/Movies_box__3';
 import OnlineTv from './Components/Online_Tv/online_Tv';
+import DisplayOnlineTv from './Components/Online_Tv/onlineTV_Display';
 
 
 class MainApp extends Component {
@@ -109,6 +110,7 @@ class MainApp extends Component {
                                 <Route path='/music_still_trending' exact component={MusicCenterFlowMain}/>
                                 <Route path='/next-platform_RAWG_Video_Games_Main' exact component={RAWG_Video_Games_Main}/>
                                 <Route path='/online_Tv' exact component={OnlineTv}/>
+                                <Route path='/watch_online_Tv' exact component={DisplayOnlineTv}/>
 
 
 
@@ -132,8 +134,3 @@ export default MainApp;
 
 
 
-// Public Key:
-// BHagVjlaZA_blIpvC3ab6bpU4DtzCy0tmw1emF1Sb2_8hnO5VWX6TsgztctkekwwR6xuaAhwKyuLdVtf8pCRFeE
-
-// Private Key:
-// feTDgRbjCFdT7qLLclsz3BinF9o-GeaePSLrXJVT5F4

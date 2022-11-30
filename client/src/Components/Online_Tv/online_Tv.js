@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {online_TV_api} from '../Api/onlineTV_Api'
 import './online_Tv.css'
 import { Helmet } from 'react-helmet';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,7 +15,7 @@ class OnlineTv extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-
+            online_TV_api: online_TV_api
          }
 
          this.handleChange = this.handleChange.bind(this)
@@ -39,10 +40,16 @@ class OnlineTv extends Component {
         //         this.setState({
         //             TMDB_Discovery: data.data.results,
         //   }))
+
+      
+
+
+      
         
     
   }
     render() { 
+        console.log(this.state.online_TV_api)
       
 
         return ( 
@@ -59,34 +66,18 @@ class OnlineTv extends Component {
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <section className="head_tv">
-                    <h1>Online Tv</h1>
+                    <h1>Online Tv..</h1>
                 </section>
-                <section className="online_tv_section_1">
-                   <div className="onlineTv_box_1">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/-2Sld99HAaA" title="Ten Sports Live Streaming | Ten Sports HD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/9Auq9mYxFEE" title="Watch Sky News live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                   <iframe width="640" height="360" src="https://www.youtube.com/embed/F-POY4Q0QSI" title="🔴 Al Jazeera English | Live" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                   <iframe width="640" height="360" src="https://www.youtube.com/embed/ammKkVgtIHw" title="DW News livestream | Headline news from around the world" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                   <iframe width="640" height="360" src="https://www.youtube.com/embed/A3WUC6cPd04" title="Happy Birthday Song + More Toddler Videos & Nursery Rhymes for Babies by ChuChu TV LIVE" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/-2Sld99HAaA" title="Ten Sports Live Streaming | Ten Sports HD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/-2Sld99HAaA" title="Ten Sports Live Streaming | Ten Sports HD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
-                   <div className="onlineTv_box_1">
-                        <iframe width="640" height="360" src="https://www.youtube.com/embed/-2Sld99HAaA" title="Ten Sports Live Streaming | Ten Sports HD" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    </div>
+                <section className="onlineTV_main_section">
+                    {this.state.online_TV_api.map(data => <React.Fragment>
+                        <div>
+                            {data.name}
+                            <div dangerouslySetInnerHTML={{__html: data.embed}}></div>
+                           
+                        </div>
+                    </React.Fragment>)}
                 </section>
+               
             
             </div>
          );

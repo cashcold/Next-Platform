@@ -74,7 +74,7 @@ class SportDropInfo extends Component {
          })
 
 
-        document.querySelector('.scoreBat_embeded').innerHTML = `
+        document.querySelector('.scoreBat_embeded').innerHTML = ` 
         ${scoreBat_pd_embed}
     `
 

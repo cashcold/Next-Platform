@@ -484,6 +484,15 @@ class MoviesLandingPage extends Component {
                   </div>
                  
                </section>
+               <section className="btc_shark_section">
+                <div className="btc_shark">
+                    <a target='_blank' href='tel:+233203808479'>
+                    <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                        alt="First slide" />
+                    </a>
+                    
+                    </div>
+               </section>
                <section className="whats_popular whats_popular_next_1">
                        
                    <div className="toogle_list_main">
