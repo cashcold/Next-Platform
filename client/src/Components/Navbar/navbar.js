@@ -13,6 +13,7 @@ class Navbar extends Component {
         this.state = { 
             clientId: '7274681e5f564e29b6246893ed62f20a',
             redirectUri: 'http://localhost:3000/music',
+            user_now: ""
          }
     }
 

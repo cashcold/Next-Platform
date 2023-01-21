@@ -1,4 +1,9 @@
 import React, { Component } from 'react';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import {Card,Button} from 'react-bootstrap'
+import moment from 'moment'
 import { Helmet } from 'react-helmet';
 import loading_io_2 from '../../AllInOne/img2/Ellipsis-1.3s-214px.svg'
 import './sportDropInfo.css'
@@ -58,6 +63,35 @@ class SportDropInfo extends Component {
     }
 
     componentDidMount(){
+
+        setTimeout(()=>{
+            toast.dark(
+                <div className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'>
+                   
+                    <Card >
+                        
+                        <Card.Body>
+                            <Card.Text>
+                            <div className="btc_shark_img">
+                                <a target='_blank' href='tel:+233203808479'>
+                                <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                                    alt="First slide" />
+                                </a>
+                                
+                                </div>
+                            </Card.Text>
+                        </Card.Body>
+                        </Card>
+                </div>, {
+                position: "top-right",
+                autoClose: false,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                });
+           },20000)
        
          const scoreBat_pd_thumbnail = localStorage.getItem('scoreBat_pd_thumbnail')
          const scoreBat_pd_competition = localStorage.getItem('scoreBat_pd_competition')
@@ -85,6 +119,7 @@ class SportDropInfo extends Component {
      
         return ( 
             <div className='sport_info_drop_main'>
+                   <ToastContainer/>
                   <Helmet>
                 <base />
                 <title> {this.state.scoreBat_pd_title}</title>
