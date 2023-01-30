@@ -252,7 +252,7 @@ class MoviesTvShow extends Component {
     let parsed = queryString.parse(window.location.search);
     let TMDB_id = parsed.TMDB_id
 
-    const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17'
+    const TMDB_api = 'api_key=f820d8f2d83e87602797b2b0760a4f17' 
 
     axios.get(`https://api.themoviedb.org/3/movie/${TMDB_id}/similar?${TMDB_api}&language=en-US&page=${this.state.loading_next_movie_qury}`).then(data => 
     this.setState({

@@ -38,6 +38,7 @@ import MoviesLandingPage from './Components/Movies/moviesLanding';
 import MoviesTvShow from './Components/Movies/Movies_box__3';
 import OnlineTv from './Components/Online_Tv/online_Tv';
 import DisplayOnlineTv from './Components/Online_Tv/onlineTV_Display';
+import SportifyMusicMain from './Components/SportifyMusic/sportifyMusic';
 
 
 class MainApp extends Component {
@@ -111,6 +112,7 @@ class MainApp extends Component {
                                 <Route path='/next-platform_RAWG_Video_Games_Main' exact component={RAWG_Video_Games_Main}/>
                                 <Route path='/online_Tv' exact component={OnlineTv}/>
                                 <Route path='/watch_online_Tv' exact component={DisplayOnlineTv}/>
+                                <Route path='/Next-Platform-with-Sportify' exact component={SportifyMusicMain}/>
 
 
 
