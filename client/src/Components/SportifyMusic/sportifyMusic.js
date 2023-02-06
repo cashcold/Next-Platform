@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import SpotifyPlayer from 'react-spotify-web-playback';
 import ReactPaginate from 'react-paginate'; 
 import {Card,Button} from 'react-bootstrap'
 import  axios from 'axios'
@@ -32,14 +33,14 @@ class SportifyMusicMain extends Component {
 
         if(code){
             axios.post('/loginSportify',{code}).then(data => 
-        this.setState({
-            SportifyDetails: data.data,
-            access_token: data.data.access_token,
-            refresh_token: data.data.refresh_token,
-            expires_in: data.data.expires_in,
-        })).then(
-            window.history.pushState({}, null, ' / ')
-        )
+            this.setState({
+                SportifyDetails: data.data,
+                access_token: data.data.access_token,
+                refresh_token: data.data.refresh_token,
+                expires_in: data.data.expires_in,
+            })).then(
+                window.history.pushState({}, null, '/Next-Platform-with-Sportify ')
+            )
 
         }
 
@@ -51,14 +52,23 @@ class SportifyMusicMain extends Component {
         const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${redirectURL}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
 
 
-        console.log(this.state.expires_in)
-        // console.log(this.state.SportifyDetails)
+       
+        console.log(this.state.SportifyDetails)
+
+
+        const SportifyMedia = <SpotifyPlayer
+            token="BQC0CpxZJgU1UaYLjkmW0XzlH7YUePuOK_YQ2JPGUXDrZxvT3lRRsb_GvMsqM6Eqp0p207WRDGcWUM3MGPPZrbC_hEV5Qn4-sa18zhgG1PWs1njXyeTYhGYF6Lk3T3NqmuRAR238Ewv1lcQvCHmsL3pXv1-dmrBg9oQuB6YUf3IzXYeNgNmzH5cix1s6DH3WJNtsL9viqq7C0jxPSsb4uAoqo2NSj8PWGQxY12Afh5qcg1z7l-R4dQ"
+            uris={['spotify:artist:6HQYnRM4OzToCYPpVBInuU']}
+        />
 
         return ( 
             <div className='next_sportify_main'>
                 <section className='Next_sportify_section_1'>
                     <h1>Next-platform With Sportify Top Music of The Week </h1>
                     <a href={AUTH_URL} className='btn btn-primary'>Login</a>
+                </section>
+                <section className='sportify_media_play'>
+                    {SportifyMedia}
                 </section>
             </div>
          );
