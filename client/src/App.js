@@ -82,6 +82,11 @@ class MainApp extends Component {
                 <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
+                            <div className='promoting_posters'>
+                                <section className='posters_flow'>
+                                    <img src='https://firebasestorage.googleapis.com/v0/b/nextplatform77-79102.appspot.com/o/nextplatform_img_2%2FNext_Platform_Media_live_Steaming_All_Event.png?alt=media&token=eebf6e45-c928-41ff-9016-9622980b21c3' />
+                                </section>
+                            </div>
                         <Navbar/>
                             
                             <div className='switch'> 

@@ -19,10 +19,10 @@ class LinkBoxMain extends Component {
         this.handlePageClick = this.handlePageClick.bind(this);
     }
     receivedData() {
-        const data = this.state.linkBox_api
+        const data = this.state.linkBox_api       
         const slice = data.slice(this.state.offset, this.state.offset + this.state.perPage)  
         const postData = slice.map(pd => <React.Fragment>
-           <div className='drop_main_data'>
+           <div className='drop_main_data'>   
             <div className='drop_data' onClick={()=>{ 
                     localStorage.setItem('linkBox_api_id',pd.id)
                     localStorage.setItem('linkBox_api_title',pd.title)
@@ -35,7 +35,7 @@ class LinkBoxMain extends Component {
 
                     const musicParamsUrl = {
                         name: pd.name,
-                        info: pd.title,
+                        info: pd.title, 
                         on_image: pd.img
                     }
                     const queryMusicParams = require('query-string')
