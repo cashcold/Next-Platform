@@ -13,26 +13,21 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    phone: {
+        type: Number,
+        require: true,
+    },
     
     email: {
         type: String,
         require: true,
-    },
-    bitcoin: {
-        type: String,
-    },
-    bitcoinCash: {
-        type: String,
-    },
-    ethereum: {
-        type: String,
     },
     ip_address:{
         type: String,
         require: true
     },
     accountBalance: {
-        type: String,
+        type: Number,
     },
     reffer:{
         type: String

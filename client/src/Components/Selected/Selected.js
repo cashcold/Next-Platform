@@ -226,6 +226,14 @@ class Selected extends Component {
                         </div>
                     </div>
                 </section>
+                <section className='poster_videos_8143523'>
+                    <div className='welcomevIDEO'>
+                        <video autoPlay  loop controls src={require('../../AllInOne/poster_videos/Purple Business Marketing Agency Instagram Post (1).mp4')}/> 
+                    </div>
+                    <div className='welcomevIDEO'>
+                        <video autoPlay  loop controls src='https://firebasestorage.googleapis.com/v0/b/nextplatform77-79102.appspot.com/o/Next-Platform-Poster-videos%2FPurple%20Business%20Marketing%20Agency%20Instagram%20Post%20(1).mp4?alt=media&token=4e07394b-b732-4e51-80f2-bee4489da66c'/> 
+                    </div>
+                </section>
                 <div className="btc_shark">
                 <a target='_blank' href='tel:+233203808479'>
                 <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
@@ -337,6 +345,9 @@ class Selected extends Component {
                             <img src={require('../../VR__Pic/Playstation-VR-4K (1).jpg')} alt='pic'/>
                         </div>
                    </div>
+                </section>
+                <section className='btc_shark_learn_to_invest'>
+                 
                 </section>
                 <section className='bitcoin__main'>
                     <div className='bitcoinTrade'>

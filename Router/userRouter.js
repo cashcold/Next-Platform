@@ -15,6 +15,49 @@ dotEnv.config()
 const Router = express.Router()
 
 
+Router.post('/register/', async(req,res)=>{
+
+    
+  User.findOne({reffer : req.params})
+  // reffer program
+
+  const user = await User.findOne({email: req.body.email})
+  if(user) return res.status(400).send('Email already Exist')
+
+
+  const salt = await bcrypt.genSalt(10)
+  const hashPassword = await bcrypt.hash(req.body.password, salt)
+
+  const saveUser = new User({ 
+      full_name: req.body.full_name,
+      user_Name: req.body.user_Name,
+      accountBalance: req.body.accountBalance,
+      restartLinkPassword: req.body.restartLinkPassword,
+      password: hashPassword,
+      email: req.body.email,
+      referral: req.body.referral,
+      phone: Number(req.body.phone),
+      ip_address: req.body.ip_address,
+      date: req.body.date
+  })
+
+  var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
+  var data = {
+      from: 'Next-Platform <nextplatform99@gmail.com>',
+      to: 'frankainoo@gmail.com',
+      subject: 'Welcome To Next-Platform',
+      text: 'Thank you for JJoing Next-platform as one Family, Have a nice day. Thank You'
+  };
+  mailgun.messages().send(data, function (error, body) {
+      console.log(body);
+  });
+
+
+  await saveUser.save()
+  res.send("user save")
+
+})
+
 Router.post('/marvel', async(req,res)=>{
   var Marvel = require('marvel')
  

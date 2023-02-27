@@ -63,6 +63,27 @@
 
 
 
+.link_data_info_main :hover{
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 @media screen and (max-width: 768px){
     .data_link_info_box_1 img{
