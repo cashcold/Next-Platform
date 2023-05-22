@@ -63,8 +63,9 @@ app.post('/refreshSpotify', (req, res) => {
     redirectUri: process.env.REDIRECT_URI,
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-    refreshToken,
   });
+
+  spotifyApi.setRefreshToken(refreshToken); // Set the refresh token
 
   spotifyApi
     .refreshAccessToken()
@@ -79,6 +80,7 @@ app.post('/refreshSpotify', (req, res) => {
       res.sendStatus(400);
     });
 });
+
 
 app.post('/loginSpotify', async (req, res) => {
   const code = req.body.code;

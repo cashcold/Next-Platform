@@ -63,8 +63,23 @@ class SportifyMusicMain extends Component {
           window.history.pushState({}, null, '/Next-Platform-with-Sportify');
         });
     }
-  }
 
+     
+  }
+  refreshAccessToken() {
+    const { refreshToken } = this.state;
+
+    axios.post('/refreshSpotify', { refreshToken }).then((res) => {
+      const { accessToken, expiresIn } = res.data;
+
+      this.setState({ accessToken });
+
+      // Set a timeout to refresh the access token again after 30 minutes
+      setTimeout(() => {
+        this.refreshAccessToken();
+      }, (expiresIn - 1800) * 1000); // Refresh token 30 minutes before it expires
+    });
+  }
   render() {
     const { search, searchResults } = this.state;
     console.log(this.state.accessToken)
