@@ -50,33 +50,60 @@ app.post("/subscribe", (req, res) => {
   // Create payload
   const payload = JSON.stringify({ title: "Push Test" });
 
-  // Pass object into sendNotification
+  // Pass object into sendNotification 
   webpush
     .sendNotification(subscription, payload)
     .catch(err => console.error(err));
 });
 
-
-app.post("/loginSportify", async (req, res) => {
-  const { code } = req.body
+app.post('/refreshSpotify', (req, res) => {
+  const refreshToken = req.body.refreshToken;
 
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
     clientId: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
-  })
+    refreshToken,
+  });
 
-  try {
-    const {
-      body: { access_token, refresh_token, expires_in },
-    } = await spotifyApi.authorizationCodeGrant(code)
+  spotifyApi
+    .refreshAccessToken()
+    .then((data) => {
+      res.json({
+        accessToken: data.body.access_token,
+        expiresIn: data.body.expires_in,
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+      res.sendStatus(400);
+    });
+});
 
-    res.json({ access_token, refresh_token, expires_in })
-  } catch (err) {
-    console.log(err)
-    res.sendStatus(400)
-  }
-})
+app.post('/loginSpotify', async (req, res) => {
+  const code = req.body.code;
+
+  const spotifyApi = new SpotifyWebApi({
+    redirectUri: process.env.REDIRECT_URI,
+    clientId: process.env.CLIENT_ID,
+    clientSecret: process.env.CLIENT_SECRET,
+  });
+
+  spotifyApi
+    .authorizationCodeGrant(code)
+    .then((data) => {
+      res.json({
+        accessToken: data.body.access_token,
+        refreshToken: data.body.refresh_token,
+        expiresIn: data.body.expires_in,
+      });
+    })
+    .catch((err) => {
+      res.sendStatus(400);
+    });
+});
+
+
 
 
 app.get('/', function(request, response) {

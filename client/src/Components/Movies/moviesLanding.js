@@ -364,8 +364,11 @@ class MoviesLandingPage extends Component {
                 </Helmet>
                <section className='movie_landing_main_section'>
                    <div className="head_tag">
+                    <div className='head_tag_headRoll'>
                         <h1>Welcome.</h1>
                         <h3>Millions of movies, TV shows and people to discover. Explore now.</h3>
+                    </div>
+                     
                         
                         <div className="search_div">
                               <section className="movei_input_section_1">

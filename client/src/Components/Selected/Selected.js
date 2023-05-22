@@ -226,21 +226,21 @@ class Selected extends Component {
                         </div>
                     </div>
                 </section>
+                <div>
+                    <p>Every day, there are more and more people who are ready to experience the benefits of using cryptocurrency assets by creating a demand for easy and fast access to a blockchain economy. Multipurpose Mining and trading platform. provides safe, reliable, and professional services for investors and users worldwide.BTC SHARK is a user-friendly platform that allows you to buy, sell, and Mining and trading cryptocurrencies easily and securely. Our team provides users with a seamless mining and trading experience. Buying and selling cryptocurrencies with BTC SHARK secured cold storage, easy and convenient exchange. 0% commission for buying and selling bitcoin with BTC SHARK. By combining services, we are simplifying cryptocurrency usage mechanisms, and promoting development of the blockchain industry. The platform have it own mining and trading program. All BTC SHARK user are entitled to a share of the platform's revenue  mining and trading. Would you like to become the owner of a robust business? The platform runs a five tier affiliate program. Invite new users and get referral income from the entire affiliate structure. Wake up your sleeping assets.The world is moving towards digital currencies.Cryptocurrencies are becoming more widely accepted as a form of payment. With BTC SHARK, you can stay ahead of Mining and Trading with confidence.Join BTC SHARK today and discover the power of cryptocurrency in Mining and Trading.Bulid your dream with BTC SHARK Whatsapp 0203808479 or Email us btcsharkghana@gmail.com</p>
+                </div>
                 <section className='poster_videos_8143523'>
                     <div className='welcomevIDEO'>
-                        <video autoPlay  loop controls src={require('../../AllInOne/poster_videos/Purple Business Marketing Agency Instagram Post (1).mp4')}/> 
+                        <div className="feature_vides_row iframe-container">
+                            <video autoPlay  loop controls src={require('../../AllInOne/poster_videos/Purple Business Marketing Agency Instagram Post (1).mp4')}/> 
+                        </div>
+                        
                     </div>
                     <div className='welcomevIDEO'>
                         <video autoPlay  loop controls src='https://firebasestorage.googleapis.com/v0/b/nextplatform77-79102.appspot.com/o/Next-Platform-Poster-videos%2FPurple%20Business%20Marketing%20Agency%20Instagram%20Post%20(1).mp4?alt=media&token=4e07394b-b732-4e51-80f2-bee4489da66c'/> 
                     </div>
                 </section>
-                <div className="btc_shark">
-                <a target='_blank' href='tel:+233203808479'>
-                <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
-                    alt="First slide" />
-                </a>
-                
-                </div>
+               
                 <section className='chanceMain'>
                         <div className='subHead'>
                             <h1> <span class="typed-text"></span><span class="cursor">&nbsp;</span></h1>
@@ -394,6 +394,10 @@ class Selected extends Component {
                          <img src={require('../../VR__Pic/91cbedf77655c5c540e52b604972062c.jpg')} alt='pic'/>
                     </div>
                 </section>
+                <section className='posters_flow'>
+                    <img src='https://firebasestorage.googleapis.com/v0/b/nextplatform77-79102.appspot.com/o/nextplatform_img_2%2FNext_Platform_Media_live_Steaming_All_Event.png?alt=media&token=eebf6e45-c928-41ff-9016-9622980b21c3' />
+                </section>
+                
                 <section className='section__section'>
                     <section className='Earn__main '>
                         <div className='earn__now__img'>
@@ -414,6 +418,14 @@ class Selected extends Component {
                         <div className='earn__now__img'>
                             <img src={require('../../VR__Pic/index_credit_iphonex-6b80aab8.webp')} alt='pic'/>
                         </div>
+                    </section>
+                    <section className=''>
+                    <div className="btc_shark">
+                        <a target='_blank' href='tel:+233203808479'>
+                        <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                            alt="First slide" />
+                        </a>
+                    </div>
                     </section>
                 </section>
             </div>

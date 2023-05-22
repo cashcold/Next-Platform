@@ -36,6 +36,7 @@ class LinkBoxMain extends Component {
                     localStorage.setItem('linkBox_api_contact_facebook',pd.facebook)
                     localStorage.setItem('linkBox_api_contact_whatsapp',pd.whatsapp)
                     localStorage.setItem('linkBox_api_contact_call',pd.call)
+                    localStorage.setItem('linkBox_api_contact_email',pd.email)
                     localStorage.setItem('linkBox_api_contact_twitter',pd.twitter)
                     localStorage.setItem('linkBox_api_contact_site_Address',pd.site_Address)
 

@@ -39,6 +39,8 @@ import MoviesTvShow from './Components/Movies/Movies_box__3';
 import OnlineTv from './Components/Online_Tv/online_Tv';
 import DisplayOnlineTv from './Components/Online_Tv/onlineTV_Display';
 import SportifyMusicMain from './Components/SportifyMusic/sportifyMusic';
+import SpotifyAuth from './Components/Music Spotify/musicSpotify';
+import LoginSpotify from './Components/SportifyMusic/loginSpotify';
 
 
 class MainApp extends Component {
@@ -82,11 +84,7 @@ class MainApp extends Component {
                 <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
-                            <div className='promoting_posters'>
-                                <section className='posters_flow'>
-                                    <img src='https://firebasestorage.googleapis.com/v0/b/nextplatform77-79102.appspot.com/o/nextplatform_img_2%2FNext_Platform_Media_live_Steaming_All_Event.png?alt=media&token=eebf6e45-c928-41ff-9016-9622980b21c3' />
-                                </section>
-                            </div>
+                            
                         <Navbar/>
                             
                             <div className='switch'> 
@@ -96,6 +94,7 @@ class MainApp extends Component {
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music' exact component={MusicMain}/>
+                                <Route path='/LoginSpotify' exact component={LoginSpotify}/>
                                 <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
                                 <Route path='/product-main' exact component={ProductMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>
@@ -128,6 +127,7 @@ class MainApp extends Component {
                                 
                             </Switch>
                             </div>
+                            
                             <Footer/>
                         </div>
                 </div>

@@ -9,13 +9,48 @@
     margin: 0 auto;
 }
 .linkBox_info_main h1{
-    margin: 1.5em;
+    margin: 1.5em; 
 }
 .linkBox_info_main h4{
     width: 80%;
     margin: 0 auto;
     line-height: 1.5em;
 } 
+
+.socialDropLinkBox{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 4em 1em;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+}
+.socialDropLinkBox_box_now{
+    /* display: block; */
+}
+.flow_contact_linkMe{
+    /* margin: 2.5em 0em; */
+}
+.contact_h2{
+    margin: 2em 0em;
+}
+.breake_contact_hr{
+    color: red;
+    width: 40%;
+    margin: 0 auto;
+    min-height: 3px;
+    background-color: red;
+    
+}
+.socialFlowIcons{
+    margin: 7em 0em;
+}
+
+
+
+
+
 
 
 
@@ -34,4 +69,9 @@
         line-height: 1.5em;
         /* letter-spacing: 0.5em; */
     } 
+    .socialDropLinkBox{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        gap: 4em 1em;
+    }
 }

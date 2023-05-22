@@ -1,78 +1,103 @@
 import React, { Component } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import ReactPaginate from 'react-paginate'; 
-import {Card,Button} from 'react-bootstrap'
-import  axios from 'axios'
+import ReactPaginate from 'react-paginate';
+import { Card, Button } from 'react-bootstrap';
+import SpotifyWebApi from 'spotify-web-api-node';
+import axios from 'axios';
 
-// import './link_box.css'
-// import { Helmet } from 'react-helmet';
-// LinkBoxMain
+import './sportifyMusic.css';
 
-
-import './sportifyMusic.css'
 class SportifyMusicMain extends Component {
-    constructor(props) {
-        super(props);
-        this.state = { 
-            SportifyDetails: [],
-            access_token: [],
-            refresh_token: [],
-            expires_in: [],
-            
+  constructor(props) {
+    super(props);
+    this.state = {
+      sportifyDetails: [],
+      accessToken: '',
+      refreshToken: '',
+      expiresIn: '',
+      search: '',
+      searchResults: [],
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSearch = this.handleSearch.bind(this);
+    this.chooseTrack = this.chooseTrack.bind(this);
+  }
 
-         }
+  handleChange = (input) => (event) => {
+    this.setState({ [input]: event.target.value });
+  };
 
+  handleSearch() {
+    const { search, accessToken } = this.state;
+    if (search && accessToken) {
+      const spotifyApi = new SpotifyWebApi({ clientId: '4e2ccdd89a0847bc992b541f5e5e6f73' });
+      spotifyApi.setAccessToken(accessToken);
+
+      spotifyApi.searchTracks(search).then((data) => {
+        console.log('Search Results:', data.body);
+        this.setState({ searchResults: data.body.tracks.items });
+      });
     }
-   
+  }
 
-   
-     componentDidMount(){
+  chooseTrack(track) {
+    console.log('Selected Track:', track);
+    // Add your logic for selecting a track
+  }
 
-
-        const code = new URLSearchParams(window.location.search).get("code")
-
-        if(code){
-            axios.post('/loginSportify',{code}).then(data => 
-            this.setState({
-                SportifyDetails: data.data,
-                access_token: data.data.access_token,
-                refresh_token: data.data.refresh_token,
-                expires_in: data.data.expires_in,
-            })).then(
-                window.history.pushState({}, null, '/Next-Platform-with-Sportify ')
-            )
-
-        }
-
-     }
-    render() { 
-       const  client_id = '7274681e5f564e29b6246893ed62f20a'
-       const  redirectURL = 'http://localhost:3000/Next-Platform-with-Sportify'
-
-        const AUTH_URL = `https://accounts.spotify.com/authorize?client_id=${client_id}&response_type=code&redirect_uri=${redirectURL}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
-
-
-       
-        console.log(this.state.SportifyDetails)
-
-
-        const SportifyMedia = <SpotifyPlayer
-            token="BQC0CpxZJgU1UaYLjkmW0XzlH7YUePuOK_YQ2JPGUXDrZxvT3lRRsb_GvMsqM6Eqp0p207WRDGcWUM3MGPPZrbC_hEV5Qn4-sa18zhgG1PWs1njXyeTYhGYF6Lk3T3NqmuRAR238Ewv1lcQvCHmsL3pXv1-dmrBg9oQuB6YUf3IzXYeNgNmzH5cix1s6DH3WJNtsL9viqq7C0jxPSsb4uAoqo2NSj8PWGQxY12Afh5qcg1z7l-R4dQ"
-            uris={['spotify:artist:6HQYnRM4OzToCYPpVBInuU']}
-        />
-
-        return ( 
-            <div className='next_sportify_main'>
-                <section className='Next_sportify_section_1'>
-                    <h1>Next-platform With Sportify Top Music of The Week </h1>
-                    <a href={AUTH_URL} className='btn btn-primary'>Login</a>
-                </section>
-                <section className='sportify_media_play'>
-                    {SportifyMedia}
-                </section>
-            </div>
-         );
+  componentDidMount() {
+    const code = new URLSearchParams(window.location.search).get('code');
+    if (code) {
+      axios
+        .post('/loginSpotify', { code })
+        .then((data) => {
+          const { accessToken, refreshToken, expiresIn } = data.data;
+          this.setState({
+            sportifyDetails: data.data,
+            accessToken,
+            refreshToken,
+            expiresIn,
+          });
+        })
+        .then(() => {
+          window.history.pushState({}, null, '/Next-Platform-with-Sportify');
+        });
     }
+  }
+
+  render() {
+    const { search, searchResults } = this.state;
+    console.log(this.state.accessToken)
+
+    return (
+      <div className="next_sportify_main">
+        <section className="Next_sportify_section_1">
+          <h1>Welcome to our online music</h1>
+          <div>
+            <input
+              type="search"
+              placeholder="Search Songs"
+              value={search}
+              onChange={this.handleChange('search')}
+            />
+            <button onClick={this.handleSearch}>Search</button>
+          </div>
+          {searchResults.map((track) => (
+            <Card key={track.id}>
+              <Card.Img variant="top" src={track.album.images[0].url} />
+              <Card.Body>
+                <Card.Title>{track.name}</Card.Title>
+                <Card.Text>{track.artists[0].name}</Card.Text>
+                <Button variant="primary" onClick={() => this.chooseTrack(track)}>
+                  Select
+                </Button>
+              </Card.Body>
+            </Card>
+          ))}
+        </section>
+      </div>
+    );
+  }
 }
- 
+
 export default SportifyMusicMain;

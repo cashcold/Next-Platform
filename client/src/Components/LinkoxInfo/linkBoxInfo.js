@@ -59,6 +59,7 @@ class LinkBoxInfo extends Component {
             facebook: '',
             whatsapp: '',
             call: '',
+            email: '',
             twitter: '',
             site_Address: '',
             on_image: '',
@@ -80,6 +81,7 @@ class LinkBoxInfo extends Component {
         const facebook = localStorage.getItem('linkBox_api_contact_facebook')
         const whatsapp = localStorage.getItem('linkBox_api_contact_whatsapp')
         const call = localStorage.getItem('linkBox_api_contact_call')
+        const email = localStorage.getItem('linkBox_api_contact_email')
         const twitter = localStorage.getItem('linkBox_api_contact_twitter')
         const site_Address = localStorage.getItem('linkBox_api_contact_site_Address')
         const img = localStorage.getItem('linkBox_api_img')
@@ -87,7 +89,7 @@ class LinkBoxInfo extends Component {
         
         
         this.setState({
-            id,title,description,img,home_url,title_url,description_main_1,description_main_2,description_main_3,facebook,whatsapp,call,twitter,site_Address
+            id,title,description,img,home_url,title_url,description_main_1,description_main_2,description_main_3,facebook,whatsapp,call,email,twitter,site_Address
         })
        
     }
@@ -114,20 +116,25 @@ class LinkBoxInfo extends Component {
                  
               </section>
               <section className='contactMeLink'>
-                <h2>CONTACT US</h2>
+                <h2 className='contact_h2'>CONTACT US
+                <hr className='breake_contact_hr'/></h2>
                 <div className='flow_contact_linkMe'>
                        <div className='socialDropLinkBox'>
+                       <div className='socialDropLinkBox_box_now'>
+                                <h3>WHATSAPP US</h3>
+                                <h4>{this.state.whatsapp}</h4>
+                            </div>
+                            <div className='socialDropLinkBox_box_now'>
+                                <h3>EMAIL US</h3>
+                                <h4>{this.state.email}</h4>
+                            </div>
                             <div className='socialDropLinkBox_box_now'>
                                 <h3>FACEBOOK </h3>
-                                <h4>{this.state.facebook}</h4>
+                                <h4>{this.state.facebook}</h4>         
                             </div>
                             <div className='socialDropLinkBox_box_now'>
                                 <h3>CALL US</h3>
                                 <h4>{this.state.call}</h4>
-                            </div>
-                            <div className='socialDropLinkBox_box_now'>
-                                <h3>WHATSAPP US</h3>
-                                <h4>{this.state.whatsapp}</h4>
                             </div>
                             <div className='socialDropLinkBox_box_now'>
                                 <h3>TWITTER</h3>
@@ -141,6 +148,7 @@ class LinkBoxInfo extends Component {
                     </div>
               </section>
               <section className='socialFlowIcons'>
+                    <h1>SHARE</h1>
                     <div className="info_social">
                         <div className='socail_icon'>
                                         <FacebookShareButton  url={window.location.href}>
