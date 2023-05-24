@@ -32,12 +32,18 @@ class SportifyMusicMain extends Component {
     if (search && accessToken) {
       const spotifyApi = new SpotifyWebApi({ clientId: '4e2ccdd89a0847bc992b541f5e5e6f73' });
       spotifyApi.setAccessToken(accessToken);
+      localStorage.setItem('accessToken',accessToken)
 
       spotifyApi.searchTracks(search).then((data) => {
         console.log('Search Results:', data.body);
         this.setState({ searchResults: data.body.tracks.items });
       });
+
+      document.querySelector('.Button_Main').style.display='block';
+    
     }
+
+    
   }
 
   chooseTrack(track) {
@@ -64,7 +70,14 @@ class SportifyMusicMain extends Component {
         });
     }
 
-     
+
+    const accessToken = localStorage.getItem('accessToken')
+
+     if(accessToken){
+        this.setState({
+          accessToken
+        })
+     }
   }
   refreshAccessToken() {
     const { refreshToken } = this.state;
@@ -82,7 +95,7 @@ class SportifyMusicMain extends Component {
   }
   render() {
     const { search, searchResults } = this.state;
-    console.log(this.state.accessToken)
+    // console.log(this.state.searchResults)
 
     return (
       <div className="next_sportify_main">
@@ -97,18 +110,28 @@ class SportifyMusicMain extends Component {
             />
             <button onClick={this.handleSearch}>Search</button>
           </div>
-          {searchResults.map((track) => (
-            <Card key={track.id}>
-              <Card.Img variant="top" src={track.album.images[0].url} />
-              <Card.Body>
-                <Card.Title>{track.name}</Card.Title>
-                <Card.Text>{track.artists[0].name}</Card.Text>
-                <Button variant="primary" onClick={() => this.chooseTrack(track)}>
-                  Select
+       
+         <section className='display_spotify_song_info'>
+             {searchResults.map((track) => (
+            <div>
+              <img src={track.album.images[1].url} />
+              <h2>{track.name}</h2>
+              <h3>{track.artists[0].name}</h3>
+              <Button className='display_spotify_song_info_Button' variant="primary" onClick={() => this.chooseTrack(track)}>
+                  Listen or Download
                 </Button>
-              </Card.Body>
-            </Card>
-          ))}
+            </div>
+            ))}
+         </section>
+         <section className='Button_Main'>
+            <section className='forward_and_back_button'>
+                <div className="btn btn-warning" >PREV</div>
+                <div className="btn btn-warning">NEXT</div>
+            </section>
+         </section>
+        </section>
+        <section>
+          
         </section>
       </div>
     );
