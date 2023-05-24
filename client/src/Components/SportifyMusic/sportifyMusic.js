@@ -115,6 +115,7 @@ class SportifyMusicMain extends Component {
              {searchResults.map((track) => (
             <div>
               <img src={track.album.images[1].url} />
+              <span>Popularity: {track.popularity}</span>
               <h2>{track.name}</h2>
               <h3>{track.artists[0].name}</h3>
               <Button className='display_spotify_song_info_Button' variant="primary" onClick={() => this.chooseTrack(track)}>
