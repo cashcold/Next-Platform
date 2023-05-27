@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import SpotifyPlayer from 'react-spotify-web-playback';
-import ReactPaginate from 'react-paginate';
 import { Card, Button } from 'react-bootstrap';
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
+import ReactPaginate from 'react-paginate';
+
 
 import './sportifyMusic.css';
 
@@ -17,10 +18,14 @@ class SportifyMusicMain extends Component {
       expiresIn: '',
       search: '',
       searchResults: [],
+      totalResults: 0,
+      currentPage: 0,
+      itemsPerPage: 19,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.chooseTrack = this.chooseTrack.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this);
   }
 
   handleChange = (input) => (event) => {
@@ -32,18 +37,17 @@ class SportifyMusicMain extends Component {
     if (search && accessToken) {
       const spotifyApi = new SpotifyWebApi({ clientId: '4e2ccdd89a0847bc992b541f5e5e6f73' });
       spotifyApi.setAccessToken(accessToken);
-      localStorage.setItem('accessToken',accessToken)
+      localStorage.setItem('accessToken', accessToken);
 
-      spotifyApi.searchTracks(search).then((data) => {
+      spotifyApi.searchTracks(search, { limit: 50 }).then((data) => {
         console.log('Search Results:', data.body);
-        this.setState({ searchResults: data.body.tracks.items });
+        const totalResults = data.body.tracks.total;
+        const searchResults = data.body.tracks.items.slice(0, this.state.itemsPerPage);
+        this.setState({ searchResults, totalResults });
       });
 
-      document.querySelector('.Button_Main').style.display='block';
-    
+      document.querySelector('.Button_Main').style.display = 'block';
     }
-
-    
   }
 
   chooseTrack(track) {
@@ -70,32 +74,48 @@ class SportifyMusicMain extends Component {
         });
     }
 
+    const accessToken = localStorage.getItem('accessToken');
 
-    const accessToken = localStorage.getItem('accessToken')
-
-     if(accessToken){
-        this.setState({
-          accessToken
-        })
-     }
+    if (accessToken) {
+      this.setState({
+        accessToken,
+      });
+    }
   }
-  refreshAccessToken() {
-    const { refreshToken } = this.state;
 
-    axios.post('/refreshSpotify', { refreshToken }).then((res) => {
-      const { accessToken, expiresIn } = res.data;
+  handlePageChange(pageNumber) {
+    const { search, accessToken, itemsPerPage } = this.state;
+    const offset = pageNumber * itemsPerPage;
 
-      this.setState({ accessToken });
+    const spotifyApi = new SpotifyWebApi({ clientId: '4e2ccdd89a0847bc992b541f5e5e6f73' });
+    spotifyApi.setAccessToken(accessToken);
 
-      // Set a timeout to refresh the access token again after 30 minutes
-      setTimeout(() => {
-        this.refreshAccessToken();
-      }, (expiresIn - 1800) * 1000); // Refresh token 30 minutes before it expires
+    spotifyApi.searchTracks(search, { limit: 50, offset }).then((data) => {
+      console.log('Search Results:', data.body);
+      const searchResults = data.body.tracks.items.slice(offset, offset + itemsPerPage);
+      this.setState({ searchResults, currentPage: pageNumber });
     });
   }
+
+  getColor(popularity) {
+    if (popularity <= 30) {
+      return 'red';
+    } else if (popularity <= 70) {
+      return 'blue';
+    } else {
+      return 'green';
+    }
+  }
+
   render() {
-    const { search, searchResults } = this.state;
-    // console.log(this.state.searchResults)
+    const { search, searchResults, totalResults, currentPage, itemsPerPage } = this.state;
+
+    // Calculate pagination values
+    const totalPages = Math.ceil(totalResults / itemsPerPage);
+    const pageRangeDisplayed = 5;
+    const paginationStart = Math.max(0, currentPage - Math.floor(pageRangeDisplayed / 2));
+    const paginationEnd = Math.min(totalPages - 1, paginationStart + pageRangeDisplayed - 1);
+    const paginationRange = Array.from({ length: paginationEnd - paginationStart + 1 }, (_, i) => paginationStart + i);
 
     return (
       <div className="next_sportify_main">
@@ -110,28 +130,51 @@ class SportifyMusicMain extends Component {
             />
             <button onClick={this.handleSearch}>Search</button>
           </div>
-       
-         <section className='display_spotify_song_info'>
-             {searchResults.map((track) => (
-            <div>
-              <img src={track.album.images[1].url} />
-              <span>Popularity: {track.popularity}</span>
-              <h2>{track.name}</h2>
-              <h3>{track.artists[0].name}</h3>
-              <Button className='display_spotify_song_info_Button' variant="primary" onClick={() => this.chooseTrack(track)}>
+
+          <section className="display_spotify_song_info">
+            {searchResults.map((track) => (
+              <div key={track.id}>
+                <img src={track.album.images[1].url} alt={track.name} />
+                <div
+                    className="progress"
+                    style={{ width: `${track.popularity}%`, backgroundColor: this.getColor(track.popularity) }}
+                  ></div>
+
+
+                <span>Popularity: {track.popularity}</span>
+                <h2>{track.name}</h2>
+                <h3>{track.artists[0].name}</h3>
+                <Button
+                  className="display_spotify_song_info_Button"
+                  variant="primary"
+                  onClick={() => this.chooseTrack(track)}
+                >
                   Listen or Download
                 </Button>
-            </div>
+              </div>
             ))}
-         </section>
-         <section className='Button_Main'>
-            <section className='forward_and_back_button'>
-                <div className="btn btn-warning" >PREV</div>
-                <div className="btn btn-warning">NEXT</div>
+          </section>
+          <section className="Button_Main">
+            <section className="forward_and_back_button">
+            <ReactPaginate
+            previousLabel="Prev"
+            nextLabel="Next"
+            breakLabel="..."
+            breakClassName="break-me"
+            pageCount={totalPages}
+            marginPagesDisplayed={2}
+            pageRangeDisplayed={pageRangeDisplayed}
+            onPageChange={(selected) => this.handlePageChange(selected.selected)}
+            containerClassName="pagination"
+            subContainerClassName="pages pagination"
+            activeClassName="active"
+          />
+              {/* <div className="btn btn-warning">PREV</div>
+              <div className="btn btn-warning">NEXT</div> */}
             </section>
-         </section>
-        </section>
-        <section>
+          </section>
+
+          {/* Pagination */}
           
         </section>
       </div>

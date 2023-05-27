@@ -260,10 +260,10 @@ class MoviesTvShow extends Component {
     }))
     window.scrollTo(0, 0)
 
-    console.log(this.state.TMDB_similar_main_check)
+    console.log(this.state.TMDB_similar_main_check) 
 }
 loading_prev_movie_qury(e){
-    e.preventDefault()
+    e.preventDefault() 
   
     this.setState({
         loading_next_movie_qury: this.state.loading_next_movie_qury - 1
