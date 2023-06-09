@@ -122,7 +122,7 @@ class MovieBoxMain extends Component {
                                         TMDB_title: data.title,
                                         TMDB_overview: data.overview,
                                         TMDB_img: `https://image.tmdb.org/t/p/original${data.backdrop_path}`
-                                    }
+                                        }
                                     const queryMusicParams = require('query-string')
         
                                     const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)

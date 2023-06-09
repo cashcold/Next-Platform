@@ -41,6 +41,7 @@ import DisplayOnlineTv from './Components/Online_Tv/onlineTV_Display';
 import SportifyMusicMain from './Components/SportifyMusic/sportifyMusic';
 import SpotifyAuth from './Components/Music Spotify/musicSpotify';
 import LoginSpotify from './Components/SportifyMusic/loginSpotify';
+import SpotifyDisplayMusic from './Components/SportifyMusic/spotifyDisplayMusic';
 
 
 class MainApp extends Component {
@@ -117,6 +118,7 @@ class MainApp extends Component {
                                 <Route path='/online_Tv' exact component={OnlineTv}/>
                                 <Route path='/watch_online_Tv' exact component={DisplayOnlineTv}/>
                                 <Route path='/Next-Platform-with-Sportify' exact component={SportifyMusicMain}/>
+                                <Route path='/Next-Platform-song/:id' exact component={SpotifyDisplayMusic}/>
 
 
 

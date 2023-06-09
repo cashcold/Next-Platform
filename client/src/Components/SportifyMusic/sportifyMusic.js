@@ -52,7 +52,21 @@ class SportifyMusicMain extends Component {
 
   chooseTrack(track) {
     console.log('Selected Track:', track);
-    // Add your logic for selecting a track
+    
+  
+    const NextPlatformSong_api_ParamsUrl = { 
+      Song_id: track.id,
+      Song_title: track.name,
+      Song_overview: track.artists[0].name,
+      Song_img: track.album.images[1].url,
+      accessToken: this.state.accessToken
+      }
+
+    const queryMusicParams = require('query-string')
+
+    const passSong_api_Params = queryMusicParams.stringify(NextPlatformSong_api_ParamsUrl)
+                                    
+    window.location =`/Next-Platform-song/${track.name}?${passSong_api_Params}`
   }
 
   componentDidMount() {
@@ -78,7 +92,7 @@ class SportifyMusicMain extends Component {
 
     if (accessToken) {
       this.setState({
-        accessToken,
+        accessToken
       });
     }
   }
@@ -169,8 +183,7 @@ class SportifyMusicMain extends Component {
             subContainerClassName="pages pagination"
             activeClassName="active"
           />
-              {/* <div className="btn btn-warning">PREV</div>
-              <div className="btn btn-warning">NEXT</div> */}
+    
             </section>
           </section>
 

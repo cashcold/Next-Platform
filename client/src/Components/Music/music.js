@@ -7,6 +7,7 @@ import {gsap} from 'gsap'
 import {Button,Card} from 'react-bootstrap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
 import MusicReceivedMain from '../Music_Received/music_receivedMain.js';
+import SportifyMusicMain from '../SportifyMusic/sportifyMusic';
 const SpotifyWebApi = require('spotify-web-api-node');
 let token_main = localStorage.getItem('spotify_access_token')
 const token = token_main;
@@ -117,6 +118,7 @@ class MusicMain extends Component {
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
                 <section className="sectionMianLayOut">
+                    <SportifyMusicMain/>
                     <MusicReceivedMain/>
                 </section>
                 <section className="spotify_CoolForNow_section_1">
