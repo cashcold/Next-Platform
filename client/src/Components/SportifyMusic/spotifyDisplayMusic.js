@@ -24,7 +24,6 @@ class SpotifyDisplayMusic extends Component {
     };
     this.spotifyApi = new SpotifyWebApi({
       clientId: '4e2ccdd89a0847bc992b541f5e5e6f73',
-      accessToken: this.state.accessToken,
     });
   }
 
@@ -37,7 +36,8 @@ class SpotifyDisplayMusic extends Component {
   }
 
   fetchTrack() {
-    const { songId } = this.state;
+    const { songId, accessToken } = this.state;
+    this.spotifyApi.setAccessToken(accessToken);
     this.spotifyApi.getTrack(songId)
       .then((data) => {
         const track = data.body;
@@ -65,7 +65,7 @@ class SpotifyDisplayMusic extends Component {
         <h1>Display Spotify Music</h1>
         {track && (
           <div className="track-details">
-          <img src={track.album.images[1].url} alt={track.name} />
+            <img src={track.album.images[1].url} alt={track.name} />
             <h2>{track.name}</h2>
             <p>Artist: {track.artists[0].name}</p>
             <p>Album: {track.album.name}</p>
