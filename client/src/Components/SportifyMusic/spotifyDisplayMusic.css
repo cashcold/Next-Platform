@@ -1,0 +1,98 @@
+.spotify-display-music {
+    font-family: Arial, sans-serif;
+    color: #333;
+    padding: 20px;
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .track-details {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .image-container {
+    margin-right: 20px;
+  }
+  
+  .album-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 40px;
+  }
+  
+  .info-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .track-name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .artist-name {
+    margin-bottom: 5px;
+  }
+  
+  .release-date,
+  .popularity,
+  .duration,
+  .album-type,
+  .release-date-precision,
+  .available-markets {
+    margin-bottom: 5px;
+  }
+  
+  .lyrics-title {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .lyrics-text {
+    white-space: pre-line;
+  }
+  
+  /* Hover Effects */
+  .album-image:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .track-name:hover {
+    color: #1cb954;
+    cursor: pointer;
+  }
+  
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .track-details {
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+  
+    .image-container {
+      margin-right: 0;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  
+    .album-image {
+      width: 150px;
+      height: 150px;
+      margin-bottom: 20px;
+    }
+  }
+  

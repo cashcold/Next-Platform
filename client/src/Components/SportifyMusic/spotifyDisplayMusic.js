@@ -59,7 +59,7 @@ class SpotifyDisplayMusic extends Component {
       params: {
         artist,
         track,
-      }
+      },
     })
       .then((response) => {
         const lyrics = response.data.lyrics || 'No lyrics found';
@@ -83,35 +83,39 @@ class SpotifyDisplayMusic extends Component {
     }
 
     return (
-      <div className="next_sportify_main">
-        <h1>Display Spotify Music</h1>
+      <div className="spotify-display-music">
+        <h1 className="title">Display Spotify Music</h1>
         {track && (
           <div className="track-details">
-            <img src={track.album.images[1].url} alt={track.name} />
-            <h2>{track.name}</h2>
-            <p>Artist: {track.artists[0].name}</p>
-            <p>Album: {track.album.name}</p>
-            <p>Release Date: {track.album.release_date}</p>
-            <p>Popularity: {track.popularity}</p>
-            <p>Duration: {formatDuration(track.duration_ms)}</p>
-            <p>Album Type: {track.album.album_type}</p>
-            <p>Available Markets: {track.available_markets.join(', ')}</p>
-            <p>Release Date Precision: {track.album.release_date_precision}</p>
-            <SpotifyPlayer
-              token={this.state.accessToken}
-              uris={[track.uri]}
-              styles={{
-                activeColor: '#fff',
-                bgColor: '#333',
-                color: '#fff',
-                loaderColor: '#fff',
-                sliderColor: '#1cb954',
-                trackArtistColor: '#ccc',
-                trackNameColor: '#fff',
-              }}
-            />
-            <h3>Lyrics:</h3>
-            <p>{lyrics}</p>
+            <div className="image-container">
+              <img className="album-image" src={track.album.images[1].url} alt={track.name} />
+            </div>
+            <div className="info-container">
+              <h2 className="track-name">{track.name}</h2>
+              <p className="artist-name">Artist: {track.artists[0].name}</p>
+              <p className="album-name">Album: {track.album.name}</p>
+              <p className="release-date">Release Date: {track.album.release_date}</p>
+              <p className="popularity">Popularity: {track.popularity}</p>
+              <p className="duration">Duration: {formatDuration(track.duration_ms)}</p>
+              <p className="album-type">Album Type: {track.album.album_type}</p>
+              <p className="release-date-precision">Release Date Precision: {track.album.release_date_precision}</p>
+              <p className="available-markets">Available Markets: {track.available_markets.join(', ')}</p>
+              <SpotifyPlayer
+                token={this.state.accessToken}
+                uris={[track.uri]}
+                styles={{
+                  activeColor: '#fff',
+                  bgColor: '#333',
+                  color: '#fff',
+                  loaderColor: '#fff',
+                  sliderColor: '#1cb954',
+                  trackArtistColor: '#ccc',
+                  trackNameColor: '#fff',
+                }}
+              />
+              <h3 className="lyrics-title">Lyrics:</h3>
+              <p className="lyrics-text">{lyrics}</p>
+            </div>
           </div>
         )}
       </div>
