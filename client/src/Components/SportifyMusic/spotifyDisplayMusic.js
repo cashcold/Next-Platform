@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import SpotifyWebApi from 'spotify-web-api-node';
+import SpotifyPlayer from 'react-spotify-web-playback';
+import axios from 'axios';
 import './spotifyDisplayMusic.css';
 
 function formatDuration(durationMs) {
@@ -19,6 +21,7 @@ class SpotifyDisplayMusic extends Component {
       songId: '',
       accessToken: '',
       track: null,
+      lyrics: '',
       loading: true,
       error: false,
     };
@@ -41,7 +44,9 @@ class SpotifyDisplayMusic extends Component {
     this.spotifyApi.getTrack(songId)
       .then((data) => {
         const track = data.body;
-        this.setState({ track, loading: false });
+        this.setState({ track, loading: false }, () => {
+          this.fetchLyrics(track.artists[0].name, track.name);
+        });
       })
       .catch((error) => {
         console.error('Error fetching track:', error);
@@ -49,8 +54,25 @@ class SpotifyDisplayMusic extends Component {
       });
   }
 
+  fetchLyrics(artist, track) {
+    axios.get('/lyrics', {
+      params: {
+        artist,
+        track,
+      }
+    })
+      .then((response) => {
+        const lyrics = response.data.lyrics || 'No lyrics found';
+        this.setState({ lyrics });
+      })
+      .catch((error) => {
+        console.error('Error fetching lyrics:', error);
+        this.setState({ lyrics: 'Failed to fetch lyrics' });
+      });
+  }
+
   render() {
-    const { track, loading, error } = this.state;
+    const { track, lyrics, loading, error } = this.state;
 
     if (loading) {
       return <div>Loading...</div>;
@@ -75,6 +97,21 @@ class SpotifyDisplayMusic extends Component {
             <p>Album Type: {track.album.album_type}</p>
             <p>Available Markets: {track.available_markets.join(', ')}</p>
             <p>Release Date Precision: {track.album.release_date_precision}</p>
+            <SpotifyPlayer
+              token={this.state.accessToken}
+              uris={[track.uri]}
+              styles={{
+                activeColor: '#fff',
+                bgColor: '#333',
+                color: '#fff',
+                loaderColor: '#fff',
+                sliderColor: '#1cb954',
+                trackArtistColor: '#ccc',
+                trackNameColor: '#fff',
+              }}
+            />
+            <h3>Lyrics:</h3>
+            <p>{lyrics}</p>
           </div>
         )}
       </div>

@@ -12,6 +12,7 @@ const axios = require('axios')
 const queryString = require('query-string');
 const { parse } = require('querystring')
 const webpush = require("web-push");
+const lyricsFinder = require("lyrics-finder")
 
 dotEnv.config()
 
@@ -104,6 +105,25 @@ app.post('/loginSpotify', async (req, res) => {
       res.sendStatus(400);
     });
 });
+
+app.get('/lyrics', async (req, res) => {
+  const artist = req.query.artist;
+  const track = req.query.track;
+
+  try {
+    const lyrics = await lyricsFinder(artist, track);
+    res.json({ lyrics });
+  } catch (error) {
+    console.error('Error fetching lyrics:', error);
+    res.status(500).json({ error: 'Failed to fetch lyrics' });
+  }
+});
+
+// app.get("/lyrics", async (req, res) => {
+//   const lyrics =
+//     (await lyricsFinder(req.query.artist, req.query.track)) || "No Lyrics Found"
+//   res.json({ lyrics })
+// })
 
 
 
