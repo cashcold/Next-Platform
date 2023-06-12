@@ -33,7 +33,7 @@ class SpotifyDisplayMusic extends Component {
       albumError: false,
     };
     this.spotifyApi = new SpotifyWebApi({
-      clientId: 'YOUR_SPOTIFY_CLIENT_ID',
+      clientId: '4e2ccdd89a0847bc992b541f5e5e6f73',
     });
   }
 
@@ -66,8 +66,20 @@ class SpotifyDisplayMusic extends Component {
   }
 
   fetchLyrics(artist, track) {
-    // Fetch lyrics from the desired source
-    // ...
+    axios.get('/lyrics', {
+      params: {
+        artist,
+        track,
+      },
+    })
+      .then((response) => {
+        const lyrics = response.data.lyrics || 'No lyrics found';
+        this.setState({ lyrics });
+      })
+      .catch((error) => {
+        console.error('Error fetching lyrics:', error);
+        this.setState({ lyrics: 'Failed to fetch lyrics, refresh the page again' });
+      });
   }
 
   fetchAlbums(artistId) {
