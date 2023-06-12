@@ -31,6 +31,7 @@ class SpotifyDisplayMusic extends Component {
       albums: [],
       albumLoading: true,
       albumError: false,
+      currentTrack: null, // Track URI for playing in the SpotifyPlayer
     };
     this.spotifyApi = new SpotifyWebApi({
       clientId: '4e2ccdd89a0847bc992b541f5e5e6f73',
@@ -103,8 +104,12 @@ class SpotifyDisplayMusic extends Component {
     }
   };
 
+  handleAlbumClick = (albumUri) => {
+    this.setState({ currentTrack: albumUri });
+  };
+
   render() {
-    const { track, lyrics, loading, error, albums, albumLoading, albumError } = this.state;
+    const { track, lyrics, loading, error, albums, albumLoading, albumError, currentTrack } = this.state;
 
     if (loading || albumLoading) {
       return <div>Loading...</div>;
@@ -145,7 +150,7 @@ class SpotifyDisplayMusic extends Component {
               <p className="available-markets">Available Markets: {track.available_markets.join(', ')}</p>
               <SpotifyPlayer
                 token={this.state.accessToken}
-                uris={[track.uri]}
+                uris={currentTrack ? [currentTrack] : [track.uri]} // Updated uris prop
                 styles={{
                   activeColor: '#fff',
                   bgColor: '#333',
@@ -169,9 +174,13 @@ class SpotifyDisplayMusic extends Component {
             <h3 className="albums-title">Albums by {track.artists[0].name}:</h3>
             <ul className="album-items">
               {albums.map((album) => (
-                <li key={album.id} className="album-item">
+                <li
+                  key={album.id}
+                  className="album-item"
+                  onClick={() => this.handleAlbumClick(album.uri)}
+                >
                   <img src={album.images[0].url} alt={album.name} className="album-thumbnail" />
-                  <p className="album-name">{album.name}</p>
+                  <p className="album-name">Album: {album.name}</p>
                   <p className="album-release-date">Release Date: {album.release_date}</p>
                 </li>
               ))}
