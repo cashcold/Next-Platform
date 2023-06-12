@@ -130,7 +130,7 @@ class SpotifyDisplayMusic extends Component {
           <meta property="og:image" content={this.state.Song_img} />
           <link rel="canonical" href="next-platform.com" />
         </Helmet>
-        <h1 className="title">Enjoy The Best Of Music</h1>
+        <h1 className="title">Enjoy The Best Of Music From Next-Platform</h1>
         {track && (
           <div className="track-details">
             <div className="image-container">
