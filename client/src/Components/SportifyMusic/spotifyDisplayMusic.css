@@ -75,6 +75,53 @@
     cursor: pointer;
   }
   
+  .albums-list {
+    margin-top: 40px;
+  }
+  
+  .albums-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .album-items {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .album-item {
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+  }
+  
+  .album-thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  .album-name {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .album-release-date {
+    font-size: 14px;
+    color: #888;
+  }
+  
+
+
+
+
   /* Mobile Responsive */
   @media (max-width: 768px) {
     .track-details {

@@ -106,6 +106,36 @@ app.post('/loginSpotify', async (req, res) => {
     });
 });
 
+app.get('/Next-Platform-song/:id', function(request, response) {
+ 
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    
+    const parsed = (request.url)
+    var url = require('url');
+
+    var q = url.parse(parsed, true);
+
+    var qdata = q.query
+    
+    const {Song_overview,Song_title, Song_img} = qdata
+
+    console.log(qdata)
+
+
+// replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g,Song_title);
+    data = data.replace(/\$OG_DESCRIPTION/g,Song_overview);
+    result = data.replace(/\$OG_IMAGE/g,Song_img);
+    response.send(result);
+  });
+});
+
 app.get('/lyrics', async (req, res) => {
   const artist = req.query.artist;
   const track = req.query.track;
@@ -115,7 +145,7 @@ app.get('/lyrics', async (req, res) => {
     res.json({ lyrics });
   } catch (error) {
     console.error('Error fetching lyrics:', error);
-    res.status(500).json({ error: 'Failed to fetch lyrics' });
+    res.status(500).json({ error: 'Failed to fetch lyrics, refresh the page again' });
   }
 });
 
