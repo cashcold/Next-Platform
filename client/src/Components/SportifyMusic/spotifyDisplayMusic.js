@@ -105,8 +105,26 @@ class SpotifyDisplayMusic extends Component {
   };
 
   handleAlbumClick = (albumUri) => {
-    this.setState({ currentTrack: albumUri });
+    const albumId = albumUri.split(':')[2]; // Extract the album_id from albumUri
+    this.setState({ currentTrack: albumUri }, () => {
+      const { currentTrack } = this.state;
+      this.fetchLyricsFromAlbum(albumId);
+    });
   };
+  
+  fetchLyricsFromAlbum(albumId) {
+    this.spotifyApi.getAlbumTracks(albumId) // Use albumId instead of albumUri
+      .then((data) => {
+        const tracks = data.body.items;
+        const track = tracks[0]; // Assuming the first track of the album
+        this.fetchLyrics(track.artists[0].name, track.name);
+      })
+      .catch((error) => {
+        console.error('Error fetching album tracks:', error);
+        this.setState({ lyrics: 'Failed to fetch lyrics for the album' });
+      });
+  }
+  
 
   render() {
     const { track, lyrics, loading, error, albums, albumLoading, albumError, currentTrack } = this.state;
