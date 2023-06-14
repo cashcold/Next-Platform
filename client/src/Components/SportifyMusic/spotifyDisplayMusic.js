@@ -32,6 +32,7 @@ class SpotifyDisplayMusic extends Component {
       albumLoading: true,
       albumError: false,
       currentTrack: null, // Track URI for playing in the SpotifyPlayer
+      albumName: '', // Store the name of the currently playing album
     };
     this.spotifyApi = new SpotifyWebApi({
       clientId: '4e2ccdd89a0847bc992b541f5e5e6f73',
@@ -109,9 +110,10 @@ class SpotifyDisplayMusic extends Component {
     this.setState({ currentTrack: albumUri }, () => {
       const { currentTrack } = this.state;
       this.fetchLyricsFromAlbum(albumId);
+      this.fetchAlbumName(albumId); // Fetch album name
     });
   };
-  
+
   fetchLyricsFromAlbum(albumId) {
     this.spotifyApi.getAlbumTracks(albumId) // Use albumId instead of albumUri
       .then((data) => {
@@ -124,10 +126,21 @@ class SpotifyDisplayMusic extends Component {
         this.setState({ lyrics: 'Failed to fetch lyrics for the album' });
       });
   }
-  
+
+  fetchAlbumName(albumId) {
+    this.spotifyApi.getAlbum(albumId)
+      .then((data) => {
+        const album = data.body;
+        this.setState({ albumName: album.name });
+      })
+      .catch((error) => {
+        console.error('Error fetching album name:', error);
+        this.setState({ albumName: '' });
+      });
+  }
 
   render() {
-    const { track, lyrics, loading, error, albums, albumLoading, albumError, currentTrack } = this.state;
+    const { track, lyrics, loading, error, albums, albumLoading, albumError, currentTrack, albumName } = this.state;
 
     if (loading || albumLoading) {
       return <div>Loading...</div>;
@@ -141,7 +154,7 @@ class SpotifyDisplayMusic extends Component {
       <div className="spotify-display-music">
         <Helmet>
           <base />
-          <title>{this.state.Song_title}</title>
+          <title>{currentTrack ? `Now Playing: ${albumName}` : this.state.Song_title}</title>
           <meta name="description" content={this.state.Song_overview} />
           <meta property="og:title" content={this.state.Song_title} />
           <meta property="og:description" content={this.state.Song_overview} />
