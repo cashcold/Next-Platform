@@ -4,6 +4,10 @@ import SpotifyWebApi from 'spotify-web-api-node';
 import SpotifyPlayer from 'react-spotify-web-playback';
 import axios from 'axios';
 import './spotifyDisplayMusic.css';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
+import {Card,Button} from 'react-bootstrap'
 
 function formatDuration(durationMs) {
   const minutes = Math.floor(durationMs / 60000);
@@ -48,6 +52,38 @@ class SpotifyDisplayMusic extends Component {
     this.setState({ songId, Song_title, Song_overview, Song_img, accessToken }, () => {
       this.fetchTrack();
     });
+
+
+
+    
+    setTimeout(()=>{
+      toast.dark(
+          <div className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'>
+             
+              <Card >
+                  
+                  <Card.Body>
+                      <Card.Text>
+                      <div className="btc_shark_img">
+                          <a target='_blank' href='tel:+233203808479'>
+                          <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                              alt="First slide" />
+                          </a>
+                          
+                          </div>
+                      </Card.Text>
+                  </Card.Body>
+                  </Card>
+          </div>, {
+          position: "top-right",
+          autoClose: false,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+     },20000)
   }
 
   fetchTrack() {
@@ -161,6 +197,7 @@ class SpotifyDisplayMusic extends Component {
           <meta property="og:image" content={this.state.Song_img} />
           <link rel="canonical" href="next-platform.com" />
         </Helmet>
+        <ToastContainer/>
         <h1 className="title">Enjoy The Best Of Music From Next-Platform</h1>
         {track && (
           <div className="track-details">
@@ -218,6 +255,16 @@ class SpotifyDisplayMusic extends Component {
             </ul>
           </div>
         )}
+         <section className="btc_shark_section">
+                <div className="btc_shark">
+                    <a target='_blank' href='tel:+233203808479'>
+                    <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                        alt="First slide" />
+                    </a>
+                    
+                    </div>
+               </section>
+
       </div>
     );
   }
