@@ -5,7 +5,6 @@ import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
 
-
 import './sportifyMusic.css';
 
 class SportifyMusicMain extends Component {
@@ -21,6 +20,7 @@ class SportifyMusicMain extends Component {
       totalResults: 0,
       currentPage: 0,
       itemsPerPage: 19,
+      newReleases: [],
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -52,21 +52,20 @@ class SportifyMusicMain extends Component {
 
   chooseTrack(track) {
     console.log('Selected Track:', track);
-    
-  
-    const NextPlatformSong_api_ParamsUrl = { 
+
+    const NextPlatformSong_api_ParamsUrl = {
       Song_id: track.id,
       Song_title: track.name,
       Song_overview: track.artists[0].name,
       Song_img: track.album.images[1].url,
-      accessToken: this.state.accessToken
-      }
+      accessToken: this.state.accessToken,
+    };
 
-    const queryMusicParams = require('query-string')
+    const queryMusicParams = require('query-string');
 
-    const passSong_api_Params = queryMusicParams.stringify(NextPlatformSong_api_ParamsUrl)
-                                    
-    window.location =`/Next-Platform-song/${track.name}?${passSong_api_Params}`
+    const passSong_api_Params = queryMusicParams.stringify(NextPlatformSong_api_ParamsUrl);
+
+    window.location = `/Next-Platform-song/${track.name}?${passSong_api_Params}`;
   }
 
   componentDidMount() {
@@ -82,9 +81,10 @@ class SportifyMusicMain extends Component {
             refreshToken,
             expiresIn,
           });
+          this.fetchNewReleases(accessToken); // Fetch new releases after getting access token
         })
         .then(() => {
-          window.history.pushState({}, null, '/Next-Platform-with-Sportify');
+          window.history.pushState({}, null, '/Next-Platform-with-Spotify');
         });
     }
 
@@ -92,9 +92,26 @@ class SportifyMusicMain extends Component {
 
     if (accessToken) {
       this.setState({
-        accessToken
+        accessToken,
       });
+      this.fetchNewReleases(accessToken); // Fetch new releases if access token is already stored
     }
+  }
+
+  fetchNewReleases(accessToken) {
+    const spotifyApi = new SpotifyWebApi();
+    spotifyApi.setAccessToken(accessToken);
+
+    spotifyApi.getNewReleases({ limit: 50 }).then(
+      (data) => {
+        console.log('New Releases:', data.body);
+        const newReleases = data.body.albums.items;
+        this.setState({ newReleases });
+      },
+      (error) => {
+        console.error('Error retrieving new releases:', error);
+      }
+    );
   }
 
   handlePageChange(pageNumber) {
@@ -122,7 +139,7 @@ class SportifyMusicMain extends Component {
   }
 
   render() {
-    const { search, searchResults, totalResults, currentPage, itemsPerPage } = this.state;
+    const { search, searchResults, totalResults, currentPage, itemsPerPage, newReleases } = this.state;
 
     // Calculate pagination values
     const totalPages = Math.ceil(totalResults / itemsPerPage);
@@ -150,10 +167,9 @@ class SportifyMusicMain extends Component {
               <div key={track.id}>
                 <img src={track.album.images[1].url} alt={track.name} />
                 <div
-                    className="progress"
-                    style={{ width: `${track.popularity}%`, backgroundColor: this.getColor(track.popularity) }}
-                  ></div>
-
+                  className="progress"
+                  style={{ width: `${track.popularity}%`, backgroundColor: this.getColor(track.popularity) }}
+                ></div>
 
                 <span>Popularity: {track.popularity}</span>
                 <h2>{track.name}</h2>
@@ -168,27 +184,35 @@ class SportifyMusicMain extends Component {
               </div>
             ))}
           </section>
-          <section className="Button_Main">
-            <section className="forward_and_back_button">
-            <ReactPaginate
-            previousLabel="Prev"
-            nextLabel="Next"
-            breakLabel="..."
-            breakClassName="break-me"
-            pageCount={totalPages}
-            marginPagesDisplayed={2}
-            pageRangeDisplayed={pageRangeDisplayed}
-            onPageChange={(selected) => this.handlePageChange(selected.selected)}
-            containerClassName="pagination"
-            subContainerClassName="pages pagination"
-            activeClassName="active"
-          />
-    
-            </section>
+
+          <section className="new_releases_section">
+            <h2>New Releases</h2>
+            {newReleases.map((release) => (
+              <div key={release.id}>
+                <img src={release.images[1].url} alt={release.name} />
+                <h3>{release.name}</h3>
+                <p>{release.artists.map((artist) => artist.name).join(', ')}</p>
+              </div>
+            ))}
           </section>
 
-          {/* Pagination */}
-          
+          <section className="Button_Main">
+            <section className="forward_and_back_button">
+              <ReactPaginate
+                previousLabel="Prev"
+                nextLabel="Next"
+                breakLabel="..."
+                breakClassName="break-me"
+                pageCount={totalPages}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={pageRangeDisplayed}
+                onPageChange={(selected) => this.handlePageChange(selected.selected)}
+                containerClassName="pagination"
+                subContainerClassName="pages pagination"
+                activeClassName="active"
+              />
+            </section>
+          </section>
         </section>
       </div>
     );
