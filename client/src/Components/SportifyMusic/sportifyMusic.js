@@ -4,8 +4,17 @@ import { Card, Button } from 'react-bootstrap';
 import SpotifyWebApi from 'spotify-web-api-node';
 import axios from 'axios';
 import ReactPaginate from 'react-paginate';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/scrollbar';
+import "swiper/css/effect-cube";
+import SwiperCore, { Navigation, Scrollbar } from 'swiper/core';
 
 import './sportifyMusic.css';
+
+// Initialize Swiper components
+SwiperCore.use([Navigation, Scrollbar]);
 
 class SportifyMusicMain extends Component {
   constructor(props) {
@@ -185,17 +194,6 @@ class SportifyMusicMain extends Component {
             ))}
           </section>
 
-          <section className="new_releases_section">
-            <h2>New Releases</h2>
-            {newReleases.map((release) => (
-              <div key={release.id}>
-                <img src={release.images[1].url} alt={release.name} />
-                <h3>{release.name}</h3>
-                <p>{release.artists.map((artist) => artist.name).join(', ')}</p>
-              </div>
-            ))}
-          </section>
-
           <section className="Button_Main">
             <section className="forward_and_back_button">
               <ReactPaginate
@@ -213,6 +211,27 @@ class SportifyMusicMain extends Component {
               />
             </section>
           </section>
+        </section>
+
+        <section className="new_releases_section">
+          <h2>Next-Platform New Releases</h2>
+          <Swiper
+            navigation
+            scrollbar={{ draggable: true }}
+            slidesPerView={3}
+            spaceBetween={10}
+            
+          >
+            {newReleases.map((release) => (
+              <SwiperSlide key={release.id}>
+                <div>
+                  <img src={release.images[1].url} alt={release.name} />
+                  <h3>{release.name}</h3>
+                  <p>{release.artists.map((artist) => artist.name).join(', ')}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </section>
       </div>
     );
