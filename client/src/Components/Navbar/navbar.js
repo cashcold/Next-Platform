@@ -233,7 +233,9 @@ class Navbar extends Component {
         
     }
     render() { 
-        const Music_Auth_url = `https://accounts.spotify.com/authorize?client_id=${this.state.clientId}&response_type=code&redirect_uri=${this.state.redirectUri}&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state`
+        const AUTH_URL =
+        "https://accounts.spotify.com/authorize?client_id=4e2ccdd89a0847bc992b541f5e5e6f73&response_type=code&redirect_uri=http://localhost:3000/Next-Platform-with-Sportify&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
+
         return ( 
             <div className='navbarMain'>
               
@@ -253,7 +255,7 @@ class Navbar extends Component {
                             <ul className='links'>
                                 <li><a className='btn btn-two' href='/' style={{color: "red"}}>HOME </a></li>
                                 <li><a className='btn btn-two' href='/movies_home_box'>MOVIES</a></li>
-                                <li><a className='btn btn-two' href='/music'>MUSIC</a></li>
+                                <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li>
                                 <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
                                 <li><a className='btn btn-two' href='/online_Tv'>Online TV</a></li>
                                 <li><a className='btn btn-two' href='/link_box'>LinkBox</a></li>

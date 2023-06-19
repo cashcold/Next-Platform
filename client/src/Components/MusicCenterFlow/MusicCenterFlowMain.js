@@ -11,7 +11,7 @@ import  axios from 'axios'
 
 import './style.css'
 class MusicCenterFlowMain extends Component {
-    constructor(props) {
+    constructor(props) { 
         super(props);
         this.state = { 
             music_box_1: music_mainbox,

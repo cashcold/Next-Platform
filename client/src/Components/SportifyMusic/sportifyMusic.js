@@ -10,8 +10,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/scrollbar';
 import "swiper/css/effect-cube";
 import SwiperCore, { Navigation, Scrollbar } from 'swiper/core';
-
 import './sportifyMusic.css';
+import MusicReceivedMain from '../Music_Received/music_receivedMain';
 
 // Initialize Swiper components
 SwiperCore.use([Navigation, Scrollbar]);
@@ -58,7 +58,7 @@ class SportifyMusicMain extends Component {
       document.querySelector('.Button_Main').style.display = 'block';
     }
   }
-
+s
   chooseTrack(track) {
     console.log('Selected Track:', track);
 
@@ -76,6 +76,26 @@ class SportifyMusicMain extends Component {
 
     window.location = `/Next-Platform-song/${track.name}?${passSong_api_Params}`;
   }
+
+  chooseRelease(release) {
+    console.log('Selected Release:', release);
+  
+    const NextPlatformRelease_api_ParamsUrl = {
+      Release_id: release.id,
+      Release_title: release.name,
+      Release_overview: release.artists.map((artist) => artist.name).join(', '),
+      Release_img: release.images[1].url,
+      accessToken: this.state.accessToken,
+    };
+  
+    const queryMusicParams = require('query-string');
+  
+    const passRelease_api_Params = queryMusicParams.stringify(NextPlatformRelease_api_ParamsUrl);
+  
+    window.location = `/Next-Platform-release/${release.name}?${passRelease_api_Params}`;
+  }
+  
+  
 
   componentDidMount() {
     const code = new URLSearchParams(window.location.search).get('code');
@@ -212,27 +232,63 @@ class SportifyMusicMain extends Component {
             </section>
           </section>
         </section>
-
-        <section className="new_releases_section">
-          <h2>Next-Platform New Releases</h2>
+        <section className="new_releases_section new_releases_section_forWeb">
+          <h2>Next-Platform New Releases For The Week</h2>
           <Swiper
             navigation
             scrollbar={{ draggable: true }}
-            slidesPerView={3}
+            slidesPerView={5} // Adjust this value to determine the number of items per row
+            slidesPerColumn={2} // Set the number of rows to 1
+            slidesPerColumnFill="row"
             spaceBetween={10}
-            
+            className="swiper-container"
           >
             {newReleases.map((release) => (
               <SwiperSlide key={release.id}>
                 <div>
                   <img src={release.images[1].url} alt={release.name} />
-                  <h3>{release.name}</h3>
+                  <h4>{release.name}</h4>
                   <p>{release.artists.map((artist) => artist.name).join(', ')}</p>
+                  <Button
+                    className="display_spotify_song_info_Button"
+                    variant="primary"
+                    onClick={() => this.chooseRelease(release)}
+                  >
+                    Listen or Download
+                  </Button>
                 </div>
               </SwiperSlide>
             ))}
           </Swiper>
         </section>
+        <section className="new_releases_section new_releases_section_forMobile">
+          <h2>Next-Platform New Releases For The Week</h2>
+          <Swiper
+            navigation
+            scrollbar={{ draggable: true }}
+            slidesPerView={2}
+            spaceBetween={10}
+          >
+            {newReleases.map((release) => (
+              <SwiperSlide key={release.id}>
+                <div>
+                  <img src={release.images[1].url} alt={release.name} />
+                  <h4>{release.name}</h4>
+                  <p>{release.artists.map((artist) => artist.name).join(', ')}</p>
+                  <Button
+                    className="display_spotify_song_info_Button"
+                    variant="primary"
+                    onClick={() => this.chooseRelease(release)}
+                  >
+                    Listen or Download
+                  </Button>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </section>
+
+        <MusicReceivedMain/>
       </div>
     );
   }

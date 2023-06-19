@@ -42,6 +42,7 @@ import SportifyMusicMain from './Components/SportifyMusic/sportifyMusic';
 import SpotifyAuth from './Components/Music Spotify/musicSpotify';
 import LoginSpotify from './Components/SportifyMusic/loginSpotify';
 import SpotifyDisplayMusic from './Components/SportifyMusic/spotifyDisplayMusic';
+import SpotifyReleases from './Components/SportifyMusic/spotifyRelease';
 
 
 class MainApp extends Component {
@@ -119,6 +120,7 @@ class MainApp extends Component {
                                 <Route path='/watch_online_Tv' exact component={DisplayOnlineTv}/>
                                 <Route path='/Next-Platform-with-Sportify' exact component={SportifyMusicMain}/>
                                 <Route path='/Next-Platform-song/:id' exact component={SpotifyDisplayMusic}/>
+                                <Route path='/Next-Platform-release/:id' exact component={SpotifyReleases}/>
 
 
 

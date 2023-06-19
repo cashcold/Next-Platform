@@ -29,7 +29,7 @@
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
-  }
+     }
   
   .Next_sportify_section_1 {
     text-align: center;
@@ -192,9 +192,25 @@
   height: 100%;
 }
 
+.new_releases_section{
+  margin: 5em 0em;
+}
 
-
-
+.new_releases_section h2{
+  margin: 1em 0em;
+  color: red;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.new_releases_section_forMobile{
+  display: none;
+}
+.swiper-slide {
+  width: calc(50% - 5px); /* Adjust the width and space between columns */
+  margin-right: 10px; /* Adjust the space between columns */
+  display: inline-block;
+  vertical-align: top;
+}
 
 
 
@@ -213,5 +229,14 @@
   .pagination-container .next {
     display: inline-block;
     margin: 5px;
+  }
+  .new_releases_section{
+    margin: 3em 0em;
+  }
+  .new_releases_section_forWeb{
+    display: none;
+  }
+  .new_releases_section_forMobile{
+    display: block;
   }
 }
