@@ -83,6 +83,7 @@ class MainApp extends Component {
                 <meta property="og:image" content="https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg" />
                     <link rel="canonical" href="next-platform.com" />
                 </Helmet>
+                <section className='AppMainApp'>
                 <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
@@ -135,6 +136,7 @@ class MainApp extends Component {
                             <Footer/>
                         </div>
                 </div>
+                </section>
             </Router>
  
          );

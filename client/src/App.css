@@ -4,13 +4,22 @@
     box-sizing: border-box;
     
 }
+.AppMainApp{
+    background-color: black;
+    color: white
+}
 
 .mainApp{
+    max-width: 1400px;
+    margin: 0 auto;
     text-align: center;
     align-items: center;
     justify-content: center;
-    /* background-color: black;
-    color: white; */
+    background-color: white;
+    color: black;
+    border-style: none ;
+    
+
 }
 ul li{
     list-style: none;
