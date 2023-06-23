@@ -30,6 +30,7 @@ class SportifyMusicMain extends Component {
       currentPage: 0,
       itemsPerPage: 19,
       newReleases: [],
+      categories: [], // Added state for categories
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
@@ -58,7 +59,7 @@ class SportifyMusicMain extends Component {
       document.querySelector('.Button_Main').style.display = 'block';
     }
   }
-s
+
   chooseTrack(track) {
     console.log('Selected Track:', track);
 
@@ -79,7 +80,7 @@ s
 
   chooseRelease(release) {
     console.log('Selected Release:', release);
-  
+
     const NextPlatformRelease_api_ParamsUrl = {
       Release_id: release.id,
       Release_title: release.name,
@@ -87,15 +88,13 @@ s
       Release_img: release.images[1].url,
       accessToken: this.state.accessToken,
     };
-  
+
     const queryMusicParams = require('query-string');
-  
+
     const passRelease_api_Params = queryMusicParams.stringify(NextPlatformRelease_api_ParamsUrl);
-  
+
     window.location = `/Next-Platform-release/${release.name}?${passRelease_api_Params}`;
   }
-  
-  
 
   componentDidMount() {
     const code = new URLSearchParams(window.location.search).get('code');
@@ -111,6 +110,7 @@ s
             expiresIn,
           });
           this.fetchNewReleases(accessToken); // Fetch new releases after getting access token
+          this.fetchCategories(accessToken); // Fetch categories after getting access token
         })
         .then(() => {
           window.history.pushState({}, null, '/Next-Platform-with-Spotify');
@@ -124,6 +124,7 @@ s
         accessToken,
       });
       this.fetchNewReleases(accessToken); // Fetch new releases if access token is already stored
+      this.fetchCategories(accessToken); // Fetch categories if access token is already stored
     }
   }
 
@@ -139,6 +140,22 @@ s
       },
       (error) => {
         console.error('Error retrieving new releases:', error);
+      }
+    );
+  }
+
+  fetchCategories(accessToken) {
+    const spotifyApi = new SpotifyWebApi();
+    spotifyApi.setAccessToken(accessToken);
+
+    spotifyApi.getCategories().then(
+      (data) => {
+        console.log('Categories:', data.body);
+        const categories = data.body.categories.items;
+        this.setState({ categories });
+      },
+      (error) => {
+        console.error('Error retrieving categories:', error);
       }
     );
   }
@@ -168,7 +185,7 @@ s
   }
 
   render() {
-    const { search, searchResults, totalResults, currentPage, itemsPerPage, newReleases } = this.state;
+    const { search, searchResults, totalResults, currentPage, itemsPerPage, newReleases, categories } = this.state;
 
     // Calculate pagination values
     const totalPages = Math.ceil(totalResults / itemsPerPage);
@@ -190,7 +207,14 @@ s
             />
             <button onClick={this.handleSearch}>Search</button>
           </div>
-
+          <section className='getCategories_main'>
+            {categories.map((category) => (
+              <div key={category.id}>
+                <img src={category.icons[0].url} alt={category.name} />
+                <h4>{category.name}</h4>
+              </div>
+            ))}
+          </section>
           <section className="display_spotify_song_info">
             {searchResults.map((track) => (
               <div key={track.id}>
@@ -233,7 +257,7 @@ s
           </section>
         </section>
         <section className="new_releases_section new_releases_section_forWeb">
-          {newReleases.length > 0  && <h2>Next-Platform New Releases For The Week</h2>}
+          {newReleases.length > 0 && <h2>Next-Platform New Releases For The Week</h2>}
           <Swiper
             navigation
             scrollbar={{ draggable: true }}
@@ -262,13 +286,8 @@ s
           </Swiper>
         </section>
         <section className="new_releases_section new_releases_section_forMobile">
-        {newReleases.length > 0  && <h2>Next-Platform New Releases For The Week</h2>}
-          <Swiper
-            navigation
-            scrollbar={{ draggable: true }}
-            slidesPerView={2}
-            spaceBetween={10}
-          >
+          {newReleases.length > 0 && <h2>Next-Platform New Releases For The Week</h2>}
+          <Swiper navigation scrollbar={{ draggable: true }} slidesPerView={2} spaceBetween={10}>
             {newReleases.map((release) => (
               <SwiperSlide key={release.id}>
                 <div>
@@ -287,8 +306,6 @@ s
             ))}
           </Swiper>
         </section>
-
-        <MusicReceivedMain/>
       </div>
     );
   }
