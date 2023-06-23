@@ -155,7 +155,6 @@ app.get('/lyrics', async (req, res) => {
 
 
 
-
 app.get('/', function(request, response) {
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
   

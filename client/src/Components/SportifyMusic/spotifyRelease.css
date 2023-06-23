@@ -54,4 +54,49 @@
     font-size: 16px;
     line-height: 1.5;
   }
+
+  .new_releases_drop_section {
+    margin-top: 20px;
+  }
+  
+  .new_releases_drop_section h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .new_releases_drop_details {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+  }
+  
+  .new_releases_drop_details img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .new_releases_drop_details h4 {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .new_releases_drop_details p {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .display_spotify_song_info_Button {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  /* Pagination buttons */
+  .new_releases_drop_section button {
+    font-size: 14px;
+    padding: 8px 16px;
+    margin-top: 10px;
+  }
+  
   

@@ -233,7 +233,7 @@ s
           </section>
         </section>
         <section className="new_releases_section new_releases_section_forWeb">
-          <h2>Next-Platform New Releases For The Week</h2>
+          {newReleases.length > 0  && <h2>Next-Platform New Releases For The Week</h2>}
           <Swiper
             navigation
             scrollbar={{ draggable: true }}
@@ -262,7 +262,7 @@ s
           </Swiper>
         </section>
         <section className="new_releases_section new_releases_section_forMobile">
-          <h2>Next-Platform New Releases For The Week</h2>
+        {newReleases.length > 0  && <h2>Next-Platform New Releases For The Week</h2>}
           <Swiper
             navigation
             scrollbar={{ draggable: true }}
