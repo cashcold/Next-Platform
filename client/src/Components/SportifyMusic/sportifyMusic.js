@@ -207,14 +207,6 @@ class SportifyMusicMain extends Component {
             />
             <button onClick={this.handleSearch}>Search</button>
           </div>
-          <section className='getCategories_main'>
-            {categories.map((category) => (
-              <div key={category.id}>
-                <img src={category.icons[0].url} alt={category.name} />
-                <h4>{category.name}</h4>
-              </div>
-            ))}
-          </section>
           <section className="display_spotify_song_info">
             {searchResults.map((track) => (
               <div key={track.id}>
@@ -237,7 +229,6 @@ class SportifyMusicMain extends Component {
               </div>
             ))}
           </section>
-
           <section className="Button_Main">
             <section className="forward_and_back_button">
               <ReactPaginate
@@ -254,6 +245,14 @@ class SportifyMusicMain extends Component {
                 activeClassName="active"
               />
             </section>
+          </section>
+          <section className='getCategories_main'>
+            {categories.map((category) => (
+              <div key={category.id}>
+                <img src={category.icons[0].url} alt={category.name} />
+                <h4>{category.name}</h4>
+              </div>
+            ))}
           </section>
         </section>
         <section className="new_releases_section new_releases_section_forWeb">
