@@ -283,14 +283,14 @@ app.get('/music/:id', function(request, response) {
       const {info, name, on_image} = qdata
  
  
-// replace the special strings with server generated strings
+ // replace the special strings with server generated strings
       data = data.replace(/\$OG_TITLE/g,name);
       data = data.replace(/\$OG_DESCRIPTION/g,info);
       result = data.replace(/\$OG_IMAGE/g,on_image);
       response.send(result);
     });
 
-  });
+});
 
 
 app.get('/link_box', function(request, response) {

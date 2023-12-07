@@ -43,6 +43,7 @@ import SpotifyAuth from './Components/Music Spotify/musicSpotify';
 import LoginSpotify from './Components/SportifyMusic/loginSpotify';
 import SpotifyDisplayMusic from './Components/SportifyMusic/spotifyDisplayMusic';
 import SpotifyReleases from './Components/SportifyMusic/spotifyRelease';
+import LandingPageDrinks from './Components/Drinks/LandingPageDrinks.js';
 
 
 class MainApp extends Component {
@@ -105,7 +106,8 @@ class MainApp extends Component {
                                 <Route path={`/sport-main-home/${scoreBat_matchviewUrl}`} exact component={ScoreBatReceivedApi}/>
                                 <Route path='/food-main-home/Receive-food-order/:id'  exact component={ReceiveGetdFood}/> 
                                 <Route path='/food-main-home' exact component={FoodMain}/>
-                                <Route path='/drinks-main' exact component={GetDrinksMain}/>
+                                {/* <Route path='/drinks-main' exact component={GetDrinksMain}/> */}
+                                <Route path='/drinks-main' exact component={LandingPageDrinks}/>
                                 <Route path='/watch_next' exact component={WatchNextMain}/>
                                 <Route path='/movies_home_box' exact component={MoviesLandingPage}/>
                                 <Route path='/movie_box_main' exact component={MovieBoxMain}/>
