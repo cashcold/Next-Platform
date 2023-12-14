@@ -1,10 +1,18 @@
+.LandingPageDrinks_app__main{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #230312;
+  color: white;
+}
+
 .LandDrinksPage_main {
     margin: 17em 0em;
     display: flex;
     justify-content: center;
     align-items: center;
-    max-block-size: 100vh;
-    background-color: #f5f5f5;
+    /* max-block-size: 100vh; */
+    background-color: #230312;
+  color: white;
   }
   
   .landDrinks_main__1 {
@@ -56,3 +64,89 @@
     line-height: 1.6;
     margin-bottom: 15px
   }
+
+  .search-containe-main{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    background-color: #1E010D;
+    color: white;
+  }
+
+  .search-container {
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+#searchButton {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+    border: 1px solid #45a049;
+}
+
+/* .receivedRandomImage {
+  margin: 5em 0em;
+} */
+
+.receivedRandomImage .main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 990px;
+  margin: 100px auto;
+  background-color: #1E010D;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.receivedRandomImage .image-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
+}
+
+.receivedRandomImage .image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 0 0 10px;
+}
+
+.receivedRandomImage .content-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.receivedRandomImage h1 {
+  font-weight: bold;
+}
+
+.receivedRandomImage p {
+  color: #F6A40F;
+}
+
+.promoteDrinks_main{
+  display: flex;
+}
