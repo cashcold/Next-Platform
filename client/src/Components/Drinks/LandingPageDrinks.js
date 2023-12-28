@@ -19,6 +19,7 @@ class LandingPageDrinks extends Component {
       strAlcoholic: '',
       strGlass: '',
       Barracuda: '',
+      Apple_Berry: '',
     };
   }
 
@@ -36,6 +37,17 @@ class LandingPageDrinks extends Component {
      })
      .catch(error => console.error('Error fetching data:', error));
 
+     
+     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Apple Berry Smoothie')
+     .then(response => {
+       // Extract the image URL and drink name from the API response
+       const Apple_Berry = response.data.drinks[0].strDrinkThumb;
+
+       // Update the component state with the new data
+       this.setState({ Apple_Berry });
+     })
+     .catch(error => console.error('Error fetching data:', error));
+
     // Fetch data initially
     this.fetchData();
     this.fetchNonAlcoholicDrinks();
@@ -48,16 +60,7 @@ class LandingPageDrinks extends Component {
 
   componentWillUnmount() {
 
-     // Fetch data from the API using Axios
-     axios.get('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=Barracuda')
-     .then(response => {
-       // Extract the image URL and drink name from the API response
-       const Barracuda = response.data.drinks[0].strDrinkThumb;
 
-       // Update the component state with the new data
-       this.setState({ Barracuda });
-     })
-     .catch(error => console.error('Error fetching data:', error));
 
     // Clear the interval when the component is unmounted
     clearInterval(this.interval);
@@ -101,7 +104,7 @@ class LandingPageDrinks extends Component {
   };
 
   render() {
-    const { drinks, currentPage, itemsPerPage, imageUrl, drinkName, strCategory, strAlcoholic, strGlass, Barracuda } = this.state;
+    const { drinks, currentPage, itemsPerPage, imageUrl, drinkName, strCategory, strAlcoholic, strGlass, Barracuda, Apple_Berry } = this.state;
     const offset = currentPage * itemsPerPage;
     const currentItems = drinks.slice(offset, offset + itemsPerPage);
 
@@ -119,8 +122,14 @@ class LandingPageDrinks extends Component {
               <img src={Barracuda} alt='picture' />
             </div>
           </div>
-          <div className='drinksPromote_box_2'></div>
-          <div className='drinksPromote_box_3'></div>
+          <div className='drinksPromote_box_2'>
+            <h4>🌟 Welcome to Next-Platform Drinks! 🍹 Where Every Sip is a Celebration! 🌈 Indulge in a world of delightful non-alcoholic beverages crafted just for you. Join our community and discover the perfect blend of taste, health, and social joy. 🥳✨ Cheers to endless flavors and good times! 🎉 #NextPlatformDrinks #CheersToGoodTimes 🍸🌺</h4>
+          </div>
+          <div className='drinksPromote_box_3'>
+          <div className="image-container">
+              <img src={Apple_Berry} alt='picture' />
+            </div>
+          </div>
         </section>
         <section className='search-containe-main'>
           <div className="search-container">
@@ -173,7 +182,6 @@ class LandingPageDrinks extends Component {
               <p>3. <strong>Endless Variety:</strong> From fruity punches to herbal infusions, our non-alcoholic drinks cater to diverse palates.</p>
               <h2>Explore Our Collection</h2>
               <p>Take a journey through our enticing non-alcoholic drink options. Each sip is a celebration of flavor and a toast to good times. Click, explore, and treat yourself to a world of delightful beverages.</p>
-              <Button variant="primary">Discover Non-Alcoholic Drinks</Button>
         </section>
         <section className="LandDrinksPage_main">
           <section className="landDrinks_main__1">

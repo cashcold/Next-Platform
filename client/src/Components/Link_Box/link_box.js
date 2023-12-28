@@ -25,7 +25,7 @@ class LinkBoxMain extends Component {
            <div className='drop_main_data'>   
             <div className='drop_data' onClick={()=>{ 
                     localStorage.setItem('linkBox_api_id',pd.id)
-                    localStorage.setItem('linkBox_api_title',pd.title)
+                    localStorage.setItem('linkBox_api_title',pd.title) 
                     localStorage.setItem('linkBox_api_title_url',pd.title_url)
                     localStorage.setItem('linkBox_api_name',pd.name)
                     localStorage.setItem('linkBox_api_img',pd.img)
