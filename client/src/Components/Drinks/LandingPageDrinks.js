@@ -20,10 +20,34 @@ class LandingPageDrinks extends Component {
       strGlass: '',
       Barracuda: '',
       Apple_Berry: '',
+      searchInput: '',
+      searchInputResuilt: [],
     };
   }
 
+  handleSearch = () => {
+    const { searchInput } = this.state;
+    axios.get(`https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInput}`)
+      .then(response => {
+        const drinks = response.data.drinks || [];
+        this.setState({ searchInputResuilt: drinks});
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+        toast.error('Failed to fetch drinks. Please try again.');
+      });
+  };
+
+  handleChange = (e) => {
+    this.setState({ searchInput: e.target.value });
+  };
+  
+  
+
   componentDidMount() {
+    console.log(this.state.searchInputResuilt)
+
+    
     
     
      // Fetch data from the API using Axios
@@ -104,9 +128,11 @@ class LandingPageDrinks extends Component {
   };
 
   render() {
-    const { drinks, currentPage, itemsPerPage, imageUrl, drinkName, strCategory, strAlcoholic, strGlass, Barracuda, Apple_Berry } = this.state;
+    const { drinks, currentPage, itemsPerPage, imageUrl, drinkName, strCategory, strAlcoholic, strGlass, Barracuda, Apple_Berry, searchInputResuilt } = this.state;
     const offset = currentPage * itemsPerPage;
     const currentItems = drinks.slice(offset, offset + itemsPerPage);
+
+    console.log(this.state.searchInputResuilt)
 
     return (
       <div className='LandingPageDrinks_app__main'>
@@ -131,11 +157,41 @@ class LandingPageDrinks extends Component {
             </div>
           </div>
         </section>
-        <section className='search-containe-main'>
-          <div className="search-container">
-          <input type="text" id="searchInput" placeholder="Search for drinks..."/>
-          <button id="searchButton">Search</button>
-        </div>
+        <section className='display_search_details_main'>
+          <div className='display_search_details'>
+          <section className='search-containe-main'>
+              <div className="search-container">
+                <input
+                  type="text"
+                  id="searchInput"
+                  placeholder="Search for drinks..."
+                  value={this.state.searchInput}
+                  onChange={this.handleChange}
+                />
+                <button id="searchButton" onClick={this.handleSearch}>
+                  Searchs
+                </button>
+              </div>
+            </section>
+            
+          </div>
+        </section>
+        <section className="search-results">
+         
+          <div className="drink-cards">
+            {searchInputResuilt.map((drink) => (
+              <Card key={drink.idDrink} className="drink-card" style={{ backgroundColor: 'black', color: 'white' }}>
+                <Card.Img variant="top" src={drink.strDrinkThumb} alt={drink.strDrink} className="drink-image" />
+                <Card.Body>
+                  <Card.Title>{drink.strDrink}</Card.Title>
+                  <Card.Text></Card.Text>
+                  <Button variant="primary" className="learn-more-btn">
+                    Learn More
+                  </Button>
+                </Card.Body>
+              </Card>
+            ))}
+          </div>
         </section>
         <section className='receivedRandomImage'>
           <div className="main-container">
@@ -187,7 +243,7 @@ class LandingPageDrinks extends Component {
           <section className="landDrinks_main__1">
             <div className="drink-cards">
               {currentItems.map((drink) => (
-                <Card key={drink.idDrink} className="drink-card">
+                <Card key={drink.idDrink} className="drink-card" style={{ backgroundColor: 'black', color: 'white' }}>
                   <Card.Img variant="top" src={drink.strDrinkThumb} alt={drink.strDrink} className="drink-image" />
                   <Card.Body>
                     <Card.Title>{drink.strDrink}</Card.Title>
