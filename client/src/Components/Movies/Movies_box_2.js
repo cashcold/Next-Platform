@@ -460,7 +460,7 @@ loading_prev_movie_qury(e){
             const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
             
             window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
-        }}>
+          }}>
             <div>
             <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
             <h4 className='movie_position_name'>{data.title}</h4>

@@ -83,7 +83,7 @@ class LandingPageDrinks extends Component {
   }
 
   componentWillUnmount() {
-
+    
 
 
     // Clear the interval when the component is unmounted
@@ -132,7 +132,7 @@ class LandingPageDrinks extends Component {
     const offset = currentPage * itemsPerPage;
     const currentItems = drinks.slice(offset, offset + itemsPerPage);
 
-    console.log(this.state.searchInputResuilt)
+    // console.log(this.state.searchInputResuilt)
 
     return (
       <div className='LandingPageDrinks_app__main'>
@@ -169,7 +169,7 @@ class LandingPageDrinks extends Component {
                   onChange={this.handleChange}
                 />
                 <button id="searchButton" onClick={this.handleSearch}>
-                  Searchs
+                  Search
                 </button>
               </div>
             </section>
@@ -180,7 +180,27 @@ class LandingPageDrinks extends Component {
          
           <div className="drink-cards">
             {searchInputResuilt.map((drink) => (
-              <Card key={drink.idDrink} className="drink-card" style={{ backgroundColor: 'black', color: 'white' }}>
+              <Card key={drink.idDrink} className="drink-card" style={{ backgroundColor: 'black', color: 'white' }} onClick={()=>{
+                localStorage.setItem('TMDB_pd_id',drink.idDrink)
+                localStorage.setItem('TMDB_pd_title',drink.title)
+                this.setState({
+                 TMDB_id: drink.idDrink,
+                 TMDB_title: drink.title 
+                })
+
+                const TMDB_api_ParamsUrl = { 
+                 TMDB_id: drink.idDrink,
+                 TMDB_title: drink.strDrink,
+                 TMDB_overview: drink.strCategory,
+                 TMDB_img: drink.strDrinkThumb
+                 }
+             const queryMusicParams = require('query-string')
+
+             const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+             
+             window.location =`/drinks_info/${drink.strDrink}?${passTMDB_api_Params}`
+               
+              }}>
                 <Card.Img variant="top" src={drink.strDrinkThumb} alt={drink.strDrink} className="drink-image" />
                 <Card.Body>
                   <Card.Title>{drink.strDrink}</Card.Title>

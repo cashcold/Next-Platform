@@ -114,7 +114,7 @@ class MovieBoxMain extends Component {
                                        localStorage.setItem('TMDB_pd_title',data.title)
                                        this.setState({
                                         TMDB_id: data.id,
-                                        TMDB_title: data.title
+                                        TMDB_title: data.title 
                                        })
 
                                        const TMDB_api_ParamsUrl = { 
@@ -130,7 +130,7 @@ class MovieBoxMain extends Component {
                                     window.location =`/watch_movies/${data.title}?${passTMDB_api_Params}`
                                         
                                     //    window.location =`/watch_movies`
-                                    }}>
+                                      }}>
                                         <img src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`}/>
                                         <div className="api_namme">
                                         {data.title}
