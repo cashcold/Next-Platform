@@ -583,7 +583,7 @@ loading_prev_movie_qury(e){
                  </div>
              </section>
              <section className="Recommendations_main_section">
-                 <h1>Similar Movies</h1>
+                 <h1>Similar Movies User likes</h1>
                     
                  <section className="movies_raw_js">
                             <h2>{this.state.TMDB_similar_main_check.map(data =>

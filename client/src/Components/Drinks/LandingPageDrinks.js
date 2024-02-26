@@ -45,7 +45,8 @@ class LandingPageDrinks extends Component {
   
 
   componentDidMount() {
-    console.log(this.state.searchInputResuilt)
+    // console.log(this.state.searchInputResuilt)
+    
 
     
     
@@ -95,6 +96,7 @@ class LandingPageDrinks extends Component {
     axios.get('https://www.thecocktaildb.com/api/json/v1/1/random.php')
       .then(response => {
         // Extract the image URL and drink name from the API response
+        const idDrink = response.data.drinks[0].idDrink;
         const imageUrl = response.data.drinks[0].strDrinkThumb;
         const drinkName = response.data.drinks[0].strDrink;
         const strCategory = response.data.drinks[0].strCategory;
@@ -102,7 +104,7 @@ class LandingPageDrinks extends Component {
         const strGlass = response.data.drinks[0].strGlass;
 
         // Update the component state with the new data
-        this.setState({ imageUrl, drinkName, strCategory, strAlcoholic, strGlass });
+        this.setState({ imageUrl, drinkName, strCategory, strAlcoholic, strGlass, idDrink });
       })
       .catch(error => console.error('Error fetching data:', error));
   };
@@ -132,7 +134,7 @@ class LandingPageDrinks extends Component {
     const offset = currentPage * itemsPerPage;
     const currentItems = drinks.slice(offset, offset + itemsPerPage);
 
-    // console.log(this.state.searchInputResuilt)
+  
 
     return (
       <div className='LandingPageDrinks_app__main'>
@@ -198,8 +200,8 @@ class LandingPageDrinks extends Component {
 
              const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
              
-             window.location =`/drinks_info/${drink.strDrink}?${passTMDB_api_Params}`
-               
+            //  window.location =`/drinks_info/${drink.strDrink}?${passTMDB_api_Params}`
+            console.log("this is id " + this.state.idDrink)
               }}>
                 <Card.Img variant="top" src={drink.strDrinkThumb} alt={drink.strDrink} className="drink-image" />
                 <Card.Body>
