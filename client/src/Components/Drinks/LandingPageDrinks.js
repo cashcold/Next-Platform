@@ -151,7 +151,7 @@ class LandingPageDrinks extends Component {
             </div>
           </div>
           <div className='drinksPromote_box_2'>
-            <h4>🌟 Welcome to Next-Platform Drinks! 🍹 Where Every Sip is a Celebration! 🌈 Indulge in a world of delightful non-alcoholic beverages crafted just for you. Join our community and discover the perfect blend of taste, health, and social joy. 🥳✨ Cheers to endless flavors and good times! 🎉 #NextPlatformDrinks #CheersToGoodTimes 🍸🌺...</h4>
+            <h4>🌟 Welcome to Next-Platform Drinks! 🍹 Where Every Sip is a Celebration! 🌈 Indulge in a world of delightful non-alcoholic beverages crafted just for you. Join our community and discover the perfect blend of taste, health, and social joy. 🥳✨ Cheers to endless flavors and good times! 🎉 #NextPlatformDrinks #CheersToGoodTimes 🍸🌺..</h4>
           </div>
           <div className='drinksPromote_box_3'>
           <div className="image-container">
