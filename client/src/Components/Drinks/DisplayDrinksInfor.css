@@ -5,6 +5,7 @@
     margin: 0 auto;
     padding: 20px;
     background-color: #fff;
+    color: black;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
   
@@ -37,3 +38,9 @@
     margin-bottom: 5px;
   }
   
+  .main_home_cocktail{
+    background-color: black;
+    color: white;
+    margin: 3em 0em;
+    padding: 2em 0em;
+  }

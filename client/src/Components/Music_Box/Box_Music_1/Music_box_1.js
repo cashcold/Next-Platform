@@ -9,7 +9,7 @@ import {Card,Button} from 'react-bootstrap'
 
 
 import './style.css'
-class MusicBox_1 extends Component {
+class MusicBox_1 extends Component { 
     constructor(props) {
         super(props);
         this.state = { 

@@ -39,6 +39,15 @@ class ReceiveGetdFood extends Component {
             <div className='received_get_food'>
                 <section className="receive_section_box_1">
                     <h1 className='review_order'>Review order</h1>
+                    <section className="btc_shark_section">
+                <div className="btc_shark">
+                    <a target='_blank' href='tel:+233203808479'>
+                    <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                        alt="First slide" />
+                    </a>
+                    
+                    </div>
+        </section>
                    <div className="orderNowText">
                    <img src={this.state.getFood_api_strMealThumb}/>
                    <h3>{this.state.getFood_api_strMeal}hey</h3>

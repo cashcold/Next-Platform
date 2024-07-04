@@ -1,5 +1,48 @@
 import React, { Component } from 'react';
+import './DisplayDrinksInfor.css';
 import axios from 'axios';
+import {
+  EmailShareButton,
+  FacebookShareButton,
+  InstapaperShareButton,
+  LineShareButton,
+  LinkedinShareButton,
+  MailruShareButton,
+  OKShareButton,
+  PinterestShareButton,
+  PocketShareButton,
+  RedditShareButton,
+  TelegramShareButton,
+  TumblrShareButton,
+  TwitterShareButton,
+  ViberShareButton,
+  VKShareButton,
+  WhatsappShareButton,
+  WorkplaceShareButton
+} from "react-share";
+import {
+  EmailIcon,
+  FacebookIcon,
+  FacebookMessengerIcon,
+  HatenaIcon,
+  InstapaperIcon,
+  LineIcon,
+  LinkedinIcon,
+  LivejournalIcon,
+  MailruIcon,
+  OKIcon,
+  PinterestIcon,
+  PocketIcon,
+  RedditIcon,
+  TelegramIcon,
+  TumblrIcon,
+  TwitterIcon,
+  ViberIcon,
+  VKIcon,
+  WeiboIcon,
+  WhatsappIcon,
+  WorkplaceIcon
+} from "react-share";
 
 class CocktailDetails extends Component {
   constructor(props) {
@@ -45,6 +88,17 @@ class CocktailDetails extends Component {
     const { cocktail, loading } = this.state;
 
     return (
+      <div className='main_home_cocktail'>
+        
+      <section className="btc_shark_section">
+                <div className="btc_shark">
+                    <a target='_blank' href='tel:+233203808479'>
+                    <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                        alt="First slide" />
+                    </a>
+                    
+                    </div>
+        </section>
       <div className="cocktail-details">
         {loading ? (
           <p>Loading...</p>
@@ -82,6 +136,72 @@ class CocktailDetails extends Component {
             </div>
           </>
         )}
+      </div>
+      <div className="all_icons">
+        <h1>Share</h1>
+                        <div className='socail_icon'>
+                                    <FacebookShareButton  url={window.location.href}>
+                                    <FacebookIcon size={40}  round={true} />
+                                </FacebookShareButton>
+                                <PinterestShareButton  url={window.location.href}>
+                                    <PinterestIcon size={40}  round={true} />
+                                </PinterestShareButton>
+                                <WhatsappShareButton  url={window.location.href}>
+                                    <WhatsappIcon size={40}  round={true} />
+                                </WhatsappShareButton>
+                                <TwitterShareButton  url={window.location.href}>
+                                <VKShareButton  url={window.location.href}>
+                                    <VKIcon size={40}  round={true} />
+                                </VKShareButton>
+                                    <TwitterIcon size={40}  round={true} />
+                                </TwitterShareButton>
+                                <LineShareButton  url={window.location.href}>
+                                    <LineIcon size={40}  round={true} />
+                                </LineShareButton>
+                                <RedditShareButton  url={window.location.href}>
+                                    <RedditIcon size={40}  round={true} />
+                                </RedditShareButton><br/><br/>
+                                
+                            </div>
+                            <div className='socail_icon'>
+                                <br/><br/>
+                                <ViberShareButton  url={window.location.href}>
+                                    <ViberIcon size={40}  round={true} />
+                                </ViberShareButton>
+                                <LinkedinShareButton  url={window.location.href}>
+                                    <LinkedinIcon size={40}  round={true} />
+                                </LinkedinShareButton>
+                                <TelegramShareButton  url={window.location.href}>
+                                    <TelegramIcon size={40}  round={true} />
+                                </TelegramShareButton>
+                                <OKShareButton  url={window.location.href}>
+                                    <OKIcon size={40}  round={true} />
+                                </OKShareButton>
+                                <InstapaperShareButton  url={window.location.href}>
+                                    <InstapaperIcon size={40}  round={true} />
+                                </InstapaperShareButton>
+                            
+                            </div>
+                            <div className='socail_icon'>
+                                <br/><br/>
+                            
+                                <MailruShareButton  url={window.location.href}>
+                                    <MailruIcon size={40}  round={true} />
+                                </MailruShareButton>
+                                <TumblrShareButton  url={window.location.href}>
+                                    <TumblrIcon size={40}  round={true} />
+                                </TumblrShareButton>
+                                <PocketShareButton  url={window.location.href}>
+                                    <PocketIcon size={40}  round={true} />
+                                </PocketShareButton>
+                                < WorkplaceShareButton  url={window.location.href}>
+                                    <WorkplaceIcon size={40}  round={true} />
+                                </ WorkplaceShareButton>
+                                <EmailShareButton  url={window.location.href}>
+                                    <EmailIcon size={40}  round={true} />
+                                </EmailShareButton>
+                            </div>
+                    </div>
       </div>
     );
   }

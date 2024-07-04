@@ -5,6 +5,15 @@ class Footer extends React.Component{
     render(){
         return(
             <div className='footer'>
+            <section className="btc_shark_section">
+            <div className="btc_shark">
+                <a target='_blank' href='tel:+233203808479'>
+                <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                    alt="First slide" />
+                </a>
+                
+                </div>
+           </section>
                 <section className='section__A'>
                     <div className='subsc'>
                         <h2><span className='styleText'>SUBSCRIBE & FOLLOW</span> TO GET UPDATE FROM <span className='styleName'>NEXTPLATFORM</span></h2>

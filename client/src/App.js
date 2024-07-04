@@ -45,6 +45,7 @@ import SpotifyDisplayMusic from './Components/SportifyMusic/spotifyDisplayMusic'
 import SpotifyReleases from './Components/SportifyMusic/spotifyRelease';
 import LandingPageDrinks from './Components/Drinks/LandingPageDrinks.js';
 import LandingPageDrinksInfo from './Components/Drinks/DisplayDrinksInfor.js';
+import MusicBox_1 from './Components/Music_Box/Box_Music_1/Music_box_1.js';
 
 
 class MainApp extends Component {
@@ -98,7 +99,8 @@ class MainApp extends Component {
                                 <Route path='/contact-us' exact component={ContactMain}/>
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
-                                <Route path='/music' exact component={MusicMain}/>
+                                <Route path='/music' exact component={MusicBox_1}/>
+                                {/* <Route path='/music' exact component={MusicMain}/> */}
                                 <Route path='/LoginSpotify' exact component={LoginSpotify}/>
                                 <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
                                 <Route path='/product-main' exact component={ProductMain}/>
@@ -119,7 +121,7 @@ class MainApp extends Component {
                                 <Route path='/link_box/:id' exact component={LinkBoxMainBox}/>
                                 <Route path='/call_api' exact component={Call_Api}/>
                                 <Route path='/reveived_api/:id' exact component={ReceivedApi}/>
-                                <Route path='/music_still_trending' exact component={MusicCenterFlowMain}/>
+                                <Route path='/11356' exact component={MusicCenterFlowMain}/>
                                 <Route path='/next-platform_RAWG_Video_Games_Main' exact component={RAWG_Video_Games_Main}/>
                                 <Route path='/online_Tv' exact component={OnlineTv}/>
                                 <Route path='/watch_online_Tv' exact component={DisplayOnlineTv}/>

@@ -6,7 +6,7 @@ import { Card, Button } from 'react-bootstrap';
 import ReactPaginate from 'react-paginate';
 import { Helmet } from 'react-helmet';
 
-class LandingPageDrinks extends Component {
+class LandingPageDrinks extends Component {  
   constructor(props) {
     super(props);
     this.state = {
@@ -200,7 +200,7 @@ class LandingPageDrinks extends Component {
 
              const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
              
-            //  window.location =`/drinks_info/${drink.strDrink}?${passTMDB_api_Params}`
+             window.location =`/drinks_info/${drink.strDrink}?${passTMDB_api_Params}`
             console.log("this is id " + this.state.idDrink)
               }}>
                 <Card.Img variant="top" src={drink.strDrinkThumb} alt={drink.strDrink} className="drink-image" />
@@ -263,14 +263,36 @@ class LandingPageDrinks extends Component {
         </section>
         <section className="LandDrinksPage_main">
           <section className="landDrinks_main__1">
-            <div className="drink-cards">
+            <div className="drink-cards"  >
               {currentItems.map((drink) => (
                 <Card key={drink.idDrink} className="drink-card" style={{ backgroundColor: 'black', color: 'white' }}>
                   <Card.Img variant="top" src={drink.strDrinkThumb} alt={drink.strDrink} className="drink-image" />
                   <Card.Body>
                     <Card.Title>{drink.strDrink}</Card.Title>
                     <Card.Text>{drink.strInstructions}</Card.Text>
-                    <Button variant="primary" className="learn-more-btn">
+                    <Button variant="primary" className="learn-more-btn"  
+                    onClick={()=>{
+                      localStorage.setItem('TMDB_pd_id',drink.idDrink)
+                      localStorage.setItem('TMDB_pd_title',drink.title)
+                      this.setState({
+                       TMDB_id: drink.idDrink,
+                       TMDB_title: drink.title 
+                      })
+      
+                      const TMDB_api_ParamsUrl = { 
+                       TMDB_id: drink.idDrink,
+                       TMDB_title: drink.strDrink,
+                       TMDB_overview: drink.strCategory,
+                       TMDB_img: drink.strDrinkThumb
+                       }
+                   const queryMusicParams = require('query-string')
+      
+                   const passTMDB_api_Params = queryMusicParams.stringify(TMDB_api_ParamsUrl)
+                   
+                   window.location =`/drinks_info/${drink.strDrink}?${passTMDB_api_Params}`
+                  console.log("this is id " + this.state.idDrink)
+                    }}
+                    >
                       Learn More
                     </Button>
                   </Card.Body>
