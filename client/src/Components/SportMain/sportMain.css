@@ -1,4 +1,5 @@
 .sportMain{
+    width: 100%;
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-areas: 
@@ -45,4 +46,5 @@
         'sport_main_section_2'
         ;
     }
+   
 }

@@ -48,40 +48,6 @@ class SportMain extends Component {
                 progress: undefined,
                 });
            },10000)
-        
-        //    setTimeout(()=>{
-        //     toast.dark(
-        //         <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-        //             <Card>
-        //                 <Card.Body>
-        //                     <Card.Text>
-        //                     <div className="adv_links">
-        //                                 <iframe scrolling='no' frameBorder='0'  width='1200' height='879' src="https://refbanners.com/I?tag=d_1405231m_8423c_&site=1405231&ad=8423" ></iframe>
-        //                             </div>
-        //                     </Card.Text>
-        //                 </Card.Body>
-        //                 </Card>
-        //         </div>, {
-        //         position: "top-center",
-        //         autoClose: false,
-        //         hideProgressBar: false,
-        //         closeOnClick: true,
-        //         pauseOnHover: true,
-        //         draggable: true,
-        //         progress: undefined,
-        //         });
-        //    },10000)
-
-        // fetch('https://fakestoreapi.com/products')
-        //     .then(res=>res.json())
-        //     .then(json=>console.log(json))
-
-        //   axios.get(`https://skysportsapi.herokuapp.com/sky/getnews/football/v1.0/`)
-        // .then((data)=>{
-        //     this.setState({
-        //         skyGetNewsFootball: data
-        //     })
-        // })
        
 
 

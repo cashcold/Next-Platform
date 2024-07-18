@@ -71,20 +71,18 @@ class ScoreBatVideoApi extends Component {
                             
                             window.location =`/sport-main-home/${pd.title}?${passScoreBatParams}`
                         }}>
-                            {/* <img src={pd.strMealThumb}/>
-                            <h3 className='styleTextName'>{pd.strMeal}</h3>
-                            <a href='#' className='btn btn-warning'>Order Now</a> */}
+                            
                               <Card classMame='card_sport' style={{backgroundColor: "black", color: 'white', padding: '2em 0em'}}>
                                             
-                                    <Card.Img src={pd.thumbnail} />
+                                    <Card.Img lassMame='card_sport_img' src={pd.thumbnail} />
+                                    
                                     <h5><i class="fa fa-clock-o fa-3x" aria-hidden="true"></i> <span>{moment(pd.date).format('LLLL')}</span></h5>
                                     <Card.Body>
                                         <Card.Text>
                                             
                                         <span>{pd.videos[0].title}
                                        
-                                        <div className="loading_img">
-                                            {/* <img className='loading_io' src={loading_io} alt='pic'/> */}
+                                            <div className="loading_img">
                                             <img className='loading_io_2' src={loading_io_2} alt='pic'/>
                                         </div>
                                          </span>
@@ -92,8 +90,6 @@ class ScoreBatVideoApi extends Component {
                                         <h4>{pd.competition}</h4>
                                         <p>{pd.title}</p>
                                         </Card.Text>
-                                        {/* <a target="_blank" href={pd.matchviewUrl}  className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a> */}
-                                        {/* <a href={pd.matchviewUrl} className='btn btn-warning'> Watch <i class="fas fa-arrow-circle-right"></i></a> */}
                                     </Card.Body>
                                 </Card>
                         </div>
