@@ -26,28 +26,7 @@ class SportMain extends Component {
         
         
         
-           setTimeout(()=>{
-            toast.dark(
-                <div className='logoImg animate__animated animate__slower animate__rubberBand welcome_trans_h4'>
-                    <Card>
-                        <Card.Body>
-                            <Card.Text>
-                                <div className="AdvertLinks">
-                                <a href="https://www.betway.com.gh/?btag=P89215-PR24497-CM74867-TS1948036" target="_blank" rel="nofollow"><img src="https://secure.betwaypartnersafrica.com/imagehandler/38232bde-caff-40ca-8f65-43898a606cad/" border="0"  alt="" /></a>
-                                </div>
-                            </Card.Text>
-                        </Card.Body>
-                        </Card>
-                </div>, {
-                position: "right",
-                autoClose: false,
-                hideProgressBar: false,
-                closeOnClick: true,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                });
-           },10000)
+      
        
 
 

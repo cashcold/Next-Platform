@@ -4,8 +4,6 @@
 }
 
 
-
-
 .loading_svg{
     width: 30px;
 }
@@ -22,10 +20,231 @@
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
     border-radius: unset
   }
+  
 .loading_io,.loading_io_2{
   width: 52px;
 }
 
+.card_sport {
+  background-color: black;
+  color: white;
+  padding: 2em 0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+}
+
+.card_sport:hover {
+  transform: scale(1.02);
+}
+
+.card_sport h5 {
+  display: flex;/* General Layout and Grid */
+  .ScoreBatVideoAPI_DataSection {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1em; /* Optional: Adds space between grid items */
+  }
+  
+  /* Loading Icons */
+  .loading_svg {
+      width: 30px;
+  }
+  
+  .loading_io,
+  .loading_io_2 {
+      width: 52px;
+  }
+  
+  .loading_img {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1em 0;
+  }
+  
+  .loading_img img {
+      width: 50px;
+      height: 50px;
+  }
+  
+  /* Card Styles */
+  .card_sport {
+      background-color: black;
+      color: white;
+      padding: 2em 0;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+  }
+  
+  .card_sport:hover {
+      transform: scale(1.02);
+  }
+  
+  .card_sport h5 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2em;
+      margin: 1em 0;
+  }
+  
+  .card_sport .fa-clock-o {
+      margin-right: 0.5em;
+  }
+  
+  .card_sport .card_body {
+      padding: 1em;
+  }
+  
+  .card_sport .card_body h4 {
+      font-size: 1.5em;
+      margin: 0.5em 0;
+  }
+  
+  .card_sport .card_body p {
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0.5em 0;
+  }
+  
+  .card_sport_img img {
+      width: 100%;
+  }
+  
+  /* Pagination Styles */
+  .pagination {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 0;
+      list-style: none;
+      border-radius: 0.25rem;
+  }
+  
+  .pagination > li {
+      margin: 0.2em;
+  }
+  
+  .pagination > li > a,
+  .pagination > li > span {
+      padding: 0.5em 0.75em;
+      border: 1px solid #dee2e6;
+      color: #47ccde;
+      text-decoration: none;
+  }
+  
+  .pagination > li > a:hover,
+  .pagination > li > span:hover {
+      background-color: #f8f9fa;
+      border-color: #dee2e6;
+  }
+  
+  .pagination > .active > a,
+  .pagination > .active > span,
+  .pagination > .active > a:hover,
+  .pagination > .active > span:hover,
+  .pagination > .active > a:focus,
+  .pagination > .active > span:focus {
+      background-color: #47ccde;
+      border-color: #47ccde;
+      color: white;
+      outline: none;
+  }
+  
+  .pagination > li:first-child > a,
+  .pagination > li:first-child > span,
+  .pagination > li:last-child > a,
+  .pagination > li:last-child > span {
+      border-radius: unset;
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+      .ScoreBatVideoAPI_DataSection {
+          grid-template-columns: repeat(1, 1fr);
+      }
+  
+      .card_sport {
+          padding: 1em 0;
+      }
+  
+      .card_sport h5 {
+          font-size: 1em;
+      }
+  
+      .card_sport .fa-clock-o {
+          font-size: 2em;
+      }
+  
+      .card_sport .card_body h4 {
+          font-size: 1.2em;
+      }
+  
+      .card_sport .card_body p {
+          font-size: 0.9em;
+      }
+  
+      .loading_img img {
+          width: 40px;
+          height: 40px;
+      }
+  
+      .pagination {
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+      }
+  
+      .pagination > li > a,
+      .pagination > li > span {
+          padding: 0.25em 0.5em;
+      }
+  }
+  
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
+  margin: 1em 0;
+}
+
+.card_sport .fa-clock-o {
+  margin-right: 0.5em;
+}
+
+.card_sport .card_body {
+  padding: 1em;
+}
+
+.card_sport .card_body h4 {
+  font-size: 1.5em;
+  margin: 0.5em 0;
+}
+
+.card_sport .card_body p {
+  font-size: 1em;
+  line-height: 1.5;
+  margin: 0.5em 0;
+}
+
+.loading_img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.loading_img img {
+  width: 50px;
+  height: 50px;
+}
+
+.card_sport_img img{
+  width: 100%;
+}
 
 
 
@@ -37,4 +256,32 @@
         display: grid;
         grid-template-columns: repeat(1,1fr);
     }
+    .card_sport {
+      padding: 1em 0;
+  }
+
+  .card_sport h5 {
+      font-size: 1em;
+  }
+
+  .card_sport .fa-clock-o {
+      font-size: 2em;
+  }
+
+  .card_sport .card_body h4 {
+      font-size: 1.2em;
+  }
+
+  .card_sport .card_body p {
+      font-size: 0.9em;
+  }
+
+  .loading_img img {
+      width: 40px;
+      height: 40px;
+  }
+  .card_sport_img img{
+    width: 100%;
+  }
+
   }

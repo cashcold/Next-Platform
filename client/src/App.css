@@ -52,18 +52,13 @@ a:hover{
 }
 
 
-/* @media screen and (max-width: 768px){
+@media screen and (max-width: 768px){
 
-    h1{
-        font-size: 1rem;
+    .mainApp{
+        width: 100%;
+        min-height: 100vh;
     }
-     h2{
-        font-size: 1.8rem;
-    }
-    p{
-        font-size: 1.8rem;
-    }
-} */
+}
 
 
 
