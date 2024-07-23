@@ -1,0 +1,96 @@
+.news-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.news-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.news-item {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.news-item img {
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.news-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin: 10px 0;
+}
+
+.news-description {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.news-link {
+    display: inline-block;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+.news-author,
+.news-language,
+.news-category,
+.news-published {
+    font-size: 0.9rem;
+    color: #1d1919;
+}
+
+
+@media screen and (max-width: 768px) {
+    .news-list {
+        flex-direction: column; /* Stack news items vertically */
+    }
+
+    .news-item {
+        width: 100%; /* Full width for each news item */
+        box-sizing: border-box; /* Ensure padding and border are included in width */
+    }
+
+    .news-title {
+        font-size: 1.2rem; /* Slightly smaller font size */
+    }
+
+    .news-description {
+        font-size: 0.9rem; /* Slightly smaller font size */
+    }
+
+    .news-author,
+    .news-language,
+    .news-category,
+    .news-published {
+        font-size: 0.8rem; /* Slightly smaller font size */
+    }
+}

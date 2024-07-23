@@ -242,7 +242,7 @@ class Navbar extends Component {
                <section className='navMain'>
                     <nav>
                     {/* <Other__NavBar/> */}
-                        <div className='logoImg animate__animated animate__slower animate__flash'>
+                        <div className='logoImg animate__animated animate__slower animate__flash'> 
                             <h1 className='text-red blink-soft'>NEXT-PLATFORM</h1>
                         </div>
                         <div className='nav__links animate__animated animate__slower animate__bounceInDown'> 
@@ -257,12 +257,12 @@ class Navbar extends Component {
                                 <li><a className='btn btn-two' href='/movies_home_box'>MOVIES</a></li>
                                 <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li>
                                 <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
-                                <li><a className='btn btn-two' href='/online_Tv'>Online TV</a></li>
+                                <li><a className='btn btn-two' href='/Nex-Platform-News'>News</a></li>
                                 <li><a className='btn btn-two' href='/link_box'>LinkBox</a></li>
                                 <li><a className='btn btn-two' href='/product-main'>PRODUCTS</a></li>
                                 <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>
                                 <li><a className='btn btn-two' href='/drinks-main'>Drinks</a></li>
-                                <li><a className='btn btn-two' href='/contact-us'>ABOUT US</a></li>
+                                <li><a className='btn btn-two' href='/contact-us'>ABOUT</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>
                         </div>

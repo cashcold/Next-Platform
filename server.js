@@ -411,36 +411,28 @@ app.get('/sport-main-home/:id', function(request, response) {
 
   });
 
+  app.get('/latest-news', async (req, res) => {
+    try {
+        const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
+            headers: {
+                'Authorization': process.env.CURRENTS_API_KEY, // Use environment variable for security
+            },
+            params: req.query // Pass query parameters from the request
+        });
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error fetching data from Currents API:', error);
+        res.status(500).send('Error fetching data from Currents API');
+    }
+});
 
 
 
 
 
-// axios.post(`http://localhost:8000/`)
 
 
 
-
-
-
-
-// app.get(`/music/${}}/id`, function(request, response) {
- 
-//     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
-  
-//     // read in the index.html file
-//     fs.readFile(filePath, 'utf8', function (err,data) {
-//       if (err) {
-//         return console.log(err);
-//       }
-      
-//       // replace the special strings with server generated strings
-//       data = data.replace(/\$OG_TITLE/g, 'Check Your Music ');
-//       data = data.replace(/\$OG_DESCRIPTION/g, "bigest platform NextPlatform HoME Enterterment Music Box");
-//       result = data.replace(/\$OG_IMAGE/g, 'http://nest-platform.herokuapp.com/static/media/Rosam-Im-free.96157f170e836c264ab6.jpeg');
-//       response.send(result);
-//     });
-//   });
 
 
 
