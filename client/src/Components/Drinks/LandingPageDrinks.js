@@ -147,7 +147,7 @@ class LandingPageDrinks extends Component {
         <section className='promoteDrinks_main'>
           <div className='drinksPromote_box_1'>
           <div className="image-container">
-              <img src={Barracuda} alt='picture' />
+              <img src={Barracuda} alt='picture' />  
             </div>
           </div>
           <div className='drinksPromote_box_2'>

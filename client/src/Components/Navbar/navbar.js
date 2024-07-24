@@ -237,7 +237,7 @@ class Navbar extends Component {
         "https://accounts.spotify.com/authorize?client_id=4e2ccdd89a0847bc992b541f5e5e6f73&response_type=code&redirect_uri=http://localhost:3000/Next-Platform-with-Sportify&scope=streaming%20user-read-email%20user-read-private%20user-library-read%20user-library-modify%20user-read-playback-state%20user-modify-playback-state";
 
         return ( 
-            <div className='navbarMain'>
+            <div className='navbarMain'> 
               
                <section className='navMain'>
                     <nav>

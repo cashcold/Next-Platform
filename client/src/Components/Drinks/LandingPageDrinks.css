@@ -176,3 +176,17 @@
 .landDrinks_main_nonAlcoholic h2{
   margin-top: 2em;
 }
+
+@media screen and (max-width: 768px){
+  .promoteDrinks_main{
+  
+    display: flex;
+    flex-direction: column; 
+    padding: 4em 2em;
+  }
+  .drinksPromote_box_2 h4{
+    width: 100%;
+    line-height: 2rem;
+    font-size: 1em;
+  }
+}

@@ -417,7 +417,10 @@ app.get('/sport-main-home/:id', function(request, response) {
             headers: {
                 'Authorization': process.env.CURRENTS_API_KEY, // Use environment variable for security
             },
-            params: req.query // Pass query parameters from the request
+            params: {
+                ...req.query, // Spread the original query parameters
+                language: 'en' // Override or set the language parameter to 'en'
+            }
         });
         res.json(response.data);
     } catch (error) {
@@ -425,6 +428,7 @@ app.get('/sport-main-home/:id', function(request, response) {
         res.status(500).send('Error fetching data from Currents API');
     }
 });
+
 
 
 
