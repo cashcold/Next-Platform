@@ -9,6 +9,7 @@ import {TimelineLite, TimelineMax} from 'gsap'
 import {gsap} from 'gsap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
 import { Helmet } from 'react-helmet';
+import Currencies from '../Currencies/Currencies';
 
 class Selected extends Component {
     constructor(props) {
@@ -284,34 +285,6 @@ class Selected extends Component {
                         <img src={require('../../VR__Pic/psvr-overview-experiences-image-block-01-ps4-en-20oct20.png')} alt='pic'/>
                    </div>
                 </section>
-                {/* <section className='game__controller'>
-                    <div className='controller__1'>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/81JIRkv7mxL._SL1500_.jpg')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                        <div className='controller__img'>
-                            <img src={require('../../VR__Pic/psvr-accessories-aim-controller-two-column-02-ps4-en-01jul19.png')} alt='pic'/>
-                            <p>Rating</p>
-                            <div className='icon'>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            </div>
-                            <a href='' className='btn btn-warning'> free trial</a>
-                        </div>
-                    </div>
-                </section> */}
                 <section className='other__brand'>
                     <h1>ACTION</h1>
                     <div className='brand__info'>
@@ -421,6 +394,9 @@ class Selected extends Component {
                         </a>
                     </div>
                     </section>
+                </section>
+                <section className='currencies_folder'>
+                    <Currencies/>
                 </section>
             </div>
          );

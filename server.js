@@ -429,17 +429,32 @@ app.get('/sport-main-home/:id', function(request, response) {
     }
 });
 
+app.get('/currencies', async (req, res) => {
+  const { page = 1, limit = 10 } = req.query; // Default values: page 1, limit 10
 
+  try {
+      const response = await axios.get('https://api.coingecko.com/api/v3/coins/markets', {
+          params: {
+              vs_currency: 'usd',
+              order: 'market_cap_desc',
+              per_page: limit,
+              page: page
+          }
+      });
 
+      const total = parseInt(response.headers['total-count'] || 100); // Total count of items
 
-
-
-
-
-
-
-
-
+      res.json({
+          page: parseInt(page),
+          limit: parseInt(limit),
+          total,
+          data: response.data
+      });
+  } catch (error) {
+      console.error('Error fetching data from CoinGecko API:', error);
+      res.status(500).send('Error fetching data from CoinGecko API');
+  }
+});
 
 
   app.use(express.static("client/build"))

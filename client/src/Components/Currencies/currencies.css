@@ -1,0 +1,104 @@
+.currencies-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 8px;
+    color: #fff;
+}
+
+.currencies-container h1 {
+    text-align: center;
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.currencies-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.currency-item {
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 15px;
+    width: calc(33.333% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.currency-name,
+.currency-price,
+.currency-market-cap,
+.currency-volume,
+.currency-high,
+.currency-low,
+.currency-change,
+.currency-supply,
+.currency-total-supply,
+.currency-max-supply,
+.currency-last-updated {
+    font-size: 1rem;
+    color: #fff;
+    margin: 10px 0;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    color: #fff;
+    font-size: 1rem;
+}
+.currency-item span {
+    color: green;
+}
+
+/* Media Queries for Responsive Design */
+
+@media screen and (max-width: 768px) {
+    .currency-item {
+        width: calc(50% - 20px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .currency-item {
+        width: calc(100% - 20px);
+    }
+    
+    .pagination {
+        flex-direction: column;
+    }
+    
+    .pagination button {
+        margin: 10px 0;
+    }
+}
