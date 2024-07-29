@@ -131,7 +131,7 @@ class MainApp extends Component {
                                 <Route path='/Next-Platform-song/:id' exact component={SpotifyDisplayMusic}/>
                                 <Route path='/Next-Platform-release/:id' exact component={SpotifyReleases}/>
                                 <Route path='/Next-Platform-News' exact component={NewsMain}/>
-                                <Route path='/Next-Platform-News-info' exact component={NewsInfo}/>
+                                <Route path='/Next-Platform-News-info/:id' exact component={NewsInfo}/>
 
 
 

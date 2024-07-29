@@ -102,10 +102,31 @@ class NewsMain extends Component {
                                 {item.image && <img src={item.image} alt={item.title} className='news-image' />}
                                 <h2 className='news-title'>{item.title}</h2>
                                 <p className='news-description'>{item.description}</p>
-                                <a href={item.url} className='news-link' target='_blank' rel='noopener noreferrer'>Read more</a>
-                                <p className='news-author'>Author: {item.author}</p>
+                                <p className='news-link' onClick={()=>{
+                                        localStorage.setItem('News_id',item.id)
+                                       this.setState({
+                                        News_id: item.id,
+                                        News_title: item.title
+                                       })
+
+                                       const News_api_ParamsUrl = { 
+                                        News_id: item.id,
+                                        News_title: item.title,
+                                        News_overview: item.overview,
+                                        News_img: item.image
+                                    }
+                                    const queryMoviesParams = require('query-string')
+        
+                                    const passNews_api_Params = queryMoviesParams.stringify(News_api_ParamsUrl)
+                                    
+                                    window.location =`/Next-Platform-News-info/${item.title}?${passNews_api_Params}`
+                                  
+                                }} >Read more</p>
+                                
+                                {/* <a href={item.url} className='news-link' target='_blank' rel='noopener noreferrer'>Read more</a> */}
+                                {/* <p className='news-author'>Author: {item.author}</p>
                                 <p className='news-language'>Language: {item.language}</p>
-                                <p className='news-category'>Category: {item.category.join(', ')}</p>
+                                <p className='news-category'>Category: {item.category.join(', ')}</p> */}
                                 <p className='news-published'>Date: {new Date(item.published).toLocaleDateString()}</p>
                             </div>
                         ))

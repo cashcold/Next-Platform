@@ -109,14 +109,14 @@ h1 {
     }
 }
 
-.news-container .pagination {
+.news-container.pagination {
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 20px;
 }
 
-.news-container .pagination button {
+.pagination button {
     background: #007bff;
     color: #fff;
     border: none;
@@ -126,12 +126,12 @@ h1 {
     cursor: pointer;
 }
 
-.news-container .pagination button:disabled {
+.pagination button:disabled {
     background: #ddd;
     cursor: not-allowed;
 }
 
-.news-container .pagination span {
+.pagination span {
     color: #fff;
     font-size: 1rem;
 }
