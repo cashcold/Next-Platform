@@ -257,7 +257,7 @@ class Navbar extends Component {
                                 <li><a className='btn btn-two' href='/movies_home_box'>MOVIES</a></li>
                                 <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li>
                                 <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
-                                <li><a className='btn btn-two' href='/Nex-Platform-News'>News</a></li>
+                                <li><a className='btn btn-two' href='/Next-Platform-News'>News</a></li>
                                 <li><a className='btn btn-two' href='/link_box'>LinkBox</a></li>
                                 <li><a className='btn btn-two' href='/product-main'>PRODUCTS</a></li>
                                 <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>

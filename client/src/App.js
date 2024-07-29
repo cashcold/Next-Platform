@@ -47,6 +47,7 @@ import LandingPageDrinks from './Components/Drinks/LandingPageDrinks.js';
 import LandingPageDrinksInfo from './Components/Drinks/DisplayDrinksInfor.js';
 import MusicBox_1 from './Components/Music_Box/Box_Music_1/Music_box_1.js';
 import NewsMain from './Components/News/news.js';
+import NewsInfo from './Components/News/newsInfo.js';
 
 
 class MainApp extends Component {
@@ -129,7 +130,8 @@ class MainApp extends Component {
                                 <Route path='/Next-Platform-with-Sportify' exact component={SportifyMusicMain}/>
                                 <Route path='/Next-Platform-song/:id' exact component={SpotifyDisplayMusic}/>
                                 <Route path='/Next-Platform-release/:id' exact component={SpotifyReleases}/>
-                                <Route path='/Nex-Platform-News' exact component={NewsMain}/>
+                                <Route path='/Next-Platform-News' exact component={NewsMain}/>
+                                <Route path='/Next-Platform-News-info' exact component={NewsInfo}/>
 
 
 

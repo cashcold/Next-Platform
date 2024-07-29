@@ -2,13 +2,40 @@
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
+    background-color: #000;
+    color: #fff;
+    border-radius: 8px;
 }
 
 h1 {
     text-align: center;
     font-size: 2rem;
-    color: #333;
     margin-bottom: 20px;
+    color: #fff;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-bar input, .search-bar select, .search-bar button {
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.search-bar button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background: #0056b3;
 }
 
 .error-message {
@@ -24,8 +51,8 @@ h1 {
 }
 
 .news-item {
-    background: #fff;
-    border: 1px solid #ddd;
+    background: #1a1a1a;
+    border: 1px solid #333;
     border-radius: 8px;
     padding: 15px;
     width: calc(33.333% - 20px);
@@ -39,14 +66,14 @@ h1 {
 
 .news-title {
     font-size: 1.5rem;
-    color: #333;
     margin: 10px 0;
+    color: #fff;
 }
 
 .news-description {
     font-size: 1rem;
-    color: #666;
     margin-bottom: 10px;
+    color: #ccc;
 }
 
 .news-link {
@@ -65,32 +92,46 @@ h1 {
 .news-category,
 .news-published {
     font-size: 0.9rem;
-    color: #1d1919;
+    color: #ccc;
+    margin: 5px 0;
 }
 
-
-@media screen and (max-width: 768px) {
-    .news-list {
-        flex-direction: column; /* Stack news items vertically */
-    }
-
+/* Responsive Styles */
+@media (max-width: 768px) {
     .news-item {
-        width: 100%; /* Full width for each news item */
-        box-sizing: border-box; /* Ensure padding and border are included in width */
+        width: calc(50% - 20px);
     }
+}
 
-    .news-title {
-        font-size: 1.2rem; /* Slightly smaller font size */
+@media (max-width: 480px) {
+    .news-item {
+        width: 100%;
     }
+}
 
-    .news-description {
-        font-size: 0.9rem; /* Slightly smaller font size */
-    }
+.news-container .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
 
-    .news-author,
-    .news-language,
-    .news-category,
-    .news-published {
-        font-size: 0.8rem; /* Slightly smaller font size */
-    }
+.news-container .pagination button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.news-container .pagination button:disabled {
+    background: #ddd;
+    cursor: not-allowed;
+}
+
+.news-container .pagination span {
+    color: #fff;
+    font-size: 1rem;
 }
