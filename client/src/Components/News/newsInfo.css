@@ -1,0 +1,143 @@
+/* Base styles for the news information page */
+.news-info-main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #000;
+    border-radius: 8px;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.news-details {
+    text-align: center;
+    padding: 10px;
+}
+
+.news-details img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.news-details img:hover {
+    transform: scale(1.05);
+}
+
+.news-title {
+    font-size: 2rem;
+    color: #fff;
+    margin: 10px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.news-title:hover {
+    color: #007bff;
+}
+
+.news-description,
+.news-content {
+    color: #ccc;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: justify;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: color 0.3s ease-in-out;
+}
+
+.news-description:hover,
+.news-content:hover {
+    color: #ddd;
+}
+
+.news-author,
+.news-language,
+.news-category,
+.news-published {
+    font-size: 1rem;
+    color: #ddd;
+    margin: 5px 0;
+    transition: color 0.3s ease-in-out;
+}
+
+.news-author:hover,
+.news-language:hover,
+.news-category:hover,
+.news-published:hover {
+    color: #fff;
+}
+
+/* Link styles */
+.news-link {
+    color: #007bff;
+    text-decoration: none;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .news-info-main {
+        padding: 15px;
+    }
+
+    .news-title {
+        font-size: 1.75rem;
+    }
+
+    .news-description,
+    .news-content {
+        font-size: 0.9rem;
+        max-width: 100%; /* Remove the max-width restriction for mobile */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .news-details img {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .news-info-main {
+        padding: 10px;
+    }
+
+    .news-title {
+        font-size: 1.5rem;
+    }
+
+    .news-description,
+    .news-content {
+        font-size: 0.8rem;
+        max-width: 100%; /* Remove the max-width restriction for mobile */
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

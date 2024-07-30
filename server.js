@@ -422,12 +422,40 @@ app.get('/sport-main-home/:id', function(request, response) {
                 language: 'en' // Override or set the language parameter to 'en'
             }
         });
+
+        // Log the API response
+        console.log('Currents API response:', response.data);
+
+        // Send the response data to the frontend
         res.json(response.data);
     } catch (error) {
         console.error('Error fetching data from Currents API:', error);
         res.status(500).send('Error fetching data from Currents API');
     }
 });
+
+app.get('/news/:id', async (req, res) => {
+    try {
+        const response = await axios.get(`https://api.currentsapi.services/v1/latest-news`, {
+            headers: {
+                'Authorization': process.env.CURRENTS_API_KEY
+            },
+            params: {
+                id: req.params.id
+            }
+        });
+        const newsItem = response.data.news.find(item => item.id === req.params.id);
+        if (newsItem) {
+            res.json(newsItem);
+        } else {
+            res.status(404).send('News item not found');
+        }
+    } catch (error) {
+        console.error('Error fetching news item:', error);
+        res.status(500).send('Error fetching news item');
+    }
+});
+
 
 app.get('/currencies', async (req, res) => {
   const { page = 1, limit = 10 } = req.query; // Default values: page 1, limit 10

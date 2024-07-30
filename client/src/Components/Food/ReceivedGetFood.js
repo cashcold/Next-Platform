@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './ReceivedGetFood.css'
 import axios from 'axios'
-class ReceiveGetdFood extends Component {
+class ReceiveGetdFood extends Component {      
     constructor(props) {
         super(props);
         this.state = { 
@@ -14,6 +14,7 @@ class ReceiveGetdFood extends Component {
     }
 
     componentDidMount(){
+        
         
         const getFood_api_id = localStorage.getItem('getFood_api_id')
         const getFood_api_strMealThumb = localStorage.getItem('getFood_api_strMealThumb')
