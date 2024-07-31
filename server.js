@@ -433,7 +433,8 @@ app.get('/sport-main-home/:id', function(request, response) {
         res.status(500).send('Error fetching data from Currents API');
     }
 });
-  app.get('/Next-Platform-News', function(request, response) {
+
+ app.get('/Next-Platform-News', function(request, response) {
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');
 
     // read in the index.html file
@@ -450,8 +451,7 @@ app.get('/sport-main-home/:id', function(request, response) {
     });
   });
 
-
-app.get('/news/:id', async (req, res) => {
+  app.get('/news/:id', async (req, res) => {
     try {
         const response = await axios.get(`https://api.currentsapi.services/v1/latest-news`, {
             headers: {
@@ -472,6 +472,11 @@ app.get('/news/:id', async (req, res) => {
         res.status(500).send('Error fetching news item');
     }
 });
+
+
+
+
+
 app.get('/Next-Platform-News-info/:id', function(request, response) {
  
   const filePath = path.resolve(__dirname, './client/build' ,'index.html');
@@ -489,15 +494,15 @@ app.get('/Next-Platform-News-info/:id', function(request, response) {
 
     var qdata = q.query
     
-    const {News_overview,News_titl, News_img} = qdata
+    const {News_overview,News_title, News_img} = qdata
 
     console.log(qdata)
 
 
 // replace the special strings with server generated strings
-    data = data.replace(/\$OG_TITLE/g,News_titl);
-    data = data.replace(/\$OG_DESCRIPTION/g,TMDB_overview);
-    result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+    data = data.replace(/\$OG_TITLE/g,News_title);
+    data = data.replace(/\$OG_DESCRIPTION/g,News_overview);
+    result = data.replace(/\$OG_IMAGE/g,News_img);
     response.send(result);
   });
 });

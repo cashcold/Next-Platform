@@ -112,7 +112,7 @@ class NewsMain extends Component {
                                        const News_api_ParamsUrl = { 
                                         News_id: item.id,
                                         News_title: item.title,
-                                        News_overview: item.overview,
+                                        News_overview: item.description,
                                         News_img: item.image
                                     }
                                     const queryMoviesParams = require('query-string')
