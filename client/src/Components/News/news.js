@@ -122,11 +122,6 @@ class NewsMain extends Component {
                                     window.location =`/Next-Platform-News-info/${item.title}?${passNews_api_Params}`
                                   
                                 }} >Read more</p>
-                                
-                                {/* <a href={item.url} className='news-link' target='_blank' rel='noopener noreferrer'>Read more</a> */}
-                                {/* <p className='news-author'>Author: {item.author}</p>
-                                <p className='news-language'>Language: {item.language}</p>
-                                <p className='news-category'>Category: {item.category.join(', ')}</p> */}
                                 <p className='news-published'>Date: {new Date(item.published).toLocaleDateString()}</p>
                             </div>
                         ))

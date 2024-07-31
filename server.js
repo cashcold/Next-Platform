@@ -433,6 +433,23 @@ app.get('/sport-main-home/:id', function(request, response) {
         res.status(500).send('Error fetching data from Currents API');
     }
 });
+  app.get('/Next-Platform-News', function(request, response) {
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g, 'Next Platform News');
+      data = data.replace(/\$OG_DESCRIPTION/g, " NextPlatform Home Enterterment Music Box, Sport & Online Links More");
+      result = data.replace(/\$OG_IMAGE/g, 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+      response.send(result);
+    });
+  });
+
 
 app.get('/news/:id', async (req, res) => {
     try {
@@ -454,6 +471,35 @@ app.get('/news/:id', async (req, res) => {
         console.error('Error fetching news item:', error);
         res.status(500).send('Error fetching news item');
     }
+});
+app.get('/Next-Platform-News-info/:id', function(request, response) {
+ 
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    
+    const parsed = (request.url)
+    var url = require('url');
+
+    var q = url.parse(parsed, true);
+
+    var qdata = q.query
+    
+    const {News_overview,News_titl, News_img} = qdata
+
+    console.log(qdata)
+
+
+// replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g,News_titl);
+    data = data.replace(/\$OG_DESCRIPTION/g,TMDB_overview);
+    result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+    response.send(result);
+  });
 });
 
 
