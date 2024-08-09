@@ -8,7 +8,7 @@ import {Button,Card} from 'react-bootstrap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
 import MusicReceivedMain from '../Music_Received/music_receivedMain.js';
 import SportifyMusicMain from '../SportifyMusic/sportifyMusic';
-const SpotifyWebApi = require('spotify-web-api-node');
+// const SpotifyWebApi = require('spotify-web-api-node');
 let token_main = localStorage.getItem('spotify_access_token')
 const token = token_main;
 

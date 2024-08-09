@@ -10,6 +10,7 @@ import {gsap} from 'gsap'
 import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
 import { Helmet } from 'react-helmet';
 import Currencies from '../Currencies/Currencies';
+import LinkBoxMain from '../Link_Box/link_box';
 
 class Selected extends Component {
     constructor(props) {
@@ -387,16 +388,14 @@ class Selected extends Component {
                         </div>
                     </section>
                     <section className=''>
-                    <div className="btc_shark">
-                        <a target='_blank' href='tel:+233203808479'>
-                        <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
-                            alt="First slide" />
-                        </a>
-                    </div>
+                   
                     </section>
                 </section>
                 <section className='currencies_folder'>
                     <Currencies/>
+                </section>
+                <section className='link_box_folder'>
+                    <LinkBoxMain/>
                 </section>
             </div>
          );
