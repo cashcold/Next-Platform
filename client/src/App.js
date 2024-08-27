@@ -95,7 +95,7 @@ class MainApp extends Component {
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
                             
-                        <Navbar/>
+                        <Navbar/> 
                             
                             <div className='switch'> 
                              <Switch> 
@@ -103,9 +103,9 @@ class MainApp extends Component {
                                 <Route path='/contact-us' exact component={ContactMain}/>
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
-                                <Route path='/music' exact component={MusicBox_1}/>
-                                {/* <Route path='/music' exact component={MusicMain}/> */}
-                                <Route path='/LoginSpotify' exact component={LoginSpotify}/>
+                                <Route path='/music_me' exact component={MusicBox_1}/>
+                                <Route path='/music' exact component={MusicMain}/>
+                                <Route path='/loginSpotify' exact component={LoginSpotify}/>
                                 <Route path={`/music/:id`} exact component={MusicLinkBox}/> 
                                 <Route path='/product-main' exact component={ProductMain}/>
                                 <Route path='/sport-main-home' exact component={SportMain}/>

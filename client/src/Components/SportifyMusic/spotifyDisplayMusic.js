@@ -39,7 +39,7 @@ class SpotifyDisplayMusic extends Component {
       albumName: '', // Store the name of the currently playing album
     };
     this.spotifyApi = new SpotifyWebApi({
-      clientId: '4e2ccdd89a0847bc992b541f5e5e6f73',
+      clientId: '7274681e5f564e29b6246893ed62f20a',
     });
   }
 
@@ -104,7 +104,7 @@ class SpotifyDisplayMusic extends Component {
   }
 
   fetchLyrics(artist, track) {
-    axios.get('/lyrics', {
+    axios.get('http://localhost:8000/lyrics', {
       params: {
         artist,
         track,

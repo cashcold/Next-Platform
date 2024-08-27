@@ -35,7 +35,7 @@ class SportifyMusicMain extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleSearch = this.handleSearch.bind(this);
     this.chooseTrack = this.chooseTrack.bind(this);
-    this.handlePageChange = this.handlePageChange.bind(this);
+    this.handlePageChange = this.handlePageChange.bind(this); 
   }
 
   handleChange = (input) => (event) => {
@@ -45,7 +45,7 @@ class SportifyMusicMain extends Component {
   handleSearch() {
     const { search, accessToken } = this.state;
     if (search && accessToken) {
-      const spotifyApi = new SpotifyWebApi({ clientId: '4e2ccdd89a0847bc992b541f5e5e6f73' });
+      const spotifyApi = new SpotifyWebApi({ clientId: '7274681e5f564e29b6246893ed62f20a' });
       spotifyApi.setAccessToken(accessToken);
       localStorage.setItem('accessToken', accessToken);
 
@@ -98,9 +98,10 @@ class SportifyMusicMain extends Component {
 
   componentDidMount() {
     const code = new URLSearchParams(window.location.search).get('code');
+     console.log(code)
     if (code) {
       axios
-        .post('/loginSpotify', { code })
+        .post('http://localhost:8000/loginSpotify', { code })
         .then((data) => {
           const { accessToken, refreshToken, expiresIn } = data.data;
           this.setState({
@@ -164,7 +165,7 @@ class SportifyMusicMain extends Component {
     const { search, accessToken, itemsPerPage } = this.state;
     const offset = pageNumber * itemsPerPage;
 
-    const spotifyApi = new SpotifyWebApi({ clientId: '4e2ccdd89a0847bc992b541f5e5e6f73' });
+    const spotifyApi = new SpotifyWebApi({ clientId: '7274681e5f564e29b6246893ed62f20a' });
     spotifyApi.setAccessToken(accessToken);
 
     spotifyApi.searchTracks(search, { limit: 50, offset }).then((data) => {
