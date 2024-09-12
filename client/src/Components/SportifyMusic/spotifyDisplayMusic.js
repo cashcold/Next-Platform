@@ -105,20 +105,39 @@ class SpotifyDisplayMusic extends Component {
 
   fetchLyrics(artist, track) {
     axios.get('http://localhost:8000/lyrics', {
-      params: {
-        artist,
-        track,
-      },
+        params: {
+            artist,
+            track,
+        },
     })
-      .then((response) => {
+    .then((response) => {
         const lyrics = response.data.lyrics || 'No lyrics found';
         this.setState({ lyrics });
-      })
-      .catch((error) => {
+    })
+    .catch((error) => {
         console.error('Error fetching lyrics:', error);
         this.setState({ lyrics: 'Failed to fetch lyrics, refresh the page again' });
-      });
-  }
+    });
+}
+
+
+
+  // fetchLyrics(artist, track) {
+  //   axios.get('http://localhost:8000/lyrics', {
+  //     params: {
+  //       artist,
+  //       track,
+  //     },
+  //   })
+  //     .then((response) => {
+  //       const lyrics = response.data.lyrics || 'No lyrics found';
+  //       this.setState({ lyrics });
+  //     })
+  //     .catch((error) => {
+  //       console.error('Error fetching lyrics:', error);
+  //       this.setState({ lyrics: 'Failed to fetch lyrics, refresh the page again' });
+  //     });
+  // }
 
   fetchAlbums(artistId) {
     this.spotifyApi.getArtistAlbums(artistId)
@@ -132,6 +151,7 @@ class SpotifyDisplayMusic extends Component {
       });
   }
 
+  
   handleDownload = () => {
     const { track } = this.state;
     const downloadUrl = track.external_urls.spotify; // Assuming Spotify external URL provides a download option

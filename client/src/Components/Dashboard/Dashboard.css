@@ -1,0 +1,176 @@
+/* General Styles */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.current-time {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.emoji-wave {
+  display: inline-block;
+  animation: wave 2s infinite;
+  transform-origin: 70% 70%;
+  font-size: 2rem;
+}
+
+/* Keyframes for the waving hand emoji */
+@keyframes wave {
+  0% { transform: rotate( 0.0deg); }
+  10% { transform: rotate(14.0deg); }  
+  20% { transform: rotate(-8.0deg); }
+  30% { transform: rotate(14.0deg); }
+  40% { transform: rotate(-4.0deg); }
+  50% { transform: rotate(10.0deg); }
+  60% { transform: rotate( 0.0deg); }  
+  100% { transform: rotate( 0.0deg); }
+}
+
+/* Balance Section */
+.balance-section {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.balance-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.balance-section p {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Rewards Section */
+.rewards-section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.rewards-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.rewards-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rewards-section li {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Gift Cards Section */
+.giftcards-section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.giftcards-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.giftcards-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.giftcards-section li {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Offers Section */
+.offers-section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.offers-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.offers-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.offers-section li {
+  background-color: #ffc107;
+  color: #333;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .balance-section h2,
+  .rewards-section h2,
+  .giftcards-section h2,
+  .offers-section h2 {
+    font-size: 1.5rem;
+  }
+}

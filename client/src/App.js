@@ -50,6 +50,11 @@ import NewsMain from './Components/News/news.js';
 import NewsInfo from './Components/News/newsInfo.js';
 import BooksMainBox from './Components/Books/books.js';
 import BooksInfoBox from './Components/Books/bookInfo.js';
+import axios from 'axios';
+import SignUpPage from './Components/SignUpPage/SignUpPage.js';
+import LoginPage from './Components/LoginPage/LoginPage.js';
+import Dashboard from './Components/Dashboard/Dashboard.js';
+
 
 
 class MainApp extends Component {
@@ -64,18 +69,59 @@ class MainApp extends Component {
 
          }
     }
-    componentDidMount(){
-        
+    componentDidMount() {
+        if ('serviceWorker' in navigator) {
+            this.registerServiceWorker();
+          }
 
-     
-    const music_type = localStorage.getItem('mp3_api_music_type')
-    this.setState({
-        music_type
-    })
-      
-
+        const music_type = localStorage.getItem('mp3_api_music_type');
+        this.setState({
+            music_type
+        });
     }
-    render() { 
+
+    registerServiceWorker = async () => {
+        try {
+          const registration = await navigator.serviceWorker.register('/worker.js');
+          console.log('Service Worker Registered');
+    
+          const subscription = await this.subscribeUserToPush(registration);
+          if (subscription) {
+            await this.sendSubscriptionToServer(subscription);
+          }
+        } catch (error) {
+          console.error('Error during service worker registration:', error);
+        }
+      };
+    
+      subscribeUserToPush = async (registration) => {
+        const subscription = await registration.pushManager.subscribe({
+          userVisibleOnly: true,
+          applicationServerKey: this.urlBase64ToUint8Array('BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU')
+        });
+        return subscription;
+      };
+    
+      sendSubscriptionToServer = async (subscription) => {
+        await axios.post('/subscribe', subscription);
+      };
+    
+      urlBase64ToUint8Array = (base64String) => {
+        const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
+        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+        const rawData = window.atob(base64);
+        const outputArray = new Uint8Array(rawData.length);
+        for (let i = 0; i < rawData.length; ++i) {
+          outputArray[i] = rawData.charCodeAt(i);
+        }
+        return outputArray;
+      };
+
+   
+
+  
+
+        render() { 
         const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
         return ( 
           
@@ -101,6 +147,9 @@ class MainApp extends Component {
                              <Switch> 
                                 <Route path='/' exact component={Selected}/> 
                                 <Route path='/contact-us' exact component={ContactMain}/>
+                                <Route path='/signup' exact component={SignUpPage}/> 
+                                <Route path='/login' exact component={LoginPage}/> 
+                                <Route path='/dashboard' exact component={Dashboard}/> 
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music_me' exact component={MusicBox_1}/>
