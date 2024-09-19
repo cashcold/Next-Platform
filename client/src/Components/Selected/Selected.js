@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { FaAward, FaGift, FaTag, FaSearch } from 'react-icons/fa'; // Font Awesome icons
 import axios from 'axios'
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
@@ -22,13 +23,29 @@ class Selected extends Component {
         
         }
         this.handleChange = this.handleChange.bind(this)
+        this.handleSignupRedirect = this.handleSignupRedirect.bind(this)
     }
 
     handleChange = input => (event)=>{
         this.setState({[input]: event.target.value})
     }
 
+    handleSignupRedirect = () => {
+        window.location="/signup"
+      };
+    
+
    componentDidMount(){
+
+    const urlSearchParams = new URLSearchParams(window.location.search);
+        for(var pair of urlSearchParams.entries()) {
+            localStorage.setItem('referrer',(pair[1]) ) 
+         }
+
+
+
+
+
     gsap.registerPlugin(ScrollTrigger)
 
     const RegisterSelectedMainTrigger = ()=>{
@@ -227,6 +244,42 @@ class Selected extends Component {
                             <iframe src="https://www.youtube.com/embed/RJrPdBgirMY?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
                         </div>
                     </div>
+                </section>
+                <section className='landing_page_sign_up'>
+                <div className="container">
+                <header className="header">
+                <h1>Welcome to Your Gamified Experience</h1>
+                <p>Sign up and get <strong>$5</strong> free cash out instantly!</p>
+                <button className="signup-btn" onClick={this.handleSignupRedirect}>
+                    Sign Up Now
+                </button>
+                </header>
+
+                <section className="rewards-section">
+                <div className="reward-card">
+                    <FaAward className="icon motion-icon" />
+                    <h2>Rewards Earned</h2>
+                    <p>Earn rewards for every minute and hour you spend on our site!</p>
+                </div>
+                <div className="gift-card">
+                    <FaGift className="icon motion-icon" />
+                    <h2>Free Gift Cards</h2>
+                    <p>Participate in surveys and get extra cash bonuses and free gift cards!</p>
+                </div>
+                <div className="offers">
+                    <FaTag className="icon motion-icon" />
+                    <h2>Current Offers</h2>
+                    <p>Share links with friends and earn <strong>$1</strong> for every referral!</p>
+                    <p>We pay $0.5 for every link shared with friends and click.</p>
+                </div>
+                </section>
+
+                <section className="survey-section">
+                <FaSearch className="icon motion-icon" />
+                <h2>Earn More by Participating in Surveys</h2>
+                <p>Boost your earnings by joining our exciting survey programs and get extra bonuses!</p>
+                </section>
+            </div>
                 </section>
                 <section className='poster_videos_8143523'>
                     <div>

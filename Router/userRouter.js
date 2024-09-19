@@ -1,4 +1,5 @@
 const express = require('express')
+const User = require('../UserModel/userModel')
 const axios = require('axios')
 const bcrypt = require('bcryptjs')
 const mailgun = require('mailgun-js')
@@ -17,46 +18,162 @@ const Router = express.Router()
 
 Router.post('/register/', async(req,res)=>{
 
+  console.log(req.body)
+
     
-  User.findOne({reffer : req.params})
+  User.findOne({referrer : req.params})
   // reffer program
 
   const user = await User.findOne({email: req.body.email})
+  const user_Name = await User.findOne({user_Name: req.body.user_Name})
   if(user) return res.status(400).send('Email already Exist')
+  if(user_Name) return res.status(400).send('User already Exist')
 
 
   const salt = await bcrypt.genSalt(10)
   const hashPassword = await bcrypt.hash(req.body.password, salt)
 
   const saveUser = new User({ 
-      full_name: req.body.full_name,
       user_Name: req.body.user_Name,
-      accountBalance: req.body.accountBalance,
+      accountBalance: Number(req.body.accountBalance),
       restartLinkPassword: req.body.restartLinkPassword,
       password: hashPassword,
       email: req.body.email,
-      referral: req.body.referral,
+      country: req.body.country,
+      referrer: req.body.referrer,
       phone: Number(req.body.phone),
-      ip_address: req.body.ip_address,
-      date: req.body.date
+      // date: req.body.date
   })
 
-  var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-  var data = {
-      from: 'Next-Platform <nextplatform99@gmail.com>',
-      to: 'frankainoo@gmail.com',
-      subject: 'Welcome To Next-Platform',
-      text: 'Thank you for JJoing Next-platform as one Family, Have a nice day. Thank You'
-  };
-  mailgun.messages().send(data, function (error, body) {
-      console.log(body);
-  });
+  // var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
+  // var data = {
+  //     from: 'Next-Platform <nextplatform99@gmail.com>',
+  //     to: 'frankainoo@gmail.com',
+  //     subject: 'Welcome To Next-Platform',
+  //     text: 'Thank you for JJoing Next-platform as one Family, Have a nice day. Thank You'
+  // };
+  // mailgun.messages().send(data, function (error, body) {
+  //     console.log(body);
+  // });
 
 
   await saveUser.save()
   res.send("user save")
 
 })
+
+Router.post('/login', async(req,res)=>{
+  const user = await User.findOne({email: req.body.email})
+  if(!user) {
+
+      return res.status(400).send('Email Do Not Exist')
+  } 
+
+  await bcrypt.compare(req.body.password, user.password,(err,isMatch)=>{
+      if(!isMatch) return res.status(400).send('Invalid Password ')
+      else{
+          const payload = {
+               user_id: user._id,
+               user_Name: user.user_Name,
+               phone: user.phone,
+               email: user.email,
+               referrer: user.referrer,
+               country: user.country,
+               password: user.password,
+              //  ip_address: user.ip_address,           
+              //  date: user.date,
+          }
+          const token = jwt.sign(payload, process.env.TokenSecret)
+          res.header('x-access-token', token)
+          return res.status(200).send(token)
+      }
+  })
+})
+
+Router.post('/forgotpassword', async (req,res,next)=>{  
+  const userEmail = req.body.email;
+  async.waterfall([
+     (done)=>{
+       crypto.randomBytes(20,(err,buffer)=>{
+           let token = buffer.toString('hex');
+           done(err, token);
+       })
+       
+     },
+     (token, done)=>{
+       User.findOne({email: req.body.email},(err,user)=>{
+           if(!user){
+               return res.status(400).send('Email Not Found')
+           }
+           user.restartLinkPassword =  token;
+           user.save((err)=>{
+               done(err, token, user)
+           })
+       })
+     },
+     (token,user,done)=>{
+      var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
+      var data = {
+          from: 'Bitcoin4u <bitcoin4u.gh@gmail.com>',
+          to: userEmail,
+          subject: 'Password Reset',
+          html: ` <h1>Please Follow the link to restart your password </h1>
+              <p>${process.env.forgotPasswordLink}/${token}</p>
+          `
+      };
+       mailgun.messages().send(data, function (error, body) {
+           if(error){
+               return res.status(400).send(error.message)
+           }
+          return res.status(200).send('Link sent to Email Address')
+     });
+
+     },
+     
+  ])
+
+   
+})
+
+Router.post('/activtypassword/:token', async(req,res)=>{
+   
+  User.findOne({restartLinkPassword : req.params.token})
+  .then(user=>{
+      if(!user){
+          return res.status(422).json({error:"Invalid token"})
+      }
+      bcrypt.genSalt(10, function(err, salt) {
+          bcrypt.hash(req.body.password, salt, function(err, hash) {
+          user.password = hash
+          user.restartLinkPassword = undefined
+          user.save().then((saveduser)=>{
+              res.json({message:"password updated success"})
+          })
+
+          });
+       });
+      
+  }).catch(err=>{
+      console.log(err)
+  })
+})
+
+
+Router.post('/user_profile_display',async(req,res)=>{
+   
+    user_id = req.body.id
+    const user = await User.findById(user_id);
+    if(user){
+        res.send(user)
+    }else{
+        res.send('Not User')
+    }
+
+    
+    
+})
+
+
 
 Router.post('/marvel', async(req,res)=>{
   var Marvel = require('marvel')

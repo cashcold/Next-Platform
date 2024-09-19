@@ -1,16 +1,29 @@
 import React, { Component } from 'react';
+import axios from 'axios'
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import './SignUpPage.css'; // Importing the CSS file
 
 class SignUpPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
+      user_Name: '',
       email: '',
       password: '',
-      phoneNumber: '',
-      country: ''
+      confirm_password: '',
+      phone: '',
+      country: '',
+      referrer: '',
+      accountBalance: 50,
     };
+  }
+
+  componentDidMount() {
+    const referrer = localStorage.getItem('referrer')
+
+    this.setState({referrer: referrer})
   }
 
   handleInputChange = (e) => {
@@ -22,25 +35,74 @@ class SignUpPage extends Component {
     e.preventDefault();
     // Handle form submission logic
     console.log(this.state);
-  }
+
+      const SaveNewUser = {   
+        user_Name: this.state.user_Name,
+        password: this.state.password,
+        confirm_password: this.state.confirm_password,
+        email: this.state.email,
+        phone: this.state.phone,
+        country: this.state.country,
+        accountBalance: this.state.accountBalance,
+        referrer: this.state.referrer,
+        // date: this.state.date
+        
+    }
+
+  if(SaveNewUser.user_Name.length < 6){
+    toast.warn('User name  must be at lest 6 characters')
+    return false
+    }
+    if(SaveNewUser.password.length < 8){
+        toast.warn('password is must be at lest 8')
+        return false
+    }
+    
+    if(SaveNewUser.password != SaveNewUser.confirm_password){
+        toast.warn('password do not match')
+        return false
+    }
+  
+    if(!SaveNewUser.user_Name || !SaveNewUser.phone || !SaveNewUser.password || !SaveNewUser.confirm_password  || !SaveNewUser.email  || !SaveNewUser.country){
+        toast.error('Please Fill All Field')
+        return false;
+    }
+    // if(!SaveNewUser.checkBox){ 
+    //     toast.warn('Please agree with Terms and conditions')
+    //     return false
+    // }
+  axios.post("http://localhost:8000/users/register/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
+        window.location="/login"
+    }),8000).catch(err => {toast.error(err.response.data)})
+
+  console.log(SaveNewUser)
+
+
+    }
 
   render() {
+    const { referrer } = this.state; // Destructure referrer from state
+
     return (
-     
       <div className="signup-container">
         <div className="signup-header">
+        <ToastContainer/>
           <h1 className="animate-h1">Gamify Your Experience</h1>
-          <p className="animate-text">Sign up now to start earning points, badges, and rewards!</p>
           <p className="reward-text">🎁 Sign up today and receive a $5 reward!</p>
+          <p className="animate-text">Sign up now to start earning points, badges, and rewards!</p>
+          {referrer && (
+            <p className="referrer-text">You were referred by <strong>{referrer}</strong></p>
+          )}
         </div>
         
         <form className="signup-form" onSubmit={this.handleSubmit}>
+          {/* Form fields */}
           <div className="form-group animate-div">
             <label>Username</label>
             <input 
               type="text" 
-              name="username" 
-              value={this.state.username} 
+              name="user_Name" 
+              value={this.state.user_Name} 
               onChange={this.handleInputChange}
               placeholder="Enter your username" 
             />
@@ -56,7 +118,7 @@ class SignUpPage extends Component {
               placeholder="Enter your email" 
             />
           </div>
-          
+
           <div className="form-group animate-div">
             <label>Password</label>
             <input 
@@ -67,18 +129,28 @@ class SignUpPage extends Component {
               placeholder="Enter your password" 
             />
           </div>
+          <div className="form-group animate-div">
+            <label>Confirm Password</label>
+            <input 
+              type="password" 
+              name="confirm_password" 
+              value={this.state.confirm_password} 
+              onChange={this.handleInputChange}
+              placeholder="Confirm Password" 
+            />
+          </div>
 
           <div className="form-group animate-div">
             <label>Phone Number</label>
             <input 
               type="tel" 
-              name="phoneNumber" 
-              value={this.state.phoneNumber} 
+              name="phone" 
+              value={this.state.phone} 
               onChange={this.handleInputChange}
               placeholder="Enter your phone number" 
             />
           </div>
-          
+
           <div className="form-group animate-div">
             <label>Country</label>
             <select 
@@ -86,7 +158,7 @@ class SignUpPage extends Component {
               value={this.state.country} 
               onChange={this.handleInputChange}
             >
-              <option value="">Select your country</option>
+             <option value="">Select your country</option>
               <option value="Afghanistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
@@ -196,11 +268,13 @@ class SignUpPage extends Component {
               <option value="Malta">Malta</option>
               <option value="Marshall Islands">Marshall Islands</option>
               <option value="Mauritania">Mauritania</option>
-              {/* Continue list as needed */}
             </select>
           </div>
           
           <button type="submit" className="signup-button">Sign Up</button>
+          <div className="signup-link animate-text">
+          <p>You have an account? <a href="login">Login </a></p>
+        </div>
         </form>
       </div>
     );

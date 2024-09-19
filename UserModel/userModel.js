@@ -1,10 +1,7 @@
 const mongoose = require('mongoose');
 
 const userSchema = new mongoose.Schema({
-    full_Name: {
-        type: String,
-        require: true,
-    },
+   
     user_Name: {
         type: String,
         require: true,
@@ -22,14 +19,13 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
-    ip_address:{
-        type: String,
-        require: true
-    },
     accountBalance: {
         type: Number,
     },
-    reffer:{
+    referrer:{
+        type: String
+    },
+    country:{
         type: String
     },
     restartLinkPassword:{
