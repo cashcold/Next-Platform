@@ -45,16 +45,16 @@ Router.post('/register/', async(req,res)=>{
       // date: req.body.date
   })
 
-  // var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-  // var data = {
-  //     from: 'Next-Platform <nextplatform99@gmail.com>',
-  //     to: 'frankainoo@gmail.com',
-  //     subject: 'Welcome To Next-Platform',
-  //     text: 'Thank you for JJoing Next-platform as one Family, Have a nice day. Thank You'
-  // };
-  // mailgun.messages().send(data, function (error, body) {
-  //     console.log(body);
-  // });
+  var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
+  var data = {
+      from: 'Next-Platform <nextplatform99@gmail.com>',
+      to: 'frankainoo@gmail.com',
+      subject: 'Welcome To Next-Platform',
+      text: 'Thank you for JJoing Next-platform as one Family, Have a nice day. Thank You'
+  };
+  mailgun.messages().send(data, function (error, body) {
+      console.log(body);
+  });
 
 
   await saveUser.save()
@@ -113,14 +113,52 @@ Router.post('/forgotpassword', async (req,res,next)=>{
      },
      (token,user,done)=>{
       var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
+      
       var data = {
-          from: 'Bitcoin4u <bitcoin4u.gh@gmail.com>',
-          to: userEmail,
-          subject: 'Password Reset',
-          html: ` <h1>Please Follow the link to restart your password </h1>
-              <p>${process.env.forgotPasswordLink}/${token}</p>
-          `
+        from: 'Capital Gain Co <capitalgain_support@gmail.com>',
+        to: userEmail,
+        subject: 'Password Reset',
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+            <h1 style="color: #2c3e50; text-align: center;">Password Reset Request</h1>
+            
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Hi there,
+            </p>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              We received a request to reset your password. Please click the button below to reset your password. If you did not request this, you can safely ignore this email.
+            </p>
+      
+            <div style="text-align: center; margin: 30px 0;">
+              <a href='${process.env.forgotPasswordLink}/${token}' 
+                style="font-size: 18px; background-color: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block;">
+                Reset Your Password
+              </a>
+            </div>
+      
+            <p style="font-size: 14px; color: #999;">s
+              Alternatively, you can copy and paste the following link into your browser:
+            </p>
+      
+            <p style="font-size: 14px; color: #3498db;">
+              <a href='${process.env.forgotPasswordLink}/${token}' style="color: #3498db; word-break: break-all;">
+                ${process.env.forgotPasswordLink}/${token}
+              </a>
+            </p>
+      
+            <p style="font-size: 14px; color: #555; line-height: 1.6;">
+              Thanks,<br>
+              The Capital Gain Co Team
+            </p>
+      
+            <p style="font-size: 12px; color: #999; text-align: center; margin-top: 30px; line-height: 1.4;">
+              If you didn’t request a password reset, you can safely ignore this email.<br>
+              Please do not reply to this email as it is an automated message.
+            </p>
+          </div>
+        `
       };
+      ;
        mailgun.messages().send(data, function (error, body) {
            if(error){
                return res.status(400).send(error.message)
@@ -134,6 +172,7 @@ Router.post('/forgotpassword', async (req,res,next)=>{
 
    
 })
+
 
 Router.post('/activtypassword/:token', async(req,res)=>{
    

@@ -87,6 +87,9 @@ class LoginPage extends Component {
           <button type="submit" className="login-button">Login</button>
         </form>
         
+        <div className="signup-link_password animate-text">
+          <p>Forgot Your Password? <a href="reset-password">Reset Password</a></p>
+        </div>
         <div className="signup-link animate-text">
           <p>Don’t have an account? <a href="signup">Sign up here</a></p>
         </div>

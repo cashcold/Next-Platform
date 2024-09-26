@@ -82,6 +82,11 @@
     color: #666;
   }
   
+  .signup-link_password p {
+    margin-top: 15px;
+    color: red;
+  }
+  
   .signup-link a {
     color: #5bc0de;
     text-decoration: none;

@@ -53,6 +53,8 @@ import BooksInfoBox from './Components/Books/bookInfo.js';
 import axios from 'axios';
 import SignUpPage from './Components/SignUpPage/SignUpPage.js';
 import LoginPage from './Components/LoginPage/LoginPage.js';
+import ResetPasswordPage from './Components/ResetPasswordPage/ResetPasswordPage.js';
+import ActivitPassword from './Components/ActivitPassword/ActivitPassword.js';
 import Dashboard from './Components/Dashboard/Dashboard.js';
 
 
@@ -149,6 +151,8 @@ class MainApp extends Component {
                                 <Route path='/contact-us' exact component={ContactMain}/>
                                 <Route path='/signup' exact component={SignUpPage}/> 
                                 <Route path='/login' exact component={LoginPage}/> 
+                                <Route path='/reset-password' exact component={ResetPasswordPage}/> 
+                                <Route path='/activitPassword/:token' exact component={ActivitPassword}/> 
                                 <Route path='/dashboard' exact component={Dashboard}/> 
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
