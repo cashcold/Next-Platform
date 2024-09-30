@@ -72,6 +72,7 @@ class MainApp extends Component {
          }
     }
     componentDidMount() {
+      // clearInterval(this.timerID);
         if ('serviceWorker' in navigator) {
             this.registerServiceWorker();
           }

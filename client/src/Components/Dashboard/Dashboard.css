@@ -227,6 +227,80 @@
   color: #ecf0f1;
 }
 
+.container_ip_address {
+  text-align: center;
+  background-color: #95ce75;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-out;
+  transition: transform 0.4s ease;
+}
+
+.container_ip_address:hover {
+  transform: scale(1.05);
+}
+
+/* Heading styles */
+.heading {
+  color: #ecf0f1;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: slideDown 1s ease-out;
+}
+s
+/* IP address styles with animation */
+.ip-address {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  animation: pulse 2s infinite;
+}
+
+/* Animation for container fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide down animation for the heading */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for the IP address */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 15px rgba(26, 188, 156, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 25px rgba(26, 188, 156, 1);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 15px rgba(26, 188, 156, 0.7);
+  }
+}
+
+
 
 
 /* Responsive Design */
@@ -244,5 +318,16 @@
   .giftcards-section h2,
   .offers-section h2 {
     font-size: 1.5rem;
+  }
+  .container_ip_address {
+    padding: 10px;
+  }
+
+  .heading {
+    font-size: 1.4rem;
+  }
+
+  .ip-address {
+    font-size: 1rem;
   }
 }

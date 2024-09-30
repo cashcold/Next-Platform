@@ -9,6 +9,7 @@ class Dashboard extends Component {
     super(props);
     this.state = {
       user_profile_display: '',
+      user_id: '',
       username: '', // Replace with the actual username from your authentication logic
       balance: "", // Example balance value
       rewards: ['Referrer  $1871', 'Time spend $230', 'Share Links $653'], // Example rewards
@@ -16,10 +17,19 @@ class Dashboard extends Component {
       offers: ['10% off next purchase', '$5 bonus for referrals'], // Example offers
       greeting: '',
       currentTime: '',
+      ipAddress: '',
     };
   }
 
   componentDidMount() {
+
+    axios.get('https://api.ipify.org?format=json')
+    .then(response => {
+      this.setState({ ipAddress: response.data.ip });
+    })
+    .catch(error => {
+      console.error('Error fetching the IP address:', error);
+    });
 
     const token = sessionStorage.getItem('x-access-token')
     const decoded = jwt_decode(token)
@@ -29,6 +39,10 @@ class Dashboard extends Component {
      })
 
      const id = decoded.user_id
+     const userId = decoded.user_id
+     
+
+  
 
       
      axios.post('http://localhost:8000/users/user_profile_display',{id}).then(data => this.setState(
@@ -41,7 +55,7 @@ class Dashboard extends Component {
     }))
 
 
-    console.log(this.state.user_profile_display)
+    // console.log(this.state.user_profile_display)
 
 
 
@@ -53,9 +67,14 @@ class Dashboard extends Component {
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerID);
+
+     clearInterval(this.timerID);
+
+
+    
   }
 
+  
   updateGreeting = () => {
     const now = new Date();
     const hours = now.getHours();
@@ -86,7 +105,7 @@ class Dashboard extends Component {
       currentTime,
     } = this.state;
 
-    console.log(this.state.user_profile_display)
+    // console.log(this.state.user_profile_display)
 
     return (
       <div className="dashboard_main">
@@ -101,6 +120,12 @@ class Dashboard extends Component {
         </motion.h1>
         <p className="current-time">{currentTime}</p>
 
+        <div className="container_ip_address"> 
+        <h1 className="heading">Your IP Address is:</h1>
+        <p className="ip-address">{this.state.ipAddress}</p>
+      </div>
+        
+
         {/* Balance Section */}
         <motion.div
           className="balance-section"
@@ -109,7 +134,7 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Your Balance</h2>
-          <p>${balance}</p>
+          <p>${isNaN(parseFloat(balance)) ? "0.00" : parseFloat(balance).toFixed(2)}</p>
         </motion.div>
 
         {/* Rewards Section */}
