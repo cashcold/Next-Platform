@@ -37,7 +37,7 @@ const userSchema = new mongoose.Schema({
     sessionStart: {
         type: Date,  // Store the time when the session starts
     },
-    Date: {
+    createdAt: {
         type: Date,
         default: Date.now,
     },

@@ -1,5 +1,6 @@
 const express = require('express')
 const User = require('../UserModel/userModel')
+const Accessory = require('../UserModel/accessory')
 const axios = require('axios')
 const bcrypt = require('bcryptjs')
 const mailgun = require('mailgun-js')
@@ -196,6 +197,67 @@ Router.post('/activtypassword/:token', async(req,res)=>{
       console.log(err)
   })
 })
+Router.post('/api/sessionStart', async (req, res) => {
+  const { userId } = req.body;
+
+  try {
+      const user = await User.findById(userId);
+
+      if (user) {
+          user.sessionStart = new Date();  // Set the session start time to the current time
+          await user.save();
+          res.json({ message: "Session started", sessionStart: user.sessionStart });
+      } else {
+          res.status(404).json({ error: 'User not found' });
+      }
+  } catch (error) {
+      console.error('Error starting session:', error);
+      res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+Router.post('/api/updateBalance', async (req, res) => {
+  const { user_id, timeSpent } = req.body;
+
+
+  console.log(req.body)
+
+  try {
+      // Find the user by ID
+      const user = await User.findById(user_id);
+
+      if (user) {
+          // Calculate the amount to add ($0.25 every 3 seconds)
+          const amountToAdd = (timeSpent / 3) * 0.25;
+
+          // Update the user's balance
+          user.accountBalance += amountToAdd;
+
+          // Add the time spent to the total time spent
+          user.totalTimeSpent += timeSpent;
+
+          // Save the updated user data
+          await user.save();
+
+          // Send back the updated balance
+          res.json({ balance: user.accountBalance, totalTimeSpent: user.totalTimeSpent });
+      } else {
+          res.status(404).json({ error: 'User not found' });
+      }
+  } catch (error) {
+      console.error('Error updating balance:', error);
+      res.status(500).json({ error: 'Server error' });
+  }
+});
+
+
+
+
+
+
+
+
 
 
 Router.post('/user_profile_display',async(req,res)=>{
@@ -211,6 +273,8 @@ Router.post('/user_profile_display',async(req,res)=>{
     
     
 })
+
+
 
 
 
@@ -330,8 +394,37 @@ Router.post('/music', (req,res) => {
     })
 
 
+    Router.post('/add-accessory', async (req, res) => {
+      const { name, category, price, description, images, stock, colors, sizes, ratings } = req.body;
+    
+      const newAccessory = new Accessory({
+        name,
+        category,
+        price,
+        description,
+        images,
+        stock,
+        colors,
+        sizes,
+        ratings
+      });
+    
+      try {
+        const savedAccessory = await newAccessory.save();
+        res.status(201).json(savedAccessory);
+      } catch (err) {
+        res.status(400).json({ error: err.message });
+      }
+    });
 
-
+    Router.get('/accessories', async (req, res) => {
+      try {
+        const accessories = await Accessory.find();
+        res.status(200).json(accessories);
+      } catch (err) {
+        res.status(400).json({ error: err.message });
+      }
+    });
     
 
     

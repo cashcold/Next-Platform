@@ -1,0 +1,93 @@
+/* General layout and background */
+.accessory-main {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .accessory-list {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+    /* color: black; */
+    color: white;
+  }
+  
+  .accessory-main .heading {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff8a00, #e52e71);
+    -webkit-background-clip: text;
+    color: transparent;
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  /* Accessories List */
+  .accessory-main .accessories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 20px;
+  }
+  
+  .accessory-main .accessory-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, background-color 0.5s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    animation: slideUp 0.8s forwards;
+  }
+  
+  .accessory-main .accessory-item:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* Accessory images */
+  .accessory-main .images img {
+    width: 300px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 8px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+  
+  .accessory-main .images img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Animation for loading accessories */
+  @keyframes slideUp {
+    from {
+      transform: translateY(50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-in animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* Loading and error states */
+  .loading,
+  .error {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  

@@ -56,6 +56,7 @@ import LoginPage from './Components/LoginPage/LoginPage.js';
 import ResetPasswordPage from './Components/ResetPasswordPage/ResetPasswordPage.js';
 import ActivitPassword from './Components/ActivitPassword/ActivitPassword.js';
 import Dashboard from './Components/Dashboard/Dashboard.js';
+import AccessoryList from './Components/AccessoryList/AccessoryList.js';
 
 
 
@@ -155,6 +156,7 @@ class MainApp extends Component {
                                 <Route path='/reset-password' exact component={ResetPasswordPage}/> 
                                 <Route path='/activitPassword/:token' exact component={ActivitPassword}/> 
                                 <Route path='/dashboard' exact component={Dashboard}/> 
+                                <Route path='/AccessoryList' exact component={AccessoryList}/> 
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
                                 <Route path='/music_me' exact component={MusicBox_1}/>

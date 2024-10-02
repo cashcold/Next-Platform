@@ -7,6 +7,7 @@ import moment from 'moment'
 // import {Hm_api} from '../Api/Hm_API.js'
 import AmazonFreshProduct from './amazon_fresh_product.js';
 import EbayMainProduct from './ebayProduct.js';
+import AccessoryList from '../AccessoryList/AccessoryList.js';
 
 
 class ProductMain extends Component {
@@ -33,7 +34,8 @@ class ProductMain extends Component {
             <div className='productMain'>
                 <section className="product_section_1">
                     <div className="product_row_1">
-                        <EbayMainProduct/>
+                        {AccessoryList}
+                        {/* <EbayMainProduct/> */}
                         {/* <AmazonFreshProduct/> */}
                     </div>
                 </section>

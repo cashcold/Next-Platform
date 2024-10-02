@@ -55,4 +55,4 @@ class EbayMainProduct extends Component {
     }
 }
  
-export default EbayMainProduct;
+export default EbayMainProduct;    

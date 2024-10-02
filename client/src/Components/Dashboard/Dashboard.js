@@ -23,6 +23,37 @@ class Dashboard extends Component {
 
   componentDidMount() {
 
+       // Set the session start time when the user loads the page
+        axios.post('http://localhost:8000/users/api/sessionStart', { user_id: this.state.user_id })
+            .then((response) => {
+                console.log("Session started:", response.data);
+            })
+            .catch((error) => console.error('Error starting session:', error));
+
+        // Set an interval to track time and update balance every 3 seconds
+        this.interval = setInterval(() => {
+            this.setState(
+                (prevState) => ({ timeSpent: prevState.timeSpent + 3 }),
+                () => {
+                    // Send the timeSpent (3 seconds) to the backend to update balance
+                    axios.post('http://localhost:8000/users/api/updateBalance', {
+                        user_id: this.state.user_id,
+                        timeSpent: 3
+                    })
+                        .then((response) => {
+                            // Update the balance and total time spent from the response
+                            this.setState({
+                                balance: response.data.balance,
+                            });
+                        })
+                        .catch((error) => console.error('Error updating balance:', error));
+                }
+            );
+        }, 3000);  // Update every 3 seconds
+        
+
+        
+
     axios.get('https://api.ipify.org?format=json')
     .then(response => {
       this.setState({ ipAddress: response.data.ip });
@@ -35,11 +66,10 @@ class Dashboard extends Component {
     const decoded = jwt_decode(token)
      JSON.stringify( sessionStorage.setItem('user_id',decoded.user_id))
     this.setState({
-        user_id: decoded.user_id,
+      user_id: decoded.user_id,
      })
 
      const id = decoded.user_id
-     const userId = decoded.user_id
      
 
   
@@ -56,6 +86,7 @@ class Dashboard extends Component {
 
 
     // console.log(this.state.user_profile_display)
+    console.log(this.state.user_id)
 
 
 
@@ -105,7 +136,6 @@ class Dashboard extends Component {
       currentTime,
     } = this.state;
 
-    // console.log(this.state.user_profile_display)
 
     return (
       <div className="dashboard_main">
@@ -134,7 +164,7 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Your Balance</h2>
-          <p>${isNaN(parseFloat(balance)) ? "0.00" : parseFloat(balance).toFixed(2)}</p>
+          <p>user_id</p>
         </motion.div>
 
         {/* Rewards Section */}
