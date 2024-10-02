@@ -48,12 +48,8 @@ app.use('/users', userRouter);
 const Subscription = require('./UserModel/Subscription')
 
 
-// Public and private VAPID keys
-const publicVapidKey = "BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU"
-  .replace(/=/g, '')  // Remove padding
-  .replace(/\+/g, '-') // Replace '+' with '-'
-  .replace(/\//g, '_'); // Replace '/' with '_'
-
+// Public and private VAPID keys (no need to manually replace characters)
+const publicVapidKey = base64url.encode("BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU");
 const privateVapidKey = "l8UN9HvyjNC6mHwsnpPxt-ACbPPF59p2vj7srEn4XTs";
 
 // Set VAPID details
