@@ -9,6 +9,7 @@ const SpotifyWebApi = require('spotify-web-api-node');
 const fs = require('fs');
 const axios = require('axios');
 const webpush = require('web-push');
+const base64url = require('base64url');
 const lyricsFinder = require('lyrics-finder');
 
 dotEnv.config();
@@ -47,16 +48,16 @@ app.use('/users', userRouter);
 const Subscription = require('./UserModel/Subscription')
 
 
-const publicVapidKey =
-  "BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU";
+// Public and private VAPID keys
+const publicVapidKey = base64url.toBase64("BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU");
 const privateVapidKey = "l8UN9HvyjNC6mHwsnpPxt-ACbPPF59p2vj7srEn4XTs";
- 
+
+// Set VAPID details
 webpush.setVapidDetails(
   "mailto:test@test.com",
   publicVapidKey,
   privateVapidKey
 );
-
 
 
 app.post('/subscribe', async (req, res) => {
