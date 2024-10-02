@@ -20,20 +20,20 @@ const db1URI = process.env.MONGODB_URI;
 const db2URI = process.env.MONGODB_URI_GodSpeedComputersGH;
 
 // Connect to the first MongoDB database
-mongoose.connect(db2URI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(db1URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to the first MongoDB database (Gain)'))
     .catch(err => console.error('Could not connect to the first MongoDB database (Gain)', err));
 
 // Create a second connection
-// const db2 = mongoose.createConnection(db2URI, { useNewUrlParser: true, useUnifiedTopology: true });
+const db2 = mongoose.createConnection(db2URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-// db2.on('connected', () => {
-//     console.log('Connected to the second MongoDB database (GodSpeedComputersGH)');
-// });
+db2.on('connected', () => {
+    console.log('Connected to the second MongoDB database (GodSpeedComputersGH)');
+});
 
-// db2.on('error', (err) => {
-//     console.error('Could not connect to the second MongoDB database (GodSpeedComputersGH)', err);
-// });
+db2.on('error', (err) => {
+    console.error('Could not connect to the second MongoDB database (GodSpeedComputersGH)', err);
+});
 
 const PORT = process.env.PORT || 8000;
 

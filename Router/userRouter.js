@@ -221,14 +221,13 @@ Router.post('/api/updateBalance', async (req, res) => {
   const { user_id, timeSpent } = req.body;
 
 
-  console.log(req.body)
 
   try {
       // Find the user by ID
       const user = await User.findById(user_id);
 
       if (user) {
-          // Calculate the amount to add ($0.25 every 3 seconds)
+          // Calculate the amount to add ($0.25 every 3 seconds live)
           const amountToAdd = (timeSpent / 3) * 0.25;
 
           // Update the user's balance

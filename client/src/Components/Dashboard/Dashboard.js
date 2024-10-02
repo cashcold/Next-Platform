@@ -164,7 +164,7 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Your Balance</h2>
-          <p>user_id</p>
+          <p>${balance}</p>
         </motion.div>
 
         {/* Rewards Section */}
