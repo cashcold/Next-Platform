@@ -48,57 +48,48 @@ app.use('/users', userRouter);
 const Subscription = require('./UserModel/Subscription')
 
 
-// Public and private VAPID keys (encode public key as base64url)
-const publicVapidKey = base64url.fromBase64("BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU");
-const privateVapidKey = "l8UN9HvyjNC6mHwsnpPxt-ACbPPF59p2vj7srEn4XTs";
-
-// Set VAPID details
-webpush.setVapidDetails(
-  "mailto:test@test.com",
-  publicVapidKey,
-  privateVapidKey
-);
-
-app.post('/subscribe', async (req, res) => {
-  const subscription = req.body;
-
-  try {
-    // Save subscription to the database
-    await Subscription.create({
-      endpoint: subscription.endpoint,
-      keys: subscription.keys
-    });
-
-    res.status(201).json({});
-
-    // Send a test notification (optional)
-    const payload = JSON.stringify({ title: 'The Christ Miracles Church Intl.' });
-    webpush.sendNotification(subscription, payload).catch(err => console.error(err));
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to save subscription' });
-  }
-});
 
 
-app.post('/sendNotification', async (req, res) => {
-  const { title, message } = req.body;
+// app.post('/subscribe', async (req, res) => {
+//   const subscription = req.body;
 
-  try {
-    const subscriptions = await Subscription.find();
+//   try {
+//     // Save subscription to the database
+//     await Subscription.create({
+//       endpoint: subscription.endpoint,
+//       keys: subscription.keys
+//     });
 
-    const payload = JSON.stringify({ title, message });
+//     res.status(201).json({});
 
-    const notificationPromises = subscriptions.map(subscription =>
-      webpush.sendNotification(subscription, payload)
-    );
+//     // Send a test notification (optional)
+//     const payload = JSON.stringify({ title: 'The Christ Miracles Church Intl.' });
+//     webpush.sendNotification(subscription, payload).catch(err => console.error(err));
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to save subscription' });
+//   }
+// });
 
-    await Promise.all(notificationPromises);
 
-    res.status(200).json({ message: 'Notifications sent now' });
-  } catch (error) {
-    res.status(500).json({ error: 'Failed to send notifications' });
-  }
-});
+// app.post('/sendNotification', async (req, res) => {
+//   const { title, message } = req.body;
+
+//   try {
+//     const subscriptions = await Subscription.find();
+
+//     const payload = JSON.stringify({ title, message });
+
+//     const notificationPromises = subscriptions.map(subscription =>
+//       webpush.sendNotification(subscription, payload)
+//     );
+
+//     await Promise.all(notificationPromises);
+
+//     res.status(200).json({ message: 'Notifications sent now' });
+//   } catch (error) {
+//     res.status(500).json({ error: 'Failed to send notifications' });
+//   }
+// });
 
   
 const spotifyApi = new SpotifyWebApi({
@@ -196,17 +187,7 @@ app.get('/lyrics', async (req, res) => {
 });
 
 
-// app.get('/lyrics', async (req, res) => {
-//     const { artist, track } = req.query;
 
-//     try {
-//         const lyrics = await lyricsFinder(artist, track);
-//         res.json({ lyrics });
-//     } catch (error) {
-//         console.error('Error fetching lyrics:', error);
-//         res.status(500).json({ error: 'Failed to fetch lyrics, refresh the page again' });
-//     }
-// });
 
 app.get('/', (req, res) => {
     const filePath = path.resolve(__dirname, './client/build', 'index.html');
