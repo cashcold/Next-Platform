@@ -24,7 +24,7 @@ class Dashboard extends Component {
   componentDidMount() {
 
        // Set the session start time when the user loads the page
-        axios.post('http://localhost:8000/users/api/sessionStart', { user_id: this.state.user_id })
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/sessionStart`, { user_id: this.state.user_id })
             .then((response) => {
                 console.log("Session started:", response.data);
             })
@@ -36,7 +36,7 @@ class Dashboard extends Component {
                 (prevState) => ({ timeSpent: prevState.timeSpent + 3 }),
                 () => {
                     // Send the timeSpent (3 seconds) to the backend to update balance
-                    axios.post('http://localhost:8000/users/api/updateBalance', {
+                    axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/updateBalance`, {
                         user_id: this.state.user_id,
                         timeSpent: 3
                     })

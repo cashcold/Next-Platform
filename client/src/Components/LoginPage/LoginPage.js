@@ -28,7 +28,7 @@ class LoginPage extends Component {
   }
 
   if(!userLogin.email){
-      toast.warning('Enter Email Address')
+      toast.warning('Enter Email Address')  
       return false;
   }
   if(!userLogin.password){
@@ -36,7 +36,7 @@ class LoginPage extends Component {
       return false;
   }
 
-  axios.post( "http://localhost:8000/users/login",userLogin).then(res => {  
+  axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/login`, userLogin).then(res => {  
       sessionStorage.setItem('x-access-token',JSON.stringify(res.data))
       return res.data;
   }).then(res => {toast.success("Login Successful !", setTimeout(()=>{
@@ -50,6 +50,8 @@ class LoginPage extends Component {
   }
 
   render() {
+
+    console.log(process.env.REACT_APP_API_BASE_URL);
     return (
       <div className="login_main_page">
       <div className="login-container">
