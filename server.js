@@ -19,21 +19,21 @@ dotEnv.config();
 const db1URI = process.env.MONGODB_URI;
 const db2URI = process.env.MONGODB_URI_GodSpeedComputersGH;
 
-// Connect to the first MongoDB database
-mongoose.connect(db1URI, { useNewUrlParser: true, useUnifiedTopology: true })
+ // Connect to the first MongoDB database
+ mongoose.connect(db1URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to the first MongoDB database (Gain)'))
     .catch(err => console.error('Could not connect to the first MongoDB database (Gain)', err));
 
-// Create a second connection
-const db2 = mongoose.createConnection(db2URI, { useNewUrlParser: true, useUnifiedTopology: true });
+    // Create a second connection
+    const db2 = mongoose.createConnection(db2URI, { useNewUrlParser: true, useUnifiedTopology: true });
 
-db2.on('connected', () => {
-    console.log('Connected to the second MongoDB database (GodSpeedComputersGH)');
-});
+    db2.on('connected', () => {
+        console.log('Connected to the second MongoDB database (GodSpeedComputersGH)');
+    });
 
-db2.on('error', (err) => {
-    console.error('Could not connect to the second MongoDB database (GodSpeedComputersGH)', err);
-});
+    db2.on('error', (err) => {
+        console.error('Could not connect to the second MongoDB database (GodSpeedComputersGH)', err);
+    });
 
 const PORT = process.env.PORT || 8000;
 
@@ -50,46 +50,6 @@ const Subscription = require('./UserModel/Subscription')
 
 
 
-// app.post('/subscribe', async (req, res) => {
-//   const subscription = req.body;
-
-//   try {
-//     // Save subscription to the database
-//     await Subscription.create({
-//       endpoint: subscription.endpoint,
-//       keys: subscription.keys
-//     });
-
-//     res.status(201).json({});
-
-//     // Send a test notification (optional)
-//     const payload = JSON.stringify({ title: 'The Christ Miracles Church Intl.' });
-//     webpush.sendNotification(subscription, payload).catch(err => console.error(err));
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to save subscription' });
-//   }
-// });
-
-
-// app.post('/sendNotification', async (req, res) => {
-//   const { title, message } = req.body;
-
-//   try {
-//     const subscriptions = await Subscription.find();
-
-//     const payload = JSON.stringify({ title, message });
-
-//     const notificationPromises = subscriptions.map(subscription =>
-//       webpush.sendNotification(subscription, payload)
-//     );
-
-//     await Promise.all(notificationPromises);
-
-//     res.status(200).json({ message: 'Notifications sent now' });
-//   } catch (error) {
-//     res.status(500).json({ error: 'Failed to send notifications' });
-//   }
-// });
 
   
 const spotifyApi = new SpotifyWebApi({

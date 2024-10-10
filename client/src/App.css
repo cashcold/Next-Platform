@@ -52,6 +52,121 @@ a:hover{
 }
 
 
+/* Container styling */
+.account-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    margin-top: 50px;
+    animation: fadeInContainer 1s ease-in-out;
+  }
+  
+  /* Heading styling */
+  .balance-heading {
+    font-size: 24px;
+    color: #4caf50;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    animation: fadeInHeading 1.2s ease;
+    position: relative;
+  }
+  
+  .balance-heading::before, .balance-heading::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background: #4caf50;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: slideIn 1s ease forwards;
+  }
+  
+  .balance-heading::before {
+    left: -50px;
+  }
+  
+  .balance-heading::after {
+    right: -50px;
+  }
+  
+  /* Button styling */
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #f44336;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Hover effect */
+  button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background-color: #e57373;
+  }
+  
+  /* Ripple effect */
+  button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.4);
+    transform: translate(-50%, -50%) scale(0);
+    border-radius: 50%;
+    transition: transform 0.5s ease;
+  }
+  
+  button:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0;
+  }
+  
+  /* Keyframe animations */
+  @keyframes fadeInContainer {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInHeading {
+    0% {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes slideIn {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 40px;
+    }
+  }
+  
+
 @media screen and (max-width: 768px){
 
     .mainApp{

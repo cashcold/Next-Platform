@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import jwt_decode from 'jwt-decode';
 import {HelmetProvider} from "react-helmet-async";  
 import './App.css'
 // import './client'
@@ -64,6 +65,9 @@ class MainApp extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            balance: "", // Balance state here
+            user_id: '', // You can also fetch user details here
+            user_Name: '',
             title: 'NEXT-PLATFORM-HOME',
             description: 'Join the bigest platform NextPlatform HoME Enterterment Music Box',
             on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg',
@@ -72,60 +76,77 @@ class MainApp extends Component {
 
          }
     }
-    componentDidMount() {
-      // clearInterval(this.timerID);
-        if ('serviceWorker' in navigator) {
-            this.registerServiceWorker();
-          }
 
-        const music_type = localStorage.getItem('mp3_api_music_type');
-        this.setState({
-            music_type
+    componentDidMount() {
+        const token = sessionStorage.getItem('x-access-token');
+        
+        if (!token) {
+            console.error("No token found. Redirecting to login...");
+            // Redirect to login or handle as needed
+            return;
+        }
+    
+        try {
+            const decoded = jwt_decode(token);
+            const user_id = decoded.user_id;
+    
+            this.setState({ user_id });
+    
+            // Fetch the initial balance only if user_id is available
+            this.fetchInitialBalance(user_id);
+            
+            // Start balance update interval if user_id exists
+            this.interval = setInterval(() => {
+                this.updateBalance(user_id);
+            }, 3000);
+    
+        } catch (error) {
+            console.error("Error decoding token:", error);
+            // Handle token decoding error, maybe redirect to login
+        }
+    }
+    
+    componentWillUnmount() {
+        // Clear the interval when the component unmounts
+        if (this.interval) {
+            clearInterval(this.interval);
+        }
+    }
+    
+    fetchInitialBalance(user_id) {
+        axios.post('http://localhost:8000/users/user_profile_display', { user_id: user_id })
+        .then(response => {
+            this.setState({
+                balance: response.data.accountBalance,
+                user_Name: response.data.user_Name
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching balance:', error);
         });
     }
-
-    registerServiceWorker = async () => {
-        try {
-          const registration = await navigator.serviceWorker.register('/worker.js');
-          console.log('Service Worker Registered');
     
-          const subscription = await this.subscribeUserToPush(registration);
-          if (subscription) {
-            await this.sendSubscriptionToServer(subscription);
-          }
-        } catch (error) {
-          console.error('Error during service worker registration:', error);
-        }
-      };
-    
-      subscribeUserToPush = async (registration) => {
-        const subscription = await registration.pushManager.subscribe({
-          userVisibleOnly: true,
-          applicationServerKey: this.urlBase64ToUint8Array('BMVoVa091u1HIO9tr5ksdHaJleTqt4lFjkg7N_emTP1IzAwt6-B9NmmelAQP4beoxSpshJ0Kage490LVd8d-VZU')
+    updateBalance(user_id) {
+        axios.post('http://localhost:8000/users/api/updateBalance', {
+            user_id: user_id,
+            timeSpent: 3, // Assuming 3 seconds spent per update
+        })
+        .then(response => {
+            this.setState({ balance: response.data.balance });
+        })
+        .catch(error => {
+            console.error('Error updating balance:', error);
         });
-        return subscription;
-      };
+    }
     
-      sendSubscriptionToServer = async (subscription) => {
-        await axios.post('/subscribe', subscription);
-      };
-    
-      urlBase64ToUint8Array = (base64String) => {
-        const padding = '='.repeat((4 - (base64String.length % 4)) % 4);
-        const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
-        const rawData = window.atob(base64);
-        const outputArray = new Uint8Array(rawData.length);
-        for (let i = 0; i < rawData.length; ++i) {
-          outputArray[i] = rawData.charCodeAt(i);
-        }
-        return outputArray;
-      };
 
+   
    
 
   
 
         render() { 
+        const { balance, user_Name } = this.state; // Destructure the balance from state
         const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
         return ( 
           
@@ -144,7 +165,12 @@ class MainApp extends Component {
                 <div className=' mainApp '>
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
-                            
+
+                        <div className="account-buttons-container">
+                            <h3 className="balance-heading">Balance: {balance}</h3>
+                            <button className="logout-btn">Logout</button>
+                        </div>
+                        
                         <Navbar/> 
                             
                             <div className='switch'> 
@@ -155,7 +181,9 @@ class MainApp extends Component {
                                 <Route path='/login' exact component={LoginPage}/> 
                                 <Route path='/reset-password' exact component={ResetPasswordPage}/> 
                                 <Route path='/activitPassword/:token' exact component={ActivitPassword}/> 
-                                <Route path='/dashboard' exact component={Dashboard}/> 
+                                <Route path="/dashboard" exact render={(props) => (
+                                    <Dashboard {...props} balance={balance} user_Name={user_Name} />
+                                )} />
                                 <Route path='/AccessoryList' exact component={AccessoryList}/> 
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
@@ -214,5 +242,4 @@ class MainApp extends Component {
 }
  
 export default MainApp;
-
 

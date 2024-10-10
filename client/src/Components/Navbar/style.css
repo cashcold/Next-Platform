@@ -314,12 +314,12 @@
     .btn-login-in_account{
         margin-bottom: 1em;
     }
-    .navMain.sticky.navMain{
+    /* .navMain.sticky.navMain{
         background-color: black;
         height: 9vh;
         box-shadow: 0 5px  20px rgba(0,0,0,0.5);
        
-    }
+    } */
     .flow_marq h3{
         /* width: 10%; */
         color: rgb(133, 24, 24);        
