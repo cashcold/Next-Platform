@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import jwt_decode from 'jwt-decode';
+import { motion } from 'framer-motion'; // Import framer-motion for smooth effects
 import {HelmetProvider} from "react-helmet-async";  
-import './App.css'
+import './App.css' 
 // import './client'
 // import './worker'
 import 'animate.css'
@@ -68,6 +69,8 @@ class MainApp extends Component {
             balance: "", // Balance state here
             user_id: '', // You can also fetch user details here
             user_Name: '',
+            greeting: '',
+            currentTime: '',
             title: 'NEXT-PLATFORM-HOME',
             description: 'Join the bigest platform NextPlatform HoME Enterterment Music Box',
             on_image: 'https://nest-platform.herokuapp.com/static/media/A2%20STICKER-01%20(1).f946bff1c9648de93e5b.jpg',
@@ -104,6 +107,11 @@ class MainApp extends Component {
             console.error("Error decoding token:", error);
             // Handle token decoding error, maybe redirect to login
         }
+
+        
+    this.updateGreeting();
+    // Update time every minute
+    this.timerID = setInterval(() => this.updateGreeting(), 60000);
     }
     
     componentWillUnmount() {
@@ -111,6 +119,8 @@ class MainApp extends Component {
         if (this.interval) {
             clearInterval(this.interval);
         }
+
+        clearInterval(this.timerID);
     }
     
     fetchInitialBalance(user_id) {
@@ -138,6 +148,25 @@ class MainApp extends Component {
             console.error('Error updating balance:', error);
         });
     }
+
+    updateGreeting = () => {
+        const now = new Date();
+        const hours = now.getHours();
+        let greeting = '';
+    
+        if (hours < 12) {
+          greeting = 'Good morning';
+        } else if (hours < 17) {
+          greeting = 'Good afternoon';
+        } else {
+          greeting = 'Good evening';
+        }
+    
+        this.setState({
+          greeting,
+          currentTime: now.toLocaleString(),
+        });
+      };
     
 
    
@@ -146,8 +175,10 @@ class MainApp extends Component {
   
 
         render() { 
-        const { balance, user_Name } = this.state; // Destructure the balance from state
-        const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
+
+            const { balance, user_Name, user_id, greeting, currentTime } = this.state; // Destructure the balance from state
+            const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
+            console.log(user_Name)
         return ( 
           
             <Router>
@@ -166,10 +197,25 @@ class MainApp extends Component {
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
 
-                        <div className="account-buttons-container">
-                            <h3 className="balance-heading">Balance: {balance}</h3>
-                            <button className="logout-btn">Logout</button>
-                        </div>
+                         {/* Conditionally render the account-buttons-container if user_id exists */}
+                         {user_id && (
+                            <div className="account-buttons-container">
+                                                        <motion.h1
+                                className="dashboard-title"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 1 }}
+                                >
+                                {greeting}, {user_Name}!! <span className="emoji-wave">👋</span>
+                                </motion.h1>
+                                <p className="current-time">{currentTime}</p>
+                                <p className="current-time">User Name: {user_Name}</p>
+
+                                <h3 className="balance-heading">Balance: ${balance}</h3>
+                                <button className="btn btn-warning">Withdraw</button>
+                                <button className="btn btn-danger">Logout</button>
+                            </div>
+                        )}
                         
                         <Navbar/> 
                             

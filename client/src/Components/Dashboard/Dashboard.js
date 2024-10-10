@@ -153,7 +153,7 @@ class Dashboard extends Component {
         <div className="container_ip_address"> 
         <h1 className="heading">Your IP Address is:</h1>
         <p className="ip-address">{this.state.ipAddress}</p>
-      </div>
+        </div>
         
 
         {/* Balance Section */}
