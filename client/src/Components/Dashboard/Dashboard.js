@@ -140,15 +140,7 @@ class Dashboard extends Component {
     return (
       <div className="dashboard_main">
       <div className="dashboard-container">
-        <motion.h1
-          className="dashboard-title"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-        >
-          {greeting}, {username}! <span className="emoji-wave">👋</span>
-        </motion.h1>
-        <p className="current-time">{currentTime}</p>
+       
 
         <div className="container_ip_address"> 
         <h1 className="heading">Your IP Address is:</h1>
@@ -165,6 +157,9 @@ class Dashboard extends Component {
         >
           <h2>Your Balance</h2>
           <p>${balance}</p>
+          <button className="btn btn-warning"  onClick={()=>{
+                window.location = '';
+          }}>Withdraw</button>
         </motion.div>
 
         {/* Rewards Section */}

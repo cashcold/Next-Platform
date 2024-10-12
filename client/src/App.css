@@ -63,6 +63,13 @@ a:hover{
     background-color: black;
     padding: 2.5em 0em;
   }
+
+  .account-buttons-container p  {
+    color: white;
+  }
+  .mainApp h1 {
+    color: white;
+  }
   
   /* Heading styling */
   .balance-heading {

@@ -59,6 +59,7 @@ import ResetPasswordPage from './Components/ResetPasswordPage/ResetPasswordPage.
 import ActivitPassword from './Components/ActivitPassword/ActivitPassword.js';
 import Dashboard from './Components/Dashboard/Dashboard.js';
 import AccessoryList from './Components/AccessoryList/AccessoryList.js';
+import moment from 'moment'
 
 
 
@@ -66,6 +67,7 @@ class MainApp extends Component {
     constructor(props) {
         super(props);
         this.state = { 
+            username: "", 
             balance: "", // Balance state here
             user_id: '', // You can also fetch user details here
             user_Name: '',
@@ -108,10 +110,21 @@ class MainApp extends Component {
             // Handle token decoding error, maybe redirect to login
         }
 
+        const decoded = jwt_decode(token);
+        const id = decoded.user_id;
+
+        axios.post('http://localhost:8000/users/user_profile_display',{id}).then(data => this.setState(
+            {
+            username: data.data.user_Name,
+      
+             
+          }))
+      
+
         
     this.updateGreeting();
-    // Update time every minute
-    this.timerID = setInterval(() => this.updateGreeting(), 60000);
+    // Update time every seconds
+    this.timerID = setInterval(() => this.updateGreeting(), 1000);
     }
     
     componentWillUnmount() {
@@ -155,18 +168,18 @@ class MainApp extends Component {
         let greeting = '';
     
         if (hours < 12) {
-          greeting = 'Good morning';
+            greeting = 'Good morning';
         } else if (hours < 17) {
-          greeting = 'Good afternoon';
+            greeting = 'Good afternoon';
         } else {
-          greeting = 'Good evening';
+            greeting = 'Good evening';
         }
     
         this.setState({
-          greeting,
-          currentTime: now.toLocaleString(),
+            greeting,
+            currentTime: moment(now).format('MMMM Do YYYY, h:mm:ss a'), // Using moment to format date
         });
-      };
+    };
     
 
    
@@ -176,9 +189,9 @@ class MainApp extends Component {
 
         render() { 
 
-            const { balance, user_Name, user_id, greeting, currentTime } = this.state; // Destructure the balance from state
+            const { balance, user_Name, user_id, greeting, currentTime, username } = this.state; // Destructure the balance from state
             const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
-            console.log(user_Name)
+            console.log('User Name in App:', this.state.username);
         return ( 
           
             <Router>
@@ -197,8 +210,11 @@ class MainApp extends Component {
                 {/* <div  className='google__id' id="google_translate_element"></div> */}
                         <div className='wrapper'>
 
+                        
+                        
+                        <Navbar/> 
                          {/* Conditionally render the account-buttons-container if user_id exists */}
-                         {user_id && (
+                            {user_id && (
                             <div className="account-buttons-container">
                                                         <motion.h1
                                 className="dashboard-title"
@@ -206,18 +222,18 @@ class MainApp extends Component {
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 1 }}
                                 >
-                                {greeting}, {user_Name}!! <span className="emoji-wave">👋</span>
+                               <h1 className="current-greet"> {greeting}, {username}! <span className="emoji-wave">👋</span></h1>
                                 </motion.h1>
+                                
                                 <p className="current-time">{currentTime}</p>
-                                <p className="current-time">User Name: {user_Name}</p>
 
                                 <h3 className="balance-heading">Balance: ${balance}</h3>
-                                <button className="btn btn-warning">Withdraw</button>
+                                <button className="btn btn-warning"  onClick={()=>{
+                                     window.location = '/dashboard';
+                                }}>Dashboard</button>
                                 <button className="btn btn-danger">Logout</button>
                             </div>
                         )}
-                        
-                        <Navbar/> 
                             
                             <div className='switch'> 
                              <Switch> 
