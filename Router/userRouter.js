@@ -197,6 +197,24 @@ Router.post('/activtypassword/:token', async(req,res)=>{
       console.log(err)
   })
 })
+
+Router.get('/newusers', async (req, res) => {
+  try {
+    const response = await axios.get('https://randomuser.me/api/?results=20'); // Fetch 5 users
+    const users = response.data.results.map(user => ({
+      username: `${user.name.first} ${user.name.last}`,
+      country: user.location.country,
+      gender: user.gender,
+      image: user.picture.medium ,// Get medium-sized profile image
+      status: Math.random() > 0.5 ? 'online' : 'offline' // Randomly assign online/offline status
+    }));
+    res.json(users);
+  } catch (error) {
+    res.status(500).json({ error: 'Failed to fetch users' });
+  }
+});
+
+
 Router.post('/api/sessionStart', async (req, res) => {
   const { userId } = req.body;
 

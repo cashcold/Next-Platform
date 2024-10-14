@@ -12,6 +12,7 @@ import{ScrollTrigger} from 'gsap/ScrollTrigger.js'
 import { Helmet } from 'react-helmet';
 import Currencies from '../Currencies/Currencies';
 import LinkBoxMain from '../Link_Box/link_box';
+import NewUsers from '../NewUsers/NewUsers';
 
 class Selected extends Component {
     constructor(props) {
@@ -304,7 +305,9 @@ class Selected extends Component {
                     </ul>
                 </section>
                
-               
+               <section className='New_user_random'>
+                <NewUsers/>
+               </section>
                 <section className='game__ads'>
                     <section className='about__game'>
                         <div className='about_game_text'>

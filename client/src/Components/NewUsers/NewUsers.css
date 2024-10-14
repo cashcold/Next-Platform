@@ -1,0 +1,96 @@
+.NewUsers {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #fff; /* White text for better contrast */
+    padding: 20px;
+  }
+  
+  .NewUsers h2 {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 2.5rem;
+    color: #00ffdd;
+    letter-spacing: 1.5px;
+    animation: slideIn 1.5s ease-out;
+  }
+  
+  .NewUsers ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .NewUsers li {
+    position: relative;
+    background-color: #1f1f1f;
+    border-radius: 15px;
+    width: 250px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.15);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    transition: transform 0.6s ease, box-shadow 0.6s ease;
+    cursor: pointer;
+  }
+  
+  .NewUsers li:hover {
+    transform: rotateY(10deg) translateY(-10px);
+    box-shadow: 0 40px 60px rgba(0, 0, 0, 0.3);
+  }
+  
+  .NewUsers li img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    transition: transform 0.4s ease-in-out;
+  }
+  
+  .NewUsers li:hover img {
+    transform: scale(1.2);
+  }
+  
+  .NewUsers li p {
+    
+    color: white;
+    font-size: 1rem;
+    margin: 5px 0;
+    text-align: center;
+    transform: translateY(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .NewUsers li:hover p {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .NewUsers .status {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .NewUsers .status.online {
+    color: #00ff00; /* Green for online */
+  }
+  
+  .NewUsers .status.offline {
+    color: #ff0000; /* Red for offline */
+  }
+  

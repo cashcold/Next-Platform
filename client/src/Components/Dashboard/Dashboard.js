@@ -12,8 +12,8 @@ class Dashboard extends Component {
       user_id: '',
       username: '', // Replace with the actual username from your authentication logic
       balance: "", // Example balance value
-      rewards: ['Referrer  $1871', 'Time spend $230', 'Share Links $653'], // Example rewards
-      giftCards: ['Amazon $10', 'Netflix $15'], // Example gift cards
+      rewards: ['Referrer  $7571', 'Time spend $5830', 'Share Links $6973'], // Example rewards
+      giftCards: ['Amazon $9810', 'Netflix $87915'], // Example gift cards
       offers: ['10% off next purchase', '$5 bonus for referrals'], // Example offers
       greeting: '',
       currentTime: '',
