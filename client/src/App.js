@@ -191,7 +191,7 @@ class MainApp extends Component {
 
             const { balance, user_Name, user_id, greeting, currentTime, username } = this.state; // Destructure the balance from state
             const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
-            console.log('User Name in App:', this.state.username);
+          
         return ( 
           
             <Router>
