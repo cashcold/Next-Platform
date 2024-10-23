@@ -1,35 +1,59 @@
-body{
-    background-color: black;
-    color: white;
-    
+body {
+  background-color: #181818; /* Dark background for contrast */
 }
-.marqueeText p {
+
+.withdraw-button {
+  position: relative;
   display: inline-block;
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ffffff; /* Text color */
+  background-color: #222; /* Base color */
+  border: none;
+  border-radius: 30px; /* Rounded button */
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 1;
+  transition: all 0.3s ease;
 }
-.title_checkk_up{
-  display: flex;
- justify-content: space-between;
-}
-.title_checkk_up p{
-  display: flex;
- margin: 0em 2.5em;
-}
-.title_checkk_up a{
- color: white;
- text-decoration: none;
-}
-.title_checkk_up a:hover{
- color: red;
-}
-.flow_marq{
-  display: flex;
-  height: 20vh;
-  justify-content: center;
-  align-items: center;
 
+.withdraw-button span {
+  position: relative;
+  z-index: 2;
 }
-.flow_marq h3{
-  width: 10%;
-  color: rgb(133, 24, 24);
 
+.withdraw-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, 
+    #ff1a1a, 
+    #ff9933, 
+    #33cc33, 
+    #3399ff, 
+    #9933ff, 
+    #ff1a1a); /* Gradient colors */
+  transition: 0.4s;
+  z-index: 1;
+  border-radius: 30px;
+  animation: moveAround 3s linear infinite; /* Infinite movement */
+}
+
+@keyframes moveAround {
+  0% {
+    left: -50%;
+  }
+  100% {
+    left: 50%;
+  }
+}
+
+.withdraw-button:hover {
+  background-color: #333; /* Button hover effect */
+  transform: scale(1.05);
 }
