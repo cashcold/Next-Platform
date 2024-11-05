@@ -171,7 +171,7 @@ class LandingPageDrinks extends Component {
                   onChange={this.handleChange}
                 />
                 <button id="searchButton" onClick={this.handleSearch}>
-                  Search
+                  Search Now
                 </button>
               </div>
             </section>

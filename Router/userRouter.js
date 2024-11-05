@@ -9,6 +9,7 @@ const jwt = require('jsonwebtoken')
 const async = require('async')
 const crypto = require('crypto')
 const UserDeposit = require('../UserModel/depositModel')
+const WithdrawDeposit = require('../UserModel/widthdraw')
 var SpotifyWebApi = require('spotify-web-api-node');
 var Ebay = require('ebay-node-api')
 
@@ -33,6 +34,7 @@ Router.post('/register/', async(req,res)=>{
 
   const salt = await bcrypt.genSalt(10)
   const hashPassword = await bcrypt.hash(req.body.password, salt)
+  const user_email = await bcrypt.hash(req.body.email)
 
   const saveUser = new User({ 
       user_Name: req.body.user_Name,
@@ -49,9 +51,9 @@ Router.post('/register/', async(req,res)=>{
   var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
   var data = {
       from: 'Next-Platform <nextplatform99@gmail.com>',
-      to: 'frankainoo@gmail.com',
+      to: user_email,
       subject: 'Welcome To Next-Platform',
-      text: 'Thank you for JJoing Next-platform as one Family, Have a nice day. Thank You'
+      text: 'Thank you for Joing Next-platform as one Family, Have a nice day. Thank You'
   };
   mailgun.messages().send(data, function (error, body) {
       console.log(body);
@@ -289,6 +291,64 @@ Router.post('/user_profile_display',async(req,res)=>{
 
     
     
+})
+
+Router.post('/withdraw/:id', async(req,res)=>{ 
+    const user = await User.findById(req.params.id);
+    if (user) user.accountBalance = req.body.zero_accountBalance;
+    await user.save();
+
+    const email = req.body.email;
+    const user_Name = req.body.user_Name; 
+    const withdrawtAmount = req.body.accountBalance
+    const WithdrawNow = new WithdrawDeposit({
+    user_id: req.body.user_id,
+    user_Name: req.body.user_Name,
+    full_Name: req.body.full_Name,
+    type: req.body.type,
+    accountBalance: req.body.accountBalance,
+    activetDeposit: req.body.activetDeposit,
+    zero_accountBalance: req.body.zero_accountBalance,
+    email: req.body.email,
+    date: req.body.date,
+    bitcoin: req.body.bitcoin,
+  })
+  await WithdrawNow.save()
+
+  const userUpdate = await User.findById(req.params.id);
+  if(userUpdate){
+    
+  }
+  const payload = {
+    user_id: user._id,
+    full_Name: user.full_Name,
+    user_Name: user.user_Name,
+    email: user.email,
+    password: user.password,
+    bitcoin: user.bitcoin,
+    bitcoinCash: user.bitcoinCash,
+    ethereum: user.ethereum,
+    ip_address: user.ip_address,           
+    date: user.Date,
+    accountBalance: user.accountBalance,
+    activetDeposit: user.activetDeposit,
+    date: user.date
+  }
+  const RefreshToken = jwt.sign(payload, process.env.RefreshToken)
+  res.header('RefreshToken', RefreshToken)
+
+  var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
+  var data = {
+    from: 'PayItForward <payitforwardisnvestmentlimited@gmail.com>',
+    to: email,
+    subject: 'Payment',
+    text: `Hello ${user_Name } Payment of ${withdrawtAmount} have sent to your Bitcoin Wallert Address`
+  };
+  mailgun.messages().send(data, function (error, body) {
+    console.log(body);
+  });
+
+  res.send(RefreshToken)
 })
 
 

@@ -158,7 +158,7 @@ class Dashboard extends Component {
           <h2>Your Balance</h2>
           <p>${balance}</p>
           <button className="btn btn-warning"  onClick={()=>{
-                window.location = '';
+                window.location = '/withdraw';
           }}>Withdraw</button>
         </motion.div>
 

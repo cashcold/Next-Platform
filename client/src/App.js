@@ -60,6 +60,7 @@ import ActivitPassword from './Components/ActivitPassword/ActivitPassword.js';
 import Dashboard from './Components/Dashboard/Dashboard.js';
 import AccessoryList from './Components/AccessoryList/AccessoryList.js';
 import moment from 'moment'
+import WithdrawPage from './Components/WithdrawPage/WithdrawPage.js';
 
 
 
@@ -246,6 +247,7 @@ class MainApp extends Component {
                                 <Route path="/dashboard" exact render={(props) => (
                                     <Dashboard {...props} balance={balance} user_Name={user_Name} />
                                 )} />
+                                 <Route path="/withdraw" component={WithdrawPage} />
                                 <Route path='/AccessoryList' exact component={AccessoryList}/> 
                                 <Route path='/agent-form' exact component={BecomeAgent}/>
                                 <Route path='/poster' exact component={Poster}/>
