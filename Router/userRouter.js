@@ -304,11 +304,11 @@ Router.post('/withdraw/:id', async(req,res)=>{
     const WithdrawNow = new WithdrawDeposit({
     user_id: req.body.user_id,
     user_Name: req.body.user_Name,
+    phone: req.body.phone,
     full_Name: req.body.full_Name,
     type: req.body.type,
     accountBalance: req.body.accountBalance,
     activetDeposit: req.body.activetDeposit,
-    zero_accountBalance: req.body.zero_accountBalance,
     email: req.body.email,
     date: req.body.date,
     bitcoin: req.body.bitcoin,

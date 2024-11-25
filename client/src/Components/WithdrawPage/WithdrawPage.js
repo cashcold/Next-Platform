@@ -16,10 +16,13 @@ class WithdrawPage extends Component {
       user_profile_display: '',
       id: '',
       user_Name: '',
+      email: '',
+      phone: '',
+      country: '',
       type: 'Withdrawal',
       accountBalance: '',
       walletAddress: '',
-      zero_accountBalance: '0',
+      zero_accountBalance: 0,
     };
 
     this.handleWithdraw = this.handleWithdraw.bind(this);
@@ -33,7 +36,9 @@ class WithdrawPage extends Component {
         accountBalance: this.state.accountBalance,
         zero_accountBalance: this.state.zero_accountBalance,
         user_Name: this.state.user_Name,
-        full_Name: this.state.user_Name,
+        email: this.state.email,
+        phone: this.state.phone,
+        country: this.state.country,
         type: this.state.type,
         email: this.state.email,
         date: this.state.withdraw_date, 
@@ -70,6 +75,10 @@ class WithdrawPage extends Component {
       this.setState({
         user_profile_display: data.data,
         accountBalance: data.data.accountBalance,
+        user_Name: data.data.user_Name,
+        email: data.data.email,
+        phone: data.data.phone,
+        country: data.data.country,
         walletAddress: data.data.walletAddress,
       })
     );
@@ -92,13 +101,15 @@ class WithdrawPage extends Component {
               <p className="balance-amount">${this.state.accountBalance}</p>
             </div>
           </div>
+          
 
           <div className="wallet-box">
             <FaWallet className="icon wallet-icon" />
             <div className="wallet-details">
-              <h4 className="wallet-title">Wallet Address</h4>
-              <p className="wallet-address">{this.state.walletAddress || "No Wallet Connected"}</p>
+              <h4 className="wallet-title">Payment Number</h4>
+              <p className="wallet-address">{this.state.phone || "No Wallet Connected"}</p>
             </div>
+            
           </div>
 
           <button className="withdraw-btn" onClick={this.handleWithdraw}>
