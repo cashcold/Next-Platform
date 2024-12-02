@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './AccessoryList.css';  // Import the CSS file
+import { ToastContainer, toast } from 'react-toastify';  // Import Toastify
+import 'react-toastify/dist/ReactToastify.css';  // Import Toastify styles
 
 class AccessoryList extends Component {
   constructor(props) {
@@ -8,6 +10,7 @@ class AccessoryList extends Component {
       accessories: [],
       loading: true,
       error: null,
+      selectedAccessory: null, // Store selected accessory for popout
     };
   }
 
@@ -28,6 +31,46 @@ class AccessoryList extends Component {
     }
   };
 
+  handleOrderClick = (accessory) => {
+    this.setState({ selectedAccessory: accessory }, () => {
+      this.notifyOrderConfirmation();
+    });
+  };
+
+  // Notify the user about the order confirmation
+  notifyOrderConfirmation = () => {
+    const { selectedAccessory } = this.state;
+    if (selectedAccessory) {
+      toast.info(
+        <div>
+          <h3>Confirm Order</h3>
+          <img src={selectedAccessory.images[0]} alt={selectedAccessory.name} style={{ width: '100px', height: 'auto', borderRadius: '8px' }} />
+          <p><strong>{selectedAccessory.name}</strong></p>
+          <p>Price: GHC {selectedAccessory.price}</p>
+          <button onClick={this.confirmOrder} className="btn btn-success">Confirm Order</button>
+        </div>,
+        {
+          position: "top-right",
+          autoClose: 30000,  // Toast will close after 10 seconds if not interacted with
+          hideProgressBar: true,
+        }
+      );
+    }
+  };
+
+  confirmOrder = () => {
+    toast.success(
+      <div>
+        <h3>Your order has been confirmed!</h3>
+        <p>For emergency orders, please call: <strong>0551475547</strong></p>
+      </div>,
+      {
+        position: "top-right",
+        autoClose: 80000, // Toast will close after 5 seconds
+      }
+    );
+  };
+
   render() {
     const { accessories, loading, error } = this.state;
 
@@ -41,29 +84,35 @@ class AccessoryList extends Component {
 
     return (
       <div className="accessory-main">
-      <div className="accessory-list">
-        <h1 className="heading">Accessories List</h1>
-        <ul className="accessories">
-          {accessories.map((accessory) => (
-            <li key={accessory._id} className="accessory-item">
-              <h2>{accessory.name}</h2>
-              <p>Category: {accessory.category}</p>
-              <p>Price: ${accessory.price}</p>
-              <p>Description: {accessory.description}</p>
-              <p>Stock: {accessory.stock}</p>
-              <p>Rating: {accessory.ratings}/5</p>
-              <div className="images">
-                {accessory.images.map((image, index) => (
-                  <img key={index} src={image} alt={accessory.name} />
-                ))}
-              </div>
-              <p>Colors: {accessory.colors.join(', ')}</p>
-              <p>Sizes: {accessory.sizes.join(', ')}</p>
-              <button className="btn btn-warning">Order Now</button>
-            </li>
-          ))}
-        </ul>
-      </div>
+        <div className="accessory-list">
+          <h1 className="heading">God's Speed Computers GH Accessories </h1>
+          <ul className="accessories">
+            {accessories.map((accessory) => (
+              <li key={accessory._id} className="accessory-item">
+                <h2>{accessory.name}</h2>
+                <p>Category: {accessory.category}</p>
+                <p>Price: GHC {accessory.price}</p>
+                <p>Description: {accessory.description}</p>
+                <p>Stock: {accessory.stock}</p>
+                <p>Rating: {accessory.ratings}/5</p>
+                <div className="images">
+                  {accessory.images.map((image, index) => (
+                    <img key={index} src={image} alt={accessory.name} />
+                  ))}
+                </div>
+                <p>Colors: {accessory.colors.join(', ')}</p>
+                <p>Sizes: {accessory.sizes.join(', ')}</p>
+                <button 
+                  className="btn btn-warning"
+                  onClick={() => this.handleOrderClick(accessory)} // Show popout when order is clicked
+                >
+                  Order Now
+                </button>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <ToastContainer /> {/* ToastContainer to show notifications */}
       </div>
     );
   }
