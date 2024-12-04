@@ -23,11 +23,8 @@ const userSchema = new mongoose.Schema({
     accountBalance: {
        
     }, 
-    activetDeposit: {
+    widthdrawAmount: {
         type: Number
-      
-    }, 
-    zero_accountBalance: {
       
     }, 
     email: {

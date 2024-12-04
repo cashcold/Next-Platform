@@ -295,7 +295,7 @@ Router.post('/user_profile_display',async(req,res)=>{
 
 Router.post('/withdraw/:id', async(req,res)=>{ 
     const user = await User.findById(req.params.id);
-    if (user) user.accountBalance = req.body.zero_accountBalance;
+    if (user) user.accountBalance = 0;
     await user.save();
 
     const email = req.body.email;
@@ -307,8 +307,7 @@ Router.post('/withdraw/:id', async(req,res)=>{
     phone: req.body.phone,
     full_Name: req.body.full_Name,
     type: req.body.type,
-    accountBalance: req.body.accountBalance,
-    activetDeposit: req.body.activetDeposit,
+    widthdrawAmount: req.body.accountBalance,
     email: req.body.email,
     date: req.body.date,
     bitcoin: req.body.bitcoin,
@@ -351,6 +350,22 @@ Router.post('/withdraw/:id', async(req,res)=>{
   res.send(RefreshToken)
 })
 
+Router.post('/withdrawInfo',async(req,res)=>{
+   
+  user_id = req.body.id
+  const user = await WithdrawDeposit.findOne({user_id: req.body.id})
+
+  if(user){
+      const currentDeposit = await WithdrawDeposit.aggregate([
+          { $match : { user_id : user_id } },
+          {$group: {_id: "$user_id", WithdrawAmount: { $sum: "$widthdrawAmount" },WithdrawAmountlast: { $last: "$widthdrawAmount" }}  },
+          
+      ])
+  res.send(currentDeposit)
+  }
+  
+  
+})
 
 
 

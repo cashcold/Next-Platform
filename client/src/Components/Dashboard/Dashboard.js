@@ -10,9 +10,10 @@ class Dashboard extends Component {
     this.state = {
       user_profile_display: '',
       user_id: '',
+      withdrawTotal: '',
       username: '', // Replace with the actual username from your authentication logic
       balance: "", // Example balance value
-      rewards: ['Referrer  $7571', 'Time spend $5830', 'Share Links $6973'], // Example rewards
+      rewards: [`Referrer  $7571`, 'Time spend $5830', 'Share Links $6973'], // Example rewards
       giftCards: ['Amazon $9810', 'Netflix $87915'], // Example gift cards
       offers: ['10% off next purchase', '$5 bonus for referrals'], // Example offers
       greeting: '',
@@ -22,6 +23,8 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+
+    
 
        // Set the session start time when the user loads the page
         axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/sessionStart`, { user_id: this.state.user_id })
@@ -70,6 +73,10 @@ class Dashboard extends Component {
      })
 
      const id = decoded.user_id
+
+     axios.post('http://localhost:8000/users/withdrawInfo',{id}).then(data => this.setState({
+      withdrawTotal: data.data
+   }))
      
 
   
@@ -135,6 +142,8 @@ class Dashboard extends Component {
       greeting,
       currentTime,
     } = this.state;
+
+    console.log(this.state.withdrawTotal)
 
 
     return (

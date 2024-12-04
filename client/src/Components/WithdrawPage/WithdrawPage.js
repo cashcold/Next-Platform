@@ -21,6 +21,7 @@ class WithdrawPage extends Component {
       country: '',
       type: 'Withdrawal',
       accountBalance: '',
+      widthdrawAmount: '',
       walletAddress: '',
       zero_accountBalance: 0,
     };
@@ -34,6 +35,7 @@ class WithdrawPage extends Component {
     const Withdraw = { 
        id: this.state.id,
         accountBalance: this.state.accountBalance,
+        widthdrawAmount: this.state.widthdrawAmount,
         zero_accountBalance: this.state.zero_accountBalance,
         user_Name: this.state.user_Name,
         email: this.state.email,
