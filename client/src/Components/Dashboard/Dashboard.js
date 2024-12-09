@@ -76,7 +76,7 @@ class Dashboard extends Component {
 
      axios.post('http://localhost:8000/users/withdrawInfo',{id}).then(data => this.setState({
       withdrawTotal: data.data
-   }))
+   })).then(data => console.log(data))
      
 
   
@@ -143,7 +143,7 @@ class Dashboard extends Component {
       currentTime,
     } = this.state;
 
-    console.log(this.state.withdrawTotal)
+    // console.log(this.state.withdrawTotal)
 
 
     return (
@@ -179,6 +179,10 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Rewards Earned</h2>
+          {/* <div className="all__box">
+              <p>Total Withdraw :</p>
+              <p>$ {this.state.withdrawTotal.map(user => user.WithdrawAmount)}.00</p>
+          </div> */}
           <ul>
             {rewards.map((reward, index) => (
               <li key={index}>{reward}</li>

@@ -246,6 +246,7 @@ Router.post('/api/updateBalance', async (req, res) => {
       // Find the user by ID
       const user = await User.findById(user_id);
 
+
       if (user) {
           // Calculate the amount to add ($0.25 every 3 seconds live)
           const amountToAdd = (timeSpent / 3) * 0.25;
@@ -350,22 +351,51 @@ Router.post('/withdraw/:id', async(req,res)=>{
   res.send(RefreshToken)
 })
 
-Router.post('/withdrawInfo',async(req,res)=>{
-   
-  user_id = req.body.id
-  const user = await WithdrawDeposit.findOne({user_id: req.body.id})
 
-  if(user){
-      const currentDeposit = await WithdrawDeposit.aggregate([
-          { $match : { user_id : user_id } },
-          {$group: {_id: "$user_id", WithdrawAmount: { $sum: "$widthdrawAmount" },WithdrawAmountlast: { $last: "$widthdrawAmount" }}  },
-          
-      ])
-  res.send(currentDeposit)
+
+Router.post('/withdrawInfo', async (req, res) => {
+  try {
+    const user_id = req.body.id;
+
+    // Validate user_id
+    if (!user_id) {
+      return res.status(400).json({ message: "User ID is required" });
+    }
+
+    // Find user by ID
+    const user = await WithdrawDeposit.findOne({ user_id });
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Aggregate withdrawal data
+    const currentDeposit = await WithdrawDeposit.aggregate([
+      { $match: { user_id } },
+      {
+        $group: {
+          _id: "$user_id",
+          totalWithdrawAmount: { $sum: "$withdrawAmount" },
+          lastWithdrawAmount: { $last: "$withdrawAmount" },
+        },
+      },
+    ]);
+
+    if (currentDeposit && currentDeposit.length > 0) {
+      res.json({
+        message: "Withdrawal data retrieved successfully",
+        data: currentDeposit[0], // Return the first aggregated result
+      });
+    } else {
+      res.status(200).json({ message: "No withdrawal records found" });
+    }
+  } catch (error) {
+    console.error('Error fetching withdrawal info:', error);
+    res.status(500).json({ message: "An error occurred", error });
   }
-  
-  
-})
+});
+
+
+
 
 
 

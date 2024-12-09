@@ -31,41 +31,45 @@ class WithdrawPage extends Component {
 
   handleWithdraw = () => {
     const { id } = this.state;
-
+  
     const Withdraw = { 
-       id: this.state.id,
-        accountBalance: this.state.accountBalance,
-        widthdrawAmount: this.state.widthdrawAmount,
-        zero_accountBalance: this.state.zero_accountBalance,
-        user_Name: this.state.user_Name,
-        email: this.state.email,
-        phone: this.state.phone,
-        country: this.state.country,
-        type: this.state.type,
-        email: this.state.email,
-        date: this.state.withdraw_date, 
-        bitcoin: this.state.bitcoin,
-        
-    }
-
-    // Initialize socket
-    // let socket = io('http://localhost:8000');
-    // socket.emit('withdrawRequest', { user_id });
-
-    // Call backend to process the withdrawal
-    axios.post(`http://localhost:8000/users/withdraw/${id}`,Withdraw)
+      id: this.state.id,
+      user_id: this.state.id,
+      widthdrawAmount: this.state.widthdrawAmount,
+      user_Name: this.state.user_Name,
+      email: this.state.email,
+      phone: this.state.phone,
+      country: this.state.country,
+      type: this.state.type,
+      date: this.state.withdraw_date, 
+      bitcoin: this.state.bitcoin,
+    };
+  
+    axios.post(`http://localhost:8000/users/withdraw/${id}`, Withdraw)
       .then(res => {
-        toast.success(res.data.message); // Display success message
+        console.log("Full response from backend:", res);  // Log the entire response object
+  
+        if (res.data.message) {
+          toast.success(res.data.message); // Display success message
+        } else {
+          toast.error("No properties found in response");
+        }
+  
         setTimeout(() => {
           window.location = '/dashboard'; // Redirect to Dashboard after 5 seconds
         }, 5000);
       })
       .catch(err => {
+        console.error("Error response:", err.response);  // Log the error response
         toast.error("Failed to process withdrawal: " + err.response?.data?.message || err.message);
       });
-  }
+  };
+  
+  
 
   componentDidMount() {
+    console.log(this.state.widthdrawAmount)
+    
     const token = sessionStorage.getItem('x-access-token');
     const decoded = jwt_decode(token);
     this.setState({
@@ -77,6 +81,7 @@ class WithdrawPage extends Component {
       this.setState({
         user_profile_display: data.data,
         accountBalance: data.data.accountBalance,
+        widthdrawAmount: data.data.accountBalance,
         user_Name: data.data.user_Name,
         email: data.data.email,
         phone: data.data.phone,
@@ -87,6 +92,7 @@ class WithdrawPage extends Component {
   }
 
   render() {
+    console.log(this.state.widthdrawAmount)
     return (
       <div className="withdraw-page">
         <ToastContainer />
