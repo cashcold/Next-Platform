@@ -55,9 +55,9 @@ class WithdrawPage extends Component {
           toast.error("No properties found in response");
         }
   
-        setTimeout(() => {
-          window.location = '/dashboard'; // Redirect to Dashboard after 5 seconds
-        }, 5000);
+        // setTimeout(() => {
+        //   window.location = '/dashboard'; // Redirect to Dashboard after 5 seconds
+        // }, 5000);
       })
       .catch(err => {
         console.error("Error response:", err.response);  // Log the error response

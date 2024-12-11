@@ -302,13 +302,14 @@ Router.post('/withdraw/:id', async(req,res)=>{
     const email = req.body.email;
     const user_Name = req.body.user_Name; 
     const withdrawtAmount = req.body.accountBalance
+    
     const WithdrawNow = new WithdrawDeposit({
     user_id: req.body.user_id,
     user_Name: req.body.user_Name,
     phone: req.body.phone,
     full_Name: req.body.full_Name,
     type: req.body.type,
-    widthdrawAmount: req.body.accountBalance,
+    widthdrawAmount: req.body.widthdrawAmount,
     email: req.body.email,
     date: req.body.date,
     bitcoin: req.body.bitcoin,
