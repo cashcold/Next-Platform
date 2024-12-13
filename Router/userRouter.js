@@ -294,64 +294,54 @@ Router.post('/user_profile_display',async(req,res)=>{
     
 })
 
-Router.post('/withdraw/:id', async(req,res)=>{ 
+Router.post(
+  '/withdraw/:id', async (req, res) => {
+
     const user = await User.findById(req.params.id);
     if (user) user.accountBalance = 0;
     await user.save();
-
-    const email = req.body.email;
-    const user_Name = req.body.user_Name; 
-    const withdrawtAmount = req.body.accountBalance
     
-    const WithdrawNow = new WithdrawDeposit({
-    user_id: req.body.user_id,
-    user_Name: req.body.user_Name,
-    phone: req.body.phone,
-    full_Name: req.body.full_Name,
-    type: req.body.type,
-    widthdrawAmount: req.body.widthdrawAmount,
-    email: req.body.email,
-    date: req.body.date,
-    bitcoin: req.body.bitcoin,
-  })
-  await WithdrawNow.save()
+  
+    const id = req.params.id;
+    const userId = req.params.id;
+    const { withdrawAmount, user_Name, email, phone, country, type, date, bitcoin } = req.body;
 
-  const userUpdate = await User.findById(req.params.id);
-  if(userUpdate){
+    try {
+      // Find the user
+      const user = await User.findById(id);
+      if (!user) {
+        return res.status(404).json({ message: 'User not found.' });
+      }
+
     
+
+
+      // Save updated user balance
+      await user.save();
+
+      // Create a withdrawal record
+      const withdrawal = new WithdrawDeposit({
+        user_id: userId,
+        user_Name,
+        email,
+        phone,
+        country,
+        type,
+        date,
+        withdrawAmount,
+        bitcoin,
+      });
+
+      // Save the withdrawal record in the database
+      await withdrawal.save();
+
+      return res.status(200).json({ message: 'Withdrawal processed successfully.', withdrawal });
+    } catch (error) {
+      console.error(error);
+      return res.status(500).json({ message: 'Internal Server Error.' });
+    }
   }
-  const payload = {
-    user_id: user._id,
-    full_Name: user.full_Name,
-    user_Name: user.user_Name,
-    email: user.email,
-    password: user.password,
-    bitcoin: user.bitcoin,
-    bitcoinCash: user.bitcoinCash,
-    ethereum: user.ethereum,
-    ip_address: user.ip_address,           
-    date: user.Date,
-    accountBalance: user.accountBalance,
-    activetDeposit: user.activetDeposit,
-    date: user.date
-  }
-  const RefreshToken = jwt.sign(payload, process.env.RefreshToken)
-  res.header('RefreshToken', RefreshToken)
-
-  var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-  var data = {
-    from: 'PayItForward <payitforwardisnvestmentlimited@gmail.com>',
-    to: email,
-    subject: 'Payment',
-    text: `Hello ${user_Name } Payment of ${withdrawtAmount} have sent to your Bitcoin Wallert Address`
-  };
-  mailgun.messages().send(data, function (error, body) {
-    console.log(body);
-  });
-
-  res.send(RefreshToken)
-})
-
+);
 
 
 Router.post('/withdrawInfo', async (req, res) => {

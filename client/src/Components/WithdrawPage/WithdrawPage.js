@@ -21,7 +21,7 @@ class WithdrawPage extends Component {
       country: '',
       type: 'Withdrawal',
       accountBalance: '',
-      widthdrawAmount: '',
+      withdrawAmount: '',
       walletAddress: '',
       zero_accountBalance: 0,
     };
@@ -35,7 +35,7 @@ class WithdrawPage extends Component {
     const Withdraw = { 
       id: this.state.id,
       user_id: this.state.id,
-      widthdrawAmount: this.state.widthdrawAmount,
+      withdrawAmount: this.state.withdrawAmount,
       user_Name: this.state.user_Name,
       email: this.state.email,
       phone: this.state.phone,
@@ -44,6 +44,8 @@ class WithdrawPage extends Component {
       date: this.state.withdraw_date, 
       bitcoin: this.state.bitcoin,
     };
+
+    
   
     axios.post(`http://localhost:8000/users/withdraw/${id}`, Withdraw)
       .then(res => {
@@ -55,9 +57,9 @@ class WithdrawPage extends Component {
           toast.error("No properties found in response");
         }
   
-        // setTimeout(() => {
-        //   window.location = '/dashboard'; // Redirect to Dashboard after 5 seconds
-        // }, 5000);
+        setTimeout(() => {
+          window.location = '/dashboard'; // Redirect to Dashboard after 5 seconds
+        }, 5000);
       })
       .catch(err => {
         console.error("Error response:", err.response);  // Log the error response
@@ -68,7 +70,7 @@ class WithdrawPage extends Component {
   
 
   componentDidMount() {
-    console.log(this.state.widthdrawAmount)
+    console.log(this.state.withdrawAmount)
     
     const token = sessionStorage.getItem('x-access-token');
     const decoded = jwt_decode(token);
@@ -81,7 +83,7 @@ class WithdrawPage extends Component {
       this.setState({
         user_profile_display: data.data,
         accountBalance: data.data.accountBalance,
-        widthdrawAmount: data.data.accountBalance,
+        withdrawAmount: data.data.accountBalance,
         user_Name: data.data.user_Name,
         email: data.data.email,
         phone: data.data.phone,
@@ -92,7 +94,7 @@ class WithdrawPage extends Component {
   }
 
   render() {
-    console.log(this.state.widthdrawAmount)
+    console.log(this.state.withdrawAmount)
     return (
       <div className="withdraw-page">
         <ToastContainer />

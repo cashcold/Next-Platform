@@ -19,16 +19,16 @@ const withdrawDepositSchema = new mongoose.Schema({
     type: String,
   },
   type: { 
-    type: String,
+    type: String
   },
   accountBalance: {
-    type: Number,
+    type: Number
   }, 
   withdrawAmount: {
-    type: Number,
+    type: Number
   },
   bitcoin: {
-    type: String,
+    type: String
   },
   date: {
     type: Date, // Changed to Date for consistency
