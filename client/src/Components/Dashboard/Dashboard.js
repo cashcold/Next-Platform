@@ -11,11 +11,13 @@ class Dashboard extends Component {
       user_profile_display: '',
       user_id: '',
       withdrawTotal: '',
+      lastWithdrawAmount: '',
       username: '', // Replace with the actual username from your authentication logic
       balance: "", // Example balance value
-      rewards: [`Referrer  $7571`, 'Time spend $5830', 'Share Links $6973'], // Example rewards
-      giftCards: ['Amazon $9810', 'Netflix $87915'], // Example gift cards
-      offers: ['10% off next purchase', '$5 bonus for referrals'], // Example offers
+      rewards: [`Referrer  GHC7571`, 'Last Withdrawal GHC530', 'Time spend GHC5830', 'Share Links GHC6973'], // Example rewards
+      // rewards: [`Referrer  GHC7571`, 'Time spend GHC5830', 'Share Links GHC6973'], // Example rewards
+      giftCards: ['Amazon GHC9810', 'Netflix GHC87915'], // Example gift cards
+      offers: ['10% off next purchase', 'GHC5 bonus for referrals'], // Example offers
       greeting: '',
       currentTime: '',
       ipAddress: '',
@@ -24,12 +26,13 @@ class Dashboard extends Component {
 
   componentDidMount() {
 
-    
+    console.log(this.state.withdrawTotal);
 
        // Set the session start time when the user loads the page
-        axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/sessionStart`, { user_id: this.state.user_id })
+        axios.post(`GHC{process.env.REACT_APP_API_BASE_URL}/users/api/sessionStart`, { user_id: this.state.user_id })
             .then((response) => {
                 console.log("Session started:", response.data);
+               
             })
             .catch((error) => console.error('Error starting session:', error));
 
@@ -39,7 +42,7 @@ class Dashboard extends Component {
                 (prevState) => ({ timeSpent: prevState.timeSpent + 3 }),
                 () => {
                     // Send the timeSpent (3 seconds) to the backend to update balance
-                    axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/updateBalance`, {
+                    axios.post(`GHC{process.env.REACT_APP_API_BASE_URL}/users/api/updateBalance`, {
                         user_id: this.state.user_id,
                         timeSpent: 3
                     })
@@ -74,9 +77,17 @@ class Dashboard extends Component {
 
      const id = decoded.user_id
 
-     axios.post('http://localhost:8000/users/withdrawInfo',{id}).then(data => this.setState({
-      withdrawTotal: data.data
-   })).then(data => console.log(data))
+     axios
+      .post('http://localhost:8000/users/withdrawInfo', { id })
+      .then((response) => {
+        const { totalWithdrawAmount, lastWithdrawAmount } = response.data.data; // Destructure the data
+        this.setState({
+          withdrawTotal: totalWithdrawAmount, // Set totalWithdrawAmount
+          lastWithdrawAmount, // Set lastWithdrawAmount
+        });
+      })
+      .catch((error) => console.error('Error fetching withdrawal info:', error));
+
      
 
   
@@ -143,7 +154,7 @@ class Dashboard extends Component {
       currentTime,
     } = this.state;
 
-    // console.log(this.state.withdrawTotal)
+    // console.log(this.state.lastWithdrawAmount)
 
 
     return (
@@ -165,7 +176,7 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Your Balance</h2>
-          <p>${balance}</p>
+          <p>GHC{balance}</p>
           <button className="btn btn-warning"  onClick={()=>{
                 window.location = '/withdraw';
           }}>Withdraw</button>
@@ -179,9 +190,11 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Rewards Earned</h2>
+          <p>Total Withdraw: GHC{this.state.withdrawTotal}</p>
+          <p>Last Withdraw Amount: GHC{this.state.lastWithdrawAmount}</p>
           {/* <div className="all__box">
               <p>Total Withdraw :</p>
-              <p>$ {this.state.withdrawTotal.map(user => user.WithdrawAmount)}.00</p>
+              <p>GHC {this.state.withdrawTotal.map(user => user.WithdrawAmount)}.00</p>
           </div> */}
           <ul>
             {rewards.map((reward, index) => (
