@@ -300,6 +300,32 @@ s
   }
 }
 
+.withdraw-section {
+  background-color:rgb(7, 7, 7); /* Light gray background */
+  color:  white;
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Space inside the section */
+  margin: 10px 0; /* Space between sections */
+  box-shadow: 0 4px 6px rgb(251, 0, 0); /* Add a subtle shadow */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+  animation: glow 4s ease-in-out infinite;
+}
+
+.withdraw-section:hover {
+  transform: scale(1.05); /* Slightly enlarges on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.withdraw-section p {
+  font-size: 18px; /* Increase font size for readability */
+  color:  white;
+  margin: 8px 0; /* Space between paragraphs */
+  font-weight: bolder; /* Medium font weight for emphasis */
+}
+
+
+
 
 
 

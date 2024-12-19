@@ -14,7 +14,7 @@ class Dashboard extends Component {
       lastWithdrawAmount: '',
       username: '', // Replace with the actual username from your authentication logic
       balance: "", // Example balance value
-      rewards: [`Referrer  GHC7571`, 'Last Withdrawal GHC530', 'Time spend GHC5830', 'Share Links GHC6973'], // Example rewards
+      rewards: [`Referrer  GHC7571`, `Last Withdrawal GHC530`, 'Time spend GHC5830', 'Share Links GHC6973'], // Example rewards
       // rewards: [`Referrer  GHC7571`, 'Time spend GHC5830', 'Share Links GHC6973'], // Example rewards
       giftCards: ['Amazon GHC9810', 'Netflix GHC87915'], // Example gift cards
       offers: ['10% off next purchase', 'GHC5 bonus for referrals'], // Example offers
@@ -42,7 +42,7 @@ class Dashboard extends Component {
                 (prevState) => ({ timeSpent: prevState.timeSpent + 3 }),
                 () => {
                     // Send the timeSpent (3 seconds) to the backend to update balance
-                    axios.post(`GHC{process.env.REACT_APP_API_BASE_URL}/users/api/updateBalance`, {
+                    axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/updateBalance`, {
                         user_id: this.state.user_id,
                         timeSpent: 3
                     })
@@ -165,7 +165,7 @@ class Dashboard extends Component {
         <div className="container_ip_address"> 
         <h1 className="heading">Your IP Address is:</h1>
         <p className="ip-address">{this.state.ipAddress}</p>
-        </div>
+      </div>
         
 
         {/* Balance Section */}
@@ -182,6 +182,26 @@ class Dashboard extends Component {
           }}>Withdraw</button>
         </motion.div>
 
+        
+      <motion.div
+        className="withdraw-section"
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <p>Total Withdraw: GHC{this.state.withdrawTotal}</p>
+      </motion.div>
+
+      <motion.div
+        className="withdraw-section"
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+      >
+        <p>Last Withdraw Amount: GHC{this.state.lastWithdrawAmount}</p>
+      </motion.div>
+
+
         {/* Rewards Section */}
         <motion.div
           className="rewards-section"
@@ -190,12 +210,7 @@ class Dashboard extends Component {
           transition={{ duration: 0.7 }}
         >
           <h2>Rewards Earned</h2>
-          <p>Total Withdraw: GHC{this.state.withdrawTotal}</p>
-          <p>Last Withdraw Amount: GHC{this.state.lastWithdrawAmount}</p>
-          {/* <div className="all__box">
-              <p>Total Withdraw :</p>
-              <p>GHC {this.state.withdrawTotal.map(user => user.WithdrawAmount)}.00</p>
-          </div> */}
+        
           <ul>
             {rewards.map((reward, index) => (
               <li key={index}>{reward}</li>
@@ -235,7 +250,7 @@ class Dashboard extends Component {
 
          <div className="reff__box_2">
               <h2>Personal <span>Referral</span> Link:</h2>
-              <p className='reffLink'>http://localhost:3000/?referrer={username}</p>
+              <p className='reffLink'>http://nextplatformlive.com/?referrer={username}</p>
           </div>
       </div>
       </div>
