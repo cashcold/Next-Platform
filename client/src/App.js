@@ -217,7 +217,7 @@ class MainApp extends Component {
                          {/* Conditionally render the account-buttons-container if user_id exists */}
                             {user_id && (
                             <div className="account-buttons-container">
-                                                        <motion.h1
+                                <motion.h1
                                 className="dashboard-title"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
@@ -228,7 +228,7 @@ class MainApp extends Component {
                                 
                                 <p className="current-time">{currentTime}</p>
 
-                                <h3 className="balance-heading">Balance: ${balance}</h3>
+                                <h3 className="balance-heading">Balance: GHC{balance}</h3>
                                 <button className="btn btn-warning"  onClick={()=>{
                                      window.location = '/dashboard';
                                 }}>Dashboard</button>
