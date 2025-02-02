@@ -207,6 +207,9 @@ if (process.env.NODE_ENV === 'production') {
     });
 }
 
+console.log(app._router.stack.map(layer => layer.route ? layer.route.path : ''));
+
+
 app.listen(PORT, () => {
     console.log(`Server is running on local Port Number ${PORT}`);
 });

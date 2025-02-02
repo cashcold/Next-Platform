@@ -1,0 +1,192 @@
+.LandingPageDrinks_app__main{
+  width: 100%;
+  min-height: 100vh;
+  background-color: #230312;
+  color: white;
+}
+
+.LandDrinksPage_main {
+    margin: 2em 0em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* max-block-size: 100vh; */
+    background-color: #230312;
+  color: white;
+  }
+  
+  .landDrinks_main__1 {
+    width: 80%;
+  }
+  
+  .drink-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-around;
+  }
+  
+  .drink-card {
+    width: 350px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  .drink-image {
+    height: 350px;
+    object-fit: cover;
+  }
+  
+  .learn-more-btn {
+    margin-top: 10px;
+  }
+  
+  .landDrinks_main_nonAlcoholic h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+  }
+
+  .landDrinks_main_nonAlcoholic h2 {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+
+  
+  .landDrinks_main_nonAlcoholic p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px
+  }
+
+  .search-containe-main{
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+    background-color: #1E010D;
+    color: white;
+  }
+
+  .search-container {
+    display: flex;
+    max-width: 700px;
+    width: 100%;
+}
+
+#searchInput {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    outline: none;
+}
+
+#searchButton {
+    padding: 10px 15px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: 1px solid #4CAF50;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    outline: none;
+}
+
+#searchButton:hover {
+    background-color: #45a049;
+    border: 1px solid #45a049;
+}
+
+/* .receivedRandomImage {
+  margin: 5em 0em;
+} */
+
+.receivedRandomImage .main-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 990px;
+  margin: 100px auto;
+  background-color: #1E010D;
+  color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.receivedRandomImage .image-container {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
+}
+
+.receivedRandomImage .image-container img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px 0 0 10px;
+}
+
+.receivedRandomImage .content-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.receivedRandomImage h1 {
+  font-weight: bold;
+}
+
+.receivedRandomImage p {
+  color: #F6A40F;
+}
+
+.promoteDrinks_main{
+  
+  display: flex;
+  padding: 4em 2em;
+}
+
+.drinksPromote_box_2 h4{
+  width: 95%;
+  line-height: 3rem;
+  margin: 0 auto;
+}
+
+.image-container img{
+  width: 330px;
+}
+/* .popUpDrink{
+  margin: 2.5em 0em;
+} */
+
+.landDrinks_main_nonAlcoholic{
+  margin: 6em 0em;
+}
+.landDrinks_main_nonAlcoholic p{
+    width: 70%;
+    margin: 0 auto;
+}
+.landDrinks_main_nonAlcoholic h2{
+  margin-top: 2em;
+}
+
+@media screen and (max-width: 768px){
+  .promoteDrinks_main{
+  
+    display: flex;
+    flex-direction: column; 
+    padding: 4em 2em;
+  }
+  .drinksPromote_box_2 h4{
+    width: 100%;
+    line-height: 2rem;
+    font-size: 1em;
+  }
+}

@@ -1,0 +1,54 @@
+.sport_drop_table{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    'sport_table_1 sport_table_1 sport_table_2' 
+    ;
+    grid-gap: 0.5em;
+}
+
+.sport_table_1{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    grid-area: sport_table_1;
+    padding: 3em 0em;
+}
+.sport_table_2{
+    width: 100%;
+    min-height: 100vh;
+    background-color: blue;
+    color: white;
+    grid-area: sport_table_2;
+    padding: 3em 0em;
+}
+
+.scoreBat_embeded{
+    width: 89%;
+    margin: 0 auto  ;
+}
+.competition{
+    margin: 1em 0em;
+    color: rgb(238, 138, 138);
+}
+.all_icons{
+    margin: 3em 0em;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .sport_drop_table{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 
+        'sport_table_1'
+        'sport_table_2'
+        ;
+    }
+    .scoreBat_embeded{
+        width: 95%;
+        margin: 0 auto  ;
+    }
+}

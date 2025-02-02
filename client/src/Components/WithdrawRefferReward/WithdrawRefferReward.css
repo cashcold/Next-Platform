@@ -1,0 +1,103 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
+    color: #333;
+  }
+  
+  /* Transitions and Hover Effects */
+  .btn-hover-effect {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    background: #28a745;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+  .btn-hover-effect:hover {
+    background: #218838;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Background Effects */
+  .refferReward_center_main {
+    background: linear-gradient(135deg, #f0f4f8, #d9e4ec);
+    min-height: 100vh;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Box Shadows and 3D Effects */
+  .RefferReward__main {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .RefferReward__main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Advanced Layouts */
+  .flow__text {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Cursor Effects */
+  .btn-hover-effect {
+    cursor: pointer;
+  }
+  
+  /* SVG and Interactive Elements */
+  .iconWallet i {
+    animation: rotateIcon 2s infinite linear;
+  }
+  @keyframes rotateIcon {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .RefferReward__main {
+      padding: 15px;
+      width: 90%;
+    }
+    .btn-hover-effect {
+      padding: 8px 16px;
+      font-size: 14px;
+    }
+  }
+  
+  /* Motion and Animation Effects */
+  .RefferReward__main {
+    animation: fadeIn 1s ease-in-out;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  

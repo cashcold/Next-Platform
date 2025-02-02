@@ -1,0 +1,370 @@
+.top_form img{
+    filter: brightness(0.5);
+}
+.top_form_go{
+    padding-top: 0em;
+}
+.other__navbar h1,h1,h3,h4:hover{
+    cursor: pointer;
+}
+
+
+.other__navbar{
+    background-color:black;
+    min-height: 10vh;
+    padding: 1.4em 0em;
+    border-bottom: 2px solid red;
+}
+
+
+
+.navMain nav{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    padding-top: 2em;
+    min-height: 10vh;
+    background-color:black;
+    opacity: 0.9;
+    position: relative;
+    grid-gap: 1.5em;
+}
+.links{
+    display: grid;
+    grid-template-columns: repeat(10,1fr);
+    margin-top: 1.5em; 
+    grid-gap: 5px;
+}
+.links  a:hover{
+    color: red;
+    cursor: pointer;
+}
+.links  a{
+    color: white;
+    font-size: 0.8em
+
+}
+.btn-join-us:hover{
+    color:white;
+    cursor: pointer;
+    background-color: yellow;
+}
+.other__navbar:hover{
+    cursor: pointer;
+}
+
+.logoImg h1{
+    color: white;
+    background-color: blue;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to right, #F43055 52%, white 30%);;
+    font-size: 2rem;
+    text-decoration: underline;
+}
+.btn-join-us{
+    background-color: #F42F54; 
+    border-radius: 30%;
+    padding: 0.8em 2.2em;
+    color: white;
+}
+.btn-login-in{
+  
+    border: 2px solid #F42F54;
+    border-radius: 30%;
+    padding: 0.8em 2.2em;
+    color: white;
+    margin: 0 1em;
+}
+.toggle__bar{
+    display: none;
+    margin-top: -1em;
+}
+.logoImg:hover{
+    cursor: pointer;
+}
+.toggle__bar .toggle_1,.toggle_3{
+    background-color: white;
+    width: 30px;
+    height: 5px;
+    margin: 4px 0;
+}
+.toggle__bar .toggle_2{
+    background-color: red;
+    width: 30px;
+    height: 5px;
+    margin: 4px 0;
+}
+
+
+.togglo__dash{
+    display: none;
+}
+.dash__both{
+    display: flex;
+}
+.other_h1_nav{
+    color: white;
+}
+
+.text-red {
+    color: white;
+  }
+
+
+  .blink-soft {
+    animation: blinker 1.5s linear infinite;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  
+  .btn {
+    position: relative;
+    color: white;
+    /* width: 256px;
+    height: 64px;
+    line-height: 64px; */
+    transition: all 0.3s;
+   
+  }
+  .links a {
+    transition: all 0.3s;
+    tranform: scale(1, 1);
+  }
+
+  
+.btn::before, .btn::after {
+    transition: all 0.3s;
+    /* content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; */
+    z-index: 1;
+  }
+
+  .btn-two::before, .btn-two::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+	height: 100%;
+  bottom: 0;
+	left: 0;
+	z-index: 1;
+  transition: all 0.3s;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.btn-two:hover::after {
+  animation-name: rotatecw;
+  animation-duration: 2s;
+}
+.btn-two:hover::before {
+  animation-name: rotateccw; 
+  animation-duration: 3s;
+}
+.btn-two:hover::after, .btn-two:hover::before {
+  left: 25px;
+  width: 60px;
+  
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+@keyframes rotatecw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+
+@keyframes rotateccw {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(-360deg);}
+}
+
+.marqueeText p {
+    display: inline-block;
+  }
+  .title_checkk_up{
+    display: flex;
+   justify-content: space-between;
+  }
+  .title_checkk_up p{
+    display: flex;
+   margin: 0em 2.5em;
+  }
+  .title_checkk_up a{
+   color: white;
+   text-decoration: none;
+  }
+  .title_checkk_up a:hover{
+   color: red;
+  }
+  .flow_marq{ 
+    display: flex;
+    height: 15vh;
+    justify-content: center;
+    align-items: center;
+  
+  }
+  .flow_marq h3{
+    width: 20%;
+    color: rgb(133, 24, 24);
+  
+  }
+ 
+
+  .marqueeText_4_mobile{
+        display: none;
+  }
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+    h1{
+        font-size: 1.5rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
+    h3{
+        font-size: 1rem;
+    }
+    .other_bar_flow{
+        padding-right: 1em;
+    }
+    .other_bar_flow{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-left: -4em;
+        
+    }
+    .other__nav_chat__3{
+        margin-left: 4em;
+    }
+   
+    /* end other__navbar */
+
+    .navMain{
+        background-color: rgb(110, 99, 99);
+        position: fixed;
+        left: 0;
+        right: 0;
+        z-index: 10;
+    }
+    .links{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-gap: 10px;
+        margin-top: 3em;
+        margin-left: -7em;
+    }
+    .links  a{
+        color: white;
+        font-size: 0.6em
+    
+    }
+
+    .logoImg h1{
+        font-size: 1.5rem;
+        margin-left: 1em;
+        display: flex;
+        width: 100%;
+        margin-top: -0.9em;
+    }
+   
+  
+    .toggle__bar{
+        display: block;
+        position: absolute;
+        top: 2em;
+        right: 4em;
+    color: white;
+    background-color: blue;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    background-image: linear-gradient(to bottom, #d4e20a 0%, #ff1010 100%);;
+    }
+    .nav__links{
+        display: none;
+    }
+    .navMain nav{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        padding-right: 10em;
+        padding-top: 2em;
+        min-height: 19vh;
+        /* background-color:#2B0945; */
+        position: relative;
+        /* z-index: 10; */
+    }
+    .dash__both{
+    display: flex;
+    flex-direction: column;
+    }
+    .btn-login-in_account{
+        margin-bottom: 1em;
+    }
+    /* .navMain.sticky.navMain{
+        background-color: black;
+        height: 9vh;
+        box-shadow: 0 5px  20px rgba(0,0,0,0.5);
+       
+    } */
+    .flow_marq h3{
+        /* width: 10%; */
+        color: rgb(133, 24, 24);        
+        font-size: 0.9em;
+      
+      }
+      .nav__links{
+        position: relative;
+    }
+
+    .flow_marq{
+       display: none;
+     
+    }
+      .top_form_go{
+        padding-top: 10em;
+}
+.marqueeText_4_mobile{
+    display: block;
+    background-color: black;
+    min-height: 10vh;
+    padding: 1em 0em;
+  
+}
+
+  .marqueeText_4_mobile_title_checkk_up{
+        display: flex;
+       
+      }
+      .marqueeText_4_mobile_title_checkk_up p{
+        display: flex;
+       margin: 0em 1.5em;
+       color: whitesmoke;
+      }
+      .marqueeText_4_mobile h3{
+          color: #F43055;
+      }
+  
+}
+
+
+
+/* 
+@media screen and (max-width: 320px){
+  
+} */
+
+

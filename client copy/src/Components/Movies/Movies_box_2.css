@@ -1,0 +1,303 @@
+.movies_box_2_maain{
+    background-color: #060D17;
+    color: white;
+    padding: 5em 1.5em;
+}
+
+.iframe-container{
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; 
+    height: 0;
+  }
+  .iframe-container iframe{
+    position: absolute;
+    top:0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+
+  
+.display_movie_info_main{
+  display: grid;
+  grid-template-columns: repeat(6,1fr);
+  grid-template-areas: 
+  'movie_box_1_info movie_box_1_info movie_box_2_info movie_box_2_info movie_box_2_info movie_box_2_info'
+  ;
+  padding: 2.5em 3em;
+  gap: 1em;
+  background-color: #020e1e;
+}
+
+.movie_box_1_info{
+  width: 100%;
+  min-height: 80vh;
+  grid-area: movie_box_1_info;
+  background-color: #060D17;
+  padding: 1em 2em;
+}
+.movie_box_2_info{
+  width: 100%;
+  min-height: 80vh;
+  grid-area: movie_box_2_info;
+  background-color: #060D17;
+  padding: 1em 2em;
+}
+
+
+.first_div_box_1{
+  display: flex;
+  justify-content: space-between;
+}
+
+.share_div img{
+ border-radius: 50%;
+ width: 40%;
+}
+
+.other_movie_info_flow{
+  display: flex;
+   justify-content: space-between;
+   margin: 2em 0em;
+}
+.other_movie_info_genres{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1em;
+}
+.info_date{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 0.5em;
+
+}
+
+
+.overview_main p{
+  width: 70%;
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+
+.overview_main h2, .first_div_box_1_tab_styleColor, .movie_position_job{
+  color:  rgb(239, 101, 101);
+}
+
+.about_head_role{
+  margin: 4em 0em;
+}
+
+.about_head_role{
+  margin: 2em 0em;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0.5em;
+
+}
+
+
+
+.prod_company img{
+  width: 100%;
+}
+
+.prod_company_list_view{
+  margin: 1em 0em;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 0.5em;
+
+}
+
+.display_crew_members{
+  width: 100%;
+  min-height: 100vh;
+  padding: 1em 2em;
+  background-color: #060D17;
+}
+
+.crew_members_inner{
+  width: 100%;
+  padding: 2.5em 3em;
+  background-color: #020e1e;
+}
+.profile_movie{
+  margin: 2.5em 0em;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1.8em;
+}
+
+.movies_box_main_in_credit img{
+  width: 50%;
+  border-radius: 50%;
+}
+
+.movie_position_name{
+  margin: 1em 0em;
+}
+
+.movieBox_1_back_tab {
+ display: flex;
+ margin: 1.8em 1em;
+ align-items: center;
+ cursor: pointer;
+}
+
+.movieBox_1_back_tab img{
+  width: 52px;
+  border-radius: 20%;
+  margin: 0em 1em;
+
+}
+
+.review_client{
+  width: 100%;
+  min-height: 100vh;
+  padding: 1em 2em;
+  background-color: #020e1e;
+  margin: 5em 0em;
+}
+
+.review_client h3{
+  width: 80%;
+  line-height: 1.8em;
+  margin: 0 auto;
+}
+
+.review_client h1{
+  padding: 1.5em 0em;
+}
+.flow_review_box img{
+  width: 80%;
+  margin: 0 auto;
+  
+}
+
+.review_client h2{
+  margin: 1.5em 0em;
+}
+
+.review_text_overLay{
+padding: 1.5em 1em;
+  width: 50%;
+  margin: 0 auto;
+  min-height: 15vh;
+  background-color: #060D17;
+  color: white;
+}
+
+.swiperBox_1{
+ display: grid;
+ grid-template-columns: repeat(4,1fr);
+ gap: 2em 0em;
+}
+
+/* .movies_box_main_in_credit img{
+width: 100%;
+margin: 0 auto;
+} */
+
+.movies_box_main_in img{
+  width: 80%;
+  border-radius: 10%;
+}
+
+.Recommendations_main_section h1{
+  margin: 2em 0em;
+}
+
+
+
+
+
+
+@media screen and (max-width: 768px){
+  .display_movie_info_main{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-areas: 
+    'movie_box_1_info'
+    'movie_box_2_info'
+    ;
+    padding: 1.5em 1em;
+    gap: 1.5em;
+    background-color: #020e1e;
+  }
+
+  .about_head_role{
+    margin: 2em 0em;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5em;
+  
+  }
+  .other_movie_info_genres{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.5em;
+  }
+  .other_movie_info_flow{
+  display: block;
+   justify-content: space-between;
+   margin: 2em 0em;
+}
+.profile_movie{
+  margin: 2.5em 0em;
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 1.8em;
+}
+.movies_box_main_in_credit img{
+  width: 70%;
+  border-radius: 50%;
+}
+
+.overview_main p{
+  width: 95%;
+  margin: 0 auto;
+  line-height: 1.5em;
+}
+.review_client h1{
+  padding: 1.5em 0em;
+}
+.flow_review_box img{
+  width: 98%;
+  margin: 0 auto;
+  
+}
+
+.review_client h2{
+  margin: 1.5em 0em;
+}
+
+.review_text_overLay{
+padding: 1.5em 1em;
+  width: 80%;
+  margin: 0 auto;
+  min-height: 15vh;
+  background-color: #060D17;
+  color: white;
+}
+
+.swiperBox_1{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 1.5em 0em;
+ }
+
+ .movies_box_main_in img{
+  width: 95%;
+  border-radius: 5%;
+}
+.review_client h3{
+  width: 98%;
+  line-height: 1.8em;
+  margin: 0 auto;
+}
+
+
+
+}

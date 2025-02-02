@@ -1,0 +1,53 @@
+.movies_box_1{
+    background-color: #060D17;
+    color: white;
+    padding: 5em 1.5em;
+}
+
+
+.movies_raw_js img{
+    width: 100%;
+    margin: 0 auto;
+}
+
+.movies_raw_js h2{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1.5em;
+}
+.movies_raw_js{
+    cursor: pointer;
+}
+
+
+.api_namme{
+    margin: 1em 0em;
+}
+
+.for_next_prev_tab{
+    display: grid;;
+    grid-template-columns: repeat(3,1fr);
+}
+
+
+
+
+@media screen and (max-width: 768px){
+
+    .movies_raw_js h2{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        gap: 0.8em;
+    }
+    .movies_raw_js img{
+        width: 100%;
+        margin: 0 auto;
+    }
+    .movies_box_1{
+        background-color: #060D17;
+        color: white;
+        padding: 7em 0.9em;
+    }
+    
+
+}

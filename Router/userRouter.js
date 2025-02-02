@@ -1,4 +1,5 @@
 const express = require('express')
+const mongoose = require('mongoose'); 
 const User = require('../UserModel/userModel')
 const Accessory = require('../UserModel/accessory')
 const axios = require('axios')
@@ -22,6 +23,8 @@ Router.post('/register/', async(req,res)=>{
 
   console.log(req.body)
 
+  const password = req.body.password;
+
     
   User.findOne({referrer : req.params})
   // reffer program
@@ -34,7 +37,7 @@ Router.post('/register/', async(req,res)=>{
 
   const salt = await bcrypt.genSalt(10)
   const hashPassword = await bcrypt.hash(req.body.password, salt)
-  const user_email = await bcrypt.hash(req.body.email)
+  const user_email = (req.body.email)
 
   const saveUser = new User({ 
       user_Name: req.body.user_Name,
@@ -43,10 +46,22 @@ Router.post('/register/', async(req,res)=>{
       password: hashPassword,
       email: req.body.email,
       country: req.body.country,
+      refferReward: req.body.refferReward,
       referrer: req.body.referrer,
       phone: Number(req.body.phone),
       // date: req.body.date
   })
+
+       // Referral program logic
+       if (req.body.referrer) {
+        // Find the referrer by their referral code (could be the user_Name, email, or custom code)
+        const referrer = await User.findOne({ user_Name: req.body.referrer });
+        if (referrer) {
+            // Add reward to referrer's account balance (e.g., 10 units as a reward)
+            referrer.refferReward += 10; // You can adjust this amount
+            await referrer.save();
+        }
+    }
 
   var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
   var data = {
@@ -384,7 +399,6 @@ Router.post('/withdrawInfo', async (req, res) => {
     res.status(500).json({ message: "An error occurred", error });
   }
 });
-
 
 
 

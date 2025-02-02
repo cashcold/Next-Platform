@@ -1,0 +1,35 @@
+.music_box_1{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    padding: 3em 0em;
+}
+.drop_data img{
+    width: 85%;
+    margin: 0 auto;
+}
+.box_music_1_main{
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+  row-gap: 3.5em;
+}
+.music_box_1 h1{
+    padding-bottom: 1.5em;
+}
+.data_drop_info_box_2 h3{
+    padding: 1em 0em;
+    margin:0em ;
+}
+ 
+@media screen and (max-width: 768px){
+    .drop_data img{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .linkbox_main{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+      column-gap: 3.5em;
+    }
+
+}

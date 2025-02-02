@@ -1,0 +1,125 @@
+/* General Styling */
+.login_main_page {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f8ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  /* Container for the login form */
+  .login-container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    animation: slideIn 1.5s ease-in-out;
+  }
+  
+  /* Header styling */
+  .login-header h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 10px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .login-header p {
+    font-size: 1.2em;
+    color: #666;
+    animation: fadeIn 2.5s ease-in-out;
+  }
+  
+  /* Form styling */
+  .login-form {
+    margin-top: 20px;
+  }
+  
+  .form-group {
+    margin-bottom: 20px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #555;
+  }
+  
+  .form-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
+  }
+  
+  /* Button styling */
+  .login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #5bc0de;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .login-button:hover {
+    background-color: #31b0d5;
+  }
+  
+  /* Sign-up link styling */
+  .signup-link p {
+    margin-top: 15px;
+    color: #666;
+  }
+  
+  .signup-link_password p {
+    margin-top: 15px;
+    color: red;
+  }
+  
+  .signup-link a {
+    color: #5bc0de;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-50px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Adding motion effects to form elements */
+  .animate-h1, .animate-text, .animate-div {
+    animation: fadeIn 1.5s ease-in-out;
+  }
+  

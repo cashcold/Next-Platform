@@ -19,7 +19,8 @@ class RegisterMain extends Component {
             ip_address: '',
             checkBox: '',
             date: '',
-            referral: '',
+            refferReward: 0,
+            referrer: '',
             restartLinkPassword: ''
          }
 
@@ -34,9 +35,9 @@ class RegisterMain extends Component {
 
     componentDidMount(){
 
-        const  referral = localStorage.getItem('reffer')
+        const  referrer = localStorage.getItem('reffer')
         this.setState({
-            referral
+            referrer
         })
 
         const DateTime = new Date().toString()
@@ -58,12 +59,15 @@ class RegisterMain extends Component {
             password: this.state.password,
             email: this.state.email,
             phone: this.state.phone,
-            referral: this.state.referral,
+            refferReward: this.state.refferReward,
+            referrer: this.state.referrer,
             ip_address: this.state.ip_address,
             checkBox: this.state.checkBox,
             date: this.state.date
             
         }
+
+        console.log(SaveNewUser)
 
        if(SaveNewUser.full_name.length < 6){
         toast.warn('Full Name  must be at lest 6')
@@ -90,9 +94,9 @@ class RegisterMain extends Component {
             toast.warn('Please agree with Terms and conditions on Next-platform')
             return false
         }
-       axios.post("users/register/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
-            window.location="/login"
-        }),8000).catch(err => {toast.error(err.response.data)})
+    //    axios.post("users/register/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
+    //         window.location="/login"
+    //     }),8000).catch(err => {toast.error(err.response.data)})
 
     }
 
@@ -128,7 +132,7 @@ class RegisterMain extends Component {
                         </div>
                         <div className="log__btn">
                              <div className='upfont'>
-                                 <p> Referral:<br/> {this.state.referral} </p>
+                                 <p> referrer:<br/> {this.state.referrer} </p>
                                 <p><input type='radio' name='checkbox'  onChange={this.handleChange('checkBox')}/> I agree with Terms and conditions</p>
                                 <a href='' className='btn btn-warning' onClick={this.onSubmit}>CREATE ACCOUNT</a>
                              </div>

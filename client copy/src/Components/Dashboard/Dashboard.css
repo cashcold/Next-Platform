@@ -1,0 +1,359 @@
+/* General Styles */
+.dashboard_main{
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.dashboard-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.dashboard-title {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.current-time {
+  text-align: center;
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.emoji-wave {
+  display: inline-block;
+  animation: wave 2.5s infinite ease-in-out;
+  transform-origin: 70% 70%;
+  font-size: 2rem;
+}
+
+/* Keyframes for the waving hand emoji */
+@keyframes wave {
+  0% { transform: rotate(0.0deg); }
+  10% { transform: rotate(14.0deg); }
+  20% { transform: rotate(-8.0deg); }
+  30% { transform: rotate(14.0deg); }
+  40% { transform: rotate(-4.0deg); }
+  50% { transform: rotate(10.0deg); }
+  60% { transform: rotate(0.0deg); }
+  100% { transform: rotate(0.0deg); }
+}
+
+/* Balance Section */
+.balance-section {
+  background-color: #007bff;
+  color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.balance-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.balance-section p {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+/* Rewards Section */
+.rewards-section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: glow 4s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0%, 100% { box-shadow: 0px 0px 10px rgba(0, 123, 255, 0.5); }
+  50% { box-shadow: 0px 0px 20px rgba(0, 123, 255, 0.8); }
+}
+
+.dashboard_main .rewards-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.dashboard_main .rewards-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.dashboard_main .rewards-section li {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Gift Cards Section */
+.giftcards-section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: slideIn 4s ease-in-out infinite;
+}
+
+@keyframes slideIn {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(15px); }
+}
+
+.giftcards-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.giftcards-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.giftcards-section li {
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+/* Offers Section */
+.offers-section {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.offers-section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+.offers-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.offers-section li {
+  background-color: #ffc107;
+  color: #333;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+
+.reff__box_2 {
+  background-color: #1e1e1e;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.reff__box_2:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.reff__box_2 h2 {
+  color: #fff;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
+
+.reff__box_2 h2 span {
+  color: #f39c12;
+  transition: color 0.3s ease;
+}
+
+.reff__box_2:hover h2 span {
+  color: #f1c40f;
+}
+
+.reff__box_2 .reffLink {
+  font-size: 18px;
+  color: #bdc3c7;
+  font-family: 'Courier New', Courier, monospace;
+  padding: 10px;
+  border: 1px solid #444;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.reff__box_2:hover .reffLink {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+}
+
+.container_ip_address {
+  text-align: center;
+  background-color: #95ce75;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1.5s ease-out;
+  transition: transform 0.4s ease;
+}
+
+.container_ip_address:hover {
+  transform: scale(1.05);
+}
+
+/* Heading styles */
+.heading {
+  color: #ecf0f1;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  animation: slideDown 1s ease-out;
+}
+s
+/* IP address styles with animation */
+.ip-address {
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 3px;
+  animation: pulse 2s infinite;
+}
+
+/* Animation for container fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Slide down animation for the heading */
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pulse animation for the IP address */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    text-shadow: 0 0 15px rgba(26, 188, 156, 0.7);
+  }
+  50% {
+    transform: scale(1.05);
+    text-shadow: 0 0 25px rgba(26, 188, 156, 1);
+  }
+  100% {
+    transform: scale(1);
+    text-shadow: 0 0 15px rgba(26, 188, 156, 0.7);
+  }
+}
+
+.withdraw-section {
+  background-color:rgb(7, 7, 7); /* Light gray background */
+  color:  white;
+  border: 1px solid #ddd; /* Subtle border */
+  border-radius: 8px; /* Rounded corners */
+  padding: 16px; /* Space inside the section */
+  margin: 10px 0; /* Space between sections */
+  box-shadow: 0 4px 6px rgb(251, 0, 0); /* Add a subtle shadow */
+  transition: transform 0.3s ease; /* Smooth transition for hover effects */
+  animation: glow 4s ease-in-out infinite;
+}
+
+.withdraw-section:hover {
+  transform: scale(1.05); /* Slightly enlarges on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.withdraw-section p {
+  font-size: 18px; /* Increase font size for readability */
+  color:  white;
+  margin: 8px 0; /* Space between paragraphs */
+  font-weight: bolder; /* Medium font weight for emphasis */
+}
+
+
+
+
+
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .dashboard-container {
+    padding: 10px;
+  }
+
+  .dashboard-title {
+    font-size: 2rem;
+  }
+
+  .balance-section h2,
+  .rewards-section h2,
+  .giftcards-section h2,
+  .offers-section h2 {
+    font-size: 1.5rem;
+  }
+  .container_ip_address {
+    padding: 10px;
+  }
+
+  .heading {
+    font-size: 1.4rem;
+  }
+
+  .ip-address {
+    font-size: 1rem;
+  }
+}

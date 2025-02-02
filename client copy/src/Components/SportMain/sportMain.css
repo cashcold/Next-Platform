@@ -1,0 +1,52 @@
+.sportMain{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    'sport_main_section_1 sport_main_section_1 sport_main_section_2' 
+    ;
+    grid-gap: 0.5em;
+}
+
+.sport_main_section_1{
+    width: 100%;
+    min-height: 100vh;
+    background-color: black;
+    color: white;
+    grid-area: sport_main_section_1;
+    padding: 3em 0em;
+}
+.sport_main_section_2{
+    padding: 0em 0em;
+    width: 100%;
+    min-height: 100vh;
+    background-color: red;
+    color: white;
+    grid-area: sport_main_section_2;
+}
+
+.basket_H1{
+    margin: 2em 0em;
+}
+.basketMain{
+    margin: 4em 0em;
+}
+.main_batstream{
+    padding: 3em 0em;
+}
+
+
+
+@media screen and (max-width: 768px){
+    .sportMain{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 
+        'sport_main_section_1'
+        'sport_main_section_2'
+        ;
+    }
+   
+}

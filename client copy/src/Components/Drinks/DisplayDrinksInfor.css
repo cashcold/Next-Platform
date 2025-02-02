@@ -1,0 +1,46 @@
+/* Add this CSS to your stylesheet or component */
+
+.cocktail-details {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    color: black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  div {
+    margin-bottom: 15px;
+  }
+  
+  strong {
+    font-weight: bold;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  .main_home_cocktail{
+    background-color: black;
+    color: white;
+    margin: 3em 0em;
+    padding: 2em 0em;
+  }

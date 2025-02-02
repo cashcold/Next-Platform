@@ -1,0 +1,77 @@
+.styleName{
+    color: red;
+}
+.styleText{
+    color: darkorange;
+}
+.footer{
+    margin-top: 40px;
+    min-height: 700px;
+    background-color: black;
+    color: white;
+}
+.subsc{
+    padding-top: 40px;
+}
+.link-input input {
+    width: 500px;
+}
+.advShopNow{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+.textMe h1{
+    color: red;
+    font-size: 1.5em;
+}
+.fixedRate h1{
+    color: red;
+    font-size: 1.5em;
+}
+.fixedRate{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.lastFooter{
+    margin-top: 30px;
+}
+@media screen and (max-width: 768px){
+     h1{
+        font-size: 1.5rem;
+    }
+     h2{
+        font-size: 1rem;
+    }
+    p{
+        font-size: 0.8rem;
+    }
+    .link-input input {
+        width: 200px;
+    }
+    .subsc h2{
+        width: 80%;
+        margin: 0 auto;
+        padding: 1em 0;
+    }
+   .btnEmail{
+       margin-top: 1em;
+   }
+   .advShopNow{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-gap: 20px;
+}
+.fixedRate{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+}
+.link-input{
+}
+
+
+
+}

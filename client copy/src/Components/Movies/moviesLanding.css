@@ -1,0 +1,212 @@
+.movie_landing_main_section{
+    width: 100%;
+    min-height: 50vh;
+    color: white;
+    background:
+    linear-gradient(rgb(80, 143, 164),rgba(8, 8, 97, 0.737)),url("../../VR__Pic/46f24237e05ea9d2fb80f4064225732a.jpg");
+    /* background-color: #017CA4;
+    background-image: url('../../VR__Pic/46f24237e05ea9d2fb80f4064225732a.jpg'); */
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+}
+
+
+
+.movie_landing_main_section .head_tag_headRoll{
+    text-align: left;
+}
+
+.head_tag{
+    padding: 4.5em 3em;
+}
+
+
+.searchTerm {
+    width: 100%;
+    height: 52px;
+    border: 3px solid #00B4CC;
+    border-right: none;
+    padding: 5px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    font-size: 2em;
+}
+  
+  .searchTerm:focus{
+    color: #00B4CC;
+  }
+  
+  .searchButton {
+    width: 40px;
+    height: 50px;
+    border: 1px solid #00B4CC;
+    background: #00B4CC;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 20px;
+  }
+.search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+ 
+.movies_raw_js{
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 1em 3.5em;
+}
+
+
+
+.movie_position_name_head{
+  color: white;
+  background-color: orange;
+  
+}
+.display_geners_main_1{
+  display: grid;
+   grid-template-columns: repeat(7,150px);
+   padding: 1.5em 0em;
+}
+ 
+.title_name{
+  padding: 1em 0em;
+  display: flex;
+  justify-content: center;
+}
+.whats_popular{
+  padding: 2.5em;
+  width: 100%;
+  min-height: 70vh;
+  background-color: black;
+  color: white;
+  
+}
+.moviesNowSwuiper_HandleMoviesNowPlaying_mobile{
+  display: none;
+}
+.landing_api_title{
+  margin: 1em 0em;
+}
+.toogle_list_main .title {
+  border-bottom: 10px solid #cc0000;
+  font-weight: 700;
+  font-size: 133%;
+  margin-right: 1em;
+}
+
+.toogle_list_main span {
+  font-weight: 300;
+}
+
+.toogle_list_main ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(5,100px);
+}
+
+.toogle_list_main ul li {
+  margin-bottom: 15px;
+  padding: 10px 0 10px 15px;
+  cursor: pointer;
+  border: 1px solid;
+  border-color: red;
+  margin: 0em 0.5em;
+ 
+}
+
+.toogle_list_main .active {
+  background: #cc0000;
+  color: #fff;
+  transition: .20s;
+  border-radius:  1em;
+}
+
+.toogle_list_main .inactive {
+  background: black;
+}
+.toogle_list_main{
+  padding: 1em 0em;
+}
+
+
+.movies_raw_js h3{
+  display: grid;
+  grid-template-columns: repeat(1,1fr);
+  gap: 1.5em;
+}
+
+
+
+
+
+@media screen and (max-width: 768px){
+    .head_tag{
+        padding: 3.5em 1.5em;
+    }
+    .movie_landing_main_section{
+        padding-top: 1em;
+        width: 100%;
+        min-height: 50vh;
+        color: white;
+        background:
+        linear-gradient(rgb(80, 143, 164),rgba(8, 8, 97, 0.737)),url("../../VR__Pic/46f24237e05ea9d2fb80f4064225732a.jpg");
+        /* background-color: #017CA4;
+        background-image: url('../../VR__Pic/46f24237e05ea9d2fb80f4064225732a.jpg'); */
+       background-position: center;
+       background-repeat: no-repeat;
+       background-size: cover;
+    }
+    .display_geners_main_1{
+      display: grid;
+      grid-template-columns: repeat(2,125px);
+      margin: 0 auto;
+    }
+    .moviesNowSwuiper_HandleMoviesNowPlaying_mobile{
+      display: block;
+    }
+    .moviesNowSwuiper{
+      display: none;
+    }
+    .toogle_list_main ul {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(1,1fr);
+    }
+    .toogle_list_main .title {
+      border-bottom: 2px solid green;
+      font-weight: 700;
+      font-size: 133%;
+      margin-bottom: 1em;
+    }
+    .toogle_list_main ul li {
+      margin-bottom: 15px;
+      padding: 10px 0 10px 15px;
+      cursor: pointer;
+      border: 1px solid;
+      border-color: red;
+      margin: 0.5em 0em;
+     
+    }
+    .movies_raw_js{
+      width: 100%;
+      background-color: black;
+      color: white;
+      padding: 1em 1.5em;
+  }
+    /* .movies_raw_js h3{
+      display: grid;
+      grid-template-columns: repeat(1,100px);
+      gap: 1.5em;
+    } */
+
+
+    
+}
