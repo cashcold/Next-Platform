@@ -16,6 +16,7 @@ class SignUpPage extends Component {
       phone: '',
       country: '',
       referrer: '',
+      refferReward: '',
       accountBalance: 50,
     };
   }
@@ -36,7 +37,7 @@ class SignUpPage extends Component {
     // Handle form submission logic
     console.log(this.state);
 
-      const SaveNewUser = {   
+      const SaveNewUser = {      
         user_Name: this.state.user_Name,
         password: this.state.password,
         confirm_password: this.state.confirm_password,
@@ -45,6 +46,7 @@ class SignUpPage extends Component {
         country: this.state.country,
         accountBalance: this.state.accountBalance,
         referrer: this.state.referrer,
+        refferReward: this.state.refferReward,
         // date: this.state.date
         
     }

@@ -94,6 +94,7 @@ Router.post('/login', async(req,res)=>{
                user_id: user._id,
                user_Name: user.user_Name,
                phone: user.phone,
+               refferReward: user.refferReward,
                email: user.email,
                referrer: user.referrer,
                country: user.country,
