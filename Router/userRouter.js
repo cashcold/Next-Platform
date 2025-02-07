@@ -46,7 +46,7 @@ Router.post('/register/', async(req,res)=>{
       password: hashPassword,
       email: req.body.email,
       country: req.body.country,
-      refferReward: req.body.refferReward,
+      refferReward: Number(req.body.refferReward) || 0,
       referrer: req.body.referrer,
       phone: Number(req.body.phone),
       // date: req.body.date

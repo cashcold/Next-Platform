@@ -94,9 +94,9 @@ class RegisterMain extends Component {
             toast.warn('Please agree with Terms and conditions on Next-platform')
             return false
         }
-       axios.post("users/register/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
-            window.location="/login"
-        }),8000).catch(err => {toast.error(err.response.data)})
+    //    axios.post("users/register/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
+    //         window.location="/login"
+    //     }),8000).catch(err => {toast.error(err.response.data)})
 
     }
 

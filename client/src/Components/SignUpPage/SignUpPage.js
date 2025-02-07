@@ -16,7 +16,7 @@ class SignUpPage extends Component {
       phone: '',
       country: '',
       referrer: '',
-      refferReward: '',
+      refferReward: 0,
       accountBalance: 50,
     };
   }
