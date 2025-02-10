@@ -1,44 +1,15 @@
 const mongoose = require('mongoose');
 
-const withdrawDepositSchema = new mongoose.Schema({
-  user_id: {
-    type: String,
-    required: true, // Fixed typo (require -> required)
-  },
-  user_Name: { 
-    type: String,
-  },
-  email: { 
-    type: String,
-    required: true, // Email should be required for user identification
-  },
-  phone: {
-    type: String, // Changed to String to accommodate formatting (e.g., "+123456789")
-  },
-  country: { 
-    type: String,
-  },
-  type: { 
-    type: String
-  },
-  accountBalance: {
-    type: Number
-  }, 
-  withdrawAmount: {
-    type: Number
-  },
-  bitcoin: {
-    type: String
-  },
-  date: {
-    type: Date, // Changed to Date for consistency
-    required: true,
-    default: Date.now,
-  }
-}, {
-  timestamps: true
+const WithdrawalSchema = new mongoose.Schema({
+  user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
+  user_Name: { type: String, required: true },
+  email: { type: String, required: true },
+  phone: { type: String },
+  country: { type: String, required: true },
+  type: { type: String, default: 'Withdrawal' },
+  date: { type: Date, default: Date.now },
+  withdrawAmount: { type: Number, required: true },
+  bitcoin: { type: String },
 });
 
-const WithdrawDeposit = mongoose.model('WithdrawDeposit', withdrawDepositSchema);
-
-module.exports = WithdrawDeposit;
+module.exports = mongoose.model('WithdrawDeposit', WithdrawalSchema);

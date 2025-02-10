@@ -41,7 +41,7 @@ class Selected extends Component {
     const urlSearchParams = new URLSearchParams(window.location.search);
         for(var pair of urlSearchParams.entries()) {
             localStorage.setItem('referrer',(pair[1]) ) 
-         }
+        }
 
 
 

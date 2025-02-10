@@ -50,7 +50,7 @@ Router.post("/registerNewUser", async (req, res) => {
       refferReward: refferReward !== undefined ? Number(refferReward) : 0,
       offer: offer !== undefined ? Number(offer) : 0,
     });
-
+ 
     console.log("User object before saving live:", newUser); // ✅ Debugging
 
     // Save user

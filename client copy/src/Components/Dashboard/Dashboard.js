@@ -29,7 +29,7 @@ class Dashboard extends Component {
     console.log(this.state.withdrawTotal);
 
        // Set the session start time when the user loads the page
-        axios.post(`GHC{process.env.REACT_APP_API_BASE_URL}/users/api/sessionStart`, { user_id: this.state.user_id })
+        axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/sessionStart`, { user_id: this.state.user_id })
             .then((response) => {
                 console.log("Session started:", response.data);
                
@@ -183,6 +183,14 @@ class Dashboard extends Component {
         </motion.div>
 
         
+        <motion.div
+        className="withdraw-section"
+        initial={{ x: -100 }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
+      >
+        <p>Last Withdraw Amount: GHC{this.state.lastWithdrawAmount}</p>
+      </motion.div>
       <motion.div
         className="withdraw-section"
         initial={{ x: -100 }}
@@ -192,14 +200,7 @@ class Dashboard extends Component {
         <p>Total Withdraw: GHC{this.state.withdrawTotal}</p>
       </motion.div>
 
-      <motion.div
-        className="withdraw-section"
-        initial={{ x: -100 }}
-        animate={{ x: 0 }}
-        transition={{ duration: 0.7, delay: 0.3 }}
-      >
-        <p>Last Withdraw Amount: GHC{this.state.lastWithdrawAmount}</p>
-      </motion.div>
+     
 
 
         {/* Rewards Section */}
