@@ -19,70 +19,49 @@ dotEnv.config()
 const Router = express.Router()
 
 
-Router.post('/registerNewUser/', async(req,res)=>{
+Router.post("/registerNewUser", async (req, res) => {
+  try {
+    console.log("Getting from the body:", req.body);
 
-  console.log("getting from the body:", req.body);
+    const { user_Name, email, password, phone, country, referrer, accountBalance, refferReward, offer } = req.body;
 
-  const password = req.body.password;
-
-    
-  User.findOne({referrer : req.params})
-  // reffer program
-
-  const user = await User.findOne({email: req.body.email})
-  const user_Name = await User.findOne({user_Name: req.body.user_Name})
-  if(user) return res.status(400).send('Email already Exist')
-  if(user_Name) return res.status(400).send('User already Exist')
-
-
-  const salt = await bcrypt.genSalt(10)
-  const hashPassword = await bcrypt.hash(req.body.password, salt)
-  const user_email = (req.body.email)
-
-  const saveUser = new User({ 
-    user_Name: req.body.user_Name,
-    accountBalance: Number(req.body.accountBalance) || 0,
-    restartLinkPassword: req.body.restartLinkPassword,
-    password: hashPassword,
-    email: req.body.email,
-    country: req.body.country,
-    refferReward: req.body.refferReward ? Number(req.body.refferReward) : 0, 
-    referrer: req.body.referrer,
-    phone: Number(req.body.phone),
-    offer: Number(req.body.offer),
-});
-
-console.log("User object before saving:", saveUser);
-
-
-
-       // Referral program logic
-       if (req.body.referrer) {
-        // Find the referrer by their referral code (could be the user_Name, email, or custom code)
-        const referrer = await User.findOne({ user_Name: req.body.referrer });
-        if (referrer) {
-            // Add reward to referrer's account balance (e.g., 10 units as a reward)
-            referrer.refferReward += 10; // You can adjust this amount
-            await referrer.save();
-        }
+    // Validate fields (optional)
+    if (!user_Name || !email || !password) {
+      return res.status(400).json({ error: "Missing required fields" });
     }
 
-  var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-  var data = {
-      from: 'Next-Platform <nextplatform99@gmail.com>',
-      to: user_email,
-      subject: 'Welcome To Next-Platform',
-      text: 'Thank you for Joing Next-platform as one Family, Have a nice day. Thank You'
-  };
-  mailgun.messages().send(data, function (error, body) {
-      console.log(body);
-  });
+    // Check if user exists
+    const existingUser = await User.findOne({ email });
+    if (existingUser) return res.status(400).json({ error: "Email already exists" });
 
+    // Hash password
+    const salt = await bcrypt.genSalt(10);
+    const hashPassword = await bcrypt.hash(password, salt);
 
-  await saveUser.save()
-  res.send("user save")
+    // Create User Object
+    const newUser = new User({
+      user_Name,
+      email,
+      password: hashPassword,
+      phone: Number(phone),
+      country,
+      referrer,
+      accountBalance: Number(accountBalance) || 0,
+      refferReward: refferReward !== undefined ? Number(refferReward) : 0,
+      offer: offer !== undefined ? Number(offer) : 0,
+    });
 
-})
+    console.log("User object before saving live:", newUser); // ✅ Debugging
+
+    // Save user
+    await newUser.save();
+
+    res.status(201).json({ message: "User registered successfully", user: newUser });
+  } catch (error) {
+    console.error("Registration error:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
+});
 
 Router.post('/login', async(req,res)=>{
   const user = await User.findOne({email: req.body.email})

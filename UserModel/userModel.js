@@ -1,48 +1,19 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema({
-    user_Name: {
-        type: String,
-        require: true,
-    },
-    password: {
-        type: String,
-        require: true,
-    }, 
-    phone: {
-        type: Number,
-        require: true,
-    },
-    email: {
-        type: String,
-        require: true,
-    },
-    accountBalance: {
-        type: Number,
-        default: 0,  // Ensure it starts at 0
-    },
-    referrer: {
-        type: String,
-    },
-    country: {
-        type: String,
-    },
-    restartLinkPassword: {
-        type: String,
-    },
-    totalTimeSpent: {
-        type: Number,
-        default: 0,  // Track total time spent in seconds
-    },
-    sessionStart: {
-        type: Date,  // Store the time when the session starts
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
-});
+const UserSchema = new mongoose.Schema(
+  {
+    user_Name: { type: String, required: true, unique: true },
+    email: { type: String, required: true, unique: true },
+    password: { type: String, required: true },
+    phone: { type: Number, required: true },
+    country: { type: String, required: true },
+    referrer: { type: String, default: null },
+    accountBalance: { type: Number, default: 0 },
+    refferReward: { type: Number, default: 0 },  // ✅ Ensure this exists
+    offer: { type: Number, default: 0 },  // ✅ Ensure this exists
+    createdAt: { type: Date, default: Date.now },
+  },
+  { timestamps: true }
+);
 
-const User = mongoose.model('User', userSchema);
-
-module.exports = User;
+module.exports = mongoose.model("User", UserSchema);
