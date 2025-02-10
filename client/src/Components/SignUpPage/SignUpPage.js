@@ -17,6 +17,7 @@ class SignUpPage extends Component {
       country: '',
       referrer: '',
       refferReward: 0,
+      offer: 0,
       accountBalance: 50,
     };
   }
@@ -47,6 +48,7 @@ class SignUpPage extends Component {
         accountBalance: this.state.accountBalance,
         referrer: this.state.referrer,
         refferReward: this.state.refferReward,
+        offer: this.state.offer,
         // date: this.state.date
         
     }
@@ -73,7 +75,7 @@ class SignUpPage extends Component {
     //     toast.warn('Please agree with Terms and conditions')
     //     return false
     // }
-  axios.post("http://localhost:8000/users/register/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
+  axios.post("http://localhost:8000/users/registerNewUser/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{
         window.location="/login"
     }),8000).catch(err => {toast.error(err.response.data)})
 

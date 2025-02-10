@@ -19,9 +19,9 @@ dotEnv.config()
 const Router = express.Router()
 
 
-Router.post('/register/', async(req,res)=>{
+Router.post('/registerNewUser/', async(req,res)=>{
 
-  console.log(req.body)
+  console.log("getting from the body:", req.body);
 
   const password = req.body.password;
 
@@ -40,17 +40,21 @@ Router.post('/register/', async(req,res)=>{
   const user_email = (req.body.email)
 
   const saveUser = new User({ 
-      user_Name: req.body.user_Name,
-      accountBalance: Number(req.body.accountBalance),
-      restartLinkPassword: req.body.restartLinkPassword,
-      password: hashPassword,
-      email: req.body.email,
-      country: req.body.country,
-      refferReward: Number(req.body.refferReward) || 0,
-      referrer: req.body.referrer,
-      phone: Number(req.body.phone),
-      // date: req.body.date
-  })
+    user_Name: req.body.user_Name,
+    accountBalance: Number(req.body.accountBalance) || 0,
+    restartLinkPassword: req.body.restartLinkPassword,
+    password: hashPassword,
+    email: req.body.email,
+    country: req.body.country,
+    refferReward: req.body.refferReward ? Number(req.body.refferReward) : 0, 
+    referrer: req.body.referrer,
+    phone: Number(req.body.phone),
+    offer: Number(req.body.offer),
+});
+
+console.log("User object before saving:", saveUser);
+
+
 
        // Referral program logic
        if (req.body.referrer) {
