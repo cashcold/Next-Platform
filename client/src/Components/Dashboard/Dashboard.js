@@ -245,7 +245,7 @@ class Dashboard extends Component {
           </ul>
         </motion.div>
 
-         <div className="reff__box_2">s
+         <div className="reff__box_2">
               <h2>Personal <span>Referral</span> Link:</h2>
               <p className='reffLink'>http://nextplatformlive.com/?referrer={username}</p>
               
