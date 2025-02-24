@@ -72,7 +72,7 @@ class SignUpPage extends Component {
         return false;
     }
     // if(!SaveNewUser.checkBox){ 
-    //     toast.warn('Please agree with Terms and conditions')
+    //     toast.warn('Please agree with Terms and conditions')     
     //     return false
     // }
   axios.post("http://localhost:8000/users/registerNewUser/",SaveNewUser).then(res => {toast.success("Register Successful")}).then(res => setTimeout(()=>{

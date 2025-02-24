@@ -36,11 +36,11 @@ class LoginPage extends Component {
       return false;
   }
 
-  axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/login`, userLogin).then(res => {  
+  axios.post(`http://localhost:8000/users/login`, userLogin).then(res => {  
       sessionStorage.setItem('x-access-token',JSON.stringify(res.data))
       return res.data;
   }).then(res => {toast.success("Login Successful !", setTimeout(()=>{
-      toast.success("LOADING ACCOUNT") 
+      toast.success("LOADING ACCOUNT")
   },4000),{
       
       });}).then(res => window.location="/dashboard" ).catch(err => {toast.error(err.response.data, {

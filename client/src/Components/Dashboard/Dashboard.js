@@ -12,6 +12,8 @@ class Dashboard extends Component {
       user_id: '',
       withdrawTotal: '',
       lastWithdrawAmount: '',
+      totalReferralReward: 0,
+      refferReward: 0,
       username: '', // Replace with the actual username from your authentication logic
       balance: "", // Example balance value
       rewards: [`Referrer  GHC7571`, `Last Withdrawal GHC530`, 'Time spend GHC5830', 'Share Links GHC6973'], // Example rewards
@@ -36,7 +38,7 @@ class Dashboard extends Component {
                 (prevState) => ({ timeSpent: prevState.timeSpent + 3 }),
                 () => {
                     // Send the timeSpent (3 seconds) to the backend to update balance
-                    axios.post(`${process.env.REACT_APP_API_BASE_URL}/users/api/updateBalance`, {
+                    axios.post(`http://localhost:8000/users/api/updateBalance`, {
                         user_id: this.state.user_id,
                         timeSpent: 3
                     })
@@ -68,7 +70,7 @@ class Dashboard extends Component {
     this.setState({
       user_id: decoded.user_id,
      })
-
+      
      const id = decoded.user_id
 
      axios
@@ -243,10 +245,20 @@ class Dashboard extends Component {
           </ul>
         </motion.div>
 
-         <div className="reff__box_2">
+         <div className="reff__box_2">s
               <h2>Personal <span>Referral</span> Link:</h2>
               <p className='reffLink'>http://nextplatformlive.com/?referrer={username}</p>
+              
           </div>
+          <div className="with__inner__box_1">
+                  <h4>Referral Reward:</h4>
+                  <h4>${this.state.user_profile_display.refferReward || '0'}.00</h4>
+                  {this.state.user_profile_display.refferReward > 2 ? (
+                            <button className="btn-referral-cashout" onClick={()=>{
+                      window.location =`/withdraw-refferReward`
+                  }} >Cashout</button>
+                  ) : null}
+                </div>
       </div>
       </div>
     );

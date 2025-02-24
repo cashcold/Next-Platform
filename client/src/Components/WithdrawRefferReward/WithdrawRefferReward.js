@@ -23,7 +23,7 @@ class WithdrawRefferReward extends Component {
       this.setState({ user_id: decoded.user_id });
 
       // Fetch user profile
-      axios.post('/users/user_profile_display', { id: decoded.user_id })
+      axios.post('http://localhost:8000/users/user_profile_display', { id: decoded.user_id })
         .then(response => {
           this.setState({ user_profile_display: response.data });
         })
@@ -33,7 +33,7 @@ class WithdrawRefferReward extends Component {
         });
 
       // Fetch total referral reward
-      axios.get(`/users/totalRefferReward/${decoded.user_id}`)
+      axios.get(`http://localhost:8000/users/totalRefferReward/${decoded.user_id}`)
         .then(response => {
           this.setState({ totalReferralReward: response.data.totalReward });
         })

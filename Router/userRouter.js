@@ -11,6 +11,7 @@ const async = require('async')
 const crypto = require('crypto')
 const UserDeposit = require('../UserModel/depositModel')
 const WithdrawDeposit = require('../UserModel/widthdraw')
+const ReferralReward = require('../UserModel/ReferralReward')
 var SpotifyWebApi = require('spotify-web-api-node');
 var Ebay = require('ebay-node-api')
 
@@ -384,6 +385,135 @@ Router.post('/withdrawInfo', async (req, res) => {
   }
 });
 
+Router.post('/refferReward/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Check if there's enough referral reward to withdraw
+    if (user.refferReward && user.refferReward > 0) {
+      // Create a new record for the referral reward transaction
+      const referralReward = new ReferralReward({
+        userId: user._id,
+        amount: user.refferReward,
+      });
+
+      // Save the referral reward transaction
+      await referralReward.save();
+
+      // Set referral reward to 0 after withdrawal
+      user.refferReward = 0;
+
+      // Save the updated user object
+      await user.save();
+
+      return res.status(200).json({ message: "Referral reward withdrawn successfully" });
+    } else {
+      return res.status(400).json({ message: "No referral reward to withdraw" });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+
+Router.post('/refferReward/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Check if there's enough referral reward to withdraw
+    if (user.refferReward && user.refferReward > 0) {
+      // Create a new record for the referral reward transaction
+      const referralReward = new ReferralReward({
+        userId: user._id,
+        amount: user.refferReward,
+      });
+
+      // Save the referral reward transaction
+      await referralReward.save();
+
+      // Set referral reward to 0 after withdrawal
+      user.refferReward = 0;
+
+      // Save the updated user object
+      await user.save();
+
+      return res.status(200).json({ message: "Referral reward withdrawn successfully" });
+    } else {
+      return res.status(400).json({ message: "No referral reward to withdraw" });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+Router.get('/totalRefferReward/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    // Find all referral reward transactions for the user
+    const rewards = await ReferralReward.find({ userId });
+
+    if (!rewards || rewards.length === 0) {
+      return res.status(404).json({ message: "No referral rewards found" });
+    }
+
+    // Calculate the total referral reward
+    const totalReward = rewards.reduce((acc, reward) => acc + reward.amount, 0);
+
+    return res.status(200).json({ totalReward });
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
+
+
+Router.post('/withdrawReferralReward', async (req, res) => {
+  try {
+    const { userId } = req.body;
+
+    // Find the user by ID
+    const user = await User.findById(userId);
+
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    // Check if the user has enough referral reward to withdraw
+    if (user.refferReward > 0) {
+      // Save the withdrawal transaction in ReferralReward model
+      const referralReward = new ReferralReward({
+        userId: user._id,
+        amount: user.refferReward,
+      });
+
+      await referralReward.save();
+
+      // Reset user's referral reward balance to zero
+      user.refferReward = 0;
+      await user.save();
+
+      return res.status(200).json({ message: "Withdrawal successful!", totalWithdrawn: referralReward.amount });
+    } else {
+      return res.status(400).json({ message: "No referral reward available to withdraw." });
+    }
+  } catch (error) {
+    return res.status(500).json({ message: "Server error", error: error.message });
+  }
+});
 
 
 
