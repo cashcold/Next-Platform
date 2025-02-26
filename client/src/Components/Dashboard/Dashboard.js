@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import jwt_decode from 'jwt-decode';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import './Dashboard.css'; // Import the CSS file for styling and animations
 import { motion } from 'framer-motion'; // Import framer-motion for smooth effects
 
@@ -84,13 +86,36 @@ class Dashboard extends Component {
         username: userProfile.user_Name,
         balance: userProfile.accountBalance,
         rewards: [
-          `Referrer: ${userProfile.refferReward}`,
+          // `Referrer: ${userProfile.refferReward}`,
           `Last Withdrawal GHC530`,
           'Time spend GHC5830',
+          `Total Referral Rewards: ${this.state.totalReferralReward}`,
           'Share Links GHC6973'
         ] // Update rewards with dynamic value
       });
     });
+
+    // Fetch total referral reward
+    axios.get(`http://localhost:8000/users/totalRefferReward/${id}`)
+      .then(response => {
+        this.setState({ totalReferralReward: response.data.totalReward }, () => {
+          // Update rewards with the correct totalReferralReward value
+          this.setState(prevState => ({
+            rewards: [
+              // `Referrer: ${prevState.user_profile_display.refferReward}`,
+              `Total Withdrawal GHC530`,
+              `Total Referral Rewards: ${prevState.totalReferralReward}`,
+              'Total Time spend GHC5830',
+              
+              'Share Links GHC6973'
+            ]
+          }));
+        });
+      })
+      .catch(error => {
+        console.error("Error fetching total referral reward:", error);
+        toast.error("Failed to fetch total referral reward.");
+      });
 
     this.updateGreeting();
     // Update time every minute
@@ -129,6 +154,7 @@ class Dashboard extends Component {
       offers,
       greeting,
       currentTime,
+      totalReferralReward
     } = this.state;
 
     return (
