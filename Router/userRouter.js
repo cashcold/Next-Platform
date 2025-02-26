@@ -353,15 +353,18 @@ Router.post('/withdrawInfo', async (req, res) => {
       return res.status(400).json({ message: "User ID is required" });
     }
 
+    // Convert user_id to ObjectId
+    const objectId = mongoose.Types.ObjectId(user_id);
+
     // Find user by ID
-    const user = await WithdrawDeposit.findOne({ user_id });
+    const user = await WithdrawDeposit.findOne({ user_id: objectId });
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
 
     // Aggregate withdrawal data
     const currentDeposit = await WithdrawDeposit.aggregate([
-      { $match: { user_id } },
+      { $match: { user_id: objectId } },
       {
         $group: {
           _id: "$user_id",
@@ -377,7 +380,7 @@ Router.post('/withdrawInfo', async (req, res) => {
         data: currentDeposit[0], // Return the first aggregated result
       });
     } else {
-      res.status(200).json({ message: "No withdrawal records found" });
+      res.status(200).json({ message: "No withdrawal records found", data: { totalWithdrawAmount: 0, lastWithdrawAmount: 0 } });
     }
   } catch (error) {
     console.error('Error fetching withdrawal info:', error);

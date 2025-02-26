@@ -77,7 +77,15 @@ class Dashboard extends Component {
           lastWithdrawAmount, // Set lastWithdrawAmount
         });
       })
-      .catch((error) => console.error('Error fetching withdrawal info:', error));
+      .catch((error) => {
+        console.error('Error fetching withdrawal info:', error);
+        if (error.response && error.response.data && error.response.data.message === "No withdrawal records found") {
+          this.setState({
+            withdrawTotal: 'No records', // Set default value
+            lastWithdrawAmount: 'No records', // Set default value
+          });
+        }
+      });
 
     axios.post('http://localhost:8000/users/user_profile_display', { id }).then(data => {
       const userProfile = data.data;
@@ -106,7 +114,6 @@ class Dashboard extends Component {
               `Total Withdrawal GHC530`,
               `Total Referral Rewards: ${prevState.totalReferralReward}`,
               'Total Time spend GHC5830',
-              
               'Share Links GHC6973'
             ]
           }));
