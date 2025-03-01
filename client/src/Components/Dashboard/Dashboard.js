@@ -51,6 +51,38 @@ class Dashboard extends Component {
         'Zalando GHC0',
         'Nordstrom GHC0'
       ], // Example gift cards
+      mysteryRewards: [
+  'Mystery Box – Win a Random Gift with Every Purchase',  
+  'Unlock a Surprise Discount at Checkout',  
+  'Spin the Wheel for a Secret Bonus',  
+  'Scratch & Win – Reveal Your Hidden Reward',  
+  'Get a Free Mystery Gift on Orders Above GHC100',  
+  'Random Cashback Bonus – Up to GHC50 Back',  
+  'Lucky Draw – Chance to Win Free Products',  
+  'Unwrap a Mystery Reward After Your 5th Purchase',  
+  'Hidden Discount – Only Shown at Checkout',  
+  'Buy Any Item & Get a Mystery Discount Code',  
+  'Mystery Gift Box – Surprise Item Added to Your Cart',  
+  'First 100 Buyers Get a Secret Reward',  
+  'Mystery Coupon Sent to Your Email After Purchase',  
+  'Hidden Bonus – Only Available for 1 Hour',  
+  'Mystery Loyalty Bonus – Earn Extra Points at Random',  
+  'Lucky Surprise – One in Every 10 Orders Wins a Prize',  
+  'Daily Mystery Reward – Log in to Claim',  
+  'Random Price Drop – Item Prices Change for a Limited Time',  
+  'Exclusive Mystery Reward for VIP Members',  
+  'Golden Ticket – Win Big with a Random Purchase',  
+  'Mystery Discount Code – Hidden Somewhere on the Website',  
+  'Flash Mystery Sale – Prices Change Every Hour',  
+  'Secret Cashback Bonus – Activated at Checkout',  
+  'Mystery Freebie – Added to Orders at Random',  
+  'Lucky Purchase – One Order Will Be 100% Free',  
+  'Hidden Gift – Check Your Account After Every 3 Purchases',  
+  'Secret Jackpot – One Lucky Customer Wins GHC500',  
+  'Random Gift Card Reward – Sent After Purchase',  
+  'Mystery Upgrade – Your Order Might Get a Free Boost',  
+  'Unbox a Mystery Item When You Spend GHC250+'
+], // Example mystery rewards
       offers: [
         '10% off next purchase', 
         'GHC5 bonus for referrals', 
@@ -256,7 +288,8 @@ class Dashboard extends Component {
       greeting,
       currentTime,
       totalReferralReward,
-      promotions
+      promotions,
+      mysteryRewards
     } = this.state;
 
     return (
@@ -312,6 +345,21 @@ class Dashboard extends Component {
             <ul>
               {rewards.map((reward, index) => (
                 <li key={index}>{reward}</li>
+              ))}
+            </ul>
+          </motion.div>
+          
+          {/* mysteryRewards Section */}
+          <motion.div
+            className="offers-section"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h2>My Stery Rewards</h2>
+            <ul>
+              {mysteryRewards.map((offer, index) => (
+                <li key={index}>{offer}</li>
               ))}
             </ul>
           </motion.div>
