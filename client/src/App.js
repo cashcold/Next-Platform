@@ -232,7 +232,7 @@ class MainApp extends Component {
         if (loading) {
             return (
                 <div className="loading-screen">
-                    <h2>Checking Time...</h2>
+                    <h2>Loading Page...</h2>
                 </div>
             );
         }
