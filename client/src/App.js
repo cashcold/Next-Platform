@@ -60,6 +60,9 @@ import AccessoryList from './Components/AccessoryList/AccessoryList.js';
 import moment from 'moment'
 import WithdrawPage from './Components/WithdrawPage/WithdrawPage.js';
 import WithdrawRefferReward from './Components/WithdrawRefferReward/WithdrawRefferReward.js';
+import Modal from 'react-modal';
+
+Modal.setAppElement('#root'); // Set the app element for accessibility
 
 class MainApp extends Component {
     constructor(props) {
@@ -77,7 +80,9 @@ class MainApp extends Component {
             msg_title: '',
             msg_body: '',
             isDateValid: true, // Add a state to track date validity
-            loading: true // Add a loading state to control rendering
+            loading: true, // Add a loading state to control rendering
+            lastActiveTime: Date.now(), // Track the last active time
+            showModal: false // State to control the modal visibility
         }
     }
 
@@ -129,9 +134,7 @@ class MainApp extends Component {
             this.fetchInitialBalance(user_id);
 
             // Start balance update interval if user_id exists
-            this.interval = setInterval(() => {
-                this.updateBalance(user_id);
-            }, 3000);
+            this.startBalanceUpdateInterval(user_id);
 
         } catch (error) {
             console.error("Error decoding token:", error);
@@ -149,15 +152,58 @@ class MainApp extends Component {
         this.updateGreeting();
         // Update time every second
         this.timerID = setInterval(() => this.updateGreeting(), 1000);
+
+        // Add event listeners for visibility change and user activity
+        document.addEventListener('visibilitychange', this.handleVisibilityChange);
+        document.addEventListener('mousemove', this.handleUserActivity);
+        document.addEventListener('keydown', this.handleUserActivity);
     }
 
     componentWillUnmount() {
         // Clear the interval when the component unmounts
+        this.clearBalanceUpdateInterval();
+        clearInterval(this.timerID);
+
+        // Remove event listeners for visibility change and user activity
+        document.removeEventListener('visibilitychange', this.handleVisibilityChange);
+        document.removeEventListener('mousemove', this.handleUserActivity);
+        document.removeEventListener('keydown', this.handleUserActivity);
+    }
+
+    handleVisibilityChange = () => {
+        if (document.hidden) {
+            // User is inactive
+            this.clearBalanceUpdateInterval();
+        } else {
+            // User is active
+            this.startBalanceUpdateInterval(this.state.user_id);
+        }
+    };
+
+    handleUserActivity = () => {
+        this.setState({ lastActiveTime: Date.now(), showModal: false });
+    };
+
+    startBalanceUpdateInterval(user_id) {
+        this.clearBalanceUpdateInterval(); // Clear any existing interval
+        this.interval = setInterval(() => {
+            const currentTime = Date.now();
+            const timeSinceLastActive = currentTime - this.state.lastActiveTime;
+
+            if (timeSinceLastActive < 2 * 60 * 1000) { // 2 minutes
+                this.updateBalance(user_id);
+            } else {
+                this.clearBalanceUpdateInterval();
+                this.setState({ showModal: true }); // Show the modal when user is inactive
+            }
+        }, 3000);
+    }
+
+    clearBalanceUpdateInterval() {
         if (this.interval) {
             clearInterval(this.interval);
+            this.interval = null;
         }
-
-        clearInterval(this.timerID);
     }
 
     compareTime(liveTime) {
@@ -225,7 +271,7 @@ class MainApp extends Component {
     };
 
     render() {
-        const { balance, user_Name, user_id, greeting, currentTime, username, isDateValid, loading } = this.state; // Destructure the balance from state
+        const { balance, user_Name, user_id, greeting, currentTime, username, isDateValid, loading, showModal } = this.state; // Destructure the balance from state
         const scoreBat_matchviewUrl = localStorage.getItem('scoreBat_matchviewUrl')
 
         // Show a loading screen while checking time
@@ -339,6 +385,19 @@ class MainApp extends Component {
                         </div>
                     </div>
                 </section>
+
+                {/* Modal for inactivity */}
+                <Modal
+                    isOpen={showModal}
+                    onRequestClose={() => this.setState({ showModal: false })}
+                    contentLabel="Inactive Alert"
+                    className="modal"
+                    overlayClassName="overlay"
+                >
+                    <h2>Inactive Alert</h2>
+                    <p>You have been inactive for more than 2 minutes. Please interact with the page to continue updating your balance.</p>
+                    <button onClick={() => this.setState({ showModal: false })}>Close</button>
+                </Modal>
             </Router>
         );
     }
