@@ -26,7 +26,7 @@ Router.post("/registerNewUser", async (req, res) => {
 
     const { user_Name, email, password, phone, country, referrer, accountBalance, refferReward, offer } = req.body;
 
-    // Validate fields (optional)
+    // Validate fields
     if (!user_Name || !email || !password) {
       return res.status(400).json({ error: "Missing required fields" });
     }
@@ -51,13 +51,62 @@ Router.post("/registerNewUser", async (req, res) => {
       refferReward: refferReward !== undefined ? Number(refferReward) : 0,
       offer: offer !== undefined ? Number(offer) : 0,
     });
- 
+
     console.log("User object before saving live:", newUser); // ✅ Debugging
 
     // Save user
     await newUser.save();
 
-    res.status(201).json({ message: "User registered successfully", user: newUser });
+    // Configure Nodemailer
+    const nodemailer = require("nodemailer");
+    const transporter = nodemailer.createTransport({
+      host: "mail.nextplatformlive.com", // Replace with your SMTP host
+      port: 465, // Use 587 for TLS or 465 for SSL
+      secure: true, // True for SSL, false for TLS
+      auth: {
+        user: "support@nextplatformlive.com", // Replace with your email
+        pass: process.env.SMTP_PASS, // Replace with your email password (use environment variables for security)
+      },
+      tls: {
+        rejectUnauthorized: false, // Bypass SSL verification
+      },
+    });
+
+    // Email options
+    const mailOptions = {
+      from: '"Next-Platform" <support@nextplatformlive.com>', // Sender address
+      to: email, // Recipient's email
+      subject: `Welcome to Your App, ${user_Name}!`, // Subject line
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+          <h1 style="color: #2c3e50; text-align: center;">Welcome to Your App!</h1>
+          <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            Hi ${user_Name},
+          </p>
+          <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            Thank you for registering with us! Your account has been successfully created.
+          </p>
+          <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            We are excited to have you on board. If you have any questions, feel free to reach out to our support team.
+          </p>
+          <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            Best Regards,<br>
+            The Your App Team
+          </p>
+        </div>
+      `,
+    };
+
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Email sending failed:", error);
+        return res.status(500).json({ message: "User registered but email not sent." });
+      }
+      console.log("Email sent:", info.response);
+    });
+
+    res.status(201).json({ message: "User registered successfully and welcome email sent.", user: newUser });
   } catch (error) {
     console.error("Registration error:", error);
     res.status(500).json({ error: "Internal Server Error" });
@@ -93,88 +142,99 @@ Router.post('/login', async(req,res)=>{
   })
 })
 
-Router.post('/forgotpassword', async (req,res,next)=>{  
-  const userEmail = req.body.email;
-  async.waterfall([
-     (done)=>{
-       crypto.randomBytes(20,(err,buffer)=>{
-           let token = buffer.toString('hex');
-           done(err, token);
-       })
-       
-     },
-     (token, done)=>{
-       User.findOne({email: req.body.email},(err,user)=>{
-           if(!user){
-               return res.status(400).send('Email Not Found')
-           }
-           user.restartLinkPassword =  token;
-           user.save((err)=>{
-               done(err, token, user)
-           })
-       })
-     },
-     (token,user,done)=>{
-      var mailgun = require('mailgun-js')({apiKey: process.env.API_key, domain: process.env.API_baseURL});
-      
-      var data = {
-        from: 'Capital Gain Co <capitalgain_support@gmail.com>',
-        to: userEmail,
-        subject: 'Password Reset',
-        html: `
-          <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
-            <h1 style="color: #2c3e50; text-align: center;">Password Reset Request</h1>
-            
-            <p style="font-size: 16px; color: #555; line-height: 1.6;">
-              Hi there,
-            </p>
-            <p style="font-size: 16px; color: #555; line-height: 1.6;">
-              We received a request to reset your password. Please click the button below to reset your password. If you did not request this, you can safely ignore this email.
-            </p>
-      
-            <div style="text-align: center; margin: 30px 0;">
-              <a href='${process.env.forgotPasswordLink}/${token}' 
-                style="font-size: 18px; background-color: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block;">
-                Reset Your Password
-              </a>
-            </div>
-      
-            <p style="font-size: 14px; color: #999;">s
-              Alternatively, you can copy and paste the following link into your browser:
-            </p>
-      
-            <p style="font-size: 14px; color: #3498db;">
-              <a href='${process.env.forgotPasswordLink}/${token}' style="color: #3498db; word-break: break-all;">
-                ${process.env.forgotPasswordLink}/${token}
-              </a>
-            </p>
-      
-            <p style="font-size: 14px; color: #555; line-height: 1.6;">
-              Thanks,<br>
-              The Capital Gain Co Team
-            </p>
-      
-            <p style="font-size: 12px; color: #999; text-align: center; margin-top: 30px; line-height: 1.4;">
-              If you didn’t request a password reset, you can safely ignore this email.<br>
-              Please do not reply to this email as it is an automated message.
-            </p>
+Router.post('/forgotpassword', async (req, res) => {
+  try {
+    const userEmail = req.body.email;
+
+    // Generate a token
+    const token = crypto.randomBytes(20).toString('hex');
+
+    // Find the user by email
+    const user = await User.findOne({ email: userEmail });
+    if (!user) {
+      return res.status(400).json({ message: 'Email not found' });
+    }
+
+    // Save the token and expiration time to the user object
+    user.restartLinkPassword = token;
+    user.resetPasswordExpires = Date.now() + 3600000; // Token valid for 1 hour
+    await user.save();
+
+    // Configure Nodemailer
+    const nodemailer = require('nodemailer');
+    const transporter = nodemailer.createTransport({
+      host: "mail.nextplatformlive.com", // Replace with your SMTP host
+      port: 465, // Use 587 for TLS or 465 for SSL
+      secure: true, // True for SSL, false for TLS
+      auth: {
+        user: "support@nextplatformlive.com", // Replace with your email
+        pass: process.env.SMTP_PASS, // Replace with your email password (use environment variables for security)
+      },
+      tls: {
+        rejectUnauthorized: false, // Bypass SSL verification
+      },
+    });
+
+    // Email options
+    const mailOptions = {
+      from: '"Next-Platform Support" <support@nextplatformlive.com>', // Sender address
+      to: userEmail, // Recipient's email
+      subject: 'Password Reset Request', // Subject line
+      html: `
+        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+          <h1 style="color: #2c3e50; text-align: center;">Password Reset Request</h1>
+          
+          <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            Hi ${user.user_Name},
+          </p>
+          <p style="font-size: 16px; color: #555; line-height: 1.6;">
+            We received a request to reset your password. Please click the button below to reset your password. If you did not request this, you can safely ignore this email.
+          </p>
+    
+          <div style="text-align: center; margin: 30px 0;">
+            <a href='${process.env.forgotPasswordLink}/${token}' 
+              style="font-size: 18px; background-color: #28a745; color: white; text-decoration: none; padding: 10px 20px; border-radius: 5px; display: inline-block;">
+              Reset Your Password
+            </a>
           </div>
-        `
-      };
-      ;
-       mailgun.messages().send(data, function (error, body) {
-           if(error){
-               return res.status(400).send(error.message)
-           }
-          return res.status(200).send('Link sent to Email Address')
-     });
+    
+          <p style="font-size: 14px; color: #999;">
+            Alternatively, you can copy and paste the following link into your browser:
+          </p>
+    
+          <p style="font-size: 14px; color: #3498db;">
+            <a href='${process.env.forgotPasswordLink}/${token}' style="color: #3498db; word-break: break-all;">
+              ${process.env.forgotPasswordLink}/${token}
+            </a>
+          </p>
+    
+          <p style="font-size: 14px; color: #555; line-height: 1.6;">
+            Thanks,<br>
+            The Next-Platform Team
+          </p>
+    
+          <p style="font-size: 12px; color: #999; text-align: center; margin-top: 30px; line-height: 1.4;">
+            If you didn’t request a password reset, you can safely ignore this email.<br>
+            Please do not reply to this email as it is an automated message.
+          </p>
+        </div>
+      `,
+    };
 
-     },
-     
-  ])
-
-   
-})
+    // Send email
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.error("Email sending failed:", error);
+        return res.status(500).json({ message: "Failed to send password reset email." });
+      }
+      console.log("Email sent:", info.response);
+      res.status(200).json({ message: "Password reset link sent to your email address." });
+    });
+  } catch (error) {
+    console.error("Error in forgot password:", error);
+    res.status(500).json({ message: "Internal Server Error" });
+  }
+});
 
 
 Router.post('/activtypassword/:token', async(req,res)=>{
@@ -296,12 +356,10 @@ Router.post('/user_profile_display',async(req,res)=>{
 
 Router.post(
   '/withdraw/:id', async (req, res) => {
-
     const user = await User.findById(req.params.id);
     if (user) user.accountBalance = 0;
     await user.save();
-    
-  
+
     const id = req.params.id;
     const userId = req.params.id;
     const { withdrawAmount, user_Name, email, phone, country, type, date, bitcoin } = req.body;
@@ -312,9 +370,6 @@ Router.post(
       if (!user) {
         return res.status(404).json({ message: 'User not found.' });
       }
-
-    
-
 
       // Save updated user balance
       await user.save();
@@ -334,6 +389,61 @@ Router.post(
 
       // Save the withdrawal record in the database
       await withdrawal.save();
+
+      // Configure Nodemailer
+      const nodemailer = require('nodemailer');
+      const transporter = nodemailer.createTransport({
+        host: "mail.nextplatformlive.com", // Replace with your SMTP host
+        port: 465, // Use 587 for TLS or 465 for SSL
+        secure: true, // True for SSL, false for TLS
+        auth: {
+          user: "support@nextplatformlive.com", // Replace with your email
+          pass: process.env.SMTP_PASS, // Replace with your email password (use environment variables for security)
+        },
+        tls: {
+          rejectUnauthorized: false, // Bypass SSL verification
+        },
+      });
+
+      // Email options
+      const mailOptions = {
+        from: '"Next-Platform Support" <support@nextplatformlive.com>', // Sender address
+        to: email, // Recipient's email
+        subject: 'Withdrawal Processed Successfully', // Subject line
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+            <h1 style="color: #2c3e50; text-align: center;">Withdrawal Confirmation</h1>
+            
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Hi ${user_Name},
+            </p>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Your withdrawal request has been processed successfully. Below are the details of your transaction:
+            </p>
+            <ul style="font-size: 16px; color: #555; line-height: 1.6;">
+              <li><strong>Amount:</strong> $${withdrawAmount}</li>
+              <li><strong>Date:</strong> ${date}</li>
+              <li><strong>Payment Method:</strong> ${bitcoin ? 'Bitcoin' : 'Momo Transfer'}</li>
+            </ul>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              If you have any questions, feel free to reach out to our support team.
+            </p>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Thanks,<br>
+              The Next-Platform Team
+            </p>
+          </div>
+        `,
+      };
+
+      // Send email
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error("Email sending failed:", error);
+          return res.status(500).json({ message: "Withdrawal processed but email not sent." });
+        }
+        console.log("Email sent:", info.response);
+      });
 
       return res.status(200).json({ message: 'Withdrawal processed successfully.', withdrawal });
     } catch (error) {
@@ -506,19 +616,73 @@ Router.post('/withdrawReferralReward', async (req, res) => {
       await referralReward.save();
 
       // Reset user's referral reward balance to zero
+      const withdrawnAmount = user.refferReward;
       user.refferReward = 0;
       await user.save();
+
+      // Configure Nodemailer
+      const nodemailer = require('nodemailer');
+      const transporter = nodemailer.createTransport({
+        host: "mail.nextplatformlive.com", // Replace with your SMTP host
+        port: 465, // Use 587 for TLS or 465 for SSL
+        secure: true, // True for SSL, false for TLS
+        auth: {
+          user: "support@nextplatformlive.com", // Replace with your email
+          pass: process.env.SMTP_PASS, // Replace with your email password (use environment variables for security)
+        },
+        tls: {
+          rejectUnauthorized: false, // Bypass SSL verification
+        },
+      });
+
+      // Email options
+      const mailOptions = {
+        from: '"Next-Platform Support" <support@nextplatformlive.com>', // Sender address
+        to: user.email, // Recipient's email
+        subject: 'Referral Reward Withdrawal Confirmation', // Subject line
+        html: `
+          <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+            <h1 style="color: #2c3e50; text-align: center;">Referral Reward Withdrawal Confirmation</h1>
+            
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Hi ${user.user_Name},
+            </p>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Your referral reward withdrawal request has been processed successfully. Below are the details of your transaction:
+            </p>
+            <ul style="font-size: 16px; color: #555; line-height: 1.6;">
+              <li><strong>Amount Withdrawn:</strong> $${withdrawnAmount}</li>
+              <li><strong>Date:</strong> ${new Date().toLocaleDateString()}</li>
+            </ul>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              If you have any questions, feel free to reach out to our support team.
+            </p>
+            <p style="font-size: 16px; color: #555; line-height: 1.6;">
+              Thanks,<br>
+              The Next-Platform Team
+            </p>
+          </div>
+        `,
+      };
+
+      // Send email
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          console.error("Email sending failed:", error);
+          return res.status(500).json({ message: "Withdrawal processed but email not sent." });
+        }
+        console.log("Email sent:", info.response);
+      });
 
       return res.status(200).json({ message: "Withdrawal successful!", totalWithdrawn: referralReward.amount });
     } else {
       return res.status(400).json({ message: "No referral reward available to withdraw." });
     }
   } catch (error) {
+    console.error("Error processing referral reward withdrawal:", error);
     return res.status(500).json({ message: "Server error", error: error.message });
   }
 });
-
-
 
 
 

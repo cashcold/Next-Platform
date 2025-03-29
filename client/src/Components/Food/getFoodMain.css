@@ -1,278 +1,220 @@
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
-
-
-
-.data_TheMeal img{
-    width: 100%;
-    margin: 0 auto;
-    transition: all 0.5s cubic-bezier(1,.77,.87,-1.14)
-}
-.foodDataSection{
-    padding: 0em 1em;
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-gap: 7px;
-    background-color: black;
-    color:white;
-    font-weight: bolder;
-   
-   
-}
-.pagination {
-    margin: 15px auto;
-    display: flex;
-    list-style: none;
-    outline: none;
-  }
-  .pagination > .active > a{
-    background-color: #47ccde ;
-    border-color: #47ccde ;
-    color: #fff;
-  }
-  .pagination > li > a{
-    border: 1px solid #47ccde ;
-    padding: 5px 10px;
-    outline: none;
-    cursor: pointer;
-  }
-
-
-  .food_box img{
-      border-radius: 10%;
-      backdrop-filter: blur(5px);
-      padding-bottom: 1.5em;
-  }
-  .food_box_main_in{
-      padding: 4.1em 3em;
-  }
- .food_box h3{
-     padding: 1.3em 0em;
- }
- .styleTextName{
-  font-family: 'Fredericka the Great', cursive;
- }
-
- .landing_1_section{
-   width: 100%;
-   min-height: 50vh;
-   background-color: #8A0404;
-   color: white;
- }
- .landing_box_1{
-   width: 100%;
-   min-height: 100vh;
-   background-color: #232323;
- }
- .landing_box_2{
-   width: 100%;
-   min-height: 100vh;
-   background-color: #232323;
- }
-.landing_1_section{
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-  padding: 4em 3em;
-}
-.landing_box_2 img{
-  border-radius: 50%;
-  width: 100%;
-}
-.getFood_hhead span{
-  color: #FD8215;
-  font-size: bold;
-  font-size: 1.5em;
-  padding: 2em 1em;
-  font-family: 'Fredericka the Great', cursive;
-  /* margin: 2em 0em; */
-}
-.promoCode h2, .span_color{
-  font-family: 'Fredericka the Great', cursive;
+/* General styles */
+.food_main {
+  font-family: 'Arial', sans-serif;
+  color: #333;
 }
 
-.landoverlay{
-  width: 110%;
-  position: absolute;
-  top: 77%;
-  left: -9%;
-  
-  height: 31vh;
-  /* background-color:  blue; */
-  background-color:  #8A0404;
-  transform: skew(0deg, -2deg);
+.landing_1_section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f9f9f9;
 }
 
-.land_subtru{
-  padding: 3em 4em;
+.landing_box_1 {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.landing_box_1:hover {
+  transform: translateY(-10px);
+}
+
+.landing_box_2 {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
   position: relative;
 }
-.myForms{
-  padding: 3rem 0 0 3rem;
-  width: 80%;
-  margin: auto;
-}
-.selectOption{
-  padding: 1em 0em;
-  width: 100%;
-}
-.myFormControl .myForms input{
-  border: none;
-  width: 100%;
-  height: 6vh;
-}
-.formA{
-  padding: 2em 0em;
-}
-.contactBtn{
- margin: 2em 0em;
-}
-.ordertext{
-  padding: 1.2em 0em;
-  width: 80%;
-  margin: 0 auto;
-}
-.mobileVision{
-  display: none;
-}
-.span_color{
-  color: red ;
+
+.landoverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
 }
 
-.branHotel{
-  width: 100%;
-  min-height: 100vh;
-  background-color: black;
-  color: white;
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
- background-position: center;
- background-size: cover;
- filter: brightness(0.7);
- padding: 5em 2.5em;
+.getFood_hhead h1 {
+  font-size: 2.5em;
+  color: #007bff;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
-.banding_hot_box_1 h1{
-  width:  80%;
-  margin: 0 auto;
-}
-.getLanding img{
-  width: 80%;
-  margin: 0 auto;
- border-radius: 50%;
- margin: 4em 0em;
-}
-.getLanding span{
-  color: #FD8215;
+
+.promoCode h2 {
   font-size: 1.5em;
-  padding: 2em 1em;
-  font-family: 'Fredericka the Great', cursive;
+  color: #ff6347;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-.inforFlow{
-  background-color: black;
+.span_color {
+  color: #ff6347;
+}
+
+.formA {
+  margin-top: 20px;
+}
+
+.myFormControl {
+  display: flex;
+  flex-direction: column;
+}
+
+.myForms {
+  margin-bottom: 10px;
+}
+
+.selectOption {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.contactBtn {
+  padding: 10px 20px;
+  background-color: #007bff;
   color: white;
-  padding: 4em 0em;
- 
-}
-.flow_client h1{
-  width: 50%;
-  line-height: 2em;
-  margin: 0 auto;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
 }
 
+.contactBtn:hover {
+  background-color: #0056b3;
+}
 
-  .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: #47ccde ;
-    border-color: #47ccde;
-    outline: none ;
-  }
-  .pagination > li > a, .pagination > li > span{
-    color: #47ccde
-  }
-  .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
-    border-radius: unset
-  }
+.branHotel {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+  background: #f9f9f9;
+}
 
+.banding_hot_box_1 {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
 
+.banding_hot_box_2 {
+  flex: 1;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 10px;
+}
 
-@media screen and (max-width: 768px){
-    .foodDataSection{
-        padding: 0em 1em;
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        grid-gap: 2px;
-       
-    }
-    .food_box img{
-        border-radius: 10%;
-        backdrop-filter: blur(5px);
-        padding-bottom: 1.5em;
-    }
-    .food_box_main_in{
-        padding: 2em 0em;
-    }
-    .food_box_main_in{
-        padding: 3.5em 0em;
-    }
-   .food_box h3{
-       padding: 1.3em 0em;
-   }
-  
+.inforFlow {
+  padding: 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
 
-  .myForms{
-    padding:2em 1em;
-    width: 100%;
-  }
-  .landing_1_section{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    padding: 1em 0.5em;
-  }
-  .ordertext{
-    padding: 2em 1em;
-    width: 90%;
-    margin: 0 auto;
-  }
- 
-  .mobileVision{
-    display: block;
-  }
-  .mobileVision img{
-    border-radius: 50%;
-    margin-bottom: 2em;
-    padding: 0em 1em;
-  }
-  .for_web_landing{
-    display: none;
-  }
-  .getFood_hhead span{
-    color: #FD8215;
-    font-size: bold;
-    font-size: 1em;
-    padding: 2em 1em;
-    /* margin: 2em 0em; */
-  }
-  .branHotel{
-  width: 100%;
-  min-height: 100vh;
-  background-color: black;
+.inforFlow h1 {
+  font-size: 2em;
+  color: #333;
+}
+
+.foodDataSection {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.food_box_main_in {
+  flex: 1 1 calc(33.333% - 20px);
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.food_box_main_in:hover {
+  transform: translateY(-10px);
+}
+
+.food_box {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+}
+
+.food_box img {
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+.styleTextName {
+  font-size: 1.2em;
+  margin-top: 10px;
+}
+
+.check_pagination {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.pagination {
+  display: flex;
+  list-style: none;
+  padding: 0;
+}
+
+.pagination li {
+  margin: 0 5px;
+}
+
+.pagination li a {
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  color: #007bff;
+  text-decoration: none;
+}
+
+.pagination li a:hover {
+  background-color: #007bff;
   color: white;
-  display: grid;
-  grid-template-columns: repeat(1,1fr);
- background-position: center;
- background-size: cover;
- filter: brightness(0.7);
- padding: 2em 1.5em;
-}
-  
 }
 
-
-/* @media screen and (max-width: 320px){
-  .foodDataSection{
-    padding: 0em 1em;
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-gap: 7px;
-   
+.pagination .active a {
+  background-color: #007bff;
+  color: white;
+  border: none;
 }
-} */
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .landing_box_1, .landing_box_2, .banding_hot_box_1, .banding_hot_box_2 {
+    flex: 1 1 100%;
+  }
+
+  .food_box_main_in {
+    flex: 1 1 calc(50% - 20px);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .food_box_main_in {
+    flex: 1 1 100%;
+  }
+}

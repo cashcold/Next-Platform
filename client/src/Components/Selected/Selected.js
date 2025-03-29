@@ -246,6 +246,27 @@ class Selected extends Component {
                         </div>
                     </div>
                 </section>
+                <section class="useroutghana">
+          <p>🌍 <strong>Attention Next-Platform Users!</strong> 🌍</p>
+
+<p>We are excited to announce a new update for our international users! If you are located outside of Ghana, you will now receive your payments through Bitcoin! 💸💰</p>
+
+<p>This means faster, more secure, and convenient transactions for all our global users. No more waiting for international bank transfers – get your rewards instantly in your Bitcoin wallet! 🚀</p>
+
+<p>🔹 <strong>How it works:</strong></p>
+<ul>
+  <li>Log in to your Next-Platform account.</li>
+  <li>Navigate to the withdrawal section.</li>
+  <li>Enter your Bitcoin wallet address.</li>
+  <li>Withdraw your funds and receive them in Bitcoin!</li>
+</ul>
+
+<p>We are committed to providing the best experience for all our users, no matter where you are in the world. 🌐</p>
+
+<p>Thank you for being a part of the Next-Platform community! If you have any questions or need assistance, feel free to reach out to our support team.</p>
+
+<p>#NextPlatform #BitcoinPayments #GlobalUsers #Crypto #SecurePayments #InstantRewards</p>
+          </section>
                 <section className='landing_page_sign_up'>
                 <div className="container">
                 <header className="header">
