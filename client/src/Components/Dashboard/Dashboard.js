@@ -162,7 +162,7 @@ class Dashboard extends Component {
         (prevState) => ({ timeSpent: prevState.timeSpent + 3 }),
         () => {
           // Send the timeSpent (3 seconds) to the backend to update balance
-          axios.post(`http://localhost:8000/users/api/updateBalance`, {
+          axios.post(`/users/api/updateBalance`, {
             user_id: this.state.user_id,
             timeSpent: 3
           })
@@ -195,7 +195,7 @@ class Dashboard extends Component {
     const id = decoded.user_id;
   
     axios
-      .post('http://localhost:8000/users/withdrawInfo', { id })
+      .post('/users/withdrawInfo', { id })
       .then((response) => {
         const { totalWithdrawAmount, lastWithdrawAmount } = response.data.data; // Destructure the data
         this.setState({
@@ -213,7 +213,7 @@ class Dashboard extends Component {
         }
       });
   
-    axios.post('http://localhost:8000/users/user_profile_display', { id }).then(data => {
+    axios.post('/users/user_profile_display', { id }).then(data => {
       const userProfile = data.data;
       this.setState({
         user_profile_display: userProfile,
@@ -230,7 +230,7 @@ class Dashboard extends Component {
     });
   
     // Fetch total referral reward
-    axios.get(`http://localhost:8000/users/totalRefferReward/${id}`)
+    axios.get(`/users/totalRefferReward/${id}`)
       .then(response => {
         this.setState({ totalReferralReward: response.data.totalReward }, () => {
           // Update rewards with the correct totalReferralReward value
