@@ -93,7 +93,7 @@ class CocktailDetails extends Component {
       <section className="btc_shark_section">
                 <div className="btc_shark">
                     <a target='_blank' href='tel:+233203808479'>
-                    <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                    <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/nextplatformcashcold.appspot.com/o/BTC%20SHARK%20TRADE%2FbtcSharkTrade.png?alt=media&token=8ef98b95-21f7-4ece-9990-7b1cae48b657"
                         alt="First slide" />
                     </a>
                     
