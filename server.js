@@ -47,7 +47,99 @@ app.use('/users', userRouter);
 
 const Subscription = require('./UserModel/Subscription')
 
+app.get('/', function(request, response) {
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
 
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+
+      // Add headers to disable caching
+      response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      response.setHeader('Pragma', 'no-cache');
+      response.setHeader('Expires', '0');
+    
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "💰⏳ Get Paid for Your Time – Earn While You Explore!");
+    data = data.replace(/\$OG_DESCRIPTION/g, "💸 Spend time, earn rewards! Get paid for every moment you engage with our platform. Your time is valuable—start earning today! 🚀💰 #EarnOnline #GetPaid #TimeIsMoney");
+    result = data.replace(/\$OG_IMAGE/g, "https://firebasestorage.googleapis.com/v0/b/thechristmiracles.appspot.com/o/others_Main%2FchristImg.jpg?alt=media&token=17934020-593d-4122-84a7-841f282c3202");
+    response.send(result);
+  });
+});
+
+
+
+app.get('/movie_box_main', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+  
+      var q = url.parse(parsed, true);
+  
+      var qdata = q.query        
+                     
+      const {TMDB_overview, TMDB_title, TMDB_img} = qdata
+  
+  
+        // Add headers to disable caching
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+  
+  // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,TMDB_title);
+      data = data.replace(/\$OG_DESCRIPTION/g,TMDB_overview);
+      result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+      response.send(result);
+    });
+  
+});
+app.get('/watch_movies/:id', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+  
+      var q = url.parse(parsed, true);
+  
+      var qdata = q.query        
+                     
+      const {TMDB_overview, TMDB_title, TMDB_img} = qdata
+  
+  
+        // Add headers to disable caching
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+  
+  // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,TMDB_title);
+      data = data.replace(/\$OG_DESCRIPTION/g,TMDB_overview);
+      result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+      response.send(result);
+    });
+  
+});
+  
 
 
 

@@ -76,24 +76,28 @@ Router.post("/registerNewUser", async (req, res) => {
     const mailOptions = {
       from: '"Next-Platform" <support@nextplatformlive.com>', // Sender address
       to: email, // Recipient's email
-      subject: `Welcome to Your App, ${user_Name}!`, // Subject line
+      subject: `Welcome to Next-Platform, ${user_Name}!`, // Subject line
       html: `
-        <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
-          <h1 style="color: #2c3e50; text-align: center;">Welcome to Your App!</h1>
-          <p style="font-size: 16px; color: #555; line-height: 1.6;">
-            Hi ${user_Name},
-          </p>
-          <p style="font-size: 16px; color: #555; line-height: 1.6;">
-            Thank you for registering with us! Your account has been successfully created.
-          </p>
-          <p style="font-size: 16px; color: #555; line-height: 1.6;">
-            We are excited to have you on board. If you have any questions, feel free to reach out to our support team.
-          </p>
-          <p style="font-size: 16px; color: #555; line-height: 1.6;">
-            Best Regards,<br>
-            The Your App Team
-          </p>
-        </div>
+      <div style="font-family: Arial, sans-serif; color: #333; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e0e0e0; border-radius: 10px;">
+        <h1 style="color: #2c3e50; text-align: center;">Welcome to [Your App Name]!</h1>
+        <p style="font-size: 16px; color: #555; line-height: 1.6;">
+          Hi ${user_Name},
+        </p>
+        <p style="font-size: 16px; color: #555; line-height: 1.6;">
+          We're thrilled to have you join us at [Your App Name] – the ultimate entertainment platform where your time is valuable!
+        </p>
+        <p style="font-size: 16px; color: #555; line-height: 1.6;">
+          Enjoy watching videos, playing games, and engaging with content while earning rewards. The more time you spend, the more you earn!
+        </p>
+        <p style="font-size: 16px; color: #555; line-height: 1.6;">
+          Start exploring now and make every moment count. If you need any assistance, our support team is here for you.
+        </p>
+        <p style="font-size: 16px; color: #555; line-height: 1.6;">
+          Happy earning!<br>
+          The Next-Platform Team
+        </p>
+      </div>
+
       `,
     };
 
@@ -309,7 +313,7 @@ Router.post('/api/updateBalance', async (req, res) => {
 
       if (user) {
           // Calculate the amount to add ($0.25 every 3 seconds live)
-          const amountToAdd = (timeSpent / 3) * 0.25;
+          const amountToAdd = (timeSpent / 3) * 0.10;
 
           // Update the user's balance
           user.accountBalance += amountToAdd;
