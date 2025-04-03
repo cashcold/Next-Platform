@@ -81,14 +81,7 @@ app.get('/movie_box_main', function(request, response) {
         return console.log(err);
       }
       
-      const parsed = (request.url)
-      var url = require('url');
-  
-      var q = url.parse(parsed, true);
-  
-      var qdata = q.query        
-                     
-      const {TMDB_overview, TMDB_title, TMDB_img} = qdata
+     
   
   
         // Add headers to disable caching
@@ -98,9 +91,9 @@ app.get('/movie_box_main', function(request, response) {
   
   
   // replace the special strings with server generated strings
-      data = data.replace(/\$OG_TITLE/g,TMDB_title);
-      data = data.replace(/\$OG_DESCRIPTION/g,TMDB_overview);
-      result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+      data = data.replace(/\$OG_TITLE/g,'movies');
+      data = data.replace(/\$OG_DESCRIPTION/g,'best movies');
+      result = data.replace(/\$OG_IMAGE/g,'image');
       response.send(result);
     });
   
@@ -150,14 +143,7 @@ app.get('/sport-main-home', function(request, response) {
         return console.log(err);
       }
       
-      const parsed = (request.url)
-      var url = require('url');
-  
-      var q = url.parse(parsed, true);
-  
-      var qdata = q.query        
-                     
-      const {TMDB_overview, TMDB_title, TMDB_img} = qdata
+   
   
   
         // Add headers to disable caching
@@ -170,7 +156,7 @@ app.get('/sport-main-home', function(request, response) {
   // replace the special strings with server generated strings
       data = data.replace(/\$OG_TITLE/g,'Sport Main Home');
       data = data.replace(/\$OG_DESCRIPTION/g,'NextPlatform Home Enterterment Music Box, Sport & Online Links More');
-      result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+      result = data.replace(/\$OG_IMAGE/g,'image');
       response.send(result);
     });
   
@@ -222,14 +208,6 @@ app.get('/Next-Platform-News', function(request, response) {
         return console.log(err);
       }
       
-      const parsed = (request.url)
-      var url = require('url');
-  
-      var q = url.parse(parsed, true);
-  
-      var qdata = q.query        
-                     
-      const {info, name, on_image} = qdata
   
   
         // Add headers to disable caching
