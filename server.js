@@ -477,19 +477,19 @@ app.get('/latest-news', async (req, res) => {
     }
 });
 
-app.get('/Next-Platform-News', (req, res) => {
-    const filePath = path.resolve(__dirname, './client/build', 'index.html');
-    fs.readFile(filePath, 'utf8', (err, data) => {
-        if (err) {
-            return console.log(err);
-        }
+// app.get('/Next-Platform-News', (req, res) => {
+//     const filePath = path.resolve(__dirname, './client/build', 'index.html');
+//     fs.readFile(filePath, 'utf8', (err, data) => {
+//         if (err) {
+//             return console.log(err);
+//         }
 
-        data = data.replace(/\$OG_TITLE/g, 'Next Platform News')
-                   .replace(/\$OG_DESCRIPTION/g, "NextPlatform Home Enterterment Music Box, Sport & Online Links More")
-                   .replace(/\$OG_IMAGE/g, 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
-        res.send(data);
-    });
-});
+//         data = data.replace(/\$OG_TITLE/g, 'Next Platform News')
+//                    .replace(/\$OG_DESCRIPTION/g, "NextPlatform Home Enterterment Music Box, Sport & Online Links More")
+//                    .replace(/\$OG_IMAGE/g, 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
+//         res.send(data);
+//     });
+// });
 
 // Additional routes for /news/:id, /currencies, etc.
 
