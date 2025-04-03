@@ -70,9 +70,8 @@ class Selected extends Component {
                 
                     <Card >
                         <Card.Body>
-                            <Card.Text>
-                            <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
-                            </Card.Text>
+                            <Card.Text><img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FDark%20Blue%20Crypto%20Wallet%20Instagram%20Post.jpg?alt=media&token=073bbf4a-5a10-4ae1-9008-062f93d178eb"
+                            alt="First slide" /> </Card.Text>
                         </Card.Body>
                         </Card>
                 </div>, {
