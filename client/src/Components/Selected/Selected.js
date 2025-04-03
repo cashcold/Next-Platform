@@ -469,7 +469,7 @@ class Selected extends Component {
                     </section>
                 </section>
                 <section className='currencies_folder'>
-                    <Currencies/>
+                    {/* <Currencies/> */}
                 </section>
                 <section className='link_box_folder'>
                     <LinkBoxMain/>
