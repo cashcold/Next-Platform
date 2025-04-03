@@ -144,7 +144,7 @@ class MainApp extends Component {
         const decoded = jwt_decode(token);
         const id = decoded.user_id;
 
-        axios.post('http://localhost:8000/users/user_profile_display', { id }).then(data => this.setState(
+        axios.post('/users/user_profile_display', { id }).then(data => this.setState(
             {
                 username: data.data.user_Name,
             }));
@@ -226,7 +226,7 @@ class MainApp extends Component {
     }
 
     fetchInitialBalance(user_id) {
-        axios.post('http://localhost:8000/users/user_profile_display', { user_id: user_id })
+        axios.post('/users/user_profile_display', { user_id: user_id })
             .then(response => {
                 this.setState({
                     balance: response.data.accountBalance,
@@ -239,7 +239,7 @@ class MainApp extends Component {
     }
 
     updateBalance(user_id) {
-        axios.post('http://localhost:8000/users/api/updateBalance', {
+        axios.post('/users/api/updateBalance', {
             user_id: user_id,
             timeSpent: 3, // Assuming 3 seconds spent per update
         })

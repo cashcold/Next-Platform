@@ -24,7 +24,7 @@ class NewsMain extends Component {
         const { page, limit, search, category } = this.state;
         console.log('Fetching news with params:', { page, limit, search, category });
 
-        axios.get('http://localhost:8000/latest-news', {
+        axios.get('/latest-news', {
             params: { page, limit, search, category }
         })
         .then(response => {
@@ -94,6 +94,8 @@ class NewsMain extends Component {
                     </select>
                     <button onClick={this.handleSearch}>Search</button>
                 </div>
+                <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
+                        alt="First slide" />
                 {error && <p className='error-message'>{error}</p>}
                 <div className='news-list'>
                     {news && news.length > 0 ? (

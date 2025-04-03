@@ -304,11 +304,11 @@ class Navbar extends Component {
                             </Carousel.Item>
                             
                             <Carousel.Item>
-                                <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798'
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>BTC SHARK</h3>
+                                    <h3 className='top_form_capt_h3'>BTC SHARK TRADE</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>

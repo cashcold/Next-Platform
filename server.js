@@ -64,7 +64,7 @@ app.get('/', function(request, response) {
     // replace the special strings with server generated strings
     data = data.replace(/\$OG_TITLE/g, "💰⏳ Get Paid for Your Time – Earn While You Explore!");
     data = data.replace(/\$OG_DESCRIPTION/g, "💸 Spend time, earn rewards! Get paid for every moment you engage with our platform. Your time is valuable—start earning today! 🚀💰 #EarnOnline #GetPaid #TimeIsMoney");
-    result = data.replace(/\$OG_IMAGE/g, "https://firebasestorage.googleapis.com/v0/b/thechristmiracles.appspot.com/o/others_Main%2FchristImg.jpg?alt=media&token=17934020-593d-4122-84a7-841f282c3202");
+    result = data.replace(/\$OG_IMAGE/g, "https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBlack%20Purple%20Creative%20Get%20Paid%20From%20Home%20Facebook%20Ad.jpg?alt=media&token=f3ccf62f-410d-47ad-84ea-b4c78afda1f9");
     response.send(result);
   });
 });
@@ -139,6 +139,151 @@ app.get('/watch_movies/:id', function(request, response) {
     });
   
 });
+  
+app.get('/sport-main-home', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+  
+      var q = url.parse(parsed, true);
+  
+      var qdata = q.query        
+                     
+      const {TMDB_overview, TMDB_title, TMDB_img} = qdata
+  
+  
+        // Add headers to disable caching
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+   
+
+  // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,'Sport Main Home');
+      data = data.replace(/\$OG_DESCRIPTION/g,'NextPlatform Home Enterterment Music Box, Sport & Online Links More');
+      result = data.replace(/\$OG_IMAGE/g,TMDB_img);
+      response.send(result);
+    });
+  
+});
+  
+app.get('/sport-main-home/:id', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+  
+      var q = url.parse(parsed, true);
+  
+      var qdata = q.query        
+                     
+      const {info, name, on_image} = qdata
+  
+  
+        // Add headers to disable caching
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+   
+
+  // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,name);
+      data = data.replace(/\$OG_DESCRIPTION/g,info);
+      result = data.replace(/\$OG_IMAGE/g,on_image);
+      response.send(result);
+    });
+  
+});
+  
+app.get('/Next-Platform-News', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+  
+      var q = url.parse(parsed, true);
+  
+      var qdata = q.query        
+                     
+      const {info, name, on_image} = qdata
+  
+  
+        // Add headers to disable caching
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+   
+
+  // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,'Next Platform News');
+      data = data.replace(/\$OG_DESCRIPTION/g,'News information about Next Platform Home Enterterment Music Box, Sport & Online Links More');
+      result = data.replace(/\$OG_IMAGE/g,'on_image');
+      response.send(result);
+    });
+  
+});
+
+app.get('/Next-Platform-News-info/:id', function(request, response) {
+ 
+    const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+  
+    // read in the index.html file
+    fs.readFile(filePath, 'utf8', function (err,data) {
+      if (err) {
+        return console.log(err);
+      }
+      
+      const parsed = (request.url)
+      var url = require('url');
+  
+      var q = url.parse(parsed, true);
+  
+      var qdata = q.query        
+                     
+      const {News_overview, News_title, News_img} = qdata
+  
+  
+        // Add headers to disable caching
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+   
+
+  // replace the special strings with server generated strings
+      data = data.replace(/\$OG_TITLE/g,News_title);
+      data = data.replace(/\$OG_DESCRIPTION/g,News_overview);
+      result = data.replace(/\$OG_IMAGE/g,News_img);
+      response.send(result);
+    });
+  
+});
+  
   
 
 

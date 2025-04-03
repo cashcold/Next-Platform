@@ -45,6 +45,8 @@ class BooksInfoBox extends Component {
                 <Helmet>
                     <title>Book Info</title>
                 </Helmet>
+                <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
+                        alt="First slide" />
                 {loading ? (
                     <p className="loading">Loading book details...</p>
                 ) : bookDetails ? (

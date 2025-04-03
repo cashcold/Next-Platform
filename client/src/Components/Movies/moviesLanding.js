@@ -490,7 +490,7 @@ class MoviesLandingPage extends Component {
                <section className="btc_shark_section">
                 <div className="btc_shark">
                     <a target='_blank' href='tel:+233203808479'>
-                    <img className="d-block w-100"  src={require('../../AllInOne/BTC_SHARK/A2 STICKER-01 (1).jpg')}
+                    <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798'
                         alt="First slide" />
                     </a>
                     

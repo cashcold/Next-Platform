@@ -21,7 +21,7 @@ class Currencies extends Component {
     fetchCurrencies = () => {
         const { page, limit } = this.state;
 
-        axios.get(`http://localhost:8000/currencies?page=${page}&limit=${limit}`)
+        axios.get(`/currencies?page=${page}&limit=${limit}`)
             .then(response => {
                 this.setState({
                     currencies: response.data.data,

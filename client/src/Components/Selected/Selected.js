@@ -93,7 +93,7 @@ class Selected extends Component {
                     
                     <Card.Body>
                         <Card.Text>
-                        <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/562def27-3f06-4c6e-915b-94dc00160e8d"><img src="https://kol.jumia.com/banners/RiVTNA2HFyfW9hqIryy3fSBpBbTHdldvH20szMsR.jpeg" alt="Grocery Category"/></a>
+                        <img src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798" alt="Grocery Category"/>
                         </Card.Text>
                     </Card.Body>
                     </Card>
@@ -305,10 +305,10 @@ class Selected extends Component {
                 </section>
                 <section className='poster_videos_8143523'>
                     <div>
-                        <p>Every day, there are more and more people who are ready to experience the benefits of using cryptocurrency assets by creating a demand for easy and fast access to a blockchain economy. Multipurpose Mining and trading platform. provides safe, reliable, and professional services for investors and users worldwide.BTC SHARK is a user-friendly platform that allows you to buy, sell, and Mining and trading cryptocurrencies easily and securely. Our team provides users with a seamless mining and trading experience. Buying and selling cryptocurrencies with BTC SHARK secured cold storage, easy and convenient exchange. 0% commission for buying and selling bitcoin with BTC SHARK. By combining services, we are simplifying cryptocurrency usage mechanisms, and promoting development of the blockchain industry. The platform have it own mining and trading program. All BTC SHARK user are entitled to a share of the platform's revenue  mining and trading. Would you like to become the owner of a robust business? The platform runs a five tier affiliate program. Invite new users and get referral income from the entire affiliate structure. Wake up your sleeping assets.The world is moving towards digital currencies.Cryptocurrencies are becoming more widely accepted as a form of payment. With BTC SHARK, you can stay ahead of Mining and Trading with confidence.Join BTC SHARK today and discover the power of cryptocurrency in Mining and Trading.Bulid your dream with BTC SHARK Whatsapp 0203808479 or Email us btcsharkghana@gmail.com</p>
+                       
                     </div>
                     <div className='welcomevIDEO'>
-                        <video autoPlay  loop controls src='https://firebasestorage.googleapis.com/v0/b/nextplatform77-79102.appspot.com/o/Next-Platform-Poster-videos%2FPurple%20Business%20Marketing%20Agency%20Instagram%20Post%20(1).mp4?alt=media&token=4e07394b-b732-4e51-80f2-bee4489da66c'/> 
+                        <video autoPlay  loop controls src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FDark%20Blue%20Crypto%20Wallet%20Instagram%20Post.jpg?alt=media&token=073bbf4a-5a10-4ae1-9008-062f93d178eb'/> 
                     </div>
                 </section>
                
