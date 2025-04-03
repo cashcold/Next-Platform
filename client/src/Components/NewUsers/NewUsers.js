@@ -9,7 +9,7 @@ class NewUsers extends Component {
 
   componentDidMount() {
     // Fetch new users when the component is mounted
-    axios.get('http://localhost:8000/users/newusers')
+    axios.get('/users/newusers')
       .then(response => {
         this.setState({ users: response.data });
       })
