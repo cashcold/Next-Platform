@@ -58,6 +58,7 @@ class SportDropInfo extends Component {
             scoreBat_pd_competition: '',
             scoreBat_pd_title: '',
             sscoreBat_pd_date: '',
+            scoreBat_pd_embed: '',
             scoreBat_pd_embed: ''
          }
     }
