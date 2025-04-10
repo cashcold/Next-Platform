@@ -5,6 +5,8 @@ import { HelmetProvider } from "react-helmet-async";
 import './App.css'
 import 'animate.css'
 import 'react-toastify/dist/ReactToastify.css';
+
+import {Card,Button} from 'react-bootstrap'
 import { toast } from 'react-toastify';
 import { ToastContainer } from 'react-toastify';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
@@ -87,7 +89,38 @@ class MainApp extends Component {
     }
 
     async componentDidMount() {
-        console.log('componentDidMount is called');
+
+        // setTimeout(() => {
+        //     toast.dark(
+        //       <div
+        //         className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'
+        //         onClick={() => {
+        //           window.location.href = 'https://capgainco.com/';
+        //         }}
+        //       >
+        //         <Card>
+        //           <Card.Body>
+        //             <Card.Text>
+        //               <img
+        //                 src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
+        //                 alt="Grocery Category"
+        //                 style={{ width: '100%' }}
+        //               />
+        //             </Card.Text>
+        //           </Card.Body>
+        //         </Card>
+        //       </div>,
+        //       {
+        //         position: "top-right",
+        //         autoClose: false,
+        //         hideProgressBar: false,
+        //         closeOnClick: true,
+        //         pauseOnHover: true,
+        //         draggable: true,
+        //         progress: undefined,
+        //       }
+        //     );
+        //   }, 20000); 
 
         const RefreshToken = sessionStorage.getItem('RefreshToken');
         if (RefreshToken) {
@@ -307,6 +340,16 @@ class MainApp extends Component {
                 <section className='AppMainApp'>
                     <div className=' mainApp '>
                         <div className='wrapper'>
+                              <ToastContainer 
+                                            position="top-center"
+                                            autoClose={5000}
+                                            hideProgressBar={false}
+                                            newestOnTop
+                                            closeOnClick
+                                            rtl={false}
+                                            pauseOnFocusLoss
+                                            draggable
+                                            pauseOnHover/>
                             <Navbar />
                             {/* Conditionally render the account-buttons-container if user_id exists */}
                             {user_id && (
@@ -343,7 +386,7 @@ class MainApp extends Component {
                                     )} />
                                     <Route path="/withdraw" component={WithdrawPage} />
                                     <Route path="/withdraw-refferReward" component={WithdrawRefferReward} />
-                                    <Route path='/AccessoryList' exact component={AccessoryList} />
+                                    <Route path='/godspeedcomputers' exact component={AccessoryList} />
                                     <Route path='/agent-form' exact component={BecomeAgent} />
                                     <Route path='/poster' exact component={Poster} />
                                     <Route path='/music_me' exact component={MusicBox_1} />

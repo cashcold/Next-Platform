@@ -84,28 +84,7 @@ class Selected extends Component {
             progress: undefined,
             });
        },40000)
-       setTimeout(()=>{
-        toast.dark(
-            <div className='logoImg animate__animated animate__slower animate__heartBeat welcome_trans_h4'>
-               
-                <Card >
-                    
-                    <Card.Body>
-                        <Card.Text>
-                        <img src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798" alt="Grocery Category"/>
-                        </Card.Text>
-                    </Card.Body>
-                    </Card>
-            </div>, {
-            position: "top-right",
-            autoClose: false,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-       },20000)
+   
    
     //    setTimeout(()=>{
     //        toast.success("PROMOTE YOUR BUSINESS")

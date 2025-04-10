@@ -18,7 +18,7 @@ class SignUpPage extends Component {
       referrer: '',
       refferReward: 0,
       offer: 0,
-      accountBalance: 10,
+      accountBalance: 0,
     };
   }
 

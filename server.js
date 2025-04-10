@@ -68,6 +68,29 @@ app.get('/', function(request, response) {
     response.send(result);
   });
 });
+app.get('/godspeedcomputers', function(request, response) {
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+
+      // Add headers to disable caching
+      response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      response.setHeader('Pragma', 'no-cache');
+      response.setHeader('Expires', '0');
+    
+    // replace the special strings with server generated strings
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "GOD'S SPEED COMPUTERS");
+    data = data.replace(/\$OG_DESCRIPTION/g, "🖤 Upgrade Your Tech with Premium Accessories! 💥 Discover the best in tech accessories! From wireless controllers to high-speed Wi-Fi, we have everything you need to level up your devices. 🌐 #TechAccessories #GamingGear #UpgradeYourTech");
+    result = data.replace(/\$OG_IMAGE/g, "https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FPurple%20And%20Lime%20%20Futuristic%20Tech%20Product%20Features%20Instagram%20Post%20.jpg?alt=media&token=95166c50-d577-406c-9674-93b66a32f239");
+    response.send(result);
+
+  });
+});
 
 
 

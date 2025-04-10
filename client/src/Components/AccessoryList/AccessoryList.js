@@ -84,8 +84,8 @@ class AccessoryList extends Component {
 
     return (
       <div className="accessory-main">
-        <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
-                        alt="First slide" />
+        {/* <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
+                        alt="First slide" /> */}
         <div className="accessory-list">
           <h1 className="heading">God's Speed Computers GH Accessories </h1>
           <ul className="accessories">

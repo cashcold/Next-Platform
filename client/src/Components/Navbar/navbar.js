@@ -259,7 +259,7 @@ class Navbar extends Component {
                                 <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
                                 <li><a className='btn btn-two' href='/Next-Platform-News'>News</a></li>
                                 <li><a className='btn btn-two' href='/Next-Platform-Books'>Books</a></li>
-                                <li><a className='btn btn-two' href='/AccessoryList'>Accessory</a></li>
+                                <li><a className='btn btn-two' href='/godspeedcomputers'>Accessory</a></li>
                                 <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>
                                 <li><a className='btn btn-two' href='/drinks-main'>Drinks</a></li>
                                 <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li>
@@ -321,6 +321,14 @@ class Navbar extends Component {
                             </Carousel.Item>
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Augustine_Boakye.jpg')}
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>AUGUSTINE BOAKYE</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src=''
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
