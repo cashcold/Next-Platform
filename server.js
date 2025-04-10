@@ -86,7 +86,7 @@ app.get('/godspeedcomputers', function(request, response) {
     // replace the special strings with server generated strings
     data = data.replace(/\$OG_TITLE/g, "GOD'S SPEED COMPUTERS");
     data = data.replace(/\$OG_DESCRIPTION/g, "🖤 Upgrade Your Tech with Premium Accessories! 💥 Discover the best in tech accessories! From wireless controllers to high-speed Wi-Fi, we have everything you need to level up your devices. 🌐 #TechAccessories #GamingGear #UpgradeYourTech");
-    result = data.replace(/\$OG_IMAGE/g, "https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FPurple%20And%20Lime%20%20Futuristic%20Tech%20Product%20Features%20Instagram%20Post%20.jpg?alt=media&token=95166c50-d577-406c-9674-93b66a32f239");
+    result = data.replace(/\$OG_IMAGE/g, "https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FUntitled%20design%20(2).jpg?alt=media&token=07c36ecf-860c-4759-b3a7-718e3a71a361");
     response.send(result);
 
   });
