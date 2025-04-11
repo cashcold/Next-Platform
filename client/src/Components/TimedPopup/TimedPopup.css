@@ -1,0 +1,63 @@
+.popup-wrapper {
+    position: fixed;
+    bottom: 40px;
+    right: 40px;
+    background: linear-gradient(135deg, #ff004c, #5100ff);
+    padding: 15px;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(255, 0, 120, 0.7);
+    z-index: 9999;
+    cursor: pointer;
+    animation: pulse 2s infinite;
+    transition: all 0.5s ease;
+    transform-origin: bottom right;
+  }
+  
+  .popup-image {
+    width: 350px;
+    height: 150px;
+    border-radius: 12px;
+    animation: rotateIn 0.8s ease forwards;
+  }
+  
+  .popup-slide-in {
+    animation: slideIn 0.5s ease forwards;
+  }
+  
+  /* Slide In */
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(100px) scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0) scale(1);
+    }
+  }
+  
+  /* Rotate on image */
+  @keyframes rotateIn {
+    from {
+      transform: rotate(-15deg) scale(0.8);
+      opacity: 0;
+    }
+    to {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+    }
+  }
+  
+  /* Pulse to catch attention */
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 10px rgba(255, 0, 120, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(255, 0, 120, 0.9);
+    }
+    100% {
+      box-shadow: 0 0 10px rgba(255, 0, 120, 0.3);
+    }
+  }
+  

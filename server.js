@@ -478,21 +478,35 @@ app.get('/latest-news', async (req, res) => {
     }
 });
 
-// app.get('/Next-Platform-News', (req, res) => {
-//     const filePath = path.resolve(__dirname, './client/build', 'index.html');
-//     fs.readFile(filePath, 'utf8', (err, data) => {
-//         if (err) {
-//             return console.log(err);
-//         }
+app.get('/news/:id', async (req, res) => {
+  try {
+      const { id } = req.params;
 
-//         data = data.replace(/\$OG_TITLE/g, 'Next Platform News')
-//                    .replace(/\$OG_DESCRIPTION/g, "NextPlatform Home Enterterment Music Box, Sport & Online Links More")
-//                    .replace(/\$OG_IMAGE/g, 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80');
-//         res.send(data);
-//     });
-// });
+      // Fetch data from Currents API or your database
+      const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
+          headers: {
+              'Authorization': process.env.CURRENTS_API_KEY,
+          },
+          params: {
+              language: 'en',
+          },
+      });
 
-// Additional routes for /news/:id, /currencies, etc.
+      // Find the specific news item by ID
+      const newsItem = response.data.news.find(news => news.id === id);
+
+      if (!newsItem) {
+          return res.status(404).json({ error: 'News item not found' });
+      }
+
+      res.json(newsItem);
+  } catch (error) {
+      console.error('Error fetching news details:', error.message);
+      res.status(500).json({ error: 'Failed to fetch news details' });
+  }
+});
+
+
 
 app.use(express.static("client/build"));
 if (process.env.NODE_ENV === 'production') {

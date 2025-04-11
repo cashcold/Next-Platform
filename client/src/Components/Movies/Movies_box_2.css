@@ -131,8 +131,8 @@
 }
 
 .movies_box_main_in_credit img{
-  width: 50%;
-  border-radius: 50%;
+  width: 80%;
+  border-radius: 30%;
 }
 
 .movie_position_name{
@@ -251,8 +251,8 @@ margin: 0 auto;
   gap: 1.8em;
 }
 .movies_box_main_in_credit img{
-  width: 70%;
-  border-radius: 50%;
+  width: 98%;
+  border-radius: 10%;
 }
 
 .overview_main p{

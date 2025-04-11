@@ -448,16 +448,6 @@ loading_prev_movie_qury(e){
           
          </React.Fragment>)
      
-     
-    
-
-        
-        
-      console.log(this.state.TMDB_Info_Discovery_videos)
- 
-   
-
-      
         return ( 
 
            

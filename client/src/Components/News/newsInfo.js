@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import './newsInfo.css'; // Make sure this path is correct
 
-class NewsInfo extends Component {
+class NewsInfo extends Component { 
     constructor(props) {
         super(props);
         this.state = {
@@ -30,9 +30,8 @@ class NewsInfo extends Component {
 
         return (
             <div className='news-info-main'>
-                <h1>Display News Info</h1>
-                <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
-                        alt="First slide" />
+                {/* <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
+                        alt="First slide" /> */}
                 {error && <p className='error-message'>{error}</p>}
                 {news && (
                     <div className='news-details'>

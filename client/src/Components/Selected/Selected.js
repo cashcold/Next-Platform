@@ -64,51 +64,29 @@ class Selected extends Component {
             home_url
         })
       
-       setTimeout(()=>{
-        toast.dark(
-                <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
-                
-                    <Card >
-                        <Card.Body>
-                            <Card.Text><img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FDark%20Blue%20Crypto%20Wallet%20Instagram%20Post.jpg?alt=media&token=073bbf4a-5a10-4ae1-9008-062f93d178eb"
-                            alt="First slide" /> </Card.Text>
-                        </Card.Body>
-                        </Card>
-                </div>, {
-            position: "bottom-left",
-            autoClose: false,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-       },40000)
-   
-   
     //    setTimeout(()=>{
-    //        toast.success("PROMOTE YOUR BUSINESS")
-    //    },20000)
+    //     toast.dark(
+    //             <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
+                
+    //                 <Card >
+    //                     <Card.Body>
+    //                         <Card.Text><img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FDark%20Blue%20Crypto%20Wallet%20Instagram%20Post.jpg?alt=media&token=073bbf4a-5a10-4ae1-9008-062f93d178eb"
+    //                         alt="First slide" /> </Card.Text>
+    //                     </Card.Body>
+    //                     </Card>
+    //             </div>, {
+    //         position: "bottom-left",
+    //         autoClose: false,
+    //         hideProgressBar: false,
+    //         closeOnClick: true,
+    //         pauseOnHover: true,
+    //         draggable: true,
+    //         progress: undefined,
+    //         });
+    //    },40000)
    
-    // let SlideIndex = 0;
-    // const SlideDiv = ()=>{
-    //     var i ;
-    //     var slideDiv = document.querySelectorAll('.boxCard')
-    //     var dot = document.querySelectorAll('.dot')
-    //     for(i = 0; i < slideDiv.length; i++){
-    //         slideDiv[i].style.display='none'
-    //     }
-    //     SlideIndex++;
-    //     if(SlideIndex > slideDiv.length){SlideIndex = 1}
-    //     for(i = 0; i < dot.length; i++){
-           
-    //     }
-    //     slideDiv[SlideIndex-1].style.display= "block";
-
-    //     setTimeout(SlideDiv,4000)
-
-    // }
-    // SlideDiv()
+   
+  
      
     const Typing = ()=>{
         const typedTextSpan = document.querySelector(".typed-text");
@@ -218,6 +196,9 @@ class Selected extends Component {
                         </div>
                         <div className="feature_vides_row iframe-container">
                             <iframe src="https://www.youtube.com/embed/YRnEY4znKp0?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
+                        </div>
+                        <div className="feature_vides_row iframe-container">
+                            <iframe src="https://www.youtube.com/embed/Xy6zvXKAJYs" title="PATRICK AMPAH - EBESESA"  width="560" height="315" frameborder="0"></iframe>
                         </div>
                         <div className="feature_vides_row iframe-container">
                             <iframe src="https://www.youtube.com/embed/RJrPdBgirMY?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>

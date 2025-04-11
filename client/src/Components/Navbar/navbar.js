@@ -281,11 +281,16 @@ class Navbar extends Component {
                 <section className='top_form'>
                  <div className="top_form_go">
                     <Carousel fade>
+                            <a href="https://capgainco.com">
                             <Carousel.Item>
-                            <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/125820a8-064d-413d-a2f7-18a949b33806"><img src="https://kol.jumia.com/banners/u9bRTR8VkARvQnShWOVcxhF8m7Qe1ZmgyCUi2H18.png" alt="Deal of the day"/></a>
-                                  <Carousel.Caption>
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2Ftrading%20Platform.jpg?alt=media&token=c3503315-cce7-49d3-bd28-65c62147196b'
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>NEW TRADING PLATFORM</h3>
                                 </Carousel.Caption>
-                            </Carousel.Item>
+                            </Carousel.Item></a>
+                            
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/E-L.jpg')}
                                     alt="First slide"
@@ -302,21 +307,29 @@ class Navbar extends Component {
                                     <h3 className='top_form_capt_h3'>HARMONIZE FT DIAMOND</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                            
+                            <a href="https://capgainco.com">
                             <Carousel.Item>
-                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798'
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FModern%20Business%20Finance%20Investment%20Instagram%20Post.jpg?alt=media&token=4997699a-c2fe-4ef7-be90-313774ef5756'
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>BTC SHARK TRADE</h3>
+                                    <h3 className='top_form_capt_h3'>START GROWING YOUR INCOME</h3>
                                 </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
+                            </Carousel.Item></a>
+                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/big_shaq.jpeg')}
                                     alt="First slide"
                                 />
                                 <Carousel.Caption>
                                     <h3 className='top_form_capt_h3'>BIG SHAQ</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2Fimg_1_1744273601460.jpg?alt=media&token=fd38a165-31ef-4b07-9dd7-6f7cfa2a8411'
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>PATRICK AMPAH</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
@@ -327,15 +340,7 @@ class Navbar extends Component {
                                     <h3 className='top_form_capt_h3'>AUGUSTINE BOAKYE</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src=''
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>AUGUSTINE BOAKYE</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
+                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/d6900db9766fbea444d9709c16e664c99843e236c4989a62440786cf51f0851b.jpeg')}
                                     alt="First slide"
                                 />
@@ -343,6 +348,25 @@ class Navbar extends Component {
                                     <h3 className='top_form_capt_h3'>CONGRATULATIONS BY ADA EHI FT BUCH</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
+                            <a href="https://www.facebook.com/dasgabe">
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FWhatsApp%20Image%202025-04-10%20at%205.21.23%20PM.jpeg?alt=media&token=875aa8dd-40b6-46a7-a2e8-2c577b9f0304'
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>STAR_BOY_NUHU</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item></a>
+                            <a href="https://capgainco.com">
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FsecretsTrading.jpg?alt=media&token=65852fda-237d-4d03-9475-cab2bdee6fb8'
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>SECRETS OF SUCCESSFUL TRADING</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item></a>
+                            
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/fresh_on/maxresdefault-1.jpg')}
                                     alt="First slide"
@@ -357,6 +381,14 @@ class Navbar extends Component {
                                 />
                                 <Carousel.Caption>
                                     <h3 className='top_form_capt_h3'>STONE BWOY</h3>
+                                </Carousel.Caption>
+                            </Carousel.Item>
+                            <Carousel.Item>
+                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798'
+                                    alt="First slide"
+                                />
+                                <Carousel.Caption>
+                                    <h3 className='top_form_capt_h3'>BTC SHARK TRADE</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
@@ -376,7 +408,7 @@ class Navbar extends Component {
                                 </Carousel.Caption>
                             </Carousel.Item>
                             <Carousel.Item>
-                            <a target="_blank" href="https://kol.jumia.com/api/click/link/924b85fc-3cd4-45d5-8564-65b9d930d422/fb0d02a0-ad92-45a0-87cd-428ddcf5e552"><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
+                            <a ><img src="https://kol.jumia.com/banners/NptL4I34RN5sLlBJEgx8YZuO4KSOqaiOGkwAzGMK.jpeg" alt="Mobile Category"/></a>
                                 <Carousel.Caption>
                                   
                                 </Carousel.Caption>
