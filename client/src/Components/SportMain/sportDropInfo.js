@@ -129,6 +129,12 @@ class SportDropInfo extends Component {
                 <meta property="og:description" content={this.state.scoreBat_pd_competition} />
                 <meta property="og:image" content={this.state.scoreBat_pd_thumbnail} />
             </Helmet>
+            <section className='movieBox_1_back_tab' onClick={()=>{
+                     window.location =`/sport-main-home`
+                }}>
+                    <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
+                        <p className="">Back</p>
+                </section>
                 <div className="sport_drop_table">
                     <section className="sport_table_1">
                     <h1 className='competition'>{this.state.scoreBat_pd_competition}</h1>

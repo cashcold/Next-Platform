@@ -32,6 +32,12 @@ class NewsInfo extends Component {
             <div className='news-info-main'>
                 {/* <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
                         alt="First slide" /> */}
+                        <section className='movieBox_1_back_tab' onClick={()=>{
+                            window.location =`/Next-Platform-News`
+                       }}>
+                           <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
+                               <p className="">Back</p>
+                       </section>
                 {error && <p className='error-message'>{error}</p>}
                 {news && (
                     <div className='news-details'>

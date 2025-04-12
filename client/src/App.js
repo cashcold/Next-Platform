@@ -20,7 +20,7 @@ import Call_Api from './Components/Call_Api/call_api.js';
 import ReceivedApi from './Components/Received_Api/received_api.js';
 import { Helmet } from 'react-helmet';
 import MusicMain from './Components/Music/music.js';
-import FoodMain from './Components/Food/food.js';
+import FoodMain from './Components/Food/food.js'; 
 import GetDrinksMain from './Components/Drinks/getDrinks.js';
 import ReceiveGetdFood from './Components/Food/ReceivedGetFood.js';
 import SportMain from './Components/SportMain/sportMain.js';
@@ -64,6 +64,7 @@ import moment from 'moment'
 import WithdrawPage from './Components/WithdrawPage/WithdrawPage.js';
 import WithdrawRefferReward from './Components/WithdrawRefferReward/WithdrawRefferReward.js';
 import Modal from 'react-modal';
+import GameDetails from './Components/Watch_Next/GameDetails.js';
 
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
@@ -414,6 +415,7 @@ class MainApp extends Component {
                                     <Route path='/reveived_api/:id' exact component={ReceivedApi} />
                                     <Route path='/11356' exact component={MusicCenterFlowMain} />
                                     <Route path='/next-platform_RAWG_Video_Games_Main' exact component={RAWG_Video_Games_Main} />
+                                    <Route path='/next-platform_GameDetails/:id' exact component={GameDetails} />
                                     <Route path='/online_Tv' exact component={OnlineTv} />
                                     <Route path='/watch_online_Tv' exact component={DisplayOnlineTv} />
                                     <Route path='/Next-Platform-with-Sportify' exact component={SportifyMusicMain} />

@@ -91,13 +91,13 @@ class CocktailDetails extends Component {
       <div className='main_home_cocktail'>
         
       <section className="btc_shark_section">
-                <div className="btc_shark">
-                    <a target='_blank' href='tel:+233203808479'>
-                    <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
-                        alt="First slide" />
-                    </a>
-                    
-                    </div>
+      <section className='movieBox_1_back_tab' onClick={()=>{
+            window.location =`/drinks-main`
+        }}>
+            <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
+                <p className="">Back</p>
+        </section>
+                
         </section>
       <div className="cocktail-details">
         {loading ? (

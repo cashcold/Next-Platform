@@ -13,6 +13,7 @@ import { Helmet } from 'react-helmet';
 import Currencies from '../Currencies/Currencies';
 import LinkBoxMain from '../Link_Box/link_box';
 import NewUsers from '../NewUsers/NewUsers';
+import RAWG_Video_Games_Main from '../Watch_Next/RAWG_Video_Games';
 
 class Selected extends Component {
     constructor(props) {
@@ -426,6 +427,9 @@ class Selected extends Component {
                     <section className=''>
                    
                     </section>
+                </section>
+                <section class="videosVideos">
+                    <RAWG_Video_Games_Main/>
                 </section>
                 <section className='currencies_folder'>
                     {/* <Currencies/> */}

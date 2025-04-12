@@ -35,20 +35,21 @@ class ReceiveGetdFood extends Component {
       
     }
     render() { 
-        console.log(this.state.receiveGetFood_id_display)
+      
         return ( 
             <div className='received_get_food'>
+                 <section className='movieBox_1_back_tab' onClick={()=>{
+                            window.location =`/food-main-home`
+                       }}>
+                           <img  src={require('../../AllInOne/icons/icons8-go-back.gif')}/>
+                               <p className="">Back</p>
+                       </section>
+                
                 <section className="receive_section_box_1">
                     <h1 className='review_order'>Review order</h1>
                     <section className="btc_shark_section">
-                <div className="btc_shark">
-                    <a target='_blank' href='tel:+233203808479'>
-                    <img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FBUY%20BITCOIN.jpg?alt=media&token=95e601b7-808f-412f-8360-e8b7eb025798"
-                        alt="First slide" />
-                    </a>
-                    
-                    </div>
-        </section>
+                
+                </section>
                    <div className="orderNowText">
                    <img src={this.state.getFood_api_strMealThumb}/>
                    <h3>{this.state.getFood_api_strMeal}hey</h3>

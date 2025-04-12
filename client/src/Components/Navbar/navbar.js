@@ -281,15 +281,18 @@ class Navbar extends Component {
                 <section className='top_form'>
                  <div className="top_form_go">
                     <Carousel fade>
-                            <a href="https://capgainco.com">
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2Ftrading%20Platform.jpg?alt=media&token=c3503315-cce7-49d3-bd28-65c62147196b'
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>NEW TRADING PLATFORM</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item></a>
+                           
+                            {/* <Carousel.Item>
+                                 <a href="https://capgainco.com" target="_blank">
+                                    <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2Ftrading%20Platform.jpg?alt=media&token=c3503315-cce7-49d3-bd28-65c62147196b'
+                                        alt="First slide"
+                                    />
+                                
+                                    <Carousel.Caption>
+                                        <h3 className='top_form_capt_h3'>NEW TRADING PLATFORM</h3>
+                                    </Carousel.Caption>
+                                  </a>
+                            </Carousel.Item> */}
                             
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/E-L.jpg')}
@@ -307,15 +310,17 @@ class Navbar extends Component {
                                     <h3 className='top_form_capt_h3'>HARMONIZE FT DIAMOND</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                            <a href="https://capgainco.com">
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FModern%20Business%20Finance%20Investment%20Instagram%20Post.jpg?alt=media&token=4997699a-c2fe-4ef7-be90-313774ef5756'
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>START GROWING YOUR INCOME</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item></a>
+                            
+                            {/* <Carousel.Item>
+                                <a href="https://capgainco.com" target="_blank">
+                                    <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FModern%20Business%20Finance%20Investment%20Instagram%20Post.jpg?alt=media&token=4997699a-c2fe-4ef7-be90-313774ef5756'
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <h3 className='top_form_capt_h3'>START GROWING YOUR INCOME</h3>
+                                    </Carousel.Caption>
+                                </a>
+                            </Carousel.Item> */}
                              <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/big_shaq.jpeg')}
                                     alt="First slide"
@@ -348,25 +353,29 @@ class Navbar extends Component {
                                     <h3 className='top_form_capt_h3'>CONGRATULATIONS BY ADA EHI FT BUCH</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                            <a href="https://www.facebook.com/dasgabe">
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FWhatsApp%20Image%202025-04-10%20at%205.21.23%20PM.jpeg?alt=media&token=875aa8dd-40b6-46a7-a2e8-2c577b9f0304'
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>STAR_BOY_NUHU</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item></a>
-                            <a href="https://capgainco.com">
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FsecretsTrading.jpg?alt=media&token=65852fda-237d-4d03-9475-cab2bdee6fb8'
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>SECRETS OF SUCCESSFUL TRADING</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item></a>
                             
+                            <Carousel.Item>
+                            <a href="https://www.facebook.com/dasgabe" target="_blank">
+                                    <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FWhatsApp%20Image%202025-04-10%20at%205.21.23%20PM.jpeg?alt=media&token=875aa8dd-40b6-46a7-a2e8-2c577b9f0304'
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <h3 className='top_form_capt_h3'>STAR_BOY_NUHU</h3>
+                                    </Carousel.Caption>
+                                </a>
+                            </Carousel.Item>
+                            
+                            {/* <Carousel.Item>
+                                <a href="https://capgainco.com" target="_blank">
+                                    <img className="d-block w-100"  src='https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FsecretsTrading.jpg?alt=media&token=65852fda-237d-4d03-9475-cab2bdee6fb8'
+                                        alt="First slide"
+                                    />
+                                    <Carousel.Caption>
+                                        <h3 className='top_form_capt_h3'>SECRETS OF SUCCESSFUL TRADING</h3>
+                                    </Carousel.Caption>
+                                </a>
+                            </Carousel.Item>
+                             */}
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/fresh_on/maxresdefault-1.jpg')}
                                     alt="First slide"
