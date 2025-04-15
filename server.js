@@ -68,6 +68,66 @@ app.get('/', function(request, response) {
     response.send(result);
   });
 });
+app.get('/music', function(request, response) {
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+
+      // Add headers to disable caching
+      response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      response.setHeader('Pragma', 'no-cache');
+      response.setHeader('Expires', '0');
+    
+    // replace the special strings with server generated strings
+    // replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g, "Listen to the Latest Music & Discover New Artists | YourMusicHub");
+    data = data.replace(/\$OG_DESCRIPTION/g, "Explore trending tracks, discover new artists, and stream your favorite hits. Join the ultimate online music experience.");
+    result = data.replace(/\$OG_IMAGE/g, "https://plus.unsplash.com/premium_photo-1682125853703-896a05629709?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    response.send(result);
+    
+
+  });
+});
+
+app.get('/music/:id', function(request, response) {
+ 
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    
+    const parsed = (request.url)
+    var url = require('url');
+
+    var q = url.parse(parsed, true);
+
+    var qdata = q.query        
+                   
+    const {info, name, on_image} = qdata
+
+
+      // Add headers to disable caching
+      response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      response.setHeader('Pragma', 'no-cache');
+      response.setHeader('Expires', '0');
+
+
+// replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g,name);
+    data = data.replace(/\$OG_DESCRIPTION/g,info);
+    result = data.replace(/\$OG_IMAGE/g,on_image);
+    response.send(result);
+  });
+
+});
+
 app.get('/godspeedcomputers', function(request, response) {
   const filePath = path.resolve(__dirname, './client/build' ,'index.html');
 

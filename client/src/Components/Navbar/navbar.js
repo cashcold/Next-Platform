@@ -262,7 +262,8 @@ class Navbar extends Component {
                                 <li><a className='btn btn-two' href='/godspeedcomputers'>Accessory</a></li>
                                 <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>
                                 <li><a className='btn btn-two' href='/drinks-main'>Drinks</a></li>
-                                <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li>
+                                <li> <a className='btn btn-two' href='/music'>MUSIC </a></li>
+                                {/* <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li> */}
                                 <li><a className='btn btn-two' href='/contact-us'>ABOUT</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>

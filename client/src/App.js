@@ -392,10 +392,10 @@ class MainApp extends Component {
                                     <Route path='/godspeedcomputers' exact component={AccessoryList} />
                                     <Route path='/agent-form' exact component={BecomeAgent} />
                                     <Route path='/poster' exact component={Poster} />
-                                    <Route path='/music_me' exact component={MusicBox_1} />
-                                    <Route path='/music' exact component={MusicMain} />
-                                    <Route path='/loginSpotify' exact component={LoginSpotify} />
+                                    <Route path='/music' exact component={MusicBox_1} />
                                     <Route path={`/music/:id`} exact component={MusicLinkBox} />
+                                    <Route path='/music_me' exact component={MusicMain} />
+                                    <Route path='/loginSpotify' exact component={LoginSpotify} />
                                     <Route path='/product-main' exact component={ProductMain} />
                                     <Route path='/sport-main-home' exact component={SportMain} />
                                     <Route path='/sport-main-home/:id' exact component={SportDropInfo} />

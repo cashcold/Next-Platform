@@ -1,161 +1,92 @@
-.music_link_box{
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-areas: 
-    'link_view_1 link_view_1 link_view_2'
-    ;
+/* Main container styling */
+.music-link-box {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212;
+    color: #f5f5f5;
+    padding: 2em;
+    text-align: center;
 }
 
-.link_view_1{
-    padding: 8.5em 0em;
-    margin-top: -5em;
-    grid-area: link_view_1;
-    background-color: rgba(239, 236, 236, 0.676);  
-    /* color: white; */
-}
-.link_view_2{
-    grid-area: link_view_2;
-   
+/* Song details section */
+.song-details {
+    margin-bottom: 2em;
 }
 
-.view_1_tab{
+.song-header h1 {
+    font-size: 2em;
+    color: #ffcc00;
+    margin-bottom: 1em;
+}
+
+.song-meta {
     display: flex;
-    width: 55%;
-    margin: 0 auto;
-    justify-content: space-between;
-    padding: 1em 0em;
+    justify-content: center;
+    gap: 2em;
+    font-size: 1em;
+    color: #cccccc;
 }
-.all_eye{
-    display: flex;
-   
+
+.song-meta p {
+    margin: 0;
 }
-.fa-facebook{
-    color: blue;
+
+.song-meta i {
+    margin-right: 0.5em;
+    color: #ff4d4d;
 }
-.fa-twitter{
-    color: #29C5F6;
+
+/* Song image */
+.song-image img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    margin: 1em auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
-.fa-pinterest{
-    color: #CA212A;
-}
-.fa-whatsapp{
-    color: #7BBF6A;
-}
-.socail_icon i{
-    margin: 0em 1em;
-}
-.socail_icon i:hover{
+
+/* Download button */
+.download-button .btn {
+    background-color: #ff4d4d;
+    color: #fff;
+    padding: 0.8em 1.5em;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transform: scale(1.5);
+    transition: background-color 0.3s ease;
 }
 
-.link_view_1 img{
-    margin: 1.5em 0em;
-    width: 80%;
-}
-.other_mp3_info{
-    padding: 3em 0em;
-}
-.other_mp3_info h2{
-    line-height: 1.5em;
-    width: 70%;
-    margin: 0 auto;
-}
-.download_link{
-    margin: 2em 0em;
+.download-button .btn:hover {
+    background-color: #e60000;
 }
 
-.download_link a{
-    width: 40%;
-    margin: 0 auto;
-}
-.about_main h3{
-    width: 70%;
-    margin: 0 auto;
-    line-height: 1.3em;
-}
-.fa-eye{
-    margin: 0em 0.4em;
-    color: red;
-}
-.fa-calendar-check{
-    color: red;
+/* Song description */
+.song-description h3 {
+    font-size: 1.2em;
+    margin: 1.5em 0;
+    color: #cccccc;
 }
 
-
-audio::-webkit-media-controls-play-button,
-     audio::-webkit-media-controls-panel {
-     background-color: white;
-     border-radius: 10%;
-     margin: 0 auto;
- }
-
-.link_view_2 img{
-    padding: 0em 1.5em;
-}
-.both_view span{
-    color: red;
-    padding: 1em 0em;
-}
-.socail_icon{
-   display: flex;
-   justify-content: center;
+/* Audio player */
+.song-stream audio {
+    width: 100%;
+    max-width: 400px;
+    margin: 1em auto;
 }
 
-.link_view_2{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    padding: 2em 0em;
-    background-color: black;
-    gap: 3em 0em;
+/* Social share section */
+.social-share {
+    margin-top: 2em;
 }
 
-@media screen and (max-width: 768px){
-    .music_link_box{
-        display: grid;
-        grid-template-columns: repeat(1,1fr);
-        grid-template-areas: 
-        'link_view_1'
-        'link_view_2'
-        ;
-        padding: 4em 0em;
-    }
-    
-.link_view_1 img{
-    margin: 1.5em 0em;
-    width: 95%;
+.social-share h3 {
+    font-size: 1.5em;
+    margin-bottom: 1em;
+    color: #ffcc00;
 }
-    .other_mp3_info h2{
-        line-height: 0.9em;
-    }
-    .socail_icon i{
-        margin: 0em 0.45em;
-    }
-    
-.view_1_tab{
-   display: grid;
-   grid-template-columns: repeat(1,1fr);
-   width: 80%;
-   margin: 0 auto;
-    /* width: 98%;
-    margin: 0 auto;
-    padding: 1em 0.5em; */
-}
-.link_view_2{
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    padding: 3em 0em;
-    background-color: black;
-    gap: 4em 0em;
-}
-.about_main h3{
-    width: 92%;
-    margin: 0 auto;
-    line-height: 1.3em;
-}
-.other_mp3_info h2{
-    line-height: 1.5em;
-    width: 92%;
-    margin: 0 auto;
-}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
 }
