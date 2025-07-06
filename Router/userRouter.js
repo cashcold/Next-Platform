@@ -839,6 +839,12 @@ Router.post('/music', (req,res) => {
     });
     
 
+    Router.get('/api/start', (req, res) => {
+  // Simulate a random crash multiplier between 1.01x and 10x
+  const multiplier = (Math.random() * 9 + 1.01).toFixed(2);
+  res.json({ multiplier });
+});
+
     
 
  

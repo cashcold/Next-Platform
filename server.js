@@ -128,6 +128,68 @@ app.get('/music/:id', function(request, response) {
 
 });
 
+app.get('/link_box', function(request, response) {
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+
+      // Add headers to disable caching
+      response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      response.setHeader('Pragma', 'no-cache');
+      response.setHeader('Expires', '0');
+    
+    // replace the special strings with server generated strings
+  // replace the special strings with server generated strings
+data = data.replace(/\$OG_TITLE/g, "Discover Smart Products & Passive Income Tools | FutureLiving Hub");
+data = data.replace(/\$OG_DESCRIPTION/g, "Explore the latest tools, gadgets, and financial strategies designed to improve your lifestyle and help you earn passive income effortlessly.");
+result = data.replace(/\$OG_IMAGE/g, "https://yourdomain.com/assets/og-passive-income.jpg");
+response.send(result);
+
+    
+
+  });
+});
+
+
+app.get('/link_box/:id', function(request, response) {
+ 
+  const filePath = path.resolve(__dirname, './client/build' ,'index.html');
+
+  // read in the index.html file
+  fs.readFile(filePath, 'utf8', function (err,data) {
+    if (err) {
+      return console.log(err);
+    }
+    
+    const parsed = (request.url)
+    var url = require('url');
+
+    var q = url.parse(parsed, true);
+
+    var qdata = q.query        
+                   
+    const {info, name, on_image} = qdata
+
+
+      // Add headers to disable caching
+      response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+      response.setHeader('Pragma', 'no-cache');
+      response.setHeader('Expires', '0');
+
+
+// replace the special strings with server generated strings
+    data = data.replace(/\$OG_TITLE/g,name);
+    data = data.replace(/\$OG_DESCRIPTION/g,info);
+    result = data.replace(/\$OG_IMAGE/g,on_image);
+    response.send(result);
+  });
+
+});
+
 app.get('/godspeedcomputers', function(request, response) {
   const filePath = path.resolve(__dirname, './client/build' ,'index.html');
 

@@ -1,0 +1,114 @@
+/* Game.css */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #0f172a;
+  color: #fff;
+}
+
+.game-container {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
+}
+
+.title {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+.sky {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  margin: 2rem 0;
+  background: linear-gradient(to right, #1e293b, #0f172a);
+  border: 2px dashed #475569;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.plane {
+  position: absolute;
+  font-size: 2rem;
+  top: 150px; /* Start near bottom */
+  left: 0;
+}
+
+.fly {
+  animation: curvedFlight 4s linear forwards;
+}
+
+@keyframes curvedFlight {
+  0% {
+    transform: translate(0, 0);
+  }
+  20% {
+    transform: translate(20%, -30px);
+  }
+  40% {
+    transform: translate(40%, -60px);
+  }
+  60% {
+    transform: translate(60%, -90px);
+  }
+  80% {
+    transform: translate(80%, -120px);
+  }
+  100% {
+    transform: translate(100%, -150px); /* Final upward arc */
+  }
+}
+
+.multiplier-display {
+  font-size: 3rem;
+  color: #22c55e;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+  background: rgba(34, 197, 94, 0.1);
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.bet-button,
+.cashout-button {
+  font-size: 1.2rem;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.bet-button {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.bet-button:hover {
+  background-color: #2563eb;
+}
+
+.cashout-button {
+  background-color: #10b981;
+  color: white;
+}
+
+.cashout-button:hover {
+  background-color: #059669;
+}
+
+.result-text {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}

@@ -63,6 +63,7 @@ import AccessoryList from './Components/AccessoryList/AccessoryList.js';
 import moment from 'moment'
 import WithdrawPage from './Components/WithdrawPage/WithdrawPage.js';
 import WithdrawRefferReward from './Components/WithdrawRefferReward/WithdrawRefferReward.js';
+import Game from './Components/Game/Game.js';
 import Modal from 'react-modal';
 import GameDetails from './Components/Watch_Next/GameDetails.js';
 
@@ -425,6 +426,7 @@ class MainApp extends Component {
                                     <Route path='/Next-Platform-News-info/:id' exact component={NewsInfo} />
                                     <Route path='/Next-Platform-Books' exact component={BooksMainBox} />
                                     <Route path='/Next-Platform-Book-info/:id' exact component={BooksInfoBox} />
+                                    <Route path='/avaitor' exact component={Game} />
                                 </Switch>
                             </div>
 
