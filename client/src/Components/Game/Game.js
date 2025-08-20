@@ -1,102 +1,116 @@
-import React, { Component } from 'react';
-import axios from 'axios';
-import './Game.css';
+import React, { Component } from "react";
+import axios from "axios";
+import "./Game.css";
 
-class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      multiplier: 1.0,
-      gameRunning: false,
-      intervalId: null,
-      result: null,
-      crashAt: 0,
-      cashedOut: false,
-    };
-  }
-
-  startGame = async () => {
-    const res = await axios.get('users/api/start');
-    const crashAt = parseFloat(res.data.multiplier);
-
-    this.setState({
-      multiplier: 1.0,
-      gameRunning: true,
-      crashAt,
-      result: null,
-      cashedOut: false,
-    });
-
-    const intervalId = setInterval(() => {
-      this.setState((prevState) => {
-        const newMultiplier = parseFloat((prevState.multiplier + 0.05).toFixed(2));
-        if (newMultiplier >= crashAt) {
-          clearInterval(this.state.intervalId);
-          return {
-            multiplier: crashAt,
-            gameRunning: false,
-            result: this.state.cashedOut ? '🟢 You Won!' : '🔴 You Lost!',
-          };
-        }
-        return { multiplier: newMultiplier };
-      });
-    }, 100);
-
-    this.setState({ intervalId });
+export default class AviatorGame extends Component {
+  state = {
+    multiplier: 1,
+    isFlying: false,
+    isCrashed: false,
+    crashPoint: null,
+    intervalId: null,
+    bet1: "",
+    bet2: "",
+    placed1: false,
+    placed2: false,
+    cashout1: null,
+    cashout2: null,
   };
 
-  cashOut = () => {
-    if (this.state.gameRunning && !this.state.cashedOut) {
+  componentDidMount() {
+    this.startFlight();
+  }
+
+  startFlight = async () => {
+    const res = await axios.get("http://localhost:8000/users/api/start");
+    const crashPoint = parseFloat(res.data.multiplier);
+
+    this.setState({
+      multiplier: 1,
+      isFlying: true,
+      isCrashed: false,
+      crashPoint,
+      intervalId: setInterval(this.updateMultiplier, 100),
+    });
+  };
+
+  updateMultiplier = () => {
+    const { multiplier, crashPoint } = this.state;
+    const newMultiplier = (multiplier + 0.01).toFixed(2);
+    if (newMultiplier >= crashPoint) {
       clearInterval(this.state.intervalId);
-      this.setState({
-        gameRunning: false,
-        cashedOut: true,
-        result: `🟢 Cashed out at ${this.state.multiplier}x – You Win!`,
-      });
+      this.setState({ isFlying: false, isCrashed: true });
+    } else {
+      this.setState({ multiplier: parseFloat(newMultiplier) });
+    }
+  };
+
+  handleBet = (which) => {
+    if (this.state[`placed${which}`]) {
+      // Cashout
+      const cashoutAmount = (this.state[`bet${which}`] * this.state.multiplier).toFixed(2);
+      this.setState({ [`cashout${which}`]: cashoutAmount, [`placed${which}`]: false });
+    } else {
+      // Place bet
+      this.setState({ [`placed${which}`]: true });
     }
   };
 
   render() {
+    const {
+      multiplier,
+      isFlying,
+      isCrashed,
+      bet1,
+      bet2,
+      placed1,
+      placed2,
+      cashout1,
+      cashout2,
+    } = this.state;
+
     return (
-      <div className="game-container">
-        <h1 className="title">✈️ Aviator Flight</h1>
-
-        {/* Plane Animation */}
-        <div className="sky">
-          <div className={`plane ${this.state.gameRunning ? 'fly' : ''}`}>✈️</div>
+      <div className="aviator-container">
+        <h2>✈️ Aviator Game</h2>
+        <div className={`plane-area ${isFlying ? "flying" : isCrashed ? "crashed" : ""}`}>
+          <img
+            src="https://pngimg.com/uploads/plane/plane_PNG52444.png"
+            alt="plane"
+            className="plane"
+          />
+          <div className="multiplier-display">{multiplier.toFixed(2)}x</div>
         </div>
 
-        {/* Multiplier Display */}
-        <div className="multiplier-display">
-          {this.state.multiplier.toFixed(2)}x
-        </div>
+        <div className="bet-section">
+          <div className="bet-box">
+            <input
+              type="number"
+              value={bet1}
+              onChange={(e) => this.setState({ bet1: e.target.value })}
+              placeholder="Bet 1 Amount"
+              disabled={placed1}
+            />
+            <button onClick={() => this.handleBet("1")} disabled={isCrashed}>
+              {placed1 ? "Cashout" : "Bet"}
+            </button>
+            {cashout1 && <p>💰 Cashed Out: ${cashout1}</p>}
+          </div>
 
-        {/* Buttons */}
-        <div className="controls">
-          <button
-            onClick={this.startGame}
-            disabled={this.state.gameRunning}
-            className="bet-button"
-          >
-            🎯 BET
-          </button>
-
-          <button
-            onClick={this.cashOut}
-            disabled={!this.state.gameRunning || this.state.cashedOut}
-            className="cashout-button"
-          >
-            💰 CASH OUT
-          </button>
-        </div>
-
-        {/* Result */}
-        <div className="result-text">
-          {this.state.result && <p>{this.state.result}</p>}
+          <div className="bet-box">
+            <input
+              type="number"
+              value={bet2}
+              onChange={(e) => this.setState({ bet2: e.target.value })}
+              placeholder="Bet 2 Amount"
+              disabled={placed2}
+            />
+            <button onClick={() => this.handleBet("2")} disabled={isCrashed}>
+              {placed2 ? "Cashout" : "Bet"}
+            </button>
+            {cashout2 && <p>💰 Cashed Out: ${cashout2}</p>}
+          </div>
         </div>
       </div>
     );
   }
 }
-
-export default Game;

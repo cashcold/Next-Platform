@@ -377,14 +377,7 @@ class Navbar extends Component {
                                 </a>
                             </Carousel.Item>
                              */}
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src={require('../../AllInOne/fresh_on/maxresdefault-1.jpg')}
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3 className='top_form_capt_h3'>JOIN IPHONE PROMO!!!</h3>
-                                </Carousel.Caption>
-                            </Carousel.Item>
+                            
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/Stonebwoy-prime-News-Ghana.jpg')}
                                     alt="First slide"
@@ -472,22 +465,7 @@ class Navbar extends Component {
                                     <h3>KOJO VYPA</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src={require('../../AllInOne/hearphones/Folding WIFI Wireless Bluetooth 4.1 Headphones Heads ....png')}
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3>80,000 GIVEN AWAY GIFT FOR STEREO CUSTOMERS</h3>
-                            </Carousel.Caption>
-                            </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src={require('../../AllInOne/laptop/The Galaxy Book S Is the Most Exciting Samsung Laptop. Ever ....jpg')}
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3>The Galaxy Book S Is the Most Exciting Samsung Laptop. Ever </h3>
-                            </Carousel.Caption>
-                            </Carousel.Item>
+                           
                             
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/nest.jpg')}
@@ -513,14 +491,7 @@ class Navbar extends Component {
                                     <h3>REBUL</h3>
                                 </Carousel.Caption>
                             </Carousel.Item>
-                            <Carousel.Item>
-                                <img className="d-block w-100"  src={require('../../AllInOne/moto_bike/71jk5jZAoPL._SL1440_.jpg')}
-                                    alt="First slide"
-                                />
-                                <Carousel.Caption>
-                                    <h3>CHECK NEW RELEASE, AVALIABLE FOR SALES</h3>
-                            </Carousel.Caption>
-                            </Carousel.Item>
+                            
                             <Carousel.Item>
                                 <img className="d-block w-100"  src={require('../../AllInOne/next_platform_img/daddy_opanka.jpg')}
                                     alt="First slide"
