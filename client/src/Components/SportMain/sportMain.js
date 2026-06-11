@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify';
 
 import {Card,Button} from 'react-bootstrap'
 import ScoreBatVideoApi from './scorebatVideoApi.js';
+import FootballVideoPlayer from '../FootballVideoPlayer/FootballVideoPlayer.js';
 class SportMain extends Component {
     constructor(props) {
         super(props);
@@ -64,6 +65,7 @@ class SportMain extends Component {
                     <link rel="canonical" href="somelink" />
                 </Helmet>
                 <ToastContainer/>
+                 <FootballVideoPlayer/>
                
                 <div className='sportMain'>
                     <section className="sport_main_section_1">
@@ -85,10 +87,11 @@ class SportMain extends Component {
 
                     <section className="sport_main_section_2">         
                         <div className="scoreAxis_main">  
-                        
+                            
                         </div>
                         <div className="main_batstream">
                             <h3>Watch Live Sports, Shows,<br/> and Events Here On Next-Platform</h3>
+                           
                             <div className="bt_widget live_streams"><iframe src="https://live.batstream.live/?d=1&s=1" width="100%" height="900" scrolling="auto" align="top" frameborder="0">Your browser does not support frames, so you will not be able to view this page.</iframe></div>
                         </div>
                         

@@ -8,6 +8,8 @@ const path = require('path');
 const SpotifyWebApi = require('spotify-web-api-node');
 const fs = require('fs');
 const axios = require('axios');
+const {google} = require('googleapis');
+const cheerio = require('cheerio');
 const webpush = require('web-push');
 const base64url = require('base64url');
 const lyricsFinder = require('lyrics-finder');
@@ -24,17 +26,7 @@ const db2URI = process.env.MONGODB_URI_GodSpeedComputersGH;
     .then(() => console.log('Connected to the first MongoDB database (Gain)'))
     .catch(err => console.error('Could not connect to the first MongoDB database (Gain)', err));
 
-    // Create a second connection
-    const db2 = mongoose.createConnection(db2URI, { useNewUrlParser: true, useUnifiedTopology: true });
-
-    db2.on('connected', () => {
-        console.log('Connected to the second MongoDB database (GodSpeedComputersGH)');
-    });
-
-    db2.on('error', (err) => {
-        console.error('Could not connect to the second MongoDB database (GodSpeedComputersGH)', err);
-    });
-
+  
 const PORT = process.env.PORT || 8000;
 
 const app = express();
@@ -488,6 +480,21 @@ const spotifyApi = new SpotifyWebApi({
     clientSecret: process.env.CLIENT_SECRET,
 });
 
+// Initialize YouTube Data API client (uses API key from env)
+const youtubeApiKey = process.env.GOOGLE_API_KEY || process.env.YOUTUBE_API_KEY;
+const youtube = google.youtube({ version: 'v3', auth: youtubeApiKey });
+if (!youtubeApiKey) console.warn('Warning: GOOGLE_API_KEY / YOUTUBE_API_KEY not set — YouTube API calls may fail');
+
+// Fallback helper that uses the REST endpoint via axios to avoid environments
+// where the googleapis client tries to use `Headers`/fetch globals not present.
+async function safeYoutubeSearch(params) {
+  const key = youtubeApiKey;
+  if (!key) throw new Error('YouTube API key not configured');
+  const url = 'https://www.googleapis.com/youtube/v3/search';
+  const response = await axios.get(url, { params: { key, part: 'snippet', ...params } });
+  return response.data;
+}
+
 app.post('/refreshSpotify', (req, res) => {
     const refreshToken = req.body.refreshToken;
     spotifyApi.setRefreshToken(refreshToken);
@@ -582,6 +589,17 @@ app.get('/lyrics', async (req, res) => {
 
 // Additional routes for /music, /movie_box_main, /watch_movies/:id, etc.
 
+// Returns the query string used when searching YouTube for high-influence videos.
+// Can be overridden by the INFLUENTIAL_QUERY environment variable.
+function getInfluentialQuery() {
+  if (process.env.INFLUENTIAL_QUERY && process.env.INFLUENTIAL_QUERY.trim()) {
+    return process.env.INFLUENTIAL_QUERY.trim();
+  }
+  // sensible default for the football/video hub
+  return 'football highlights interview news trending match review';
+}
+
+
 app.get('/latest-news', async (req, res) => {
     try {
         const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
@@ -626,6 +644,97 @@ app.get('/news/:id', async (req, res) => {
       console.error('Error fetching news details:', error.message);
       res.status(500).json({ error: 'Failed to fetch news details' });
   }
+});
+
+app.get('/get-daily-video', async (req, res) => {
+  try {
+    const page = parseInt(req.query.page) || 1;
+    const limit = parseInt(req.query.limit) || 12;
+    const skip = (page - 1) * limit;
+
+    const finalQuery = getInfluentialQuery();
+    console.log(`Querying YouTube with Engine: "${finalQuery}" - Page: ${page}`);
+
+    const youtubeData = await safeYoutubeSearch({
+      q: finalQuery,
+      maxResults: limit,
+      type: 'video',
+      videoDuration: 'medium',
+      videoEmbeddable: 'true'
+    });
+
+    if (!youtubeData.items || youtubeData.items.length === 0) {
+      return res.status(404).json({ message: "No premium assets matching active matrices found." });
+    }
+
+    const videos = youtubeData.items.map(videoItem => {
+      const videoTitle = videoItem.snippet.title.toLowerCase();
+      let contentType = 'Match Highlight';
+
+      // Content Type Classification Matrix
+      if (videoTitle.includes('interview') || videoTitle.includes('talks') || videoTitle.includes('press')) {
+        contentType = 'Exclusive Interview';
+      } else if (videoTitle.includes('news') || videoTitle.includes('transfer') || videoTitle.includes('breaking')) {
+        contentType = 'Trending News';
+      }
+
+      return {
+        videoId: videoItem.id.videoId,
+        videoUrl: `https://www.youtube.com/watch?v=${videoItem.id.videoId}`,
+        youtubeTitle: videoItem.snippet.title,
+        contentType: contentType,
+        thumbnailUrl: videoItem.snippet.thumbnails.high.url
+      };
+    });
+
+    res.status(200).json({
+      dashboardTitle: "Elite Football Stream Center",
+      videos: videos,
+      pagination: {
+        page: page,
+        limit: limit,
+        total: youtubeData.items.length,
+        hasNextPage: youtubeData.items.length === limit
+      }
+    });
+
+  } catch (error) {
+    console.error("YouTube Search Error:", error.message);
+    res.status(500).json({ error: "Failed to gather YouTube content streams." });
+  }
+});
+
+app.get('*', async (req, res, next) => {
+  const userAgent = req.headers['user-agent'] || '';
+  const isBot = /facebookexternalhit|twitterbot|linkedinbot|whatsapp|telegrambot/i.test(userAgent);
+
+  if (isBot) {
+    try {
+      console.log("🕵️‍♂️ Bot detected! Pre-rendering headers...");
+      const youtubeData = await safeYoutubeSearch({ q: getInfluentialQuery(), maxResults: 1, type: 'video' });
+      const videoData = youtubeData.items[0]?.snippet;
+      if (!videoData) return res.send("Football Video Hub");
+
+      return res.send(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>${videoData.title}</title>
+          <meta name="description" content="Watch high-influence premium sports media content." />
+          <meta property="og:title" content="${videoData.title}" />
+          <meta property="og:image" content="${videoData.thumbnails.high.url}" />
+          <meta name="twitter:card" content="summary_large_image" />
+        </head>
+        <body><h1>${videoData.title}</h1></body>
+        </html>
+      `);
+    } catch (e) { 
+      return res.send("Football Video Hub"); 
+    }
+  }
+  
+  // If it's a real human web user, pass control to the static index fallback below
+  next();
 });
 
 

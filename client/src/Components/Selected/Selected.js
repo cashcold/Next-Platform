@@ -60,31 +60,30 @@ class Selected extends Component {
 
        const home_url =  window.location.origin
         localStorage.setItem('home_url',home_url)
-        
         this.setState({
             home_url
         })
-      
-    //    setTimeout(()=>{
-    //     toast.dark(
-    //             <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
+        // <img src={require('../../VR__Pic/46f24237e05ea9d2fb80f4064225732a.jpg')} alt='pic'/>
+       setTimeout(()=>{
+        toast.dark(
+                <div className='logoImg animate__animated animate__slower animate__slideInUp welcome_trans_h4'>
                 
-    //                 <Card >
-    //                     <Card.Body>
-    //                         <Card.Text><img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FDark%20Blue%20Crypto%20Wallet%20Instagram%20Post.jpg?alt=media&token=073bbf4a-5a10-4ae1-9008-062f93d178eb"
-    //                         alt="First slide" /> </Card.Text>
-    //                     </Card.Body>
-    //                     </Card>
-    //             </div>, {
-    //         position: "bottom-left",
-    //         autoClose: false,
-    //         hideProgressBar: false,
-    //         closeOnClick: true,
-    //         pauseOnHover: true,
-    //         draggable: true,
-    //         progress: undefined,
-    //         });
-    //    },40000)
+                    <Card >
+                        <Card.Body>
+                            <Card.Text><img className="d-block w-100"  src="https://firebasestorage.googleapis.com/v0/b/the-christ-d3d67.appspot.com/o/nextplatform%2FDark%20Blue%20Crypto%20Wallet%20Instagram%20Post.jpg?alt=media&token=073bbf4a-5a10-4ae1-9008-062f93d178eb"
+                            alt="First slide" /> </Card.Text>
+                        </Card.Body>
+                        </Card>
+                </div>, {
+            position: "bottom-left",
+            autoClose: false,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+       },1000)
    
    
   
@@ -323,7 +322,7 @@ class Selected extends Component {
                         <img src={require('../../VR__Pic/psvr-overview-experiences-image-block-01-ps4-en-20oct20.png')} alt='pic'/>
                    </div>
                 </section>
-                <section className='other__brand'>
+                <section className='other__brand'> 
                     <h1>ACTION</h1>
                     <div className='brand__info'>
                         <div className='brand_info_img brand_img__radius'>

@@ -66,6 +66,8 @@ import WithdrawRefferReward from './Components/WithdrawRefferReward/WithdrawReff
 import Game from './Components/Game/Game.js';
 import Modal from 'react-modal';
 import GameDetails from './Components/Watch_Next/GameDetails.js';
+import AdPopoutRotator from './Components/AdPopoutRotator/AdPopoutRotator.js';
+import FootballVideoPlayer from './Components/FootballVideoPlayer/FootballVideoPlayer.js';
 
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
@@ -343,6 +345,7 @@ class MainApp extends Component {
                 <section className='AppMainApp'>
                     <div className=' mainApp '>
                         <div className='wrapper'>
+                            <AdPopoutRotator/>
                             <TimedPopup/>
                               <ToastContainer 
                                             position="top-center"
@@ -427,6 +430,7 @@ class MainApp extends Component {
                                     <Route path='/Next-Platform-Books' exact component={BooksMainBox} />
                                     <Route path='/Next-Platform-Book-info/:id' exact component={BooksInfoBox} />
                                     <Route path='/avaitor' exact component={Game} />
+                                    <Route path='/FootballVideoPlayer' exact component={FootballVideoPlayer} />
                                 </Switch>
                             </div>
 

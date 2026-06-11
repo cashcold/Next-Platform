@@ -1,5 +1,6 @@
 const express = require('express')
 const mongoose = require('mongoose'); 
+const { google } = require('googleapis');
 const User = require('../UserModel/userModel')
 const Accessory = require('../UserModel/accessory')
 const axios = require('axios')
@@ -18,6 +19,26 @@ var Ebay = require('ebay-node-api')
 dotEnv.config()
 
 const Router = express.Router()
+
+const youtube = google.youtube({
+  version: 'v3',
+  auth: process.env.YOUTUBE_API_KEY
+});
+
+const getInfluentialQuery = () => {
+  const todayStr = new Date().toISOString().split('T')[0];
+  const yesterday = new Date();
+  yesterday.setDate(yesterday.getDate() - 1);
+  const yesterdayStr = yesterday.toISOString().split('T')[0];
+
+  // Core targets with structural keyword weights
+  const coreQueries = "(football highlights tactical masterclass) | (soccer breaking news transfer) | (exclusive football interview post-match)";
+  const dateRange = `${yesterdayStr} or ${todayStr}`;
+  // Strict filter to discard video game footage or text-to-speech slideshows
+  const negativeFilters = "-FIFA -PES -eFootball -simulation -gaming -slideshow";
+
+  return `${coreQueries} ${dateRange} ${negativeFilters}`;
+};
 
 
 Router.post("/registerNewUser", async (req, res) => {
@@ -839,13 +860,14 @@ Router.post('/music', (req,res) => {
     });
     
 
-    Router.get('/api/start', (req, res) => {
+  Router.get('/api/start', (req, res) => {
   // Simulate a random crash multiplier between 1.01x and 10x
   const multiplier = (Math.random() * 9 + 1.01).toFixed(2);
   res.json({ multiplier });
 });
 
-    
+
+
 
  
 
