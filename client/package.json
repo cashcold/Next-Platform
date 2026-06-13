@@ -20,7 +20,6 @@
     "jwt-decode": "^2.2.0",
     "marvel": "^1.1.2",
     "moment": "^2.29.1",
-    "node-sass": "6.x",
     "npm-check-updates": "^12.3.0",
     "query-string": "^7.1.1",
     "react": "^18.3.1",
