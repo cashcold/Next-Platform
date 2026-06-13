@@ -24,7 +24,7 @@ class FootballVideoPlayer extends Component {
 
   fetchVideos = (page) => {
     this.setState({ loading: true });
-    axios.get('http://localhost:8000/get-daily-video', {
+    axios.get('/get-daily-video', {
       params: {
         page: page,
         limit: 12
