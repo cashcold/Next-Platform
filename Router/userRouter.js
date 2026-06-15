@@ -20,9 +20,18 @@ dotEnv.config()
 
 const Router = express.Router()
 
+const rawYoutubeApiKey = process.env.YOUTUBE_API_KEY || '';
+const youtubeApiKey = rawYoutubeApiKey.trim();
+
+if (!youtubeApiKey) {
+  console.warn('Warning: YOUTUBE_API_KEY not set in Router/userRouter.js');
+} else {
+  console.log('Router YOUTUBE_API_KEY loaded:', youtubeApiKey.slice(0, 10) + '...');
+}
+
 const youtube = google.youtube({
   version: 'v3',
-  auth: process.env.YOUTUBE_API_KEY
+  auth: youtubeApiKey
 });
 
 const getInfluentialQuery = () => {

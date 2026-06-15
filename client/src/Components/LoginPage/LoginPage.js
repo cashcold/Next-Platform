@@ -39,7 +39,7 @@ class LoginPage extends Component {
   axios.post(`/users/login`, userLogin).then(res => {  
       sessionStorage.setItem('x-access-token',JSON.stringify(res.data))
       return res.data;
-  }).then(res => {toast.success("Login Successful !", setTimeout(()=>{
+  }).then(res => {toast.success("Login Successful !", setTimeout(()=>{ 
       toast.success("LOADING ACCOUNT")
   },4000),{
       

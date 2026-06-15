@@ -481,9 +481,14 @@ const spotifyApi = new SpotifyWebApi({
 });
 
 // Initialize YouTube Data API client (uses API key from env)
-const youtubeApiKey = process.env.GOOGLE_API_KEY || process.env.YOUTUBE_API_KEY;
+const rawYoutubeApiKey = process.env.GOOGLE_API_KEY || process.env.YOUTUBE_API_KEY || '';
+const youtubeApiKey = rawYoutubeApiKey.trim();
+if (!youtubeApiKey) {
+  console.warn('Warning: GOOGLE_API_KEY / YOUTUBE_API_KEY not set — YouTube API calls may fail');
+} else {
+  console.log('YouTube API key loaded:', youtubeApiKey.slice(0, 10) + '...');
+}
 const youtube = google.youtube({ version: 'v3', auth: youtubeApiKey });
-if (!youtubeApiKey) console.warn('Warning: GOOGLE_API_KEY / YOUTUBE_API_KEY not set — YouTube API calls may fail');
 
 // Fallback helper that uses the REST endpoint via axios to avoid environments
 // where the googleapis client tries to use `Headers`/fetch globals not present.
@@ -491,8 +496,18 @@ async function safeYoutubeSearch(params) {
   const key = youtubeApiKey;
   if (!key) throw new Error('YouTube API key not configured');
   const url = 'https://www.googleapis.com/youtube/v3/search';
-  const response = await axios.get(url, { params: { key, part: 'snippet', ...params } });
-  return response.data;
+  try {
+    const response = await axios.get(url, { params: { key, part: 'snippet', ...params } });
+    return response.data;
+  } catch (error) {
+    if (error.response) {
+      const { status, data } = error.response;
+      console.error('YouTube API response error:', status, data);
+      throw new Error(`YouTube API error ${status}: ${data.error?.message || JSON.stringify(data)}`);
+    }
+    console.error('YouTube API request failed:', error.message);
+    throw error;
+  }
 }
 
 app.post('/refreshSpotify', (req, res) => {
@@ -660,7 +675,7 @@ app.get('/get-daily-video', async (req, res) => {
       maxResults: limit,
       type: 'video',
       videoDuration: 'medium',
-      videoEmbeddable: 'true'
+      videoEmbeddable: true
     });
 
     if (!youtubeData.items || youtubeData.items.length === 0) {
@@ -711,7 +726,7 @@ app.get('*', async (req, res, next) => {
   if (isBot) {
     try {
       console.log("🕵️‍♂️ Bot detected! Pre-rendering headers...");
-      const youtubeData = await safeYoutubeSearch({ q: getInfluentialQuery(), maxResults: 1, type: 'video' });
+      const youtubeData = await safeYoutubeSearch({ q: getInfluentialQuery(), maxResults: 1, type: 'video', videoEmbeddable: true });
       const videoData = youtubeData.items[0]?.snippet;
       if (!videoData) return res.send("Football Video Hub");
 
