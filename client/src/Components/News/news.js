@@ -24,14 +24,22 @@ class NewsMain extends Component {
         const { page, limit, search, category } = this.state;
         console.log('Fetching news with params:', { page, limit, search, category });
 
-        axios.get('/latest-news', {
-            params: { page, limit, search, category }
+        axios.get('/users/latest-news', {
+            params: {
+                page: page,
+                limit: limit,
+                search: search || undefined,
+                category: category || undefined
+            }
         })
         .then(response => {
             console.log('Response data:', response.data);
+            const news = response.data.news || response.data.newsData || [];
+            const total = response.data.total_results || response.data.total || news.length;
+
             this.setState({
-                news: response.data.news || response.data.newsData || [], // Adjust this based on the actual data structure
-                total: response.data.total || response.data.totalNewsCount || 0 // Adjust this based on the actual data structure
+                news,
+                total
             });
         })
         .catch(error => {
@@ -117,9 +125,7 @@ class NewsMain extends Component {
                                         News_overview: item.description,
                                         News_img: item.image
                                     }
-                                    const queryMoviesParams = require('query-string')
-        
-                                    const passNews_api_Params = queryMoviesParams.stringify(News_api_ParamsUrl)
+                                    const passNews_api_Params = new URLSearchParams(News_api_ParamsUrl).toString();
                                     
                                     window.location =`/Next-Platform-News-info/${item.title}?${passNews_api_Params}`
                                   

@@ -615,23 +615,7 @@ function getInfluentialQuery() {
 }
 
 
-app.get('/latest-news', async (req, res) => {
-    try {
-        const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
-            headers: {
-                'Authorization': process.env.CURRENTS_API_KEY,
-            },
-            params: {
-                ...req.query,
-                language: 'en'
-            }
-        });
-        res.json(response.data);
-    } catch (error) {
-        console.error('Error fetching data from Currents API:', error);
-        res.status(500).send('Error fetching data from Currents API');
-    }
-});
+
 
 app.get('/news/:id', async (req, res) => {
   try {

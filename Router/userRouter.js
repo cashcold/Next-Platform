@@ -875,7 +875,30 @@ Router.post('/music', (req,res) => {
   res.json({ multiplier });
 });
 
+Router.get('/latest-news', async (req, res) => {
+    try {
+        const { page, limit, search, category } = req.query;
+        const params = {
+            language: 'en',
+            page_number: page || req.query.page_number || 1,
+            page_size: limit || req.query.page_size || 10,
+            ...(search ? { keywords: search } : {}),
+            ...(category ? { category } : {})
+        };
 
+        const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
+            headers: {
+                'Authorization': process.env.CURRENTS_API_KEY,
+            },
+            params
+        });
+
+        res.json(response.data);
+    } catch (error) {
+        console.error('Error fetching data from Currents API:', error);
+        res.status(500).send('Error fetching data from Currents API');
+    }
+});
 
 
  

@@ -1,99 +1,114 @@
-/* General Styles */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f9;
-    margin: 0;
-    padding: 0;
-}
-
-h1 {
-    color: #2c3e50;
-    text-align: center;
-    margin-top: 20px;
-    transition: color 0.3s ease-in-out;
-}
-
-h1:hover {
-    color: #3498db;
-}
-
-/* Book Info Main Container */
+/* ==========================================================================
+   1. PRODUCT SPECIFICATION CONTAINER
+   ========================================================================== */
 .bookInfoMain {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    animation: fadeIn 1s ease-in-out;
+  max-width: 1100px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  background-color: #000000; /* Flat black baseline */
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+/* Back Button Visibility Reset */
+.bookInfoMain .btn-light {
+  background-color: #1e293b !important;
+  color: #ffffff !important; /* Pure White text */
+  border: 2px solid #38bdf8 !important; /* Sharp light blue border */
+  font-weight: 700 !important;
+  border-radius: 8px !important;
+  padding: 0.6rem 1.2rem !important;
 }
 
-/* Book Details Container */
-.book-details {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    max-width: 600px;
-    width: 100%;
-    transition: transform 0.3s, box-shadow 0.3s;
-    margin-bottom: 20px;
+/* Main Box Layer */
+.bookInfoMain .bg-white {
+  background: #0f172a !important; /* Deep Dark Blue-Grey Box */
+  border-radius: 12px;
+  border: 2px solid #334155;
+  box-shadow: 0 20px 25px -5px rgba(0,0,0,0.7);
+  padding: 2.5rem !important;
 }
 
-.book-details:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+/* ==========================================================================
+   2. HIGH CONTRAST TYPOGRAPHY HIERARCHY
+   ========================================================================== */
+.bookInfoMain h1.display-5 {
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff !important; /* Forces Pure White */
+  letter-spacing: -0.03em;
 }
 
-/* Book Cover Image */
+/* Author Text Fix */
+.bookInfoMain h3.text-muted {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: #38bdf8 !important; /* Changed from faded gray to bright sky blue */
+  margin-top: 0.5rem;
+}
+
+.bookInfoMain hr {
+  border-top: 2px solid #334155 !important;
+  opacity: 1;
+}
+
+/* Inline Metadata Text Fields */
+.book-specs p {
+  font-size: 1.1rem;
+  color: #f1f5f9 !important; /* Crisp, clean off-white text */
+  margin-bottom: 0.85rem;
+}
+
+.book-specs strong {
+  color: #ffffff !important; /* Pure white labels */
+  width: 180px;
+  font-weight: 800;
+  display: inline-block;
+}
+
 .book-cover {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    transition: transform 0.3s;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  border: 2px solid #475569;
 }
 
-.book-cover:hover {
-    transform: scale(1.05);
+/* ==========================================================================
+   3. 🛠️ THE FIX: AMAZON CONVERSION ZONE (Ultra-High Contrast)
+   ========================================================================== */
+.monetization-zone {
+  background-color: #1e1b4b !important; /* High visibility Midnight Blue block */
+  border: 2px solid #4f46e5 !important; /* Solid Indigo border */
+  border-radius: 12px;
+  margin-top: 3rem;
+  padding: 1.5rem !important;
 }
 
-/* Book Details */
-.book-details p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333;
-    margin: 10px 0;
+/* "Looking for a physical copy or Kindle e-book?" */
+.monetization-zone h5 {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #ffffff !important; /* Forced to Pure White so you see it instantly */
+  margin-bottom: 0.5rem;
 }
 
-.book-details p strong {
-    color: #2c3e50;
+/* "Check availability and current market pricing..." */
+.monetization-zone .text-muted {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #cbd5e1 !important; /* Changed from invisible gray to ultra-readable light silver */
 }
 
-/* Loader */
-.loading {
-    font-size: 18px;
-    color: #2c3e50;
-    animation: fadeIn 1.5s ease-in-out infinite;
+/* Amazon Purchase Trigger Action Button */
+.monetization-zone .btn-warning {
+  background-color: #ff9900 !important;
+  color: #000000 !important; /* Solid Black text on Gold background ensures it stands out */
+  font-weight: 900 !important;
+  font-size: 1.2rem !important;
+  border: none !important;
+  padding: 0.8rem 2rem !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 15px rgba(255, 153, 0, 0.4);
 }
 
-@keyframes fadeIn {
-    0%, 100% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0.5;
-    }
-}
-
-/* No Details */
-.no-details {
-    font-size: 18px;
-    color: #e74c3c;
+.monetization-zone .btn-warning:hover {
+  background-color: #ffa621 !important;
+  transform: scale(1.02);
 }

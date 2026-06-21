@@ -1,102 +1,90 @@
-
-
-
 .books-container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 30px;
-    text-align: center;
-    background-color: black;
-    color: #ffffff;
+  background-color: #000000; /* Pure black background */
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+  color: #ffffff;
 }
 
 .books-container h1 {
-    margin-bottom: 20px;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #ffffff !important;
 }
 
-.books-container .search-form {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+/* Search Bar Container Setup */
+.search-form {
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  background: #1e293b;
+  padding: 0.5rem;
+  border-radius: 12px;
+  border: 2px solid #38bdf8; /* Glowing search border */
 }
 
-.books-container .search-form .form-control {
-    width: 300px;
-    margin-right: 10px;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #1f1f1f;
-    color: #ffffff;
-    border: 1px solid #444444;
+.search-form .form-control {
+  border: none !important;
+  background-color: transparent !important;
+  font-size: 1.1rem;
+  color: #ffffff !important;
 }
 
-.search-form .btn {
-    border-radius: 20px;
-    padding: 10px 20px;
+.search-form .form-control::placeholder {
+  color: #94a3b8; /* Highly visible input placeholder */
 }
 
-.books-container .books-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+/* Main Content Grid */
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 2rem;
 }
 
-.books-container .book-card {
-    background-color: #1f1f1f;
-    border: 1px solid #444444;
-    border-radius: 20px;
-    overflow: hidden;
+.book-card {
+  background: #0f172a !important; /* Card background */
+  border: 2px solid #334155 !important;
+  border-radius: 12px !important;
 }
 
-.books-container .book-card .card-img-top {
-    height: 300px;
-    object-fit: cover;
+.book-card:hover {
+  border-color: #2ecc71 !important; /* High contrast neon green hover glow */
 }
 
-.books-container .book-card .card-body {
-    padding: 20px;
-}
-
-.books-container .book-card .card-title {
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    color: white;
-    font-weight: bolder;
+.book-card .card-title {
+  color: #ffffff !important; /* Pure White Book Title text */
+  font-size: 1.1rem;
+  font-weight: 800;
 }
 
 .book-card .card-text {
-    margin-bottom: 20px;
-    color: #bbbbbb;
+  color: #38bdf8 !important; /* Bright Sky Blue Author name */
+  font-weight: 600;
 }
 
-.book-card .btn {
-    border-radius: 20px;
-    padding: 10px 20px;
+/* "More Info" Action Button Reset */
+.book-card .btn-outline-primary {
+  color: #ffffff !important; /* Pure white text inside button initially */
+  background-color: #2563eb !important; /* Solid blue background—no more invisible states */
+  border: none !important;
+  font-weight: 700;
+  padding: 0.6rem 0;
+  border-radius: 8px;
 }
 
-.books-container .pagination {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
+.book-card .btn-outline-primary:hover {
+  background-color: #1d4ed8 !important;
 }
 
-.books-container .pagination .page-item {
-    margin: 0 5px;
+/* Pagination Adjustments */
+.pagination .page-item .page-link {
+  background-color: #1e293b;
+  color: #ffffff !important;
+  border: 2px solid #334155;
+  font-weight: 700;
 }
 
-.books-container .pagination .page-link {
-    color: #ffffff;
-    background-color: #1f1f1f;
-    border: 1px solid #444444;
-    border-radius: 20px;
-    padding: 10px 15px;
-}
-
-.books-container .pagination .page-link:hover {
-    background-color: #444444;
-}
-
-.books-container .pagination .active .page-link {
-    background-color: #ffffff;
-    color: #121212;
+.pagination .page-item.active .page-link {
+  background-color: #2ecc71 !important;
+  border-color: #2ecc71 !important;
 }
