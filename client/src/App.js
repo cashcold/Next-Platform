@@ -345,8 +345,8 @@ class MainApp extends Component {
                 <section className='AppMainApp'>
                     <div className=' mainApp '>
                         <div className='wrapper'>
-                            <AdPopoutRotator/>
-                            <TimedPopup/>
+                            {/* <AdPopoutRotator/>
+                            <TimedPopup/> */}
                               <ToastContainer 
                                             position="top-center"
                                             autoClose={5000}

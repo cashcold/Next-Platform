@@ -617,33 +617,7 @@ function getInfluentialQuery() {
 
 
 
-app.get('/news/:id', async (req, res) => {
-  try {
-      const { id } = req.params;
 
-      // Fetch data from Currents API or your database
-      const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
-          headers: {
-              'Authorization': process.env.CURRENTS_API_KEY,
-          },
-          params: {
-              language: 'en',
-          },
-      });
-
-      // Find the specific news item by ID
-      const newsItem = response.data.news.find(news => news.id === id);
-
-      if (!newsItem) {
-          return res.status(404).json({ error: 'News item not found' });
-      }
-
-      res.json(newsItem);
-  } catch (error) {
-      console.error('Error fetching news details:', error.message);
-      res.status(500).json({ error: 'Failed to fetch news details' });
-  }
-});
 
 app.get('/get-daily-video', async (req, res) => {
   try {

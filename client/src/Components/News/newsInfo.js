@@ -14,7 +14,7 @@ class NewsInfo extends Component {
     componentDidMount() {
         const id = localStorage.getItem('News_id');
         if (id) {
-            axios.get(`/news/${id}`)
+            axios.get(`/users/news/${id}`)
                 .then(response => {
                     this.setState({ news: response.data });
                 })
