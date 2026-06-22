@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const { google } = require('googleapis');
 const User = require('../UserModel/userModel')
 const Accessory = require('../UserModel/accessory')
+const Product = require('../UserModel/Product');
 const axios = require('axios')
 const bcrypt = require('bcryptjs')
 const mailgun = require('mailgun-js')
@@ -928,7 +929,27 @@ Router.get('/news/:id', async (req, res) => {
   }
 });
 
+Router.get('/api/products', async (req, res) => {
+  try {
+    // Read the current page number from the query parameters, defaulting to page 1
+    const page = parseInt(req.query.page) || 1;
+    const limit = 16; // Fetch 16 items per chunk
+    const skip = (page - 1) * limit;
 
+    const totalProducts = await Product.countDocuments();
+    const products = await Product.find()
+                                  .skip(skip)
+                                  .limit(limit);
+
+    res.json({
+      products,
+      totalPages: Math.ceil(totalProducts / limit),
+      currentPage: page
+    });
+  } catch (err) {
+    res.status(500).json({ error: "Database retrieval error" });
+  }
+});
  
 
 

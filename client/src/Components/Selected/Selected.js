@@ -14,6 +14,7 @@ import Currencies from '../Currencies/Currencies';
 import LinkBoxMain from '../Link_Box/link_box';
 import NewUsers from '../NewUsers/NewUsers';
 import RAWG_Video_Games_Main from '../Watch_Next/RAWG_Video_Games';
+import DynamicProductHub from '../DynamicProductHub/DynamicProductHub';
 
 class Selected extends Component {
     constructor(props) {
@@ -204,6 +205,9 @@ class Selected extends Component {
                             <iframe src="https://www.youtube.com/embed/RJrPdBgirMY?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
                         </div>
                     </div>
+                </section>
+                <section>
+                    <DynamicProductHub/>
                 </section>
                 <section class="useroutghana">
           <p>🌍 <strong>Attention Next-Platform Users!</strong> 🌍</p>

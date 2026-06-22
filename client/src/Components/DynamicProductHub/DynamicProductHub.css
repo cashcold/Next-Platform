@@ -1,0 +1,94 @@
+/* ==========================================================================
+   DYNAMIC PRODUCT HUB STYLESHEET (DynamicProductHub.css)
+   ========================================================================== */
+
+/* 1. Base Canvas Container (Deep High-Contrast Black Layout) */
+.hub-container {
+  background-color: #000000 !important;
+  min-height: 100vh;
+  padding: 2.5rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* 2. Custom Grid Cards */
+.hub-card {
+  background: #0f172a !important; /* Premium Midnight Slate Layout Color */
+  border: 2px solid #334155 !important; /* Crisp Gray Bounding Lines */
+  border-radius: 12px !important;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.hub-card:hover {
+  transform: translateY(-5px);
+  border-color: #ff9900 !important; /* Glows Jumia Gold on hover */
+  box-shadow: 0 10px 20px rgba(255, 153, 0, 0.2);
+}
+
+.hub-img-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 3. Typography Hierarchy (Strictly High-Contrast Anti-Fading) */
+.hub-card .hub-card-title {
+  color: #ffffff !important; /* Sharp Pure White Titles */
+  font-size: 1.05rem;
+  font-weight: 800;
+  line-height: 1.4;
+}
+
+.hub-card .hub-card-price {
+  color: #38bdf8 !important; /* Neon Sky Blue for stand-out pricing details */
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* 4. Target Conversion Action Buttons */
+.hub-card .dynamic-shop-btn {
+  background-color: #ff9900 !important;
+  color: #000000 !important; /* Solid black text prevents blending into backgrounds */
+  font-weight: 900 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 0.65rem 0;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease-in-out;
+}
+
+.hub-card .dynamic-shop-btn:hover {
+  background-color: #ffa621 !important;
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(255, 153, 0, 0.3);
+}
+
+/* Custom System Notification Overrides */
+.alert-info {
+  border-color: #1e293b !important;
+  color: #94a3b8 !important;
+}
+
+/* Custom Load More Dynamic Interaction Control CSS */
+.load-more-action-btn {
+  background-color: transparent !important;
+  color: #ff9900 !important;
+  border: 2px solid #ff9900 !important;
+  border-radius: 8px !important;
+  font-size: 1.1rem;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.load-more-action-btn:hover {
+  background-color: #ff9900 !important;
+  color: #000000 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 153, 0, 0.25);
+}
+
+.load-more-action-btn:active {
+  transform: translateY(0);
+}

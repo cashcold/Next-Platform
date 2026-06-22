@@ -68,6 +68,8 @@ import Modal from 'react-modal';
 import GameDetails from './Components/Watch_Next/GameDetails.js';
 import AdPopoutRotator from './Components/AdPopoutRotator/AdPopoutRotator.js';
 import FootballVideoPlayer from './Components/FootballVideoPlayer/FootballVideoPlayer.js';
+import DynamicProductHub from './Components/DynamicProductHub/DynamicProductHub';
+import DynamicProductmain from './Components/DynamicProductmain/DynamicProductmain.js';
 
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
@@ -430,7 +432,8 @@ class MainApp extends Component {
                                     <Route path='/Next-Platform-Books' exact component={BooksMainBox} />
                                     <Route path='/Next-Platform-Book-info/:id' exact component={BooksInfoBox} />
                                     <Route path='/avaitor' exact component={Game} />
-                                    <Route path='/FootballVideoPlayer' exact component={FootballVideoPlayer} />
+                                    <Route path='/DynamicProductHub' exact component={DynamicProductHub} />
+                                    <Route path='/DynamicProductmain' exact component={DynamicProductmain} />
                                 </Switch>
                             </div>
 

@@ -398,6 +398,38 @@ app.get('/Next-Platform-News-info/:id', function(request, response) {
     });
   
 });
+
+// backend/server.js or routes file
+app.get('/Product-Info/:id', function(request, response) {
+    const filePath = path.resolve(__dirname, './client/build', 'index.html');
+  
+    fs.readFile(filePath, 'utf8', function (err, data) {
+        if (err) {
+            return console.log(err);
+        }
+      
+        const parsed = request.url;
+        const url = require('url');
+        const q = url.parse(parsed, true);
+        const qdata = q.query;        
+                     
+        // Grab product specifics from query parameters (No price indicators)
+        const { Prod_title, Prod_img } = qdata;
+        const defaultDesc = "Check out this trending product deal available right now!";
+  
+        // Disable browser caching so previews switch cleanly between products
+        response.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+        response.setHeader('Pragma', 'no-cache');
+        response.setHeader('Expires', '0');
+  
+        // Replace the placeholders in your build's index.html file
+        data = data.replace(/\$OG_TITLE/g, Prod_title);
+        data = data.replace(/\$OG_DESCRIPTION/g, defaultDesc);
+        
+        const result = data.replace(/\$OG_IMAGE/g, Prod_img);
+        response.send(result);
+    });
+});
 app.get('/Next-Platform-Books', function(request, response) {
  
     const filePath = path.resolve(__dirname, './client/build' ,'index.html');

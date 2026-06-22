@@ -252,19 +252,19 @@ class Navbar extends Component {
                                 <p class="title_checkk_up"></p>
                             </marquee>
                         </div>
-                            <ul className='links'>
+                            <ul className='links'> 
                                 
                                 <li><a className='btn btn-two' href='/' style={{color: "red"}}>HOME </a></li>
-                                <li><a className='btn btn-two' href='/movies_home_box'>MOVIES</a></li>
-                                <li><a className='btn btn-two' href='/sport-main-home'>SPORT</a></li>
+                                <li><a className='btn btn-two' href='/movies_home_box'>Movies</a></li>
+                                <li><a className='btn btn-two' href='/sport-main-home'>Sport</a></li>
                                 <li><a className='btn btn-two' href='/Next-Platform-News'>News</a></li>
                                 <li><a className='btn btn-two' href='/Next-Platform-Books'>Books</a></li>
-                                <li><a className='btn btn-two' href='/godspeedcomputers'>Accessory</a></li>
-                                <li><a className='btn btn-two' href='/food-main-home'>FOOD</a></li>
+                                <li><a className='btn btn-two' href='/DynamicProductmain'>Promotion</a></li>
+                                <li><a className='btn btn-two' href='/food-main-home'>Food</a></li>
                                 <li><a className='btn btn-two' href='/drinks-main'>Drinks</a></li>
-                                <li> <a className='btn btn-two' href='/music'>MUSIC </a></li>
+                                <li> <a className='btn btn-two' href='/music'> Music </a></li>
                                 {/* <li> <a className='btn btn-two' href={AUTH_URL}>MUSIC </a></li> */}
-                                <li><a className='btn btn-two' href='/contact-us'>ABOUT</a></li>
+                                <li><a className='btn btn-two' href='/contact-us'>About</a></li>
                                 {/* <li><a href='/contact-us'>SUPPORT</a></li> */}
                             </ul>
                         </div>
