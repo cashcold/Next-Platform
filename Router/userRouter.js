@@ -952,6 +952,203 @@ Router.get('/api/products', async (req, res) => {
 });
  
 
+Router.get('/listings', async (req, res) => {
+  // Find out what region the user clicked (defaults to 'us')
+  const region = req.query.region || 'us';
+  const page = parseInt(req.query.page) || 1;
+  const itemsPerPage = 10;
+  // How many raw listings to request from the upstream API (larger pool => better local pagination)
+  const apiLimit = parseInt(req.query.apiLimit) || 50;
+  const zip = req.query.zip || '93305';
+  const types = req.query.types;
+  
+  let apiEndpoint = '';
+  let apiHost = '';
+  let searchParams = {};
+
+  // 1. Configure the API settings based on the region
+  if (region === 'us') {
+    apiEndpoint = 'https://us-real-estate-listings.p.rapidapi.com/forSale';
+    apiHost = 'us-real-estate-listings.p.rapidapi.com';
+    searchParams = { zip };
+    if (types) searchParams.types = types;
+  } 
+  else if (region === 'europe') {
+    apiEndpoint = 'https://uk-real-estate-onthemarket.p.rapidapi.com/properties/for-sale';
+    apiHost = 'uk-real-estate-onthemarket.p.rapidapi.com';
+    searchParams = { location: 'London', limit: apiLimit };
+  } 
+  else if (region === 'africa') {
+    apiEndpoint = 'https://real-time-real-estate-data.p.rapidapi.com/search';
+    apiHost = 'real-time-real-estate-data.p.rapidapi.com';
+    searchParams = { query: 'Accra Ghana Luxury Villa', limit: apiLimit };
+  }
+
+  // Mock data fallback (used if API fails or not subscribed)
+  const mockListings = {
+    us: [
+      { id: '1', title: 'Luxe Miami Penthouse', price: '$2,850,000', location: 'Miami, FL', beds: 4, baths: 3, imageUrl: 'https://images.unsplash.com/photo-1512917774080-9a485595a735?w=500' },
+      { id: '2', title: 'Beachfront Estate', price: '$3,200,000', location: 'Miami Beach, FL', beds: 5, baths: 4, imageUrl: 'https://images.unsplash.com/photo-1570129477492-45ac003d2e0e?w=500' },
+      { id: '3', title: 'Downtown High-Rise', price: '$1,950,000', location: 'Miami Downtown', beds: 3, baths: 2, imageUrl: 'https://images.unsplash.com/photo-1545324418-cc1a9a6fded0?w=500' },
+      { id: '4', title: 'Coral Gables Villa', price: '$4,100,000', location: 'Coral Gables, FL', beds: 6, baths: 5, imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500' },
+      { id: '5', title: 'Waterfront Mansion', price: '$5,500,000', location: 'Biscayne Bay, FL', beds: 7, baths: 6, imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500' },
+      { id: '6', title: 'Modern Townhouse', price: '$850,000', location: 'Wynwood, FL', beds: 2, baths: 2, imageUrl: 'https://images.unsplash.com/photo-1580828343991-cf76db87c5ce?w=500' }
+    ],
+    europe: [
+      { id: '1', title: 'London Luxury Apartment', price: '£2,500,000', location: 'Central London', beds: 4, baths: 3, imageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500' },
+      { id: '2', title: 'Thames Riverside', price: '£3,800,000', location: 'Chelsea, London', beds: 5, baths: 4, imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500' },
+      { id: '3', title: 'Knightsbridge Manor', price: '£4,200,000', location: 'Knightsbridge', beds: 6, baths: 5, imageUrl: 'https://images.unsplash.com/photo-1600607686385-8383cf024666?w=500' },
+      { id: '4', title: 'Notting Hill Townhouse', price: '£2,100,000', location: 'Notting Hill', beds: 4, baths: 3, imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500' },
+      { id: '5', title: 'Westminster Estate', price: '£5,600,000', location: 'Westminster', beds: 7, baths: 6, imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500' },
+      { id: '6', title: 'South Kensington Flat', price: '£1,800,000', location: 'South Kensington', beds: 3, baths: 2, imageUrl: 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=500' }
+    ],
+    africa: [
+      { id: '1', title: 'Accra Luxury Villa', price: '₵18,500,000', location: 'Accra, Ghana', beds: 5, baths: 4, imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500' },
+      { id: '2', title: 'Osu Mansion', price: '₵22,000,000', location: 'Osu, Accra', beds: 6, baths: 5, imageUrl: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=500' },
+      { id: '3', title: 'Marina Estate', price: '₵15,700,000', location: 'Marina, Accra', beds: 4, baths: 3, imageUrl: 'https://images.unsplash.com/photo-1570129477492-45ac003d2e0e?w=500' },
+      { id: '4', title: 'Cantonments Villa', price: '₵26,500,000', location: 'Cantonments', beds: 7, baths: 6, imageUrl: 'https://images.unsplash.com/photo-1512917774080-9a485595a735?w=500' },
+      { id: '5', title: 'Airport Residential', price: '₵12,300,000', location: 'Airport Area, Accra', beds: 3, baths: 2, imageUrl: 'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=500' },
+      { id: '6', title: 'Roman Ridge Estate', price: '₵19,800,000', location: 'Roman Ridge', beds: 5, baths: 4, imageUrl: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=500' }
+    ]
+  };
+
+  // 2. Try RapidAPI first (if you're subscribed and API key is valid)
+  try {
+
+    const response = await axios.get(apiEndpoint, {
+      params: searchParams,
+      headers: {
+        'X-RapidAPI-Key': process.env.REAL_ESTATE_API_KEY,
+        'X-RapidAPI-Host': apiHost
+      },
+      timeout: 5000 // 5 second timeout
+    });
+
+    // Extract the raw data array depending on how the specific API structures it
+    let rawData = response.data?.results?.data || response.data?.results || response.data?.properties || response.data?.listings || response.data?.data || response.data?.items || response.data?.hits || [];
+    if (!Array.isArray(rawData) && Array.isArray(response.data)) {
+      rawData = response.data;
+    }
+
+    if (!Array.isArray(rawData) || rawData.length === 0) {
+      console.warn(`⚠️ /users/listings API returned empty data for ${region}. Falling back to mock data.`, {
+        responseData: response.data,
+        rawDataType: Object.prototype.toString.call(rawData)
+      });
+      const fallbackData = mockListings[region] || mockListings.us;
+      
+      // Apply pagination to mock data as well
+      const totalListings = fallbackData.length;
+      const totalPages = Math.ceil(totalListings / itemsPerPage);
+      const startIndex = (page - 1) * itemsPerPage;
+      const endIndex = startIndex + itemsPerPage;
+      const paginatedListings = fallbackData.slice(startIndex, endIndex);
+      
+      return res.status(200).json({ 
+        success: true, 
+        listings: paginatedListings,
+        pagination: {
+          currentPage: page,
+          itemsPerPage: itemsPerPage,
+          totalItems: totalListings,
+          totalPages: totalPages,
+          hasNextPage: page < totalPages,
+          hasPrevPage: page > 1
+        },
+        source: 'mock' 
+      });
+    }
+
+    // Clean up the data structure for React
+    const cleanProperties = rawData.map((item, index) => {
+      // Extract values from the Crexi-like RapidAPI response
+      const primaryPhoto = item.thumbnailUrl || item.primary_photo?.href || (item.photos && item.photos[0]?.href);
+      const location = item.locations?.[0] || item.location || {};
+      const title = item.name || item.title || location.fullAddress || `Property ${index + 1}`;
+      const price = item.askingPrice ? `$${item.askingPrice.toLocaleString()}` : item.list_price ? `$${item.list_price.toLocaleString()}` : item.price_text || 'Price on Application';
+      const description = item.description || {};
+      const beds = item.beds || item.bedrooms || description.beds || 0;
+      const baths = item.baths || item.bathrooms || description.baths || 0;
+      const locationLabel = location.fullAddress || `${location.city || 'Unknown'}, ${location.state?.code || location.state || ''}`.trim();
+
+      return {
+        id: item.id || item.property_id || `prop-${index}`,
+        title,
+        price,
+        location: locationLabel || 'Premium Location',
+        beds,
+        baths,
+        imageUrl: primaryPhoto || 'https://images.unsplash.com/photo-1542314831-068cd1dbfeeb'
+      };
+    });
+
+    // 📄 Apply pagination
+    const totalListings = cleanProperties.length;
+    const totalPages = Math.ceil(totalListings / itemsPerPage);
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedListings = cleanProperties.slice(startIndex, endIndex);
+
+    // Success! Send real API data with pagination info
+    return res.status(200).json({ 
+      success: true, 
+      listings: paginatedListings,
+      pagination: {
+        currentPage: page,
+        itemsPerPage: itemsPerPage,
+        totalItems: totalListings,
+        totalPages: totalPages,
+        hasNextPage: page < totalPages,
+        hasPrevPage: page > 1
+      },
+      source: 'api' 
+    });
+
+  } catch (error) {
+    // API failed (not subscribed, timeout, invalid key, etc.)
+    console.error(`⚠️ RapidAPI failed for /users/listings`, {
+      region,
+      endpoint: apiEndpoint,
+      host: apiHost,
+      status: error.response?.status,
+      statusText: error.response?.statusText,
+      body: error.response?.data,
+      code: error.code,
+      message: error.message,
+      apiKeyLoaded: !!process.env.REAL_ESTATE_API_KEY
+    });
+    
+    console.warn(`⚠️ RapidAPI failed (${error.response?.status || error.code}). Using fallback mock data for ${region}`);
+    
+    // Fall back to mock data with pagination
+    const fallbackData = mockListings[region] || mockListings.us;
+    const totalListings = fallbackData.length;
+    const totalPages = Math.ceil(totalListings / itemsPerPage);
+    const startIndex = (page - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const paginatedListings = fallbackData.slice(startIndex, endIndex);
+    
+    return res.status(200).json({ 
+      success: true, 
+      listings: paginatedListings,
+      pagination: {
+        currentPage: page,
+        itemsPerPage: itemsPerPage,
+        totalItems: totalListings,
+        totalPages: totalPages,
+        hasNextPage: page < totalPages,
+        hasPrevPage: page > 1
+      },
+      source: 'mock' 
+    });
+  }
+});
+
+Router.post('/capture-lead', (req, res) => {
+  const { name, phone, propertyTitle } = req.body;
+  return res.status(200).json({ success: true, message: "Lead captured safely!" });
+});
+
 
  
 

@@ -70,6 +70,7 @@ import AdPopoutRotator from './Components/AdPopoutRotator/AdPopoutRotator.js';
 import FootballVideoPlayer from './Components/FootballVideoPlayer/FootballVideoPlayer.js';
 import DynamicProductHub from './Components/DynamicProductHub/DynamicProductHub';
 import DynamicProductmain from './Components/DynamicProductmain/DynamicProductmain.js';
+import PropertyShowcase from './Components/PropertyShowcase/PropertyShowcase.js';
 
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
@@ -434,6 +435,7 @@ class MainApp extends Component {
                                     <Route path='/avaitor' exact component={Game} />
                                     <Route path='/DynamicProductHub' exact component={DynamicProductHub} />
                                     <Route path='/DynamicProductmain' exact component={DynamicProductmain} />
+                                    <Route path='/PropertyShowcase' exact component={PropertyShowcase} />
                                 </Switch>
                             </div>
 

@@ -95,9 +95,9 @@ class DynamicProductHub extends Component {
                           {item.title}
                         </Card.Title>
                         
-                        <Card.Text className="text-warning h5 font-weight-bold mb-3 hub-card-price">
+                        {/* <Card.Text className="text-warning h5 font-weight-bold mb-3 hub-card-price">
                           GHS {(item.price * 15).toFixed(2)} 
-                        </Card.Text>
+                        </Card.Text> */}
                       </div>
 
                       <a
