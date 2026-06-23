@@ -37,6 +37,7 @@ app.use(bodyParser.json());
 app.use('/users', userRouter);
 
 
+
 const Subscription = require('./UserModel/Subscription')
 
 app.get('/', function(request, response) {
@@ -740,6 +741,35 @@ app.get('*', async (req, res, next) => {
   
   // If it's a real human web user, pass control to the static index fallback below
   next();
+});
+
+// backend/server.js
+
+// 🚀 DYNAMIC SITEMAP ENGINE FOR GOOGLE SEARCH CONSOLE
+app.get('/sitemap.xml', function(req, response) {
+  // Tell browsers and Google bots that this is an XML file, not HTML
+  response.header('Content-Type', 'application/xml');
+  
+  // Base website link
+  const baseUrl = "https://nextplatformlive.com";
+  
+  // Capture current date for Google's freshness indicator
+  const currentDate = new Date().toISOString().split('T')[0];
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    
+    <!-- Homepage -->
+    <url>
+      <loc>${baseUrl}/</loc>
+      <lastmod>${currentDate}</lastmod>
+      <changefreq>daily</changefreq>
+      <priority>1.0</priority>
+    </url>
+
+  </urlset>`;
+  
+  response.send(xml);
 });
 
 
