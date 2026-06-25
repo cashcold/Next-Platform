@@ -71,6 +71,7 @@ import FootballVideoPlayer from './Components/FootballVideoPlayer/FootballVideoP
 import DynamicProductHub from './Components/DynamicProductHub/DynamicProductHub';
 import DynamicProductmain from './Components/DynamicProductmain/DynamicProductmain.js';
 import PropertyShowcase from './Components/PropertyShowcase/PropertyShowcase.js';
+import AdsterraBannerClass from './Components/AdsterraBannerClass/AdsterraBannerClass.js';
 
 Modal.setAppElement('#root'); // Set the app element for accessibility
 
@@ -350,6 +351,7 @@ class MainApp extends Component {
                         <div className='wrapper'>
                             {/* <AdPopoutRotator/>
                             <TimedPopup/> */}
+                            <AdsterraBannerClass/>
                               <ToastContainer 
                                             position="top-center"
                                             autoClose={5000}
@@ -436,6 +438,7 @@ class MainApp extends Component {
                                     <Route path='/DynamicProductHub' exact component={DynamicProductHub} />
                                     <Route path='/DynamicProductmain' exact component={DynamicProductmain} />
                                     <Route path='/PropertyShowcase' exact component={PropertyShowcase} />
+                                    <Route path='/AdsterraBannerClass' exact component={AdsterraBannerClass} />
                                 </Switch>
                             </div>
 

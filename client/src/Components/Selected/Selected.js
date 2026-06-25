@@ -211,28 +211,49 @@ class Selected extends Component {
                     <DynamicProductHub/>
                 </section>
                 <section>
+                    <div className="waves-promo-card">
+                    {/* Banner Image Container */}
+                    <div className="waves-banner-img">
+                        <img src="https://media.wavescdn.com/images/misc/rfr/red-share.jpg?auto=format&ixlib=react-9.10.0&h=250&dpr=1&q=75" alt="Waves Plugins Promotion" />
+                    </div>
+                    
+                    {/* Content Container */}
+                    <div className="waves-card-body">
+                        <h3 className="waves-card-title">Power your creative productions with Waves</h3>
+                        <p className="waves-card-text">
+                        Get started with the world's largest, most diverse catalog of industry-leading plugins, including powerful AI mixing tools.
+                        </p>
+                        
+                        {/* Visit Action Button */}
+                        <a href="https://www.waves.com/r/1697781" target="_blank" rel="noopener noreferrer" className="waves-visit-btn">
+                        Visit
+                        </a>
+                    </div>
+                    </div>
+                </section>
+                <section>
                     <PropertyShowcase/>
                 </section>
                 <section class="useroutghana">
           <p>🌍 <strong>Attention Next-Platform Users!</strong> 🌍</p>
 
-<p>We are excited to announce a new update for our international users! If you are located outside of Ghana, you will now receive your payments through Bitcoin! 💸💰</p>
+            <p>We are excited to announce a new update for our international users! If you are located outside of Ghana, you will now receive your payments through Bitcoin! 💸💰</p>
 
-<p>This means faster, more secure, and convenient transactions for all our global users. No more waiting for international bank transfers – get your rewards instantly in your Bitcoin wallet! 🚀</p>
+            <p>This means faster, more secure, and convenient transactions for all our global users. No more waiting for international bank transfers – get your rewards instantly in your Bitcoin wallet! 🚀</p>
 
-<p>🔹 <strong>How it works:</strong></p>
-<ul>
-  <li>Log in to your Next-Platform account.</li>
-  <li>Navigate to the withdrawal section.</li>
-  <li>Enter your Bitcoin wallet address.</li>
-  <li>Withdraw your funds and receive them in Bitcoin!</li>
-</ul>
+            <p>🔹 <strong>How it works:</strong></p>
+            <ul>
+            <li>Log in to your Next-Platform account.</li>
+            <li>Navigate to the withdrawal section.</li>
+            <li>Enter your Bitcoin wallet address.</li>
+            <li>Withdraw your funds and receive them in Bitcoin!</li>
+            </ul>
 
-<p>We are committed to providing the best experience for all our users, no matter where you are in the world. 🌐</p>
+            <p>We are committed to providing the best experience for all our users, no matter where you are in the world. 🌐</p>
 
-<p>Thank you for being a part of the Next-Platform community! If you have any questions or need assistance, feel free to reach out to our support team.</p>
+            <p>Thank you for being a part of the Next-Platform community! If you have any questions or need assistance, feel free to reach out to our support team.</p>
 
-<p>#NextPlatform #BitcoinPayments #GlobalUsers #Crypto #SecurePayments #InstantRewards</p>
+            <p>#NextPlatform #BitcoinPayments #GlobalUsers #Crypto #SecurePayments #InstantRewards</p>
           </section>
                 <section className='landing_page_sign_up'>
                 <div className="container">

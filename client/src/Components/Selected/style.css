@@ -642,6 +642,72 @@
       transform: translateY(10px);
     }
   }
+
+/* Container Box Design */
+.waves-promo-card {
+  max-width: 500px;
+  background-color: #1a1e24; /* Dark slate background fitting a dark UI */
+  border: 1px solid #2d333f;
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  margin: 20px auto;
+}
+
+/* Image Positioning */
+.waves-banner-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Text & Button Padding Section */
+.waves-card-body {
+  padding: 24px;
+}
+
+/* Heading Typography */
+.waves-card-title {
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  line-height: 1.4;
+}
+
+/* Paragraph Description */
+.waves-card-text {
+  color: #a0aec0; /* Balanced readable gray text */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+/* Interactive Visit Button */
+.waves-visit-btn {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  background-color: #0070f3; /* Clean, recognizable interactive brand blue */
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 0;
+  border-radius: 5px;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Hover & Click States */
+.waves-visit-btn:hover {
+  background-color: #0056b3;
+}
+
+.waves-visit-btn:active {
+  transform: scale(0.98);
+}
   
 
 
