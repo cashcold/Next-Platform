@@ -16,6 +16,7 @@ import NewUsers from '../NewUsers/NewUsers';
 import RAWG_Video_Games_Main from '../Watch_Next/RAWG_Video_Games';
 import DynamicProductHub from '../DynamicProductHub/DynamicProductHub';
 import PropertyShowcase from '../PropertyShowcase/PropertyShowcase';
+import AdsterraBannerClass from '../AdsterraBannerClass/AdsterraBannerClass';
 
 class Selected extends Component {
     constructor(props) {
@@ -206,6 +207,9 @@ class Selected extends Component {
                             <iframe src="https://www.youtube.com/embed/RJrPdBgirMY?vq=hd1080&color=white" width="560" height="315" frameborder="0"></iframe>
                         </div>
                     </div>
+                </section>
+                <section>
+                    <AdsterraBannerClass/>
                 </section>
                 <section>
                     <DynamicProductHub/>
