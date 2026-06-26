@@ -10,13 +10,13 @@ class AdsterraBannerClass extends Component {
   }
 
   componentDidMount() {
-    // 1. Evaluate current screen space on initial mount
+    // Check initial device width on load
     const mobileViewport = window.innerWidth < 768;
     this.setState({ isMobile: mobileViewport }, () => {
       this.injectAdUnit();
     });
 
-    // 2. Attach a resize event listener to monitor dynamic browser adjustments
+    // Watch for dynamic window screen resizing
     window.addEventListener('resize', this.handleResize);
   }
 
@@ -26,7 +26,6 @@ class AdsterraBannerClass extends Component {
 
   handleResize = () => {
     const mobileViewport = window.innerWidth < 768;
-    // Only re-trigger state changes if the user crosses the breakpoint line
     if (mobileViewport !== this.state.isMobile) {
       this.setState({ isMobile: mobileViewport }, () => {
         this.injectAdUnit();
@@ -37,17 +36,17 @@ class AdsterraBannerClass extends Component {
   injectAdUnit = () => {
     if (!this.adRef.current) return;
 
-    // Clear out any stale script structures or existing active iframes
+    // Clear previous banner frame structures before injecting a new layout configuration
     this.adRef.current.innerHTML = '';
 
     const { isMobile } = this.state;
 
-    // Assign structural variables based on active media viewport parameters
-    const adKey = isMobile ? 'abff5aee4aec8b6cfd16d64dd30f2085' : '8b0272fa77860f96a1a7eae008c586a5';
-    const adWidth = isMobile ? 320 : 728;
-    const adHeight = isMobile ? 50 : 90;
+    // Assign keys and viewport dimensions based on active device properties
+    const adKey = isMobile ? 'bd1be113b34bfe314e25de7b2237af2d' : '8b0272fa77860f96a1a7eae008c586a5';
+    const adWidth = isMobile ? 300 : 728;
+    const adHeight = isMobile ? 250 : 90;
 
-    // 1. Assemble and inject the local configuration object script mapping
+    // 1. Create and append the contextual configuration object
     const configScript = document.createElement('script');
     configScript.type = 'text/javascript';
     configScript.innerHTML = `
@@ -61,7 +60,7 @@ class AdsterraBannerClass extends Component {
     `;
     this.adRef.current.appendChild(configScript);
 
-    // 2. Assemble and inject the external invocation execution script
+    // 2. Create and append the remote script engine call
     const invokeScript = document.createElement('script');
     invokeScript.type = 'text/javascript';
     invokeScript.src = `//www.highperformanceformat.com/${adKey}/invoke.js`;
@@ -72,9 +71,9 @@ class AdsterraBannerClass extends Component {
   render() {
     const { isMobile } = this.state;
     
-    // Explicit sizing handles ensure safe boundaries around rendering iframe layers
-    const wrapperWidth = isMobile ? '320px' : '728px';
-    const wrapperMinHeight = isMobile ? '50px' : '90px';
+    // Maintain exact dimensional boundaries around executing iframe assets
+    const wrapperWidth = isMobile ? '300px' : '728px';
+    const wrapperMinHeight = isMobile ? '250px' : '90px';
 
     return (
       <div className="ad-container-wrapper" style={{ margin: '25px auto', textAlign: 'center', width: '100%' }}>
@@ -82,7 +81,7 @@ class AdsterraBannerClass extends Component {
           SPONSORED ADVERTISEMENT
         </span>
 
-        {/* Dynamic target node injected using layout dimensions */}
+        {/* Dynamic element targeted explicitly by the active script key */}
         <div
           ref={this.adRef}
           id={`adsterra-banner-${wrapperWidth}`}
