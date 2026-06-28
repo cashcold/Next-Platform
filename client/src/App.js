@@ -351,7 +351,7 @@ class MainApp extends Component {
                         <div className='wrapper'>
                             {/* <AdPopoutRotator/>
                             <TimedPopup/> */}
-                            {/* <AdsterraBannerClass/> */}
+                            <AdsterraBannerClass/>
                               <ToastContainer 
                                             position="top-center"
                                             autoClose={5000}

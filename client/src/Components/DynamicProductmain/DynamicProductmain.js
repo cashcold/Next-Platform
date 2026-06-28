@@ -167,7 +167,7 @@ class DynamicProductmain extends Component {
           </div>
         )}
       </Container>
-       <LinkBoxMain/>
+       {/* <LinkBoxMain/> */}
       </section>
     );
   }
