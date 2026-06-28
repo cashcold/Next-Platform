@@ -10,7 +10,7 @@ class Poster extends Component {
     }
     componentDidMount(){
         fetch('https://sportspage-feeds.p.rapidapi.com/odds')
-            .then(res=>res.json())
+            .then(res=>res.json()) 
             .then(res => this.setState({
                 products: res
             }))

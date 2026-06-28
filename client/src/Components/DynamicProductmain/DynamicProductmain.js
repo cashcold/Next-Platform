@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Card, Container, Row, Col, Spinner } from 'react-bootstrap';
 import './DynamicProductmain.css'; 
+import LinkBoxMain from '../Link_Box/link_box';
 
 class DynamicProductmain extends Component {
   constructor(props) {
@@ -74,6 +75,9 @@ class DynamicProductmain extends Component {
     const telegramUrl = `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${shareText}`;
 
     return (
+      <section>
+     
+      
       <Container className="main-hub-container my-5">
         <h1 className="text-center mb-2 font-weight-bold text-white">Super Deals Mega Mall</h1>
         <p className="text-center text-muted mb-5">Click any product to view sharing choices and marketplace links</p>
@@ -163,6 +167,8 @@ class DynamicProductmain extends Component {
           </div>
         )}
       </Container>
+       <LinkBoxMain/>
+      </section>
     );
   }
 }
