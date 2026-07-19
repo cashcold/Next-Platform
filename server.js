@@ -36,6 +36,11 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/users', userRouter);
 
+app.use(cors({
+  origin: 'https://next-platform-ioi5z254a-the-christs-projects.vercel.app',
+  credentials: true
+}));
+
 
 
 const Subscription = require('./UserModel/Subscription')
