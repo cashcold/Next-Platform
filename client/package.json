@@ -2,6 +2,9 @@
   "name": "my-setapp",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": "24.x"
+  },
   "dependencies": {
     "@barba/core": "^2.9.7",
     "@dogstudio/highway": "^2.2.1",
