@@ -39,7 +39,7 @@ h2,h3,h4,h5,p,a{
     padding: 1rem 2rem;
     color: white;
     font-weight: bolder;
-    border-radius: 50px;
+    border-radius: 49px;
 }
 
 a:hover{
