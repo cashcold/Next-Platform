@@ -2,19 +2,17 @@
   "name": "next-platform",
   "version": "1.0.0",
   "engines": {
-    "node": "24.x"
+    "node": "20.x"
   },
   "description": "",
   "main": "server.js",
- "scripts": {
-  "start": "node server.js",
-  "server": "nodemon server.js",
-  "client": "npm start --prefix client",
-  "dev": "concurrently \"npm run server\" \"npm run client\"",
-  "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
-  "netlify-build": "NPM_CONFIG_PRODUCTION=false npm install --legacy-peer-deps --prefix client && npm run build --prefix client",
-  "build": "npm install --legacy-peer-deps --prefix client && npm run build --prefix client"
-},
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build": "cd client && npm install --legacy-peer-deps && npm run build"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
@@ -74,8 +72,5 @@
     "webpack-cli": "^4.9.2",
     "webpack-node-externals": "^3.0.0"
   },
-  "proxy": "http://localhost:8000/",
-  "devDependencies": {
-    "@flydotio/dockerfile": "^0.5.8"
-  }
+  "devDependencies": {}
 }
