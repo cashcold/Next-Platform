@@ -36,10 +36,27 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/users', userRouter);
 
+
+const allowedOrigins = [
+  'https://nextplatformlive.com',
+  'https://www.nextplatformlive.com',
+  'https://next-platformlive.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://next-platform-ioi5z254a-the-christs-projects.vercel.app',
-  credentials: true
+  origin: function (origin, callback) {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS Not Allowed'));
+    }
+  }
 }));
+
+// app.use(cors({
+//   origin: 'https://next-platform-ioi5z254a-the-christs-projects.vercel.app',
+//   credentials: true
+// }));
 
 
 
