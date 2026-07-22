@@ -878,28 +878,61 @@ Router.post('/music', (req,res) => {
 
 Router.get('/latest-news', async (req, res) => {
     try {
-        const { page, limit, search, category } = req.query;
+        // Prevent Express from returning 304 Not Modified without a body
+        res.set('Cache-Control', 'no-store, no-cache, must-revalidate, private');
+        
+        const { page = 1, limit = 10, search, category } = req.query;
+
+        // Currents API query params structure
         const params = {
+            apiKey: process.env.CURRENTS_API_KEY, // Pass API key directly in params
             language: 'en',
-            page_number: page || req.query.page_number || 1,
-            page_size: limit || req.query.page_size || 10,
+            page_number: Number(page),
+            page_size: Number(limit),
             ...(search ? { keywords: search } : {}),
-            ...(category ? { category } : {})
+            ...(category && category !== '' ? { category } : {})
         };
 
-        const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
-            headers: {
-                'Authorization': process.env.CURRENTS_API_KEY,
-            },
-            params
-        });
+        const response = await axios.get('https://api.currentsapi.services/v1/latest-news', { params });
 
-        res.json(response.data);
+        // Ensure we send back the json payload directly
+        return res.status(200).json(response.data);
+
     } catch (error) {
-        console.error('Error fetching data from Currents API:', error);
-        res.status(500).send('Error fetching data from Currents API');
+        console.error('Error fetching data from Currents API:', error.response?.data || error.message);
+        
+        // Return the exact status code from Currents API if available (e.g., 401, 429)
+        const statusCode = error.response?.status || 500;
+        const errorMessage = error.response?.data?.message || 'Error fetching news from upstream provider.';
+
+        return res.status(statusCode).json({ error: errorMessage });
     }
 });
+
+// Router.get('/latest-news', async (req, res) => {
+//     try {
+//         const { page, limit, search, category } = req.query;
+//         const params = {
+//             language: 'en',
+//             page_number: page || req.query.page_number || 1,
+//             page_size: limit || req.query.page_size || 10,
+//             ...(search ? { keywords: search } : {}),
+//             ...(category ? { category } : {})
+//         };
+
+//         const response = await axios.get('https://api.currentsapi.services/v1/latest-news', {
+//             headers: {
+//                 'Authorization': process.env.CURRENTS_API_KEY,
+//             },
+//             params
+//         });
+
+//         res.json(response.data);
+//     } catch (error) {
+//         console.error('Error fetching data from Currents API:', error);
+//         res.status(500).send('Error fetching data from Currents API');
+//     }
+// });
 
 Router.get('/news/:id', async (req, res) => {
   try {
